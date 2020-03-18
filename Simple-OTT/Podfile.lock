@@ -1,0 +1,24 @@
+PODS:
+  - FontAwesome.swift (1.8.3)
+  - ReachabilitySwift (5.0.0)
+  - UICircularProgressRing (6.5.0)
+
+DEPENDENCIES:
+  - FontAwesome.swift
+  - ReachabilitySwift
+  - UICircularProgressRing
+
+SPEC REPOS:
+  trunk:
+    - FontAwesome.swift
+    - ReachabilitySwift
+    - UICircularProgressRing
+
+SPEC CHECKSUMS:
+  FontAwesome.swift: 2a3235131a6caffc6b2ccba318e94d793b2fd342
+  ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
+  UICircularProgressRing: e6852e8f88e296cbbbe2720cccb55241acda6708
+
+PODFILE CHECKSUM: f70ef984fb7e663b3e2a10b174f116e3dad7a408
+
+COCOAPODS: 1.8.4

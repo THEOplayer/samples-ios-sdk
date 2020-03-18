@@ -1,0 +1,629 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2B0A63679C40C5AEA98847CE /* Pods_Simple_OTT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D997E2E1689454F536904EEB /* Pods_Simple_OTT.framework */; };
+		BE01A75923875BE1000EFF53 /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE01A75823875BE1000EFF53 /* PlayerViewController.swift */; };
+		BE01A76423876674000EFF53 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE01A76323876674000EFF53 /* Theme.swift */; };
+		BE3DAC5C2406E48C00661F87 /* Config.json in Resources */ = {isa = PBXBuildFile; fileRef = BE3DAC5B2406E48C00661F87 /* Config.json */; };
+		BE3DAC5E240714C600661F87 /* JSONConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE3DAC5D240714C600661F87 /* JSONConfig.swift */; };
+		BE3FC67C2408882D009FB52D /* CacheActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE3FC67B2408882D009FB52D /* CacheActionView.swift */; };
+		BE5DF2CD240B32100056C3E4 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE5DF2CC240B32100056C3E4 /* Accelerate.framework */; };
+		BE5DF2CF240B32250056C3E4 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE5DF2CE240B32250056C3E4 /* AudioToolbox.framework */; };
+		BE5DF2D1240B322F0056C3E4 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE5DF2D0240B322F0056C3E4 /* AVFoundation.framework */; };
+		BE5DF2D3240B323A0056C3E4 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE5DF2D2240B323A0056C3E4 /* CFNetwork.framework */; };
+		BE5DF2D5240B32410056C3E4 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE5DF2D4240B32410056C3E4 /* CoreBluetooth.framework */; };
+		BE5DF2D7240B32480056C3E4 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE5DF2D6240B32480056C3E4 /* CoreData.framework */; };
+		BE5DF2D9240B32560056C3E4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE5DF2D8240B32560056C3E4 /* CoreGraphics.framework */; };
+		BE5DF2DB240B325C0056C3E4 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE5DF2DA240B325C0056C3E4 /* CoreMedia.framework */; };
+		BE5DF2DD240B32630056C3E4 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE5DF2DC240B32630056C3E4 /* CoreText.framework */; };
+		BE5DF2DF240B326B0056C3E4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE5DF2DE240B326B0056C3E4 /* Foundation.framework */; };
+		BE5DF2E1240B32770056C3E4 /* MediaAccessibility.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE5DF2E0240B32770056C3E4 /* MediaAccessibility.framework */; };
+		BE5DF2E3240B327E0056C3E4 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE5DF2E2240B327D0056C3E4 /* MediaPlayer.framework */; };
+		BE5DF2E5240B32870056C3E4 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE5DF2E4240B32870056C3E4 /* QuartzCore.framework */; };
+		BE5DF2E7240B328C0056C3E4 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE5DF2E6240B328C0056C3E4 /* Security.framework */; };
+		BE5DF2E9240B32980056C3E4 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE5DF2E8240B32980056C3E4 /* SystemConfiguration.framework */; };
+		BE5DF2EB240B329F0056C3E4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE5DF2EA240B329F0056C3E4 /* UIKit.framework */; };
+		BE5DF2F7240B36850056C3E4 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5DF2F6240B36850056C3E4 /* NetworkManager.swift */; };
+		BE8242F82363AAB100994FB2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8242F72363AAB100994FB2 /* AppDelegate.swift */; };
+		BE8243012363AAB200994FB2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE8243002363AAB200994FB2 /* Assets.xcassets */; };
+		BE8243042363AAB200994FB2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE8243022363AAB200994FB2 /* LaunchScreen.storyboard */; };
+		BEA04DF9240718C900B04611 /* THEOComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA04DF8240718C900B04611 /* THEOComponent.swift */; };
+		BEA04DFB24071ACD00B04611 /* SimpleOTTViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA04DFA24071ACD00B04611 /* SimpleOTTViewController.swift */; };
+		BEA04DFE24071B1700B04611 /* TabBarControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA04DFD24071B1700B04611 /* TabBarControl.swift */; };
+		BEA04E0024071B8300B04611 /* ContentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA04DFF24071B8300B04611 /* ContentTableViewController.swift */; };
+		BEA04E0224071BA600B04611 /* ContentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA04E0124071BA600B04611 /* ContentTableViewCell.swift */; };
+		BEA04E0424071BBD00B04611 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA04E0324071BBD00B04611 /* SettingsViewController.swift */; };
+		BEA04E0724071C1D00B04611 /* SimpleOTTViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA04E0624071C1D00B04611 /* SimpleOTTViewViewModel.swift */; };
+		BEA04E0924071C5B00B04611 /* ContentTableViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA04E0824071C5B00B04611 /* ContentTableViewViewModel.swift */; };
+		BEA04E0B24071C7900B04611 /* ContentTableCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA04E0A24071C7900B04611 /* ContentTableCellViewModel.swift */; };
+		BEA04E0D24071C9700B04611 /* SettingsViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA04E0C24071C9700B04611 /* SettingsViewViewModel.swift */; };
+		BEA996242411CADA00B18D90 /* THEOplayerSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEA996212411CAD600B18D90 /* THEOplayerSDK.framework */; };
+		BEA996252411CADA00B18D90 /* THEOplayerSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BEA996212411CAD600B18D90 /* THEOplayerSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		BEA996272411CADF00B18D90 /* GoogleCast.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEA996202411CAD600B18D90 /* GoogleCast.framework */; };
+		BEA996282411CADF00B18D90 /* GoogleCast.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BEA996202411CAD600B18D90 /* GoogleCast.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		BEC30FB224086FCD0048DB10 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC30FB124086FCD0048DB10 /* GradientView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		BEA996262411CADB00B18D90 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				BEA996282411CADF00B18D90 /* GoogleCast.framework in Embed Frameworks */,
+				BEA996252411CADA00B18D90 /* THEOplayerSDK.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		22622F6C23A92B176A880A7D /* Pods-Simple_OTT.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Simple_OTT.debug.xcconfig"; path = "Target Support Files/Pods-Simple_OTT/Pods-Simple_OTT.debug.xcconfig"; sourceTree = "<group>"; };
+		BE01A75823875BE1000EFF53 /* PlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
+		BE01A76323876674000EFF53 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		BE3DAC5B2406E48C00661F87 /* Config.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Config.json; sourceTree = "<group>"; };
+		BE3DAC5D240714C600661F87 /* JSONConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONConfig.swift; sourceTree = "<group>"; };
+		BE3FC67B2408882D009FB52D /* CacheActionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheActionView.swift; sourceTree = "<group>"; };
+		BE5DF2CC240B32100056C3E4 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		BE5DF2CE240B32250056C3E4 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		BE5DF2D0240B322F0056C3E4 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		BE5DF2D2240B323A0056C3E4 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		BE5DF2D4240B32410056C3E4 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		BE5DF2D6240B32480056C3E4 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		BE5DF2D8240B32560056C3E4 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		BE5DF2DA240B325C0056C3E4 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		BE5DF2DC240B32630056C3E4 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		BE5DF2DE240B326B0056C3E4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		BE5DF2E0240B32770056C3E4 /* MediaAccessibility.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaAccessibility.framework; path = System/Library/Frameworks/MediaAccessibility.framework; sourceTree = SDKROOT; };
+		BE5DF2E2240B327D0056C3E4 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		BE5DF2E4240B32870056C3E4 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		BE5DF2E6240B328C0056C3E4 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		BE5DF2E8240B32980056C3E4 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		BE5DF2EA240B329F0056C3E4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		BE5DF2EC240B32A60056C3E4 /* Pods_Simple_OTT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods_Simple_OTT.framework; path = "../../../../../Library/Developer/Xcode/DerivedData/Simple_OTT-fftmqxivvwqskzconixkljimmlxz/Build/Products/Debug-iphoneos/Pods_Simple_OTT.framework"; sourceTree = "<group>"; };
+		BE5DF2F6240B36850056C3E4 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		BE8242F42363AAB100994FB2 /* THEO Simple OTT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "THEO Simple OTT.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE8242F72363AAB100994FB2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		BE8243002363AAB200994FB2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BE8243032363AAB200994FB2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		BE8243052363AAB200994FB2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BE9D4F2F240FB331003A5B89 /* THEO Simple OTT.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "THEO Simple OTT.entitlements"; sourceTree = "<group>"; };
+		BEA04DF8240718C900B04611 /* THEOComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THEOComponent.swift; sourceTree = "<group>"; };
+		BEA04DFA24071ACD00B04611 /* SimpleOTTViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleOTTViewController.swift; sourceTree = "<group>"; };
+		BEA04DFD24071B1700B04611 /* TabBarControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarControl.swift; sourceTree = "<group>"; };
+		BEA04DFF24071B8300B04611 /* ContentTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentTableViewController.swift; sourceTree = "<group>"; };
+		BEA04E0124071BA600B04611 /* ContentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentTableViewCell.swift; sourceTree = "<group>"; };
+		BEA04E0324071BBD00B04611 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		BEA04E0624071C1D00B04611 /* SimpleOTTViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleOTTViewViewModel.swift; sourceTree = "<group>"; };
+		BEA04E0824071C5B00B04611 /* ContentTableViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentTableViewViewModel.swift; sourceTree = "<group>"; };
+		BEA04E0A24071C7900B04611 /* ContentTableCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentTableCellViewModel.swift; sourceTree = "<group>"; };
+		BEA04E0C24071C9700B04611 /* SettingsViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewViewModel.swift; sourceTree = "<group>"; };
+		BEA996202411CAD600B18D90 /* GoogleCast.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleCast.framework; sourceTree = "<group>"; };
+		BEA996212411CAD600B18D90 /* THEOplayerSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = THEOplayerSDK.framework; sourceTree = "<group>"; };
+		BEC30FB124086FCD0048DB10 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		D997E2E1689454F536904EEB /* Pods_Simple_OTT.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Simple_OTT.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FBE773367AAB16C39608DED4 /* Pods-Simple_OTT.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Simple_OTT.release.xcconfig"; path = "Target Support Files/Pods-Simple_OTT/Pods-Simple_OTT.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BE8242F12363AAB100994FB2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE5DF2E1240B32770056C3E4 /* MediaAccessibility.framework in Frameworks */,
+				BE5DF2E7240B328C0056C3E4 /* Security.framework in Frameworks */,
+				BE5DF2E3240B327E0056C3E4 /* MediaPlayer.framework in Frameworks */,
+				BE5DF2E5240B32870056C3E4 /* QuartzCore.framework in Frameworks */,
+				BE5DF2D1240B322F0056C3E4 /* AVFoundation.framework in Frameworks */,
+				2B0A63679C40C5AEA98847CE /* Pods_Simple_OTT.framework in Frameworks */,
+				BE5DF2E9240B32980056C3E4 /* SystemConfiguration.framework in Frameworks */,
+				BE5DF2DD240B32630056C3E4 /* CoreText.framework in Frameworks */,
+				BE5DF2D7240B32480056C3E4 /* CoreData.framework in Frameworks */,
+				BE5DF2DB240B325C0056C3E4 /* CoreMedia.framework in Frameworks */,
+				BEA996272411CADF00B18D90 /* GoogleCast.framework in Frameworks */,
+				BE5DF2CD240B32100056C3E4 /* Accelerate.framework in Frameworks */,
+				BE5DF2EB240B329F0056C3E4 /* UIKit.framework in Frameworks */,
+				BE5DF2D9240B32560056C3E4 /* CoreGraphics.framework in Frameworks */,
+				BEA996242411CADA00B18D90 /* THEOplayerSDK.framework in Frameworks */,
+				BE5DF2CF240B32250056C3E4 /* AudioToolbox.framework in Frameworks */,
+				BE5DF2D5240B32410056C3E4 /* CoreBluetooth.framework in Frameworks */,
+				BE5DF2D3240B323A0056C3E4 /* CFNetwork.framework in Frameworks */,
+				BE5DF2DF240B326B0056C3E4 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4DD9EDFD22064796974C6FA0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BE5DF2EC240B32A60056C3E4 /* Pods_Simple_OTT.framework */,
+				22622F6C23A92B176A880A7D /* Pods-Simple_OTT.debug.xcconfig */,
+				FBE773367AAB16C39608DED4 /* Pods-Simple_OTT.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		88B4E71935B8C9A7142D232F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BEA996202411CAD600B18D90 /* GoogleCast.framework */,
+				BEA996212411CAD600B18D90 /* THEOplayerSDK.framework */,
+				D997E2E1689454F536904EEB /* Pods_Simple_OTT.framework */,
+				BE5DF2EA240B329F0056C3E4 /* UIKit.framework */,
+				BE5DF2E8240B32980056C3E4 /* SystemConfiguration.framework */,
+				BE5DF2E6240B328C0056C3E4 /* Security.framework */,
+				BE5DF2E4240B32870056C3E4 /* QuartzCore.framework */,
+				BE5DF2E2240B327D0056C3E4 /* MediaPlayer.framework */,
+				BE5DF2E0240B32770056C3E4 /* MediaAccessibility.framework */,
+				BE5DF2DE240B326B0056C3E4 /* Foundation.framework */,
+				BE5DF2DC240B32630056C3E4 /* CoreText.framework */,
+				BE5DF2DA240B325C0056C3E4 /* CoreMedia.framework */,
+				BE5DF2D8240B32560056C3E4 /* CoreGraphics.framework */,
+				BE5DF2D6240B32480056C3E4 /* CoreData.framework */,
+				BE5DF2D4240B32410056C3E4 /* CoreBluetooth.framework */,
+				BE5DF2D2240B323A0056C3E4 /* CFNetwork.framework */,
+				BE5DF2D0240B322F0056C3E4 /* AVFoundation.framework */,
+				BE5DF2CE240B32250056C3E4 /* AudioToolbox.framework */,
+				BE5DF2CC240B32100056C3E4 /* Accelerate.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BE3DAC5F2407178D00661F87 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BE3DAC5D240714C600661F87 /* JSONConfig.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BE3DAC60240717AF00661F87 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BEA04DF6240717C900B04611 /* Common */,
+				BEA04DFC24071AE200B04611 /* SimpleOTT */,
+				BEC30FB324086FEB0048DB10 /* ContentTable */,
+				BEC30FB4240870060048DB10 /* Settings */,
+				BEA04DF7240717EE00B04611 /* Player */,
+				BE8243022363AAB200994FB2 /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BE8242EB2363AAB100994FB2 = {
+			isa = PBXGroup;
+			children = (
+				BE8242F62363AAB100994FB2 /* Simple_OTT */,
+				BE8242F52363AAB100994FB2 /* Products */,
+				4DD9EDFD22064796974C6FA0 /* Pods */,
+				88B4E71935B8C9A7142D232F /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		BE8242F52363AAB100994FB2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BE8242F42363AAB100994FB2 /* THEO Simple OTT.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BE8242F62363AAB100994FB2 /* Simple_OTT */ = {
+			isa = PBXGroup;
+			children = (
+				BE3DAC5F2407178D00661F87 /* Model */,
+				BE3DAC60240717AF00661F87 /* View */,
+				BEA04E0524071BEC00B04611 /* ViewModel */,
+				BE8242F72363AAB100994FB2 /* AppDelegate.swift */,
+				BE5DF2F6240B36850056C3E4 /* NetworkManager.swift */,
+				BE8243002363AAB200994FB2 /* Assets.xcassets */,
+				BE3DAC5B2406E48C00661F87 /* Config.json */,
+				BE8243052363AAB200994FB2 /* Info.plist */,
+				BE9D4F2F240FB331003A5B89 /* THEO Simple OTT.entitlements */,
+			);
+			path = Simple_OTT;
+			sourceTree = "<group>";
+		};
+		BEA04DF6240717C900B04611 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				BE01A76323876674000EFF53 /* Theme.swift */,
+				BEA04DF8240718C900B04611 /* THEOComponent.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		BEA04DF7240717EE00B04611 /* Player */ = {
+			isa = PBXGroup;
+			children = (
+				BE01A75823875BE1000EFF53 /* PlayerViewController.swift */,
+			);
+			path = Player;
+			sourceTree = "<group>";
+		};
+		BEA04DFC24071AE200B04611 /* SimpleOTT */ = {
+			isa = PBXGroup;
+			children = (
+				BEA04DFA24071ACD00B04611 /* SimpleOTTViewController.swift */,
+				BEA04DFD24071B1700B04611 /* TabBarControl.swift */,
+				BEC30FB124086FCD0048DB10 /* GradientView.swift */,
+			);
+			path = SimpleOTT;
+			sourceTree = "<group>";
+		};
+		BEA04E0524071BEC00B04611 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				BEA04E0624071C1D00B04611 /* SimpleOTTViewViewModel.swift */,
+				BEA04E0824071C5B00B04611 /* ContentTableViewViewModel.swift */,
+				BEA04E0A24071C7900B04611 /* ContentTableCellViewModel.swift */,
+				BEA04E0C24071C9700B04611 /* SettingsViewViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		BEC30FB324086FEB0048DB10 /* ContentTable */ = {
+			isa = PBXGroup;
+			children = (
+				BEA04DFF24071B8300B04611 /* ContentTableViewController.swift */,
+				BEA04E0124071BA600B04611 /* ContentTableViewCell.swift */,
+				BE3FC67B2408882D009FB52D /* CacheActionView.swift */,
+			);
+			path = ContentTable;
+			sourceTree = "<group>";
+		};
+		BEC30FB4240870060048DB10 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				BEA04E0324071BBD00B04611 /* SettingsViewController.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BE8242F32363AAB100994FB2 /* Simple_OTT */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BE8243082363AAB200994FB2 /* Build configuration list for PBXNativeTarget "Simple_OTT" */;
+			buildPhases = (
+				F9FB416C6ABF90A26CABE072 /* [CP] Check Pods Manifest.lock */,
+				BE8242F02363AAB100994FB2 /* Sources */,
+				BE8242F12363AAB100994FB2 /* Frameworks */,
+				BE8242F22363AAB100994FB2 /* Resources */,
+				934CFD5AF318D33A839EB99D /* [CP] Embed Pods Frameworks */,
+				BEA996262411CADB00B18D90 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Simple_OTT;
+			productName = Simple_OTT;
+			productReference = BE8242F42363AAB100994FB2 /* THEO Simple OTT.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BE8242EC2363AAB100994FB2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1110;
+				LastUpgradeCheck = 1110;
+				ORGANIZATIONNAME = THEOPlayer;
+				TargetAttributes = {
+					BE8242F32363AAB100994FB2 = {
+						CreatedOnToolsVersion = 11.1;
+					};
+				};
+			};
+			buildConfigurationList = BE8242EF2363AAB100994FB2 /* Build configuration list for PBXProject "Simple_OTT" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BE8242EB2363AAB100994FB2;
+			productRefGroup = BE8242F52363AAB100994FB2 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BE8242F32363AAB100994FB2 /* Simple_OTT */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BE8242F22363AAB100994FB2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE8243042363AAB200994FB2 /* LaunchScreen.storyboard in Resources */,
+				BE3DAC5C2406E48C00661F87 /* Config.json in Resources */,
+				BE8243012363AAB200994FB2 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		934CFD5AF318D33A839EB99D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Simple_OTT/Pods-Simple_OTT-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Simple_OTT/Pods-Simple_OTT-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Simple_OTT/Pods-Simple_OTT-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F9FB416C6ABF90A26CABE072 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Simple_OTT-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BE8242F02363AAB100994FB2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE3FC67C2408882D009FB52D /* CacheActionView.swift in Sources */,
+				BEA04E0D24071C9700B04611 /* SettingsViewViewModel.swift in Sources */,
+				BEA04DFB24071ACD00B04611 /* SimpleOTTViewController.swift in Sources */,
+				BEC30FB224086FCD0048DB10 /* GradientView.swift in Sources */,
+				BEA04E0424071BBD00B04611 /* SettingsViewController.swift in Sources */,
+				BE8242F82363AAB100994FB2 /* AppDelegate.swift in Sources */,
+				BEA04E0B24071C7900B04611 /* ContentTableCellViewModel.swift in Sources */,
+				BEA04E0224071BA600B04611 /* ContentTableViewCell.swift in Sources */,
+				BEA04DFE24071B1700B04611 /* TabBarControl.swift in Sources */,
+				BE3DAC5E240714C600661F87 /* JSONConfig.swift in Sources */,
+				BE01A75923875BE1000EFF53 /* PlayerViewController.swift in Sources */,
+				BEA04DF9240718C900B04611 /* THEOComponent.swift in Sources */,
+				BE5DF2F7240B36850056C3E4 /* NetworkManager.swift in Sources */,
+				BEA04E0924071C5B00B04611 /* ContentTableViewViewModel.swift in Sources */,
+				BE01A76423876674000EFF53 /* Theme.swift in Sources */,
+				BEA04E0724071C1D00B04611 /* SimpleOTTViewViewModel.swift in Sources */,
+				BEA04E0024071B8300B04611 /* ContentTableViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		BE8243022363AAB200994FB2 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BE8243032363AAB200994FB2 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BE8243062363AAB200994FB2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		BE8243072363AAB200994FB2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BE8243092363AAB200994FB2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 22622F6C23A92B176A880A7D /* Pods-Simple_OTT.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Simple_OTT/THEO Simple OTT.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = H3Y3HKZ7JZ;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = Simple_OTT/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.theoplayer.demo.simpleott;
+				PRODUCT_NAME = "THEO Simple OTT";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BE82430A2363AAB200994FB2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FBE773367AAB16C39608DED4 /* Pods-Simple_OTT.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Simple_OTT/THEO Simple OTT.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = H3Y3HKZ7JZ;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = Simple_OTT/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.theoplayer.demo.simpleott;
+				PRODUCT_NAME = "THEO Simple OTT";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BE8242EF2363AAB100994FB2 /* Build configuration list for PBXProject "Simple_OTT" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BE8243062363AAB200994FB2 /* Debug */,
+				BE8243072363AAB200994FB2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BE8243082363AAB200994FB2 /* Build configuration list for PBXNativeTarget "Simple_OTT" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BE8243092363AAB200994FB2 /* Debug */,
+				BE82430A2363AAB200994FB2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BE8242EC2363AAB100994FB2 /* Project object */;
+}

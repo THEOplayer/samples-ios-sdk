@@ -1,0 +1,465 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BE01A75923875BE1000EFF53 /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE01A75823875BE1000EFF53 /* PlayerViewController.swift */; };
+		BE01A76423876674000EFF53 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE01A76323876674000EFF53 /* Theme.swift */; };
+		BE0CADFC23F62D4C0038D20E /* RemoteConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0CADFB23F62D4C0038D20E /* RemoteConfig.swift */; };
+		BE8242F82363AAB100994FB2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8242F72363AAB100994FB2 /* AppDelegate.swift */; };
+		BE8243012363AAB200994FB2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE8243002363AAB200994FB2 /* Assets.xcassets */; };
+		BE8243042363AAB200994FB2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE8243022363AAB200994FB2 /* LaunchScreen.storyboard */; };
+		BE85D5CD23ECF10200CD18C5 /* THEOComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE85D5CC23ECF10200CD18C5 /* THEOComponent.swift */; };
+		BE85D5E323EE518900CD18C5 /* TabbedMetadataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE85D5E223EE518900CD18C5 /* TabbedMetadataView.swift */; };
+		BE85D5E523EE51E400CD18C5 /* JsonInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE85D5E423EE51E400CD18C5 /* JsonInputViewController.swift */; };
+		BE978D1423F423C7009687C9 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE978D1323F423C7009687C9 /* Accelerate.framework */; };
+		BE978D1623F423D2009687C9 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE978D1523F423D2009687C9 /* AudioToolbox.framework */; };
+		BE978D1823F423DA009687C9 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE978D1723F423DA009687C9 /* AVFoundation.framework */; };
+		BE978D1A23F423E1009687C9 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE978D1923F423E1009687C9 /* CFNetwork.framework */; };
+		BE978D1C23F423E9009687C9 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE978D1B23F423E9009687C9 /* CoreBluetooth.framework */; };
+		BE978D1E23F423F0009687C9 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE978D1D23F423F0009687C9 /* CoreData.framework */; };
+		BE978D2023F423F6009687C9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE978D1F23F423F6009687C9 /* CoreGraphics.framework */; };
+		BE978D2223F423FD009687C9 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE978D2123F423FD009687C9 /* CoreMedia.framework */; };
+		BE978D2423F42404009687C9 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE978D2323F42404009687C9 /* CoreText.framework */; };
+		BE978D2623F42424009687C9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE978D2523F42424009687C9 /* Foundation.framework */; };
+		BE978D2823F42432009687C9 /* MediaAccessibility.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE978D2723F42432009687C9 /* MediaAccessibility.framework */; };
+		BE978D2A23F4243A009687C9 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE978D2923F4243A009687C9 /* MediaPlayer.framework */; };
+		BE978D2C23F42443009687C9 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE978D2B23F42443009687C9 /* QuartzCore.framework */; };
+		BE978D2E23F4244A009687C9 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE978D2D23F4244A009687C9 /* Security.framework */; };
+		BE978D3023F42451009687C9 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE978D2F23F42451009687C9 /* SystemConfiguration.framework */; };
+		BE978D3223F42458009687C9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE978D3123F42458009687C9 /* UIKit.framework */; };
+		BED1C3C52411337C00A4ABEB /* THEOplayerSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BED1C3C12411336900A4ABEB /* THEOplayerSDK.framework */; };
+		BED1C3C62411337C00A4ABEB /* THEOplayerSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BED1C3C12411336900A4ABEB /* THEOplayerSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		BED1C3C82411337F00A4ABEB /* GoogleCast.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BED1C3C22411336A00A4ABEB /* GoogleCast.framework */; };
+		BED1C3C92411337F00A4ABEB /* GoogleCast.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BED1C3C22411336A00A4ABEB /* GoogleCast.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		BEE667E723F334EC00ED8DE4 /* TabBarControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE667E623F334EC00ED8DE4 /* TabBarControl.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		BED1C3C72411337C00A4ABEB /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				BED1C3C92411337F00A4ABEB /* GoogleCast.framework in Embed Frameworks */,
+				BED1C3C62411337C00A4ABEB /* THEOplayerSDK.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		BE01A75823875BE1000EFF53 /* PlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
+		BE01A76323876674000EFF53 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		BE0CADFB23F62D4C0038D20E /* RemoteConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteConfig.swift; sourceTree = "<group>"; };
+		BE8242F42363AAB100994FB2 /* THEO Programmable Stream.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "THEO Programmable Stream.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE8242F72363AAB100994FB2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		BE8243002363AAB200994FB2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BE8243032363AAB200994FB2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		BE8243052363AAB200994FB2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BE85D5CC23ECF10200CD18C5 /* THEOComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THEOComponent.swift; sourceTree = "<group>"; };
+		BE85D5E223EE518900CD18C5 /* TabbedMetadataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbedMetadataView.swift; sourceTree = "<group>"; };
+		BE85D5E423EE51E400CD18C5 /* JsonInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonInputViewController.swift; sourceTree = "<group>"; };
+		BE978D1323F423C7009687C9 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		BE978D1523F423D2009687C9 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		BE978D1723F423DA009687C9 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		BE978D1923F423E1009687C9 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		BE978D1B23F423E9009687C9 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		BE978D1D23F423F0009687C9 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		BE978D1F23F423F6009687C9 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		BE978D2123F423FD009687C9 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		BE978D2323F42404009687C9 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		BE978D2523F42424009687C9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		BE978D2723F42432009687C9 /* MediaAccessibility.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaAccessibility.framework; path = System/Library/Frameworks/MediaAccessibility.framework; sourceTree = SDKROOT; };
+		BE978D2923F4243A009687C9 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		BE978D2B23F42443009687C9 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		BE978D2D23F4244A009687C9 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		BE978D2F23F42451009687C9 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		BE978D3123F42458009687C9 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		BED1C3C12411336900A4ABEB /* THEOplayerSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = THEOplayerSDK.framework; sourceTree = "<group>"; };
+		BED1C3C22411336A00A4ABEB /* GoogleCast.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleCast.framework; sourceTree = "<group>"; };
+		BEDA6F5423F426C10066FEA6 /* THEO Programmable Stream.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "THEO Programmable Stream.entitlements"; sourceTree = "<group>"; };
+		BEE667E623F334EC00ED8DE4 /* TabBarControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarControl.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BE8242F12363AAB100994FB2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE978D2223F423FD009687C9 /* CoreMedia.framework in Frameworks */,
+				BE978D3223F42458009687C9 /* UIKit.framework in Frameworks */,
+				BE978D3023F42451009687C9 /* SystemConfiguration.framework in Frameworks */,
+				BE978D2C23F42443009687C9 /* QuartzCore.framework in Frameworks */,
+				BED1C3C52411337C00A4ABEB /* THEOplayerSDK.framework in Frameworks */,
+				BE978D1423F423C7009687C9 /* Accelerate.framework in Frameworks */,
+				BE978D1E23F423F0009687C9 /* CoreData.framework in Frameworks */,
+				BE978D2E23F4244A009687C9 /* Security.framework in Frameworks */,
+				BE978D1623F423D2009687C9 /* AudioToolbox.framework in Frameworks */,
+				BE978D2023F423F6009687C9 /* CoreGraphics.framework in Frameworks */,
+				BE978D2623F42424009687C9 /* Foundation.framework in Frameworks */,
+				BE978D2423F42404009687C9 /* CoreText.framework in Frameworks */,
+				BED1C3C82411337F00A4ABEB /* GoogleCast.framework in Frameworks */,
+				BE978D1A23F423E1009687C9 /* CFNetwork.framework in Frameworks */,
+				BE978D1C23F423E9009687C9 /* CoreBluetooth.framework in Frameworks */,
+				BE978D1823F423DA009687C9 /* AVFoundation.framework in Frameworks */,
+				BE978D2A23F4243A009687C9 /* MediaPlayer.framework in Frameworks */,
+				BE978D2823F42432009687C9 /* MediaAccessibility.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BE8242EB2363AAB100994FB2 = {
+			isa = PBXGroup;
+			children = (
+				BE8242F62363AAB100994FB2 /* Programmable_Stream */,
+				BE8242F52363AAB100994FB2 /* Products */,
+				BE978D1223F423C7009687C9 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		BE8242F52363AAB100994FB2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BE8242F42363AAB100994FB2 /* THEO Programmable Stream.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BE8242F62363AAB100994FB2 /* Programmable_Stream */ = {
+			isa = PBXGroup;
+			children = (
+				BE8242F72363AAB100994FB2 /* AppDelegate.swift */,
+				BE85D5E423EE51E400CD18C5 /* JsonInputViewController.swift */,
+				BE01A75823875BE1000EFF53 /* PlayerViewController.swift */,
+				BE0CADFB23F62D4C0038D20E /* RemoteConfig.swift */,
+				BE85D5E223EE518900CD18C5 /* TabbedMetadataView.swift */,
+				BEE667E623F334EC00ED8DE4 /* TabBarControl.swift */,
+				BE01A76323876674000EFF53 /* Theme.swift */,
+				BE85D5CC23ECF10200CD18C5 /* THEOComponent.swift */,
+				BE8243002363AAB200994FB2 /* Assets.xcassets */,
+				BE8243022363AAB200994FB2 /* LaunchScreen.storyboard */,
+				BE8243052363AAB200994FB2 /* Info.plist */,
+				BEDA6F5423F426C10066FEA6 /* THEO Programmable Stream.entitlements */,
+			);
+			path = Programmable_Stream;
+			sourceTree = "<group>";
+		};
+		BE978D1223F423C7009687C9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BED1C3C22411336A00A4ABEB /* GoogleCast.framework */,
+				BED1C3C12411336900A4ABEB /* THEOplayerSDK.framework */,
+				BE978D3123F42458009687C9 /* UIKit.framework */,
+				BE978D2F23F42451009687C9 /* SystemConfiguration.framework */,
+				BE978D2D23F4244A009687C9 /* Security.framework */,
+				BE978D2B23F42443009687C9 /* QuartzCore.framework */,
+				BE978D2923F4243A009687C9 /* MediaPlayer.framework */,
+				BE978D2723F42432009687C9 /* MediaAccessibility.framework */,
+				BE978D2523F42424009687C9 /* Foundation.framework */,
+				BE978D2323F42404009687C9 /* CoreText.framework */,
+				BE978D2123F423FD009687C9 /* CoreMedia.framework */,
+				BE978D1F23F423F6009687C9 /* CoreGraphics.framework */,
+				BE978D1D23F423F0009687C9 /* CoreData.framework */,
+				BE978D1B23F423E9009687C9 /* CoreBluetooth.framework */,
+				BE978D1923F423E1009687C9 /* CFNetwork.framework */,
+				BE978D1723F423DA009687C9 /* AVFoundation.framework */,
+				BE978D1523F423D2009687C9 /* AudioToolbox.framework */,
+				BE978D1323F423C7009687C9 /* Accelerate.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BE8242F32363AAB100994FB2 /* Programmable_Stream */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BE8243082363AAB200994FB2 /* Build configuration list for PBXNativeTarget "Programmable_Stream" */;
+			buildPhases = (
+				BE8242F02363AAB100994FB2 /* Sources */,
+				BE8242F12363AAB100994FB2 /* Frameworks */,
+				BE8242F22363AAB100994FB2 /* Resources */,
+				BED1C3C72411337C00A4ABEB /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Programmable_Stream;
+			productName = Programmable_Stream;
+			productReference = BE8242F42363AAB100994FB2 /* THEO Programmable Stream.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BE8242EC2363AAB100994FB2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1110;
+				LastUpgradeCheck = 1110;
+				ORGANIZATIONNAME = THEOPlayer;
+				TargetAttributes = {
+					BE8242F32363AAB100994FB2 = {
+						CreatedOnToolsVersion = 11.1;
+					};
+				};
+			};
+			buildConfigurationList = BE8242EF2363AAB100994FB2 /* Build configuration list for PBXProject "Programmable_Stream" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BE8242EB2363AAB100994FB2;
+			productRefGroup = BE8242F52363AAB100994FB2 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BE8242F32363AAB100994FB2 /* Programmable_Stream */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BE8242F22363AAB100994FB2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE8243042363AAB200994FB2 /* LaunchScreen.storyboard in Resources */,
+				BE8243012363AAB200994FB2 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BE8242F02363AAB100994FB2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE8242F82363AAB100994FB2 /* AppDelegate.swift in Sources */,
+				BE85D5E323EE518900CD18C5 /* TabbedMetadataView.swift in Sources */,
+				BEE667E723F334EC00ED8DE4 /* TabBarControl.swift in Sources */,
+				BE85D5CD23ECF10200CD18C5 /* THEOComponent.swift in Sources */,
+				BE85D5E523EE51E400CD18C5 /* JsonInputViewController.swift in Sources */,
+				BE01A75923875BE1000EFF53 /* PlayerViewController.swift in Sources */,
+				BE01A76423876674000EFF53 /* Theme.swift in Sources */,
+				BE0CADFC23F62D4C0038D20E /* RemoteConfig.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		BE8243022363AAB200994FB2 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BE8243032363AAB200994FB2 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BE8243062363AAB200994FB2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		BE8243072363AAB200994FB2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BE8243092363AAB200994FB2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Programmable_Stream/THEO Programmable Stream.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = H3Y3HKZ7JZ;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = Programmable_Stream/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.theoplayer.demo.remotejson;
+				PRODUCT_NAME = "THEO Programmable Stream";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BE82430A2363AAB200994FB2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Programmable_Stream/THEO Programmable Stream.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = H3Y3HKZ7JZ;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = Programmable_Stream/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.theoplayer.demo.remotejson;
+				PRODUCT_NAME = "THEO Programmable Stream";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BE8242EF2363AAB100994FB2 /* Build configuration list for PBXProject "Programmable_Stream" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BE8243062363AAB200994FB2 /* Debug */,
+				BE8243072363AAB200994FB2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BE8243082363AAB200994FB2 /* Build configuration list for PBXNativeTarget "Programmable_Stream" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BE8243092363AAB200994FB2 /* Debug */,
+				BE82430A2363AAB200994FB2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BE8242EC2363AAB100994FB2 /* Project object */;
+}
