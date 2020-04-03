@@ -65,7 +65,7 @@ class PlayerViewController: UIViewController {
             type: mimeType
         )
 
-        // Retuns a computed SourceDescription object
+        // Returns a computed SourceDescription object
         return SourceDescription(source: typedSource, poster: posterUrl)
     }
 
@@ -246,7 +246,7 @@ class PlayerViewController: UIViewController {
 
     private func onPresentationModeChange(event: PresentationModeChangeEvent) {
         os_log("onPresentationModeChange: %@", event.presentationMode.rawValue)
-        // Set device to portrait when theoplayer exit from fullscreen mode
+        // Set device to portrait when theoplayer exit from fullscreen mode. This is added to handle the case when user uses THEOplayer UI to exit full screen mode when device remains in landscape
         if event.presentationMode == .inline {
             UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation")
         }

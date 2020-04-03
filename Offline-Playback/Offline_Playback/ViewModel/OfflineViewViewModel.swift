@@ -75,6 +75,7 @@ class OfflineViewViewModel {
                         case .done:
                             offlineTableViewCellViewModel.cachingTask = task
                         default:
+                            // Remove caching task
                             task.remove()
                             if let _ = source.drm {
                                 // Remove DRM renew record

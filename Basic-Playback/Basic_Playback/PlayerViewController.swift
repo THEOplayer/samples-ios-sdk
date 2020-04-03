@@ -62,7 +62,7 @@ class PlayerViewController: UIViewController {
             type: mimeType
         )
 
-        // Retuns a computed SourceDescription object
+        // Returns a computed SourceDescription object
         return SourceDescription(source: typedSource, poster: posterUrl)
     }
 

@@ -80,7 +80,7 @@ class PlayerViewController: UIViewController {
             hlsDateRange: stream.type == .dateRange
         )
 
-        // Retuns a computed SourceDescription object
+        // Returns a computed SourceDescription object
         return SourceDescription(source: typedSource)
     }
 

@@ -54,7 +54,7 @@ class CacheActionView: UIView {
                 imageName = .pause
             case .cached:
                 imageName = .trashAlt
-                percentage = 0
+                percentage = 100
             }
         }
     }

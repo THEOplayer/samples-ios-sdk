@@ -77,7 +77,7 @@ class PlayerViewController: UIViewController {
                 drm: drmConfig
             )
         }
-        // Retuns a computed SourceDescription object
+        // Returns a computed SourceDescription object
         return SourceDescription(source: typedSource)
     }
 

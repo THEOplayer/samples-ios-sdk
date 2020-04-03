@@ -80,7 +80,7 @@ class PlayerViewController: UIViewController {
                 }
             }
         }
-        // Retuns a computed SourceDescription object with array of ads descriptors
+        // Returns a computed SourceDescription object with array of ads descriptors
         return SourceDescription(source: typedSource, ads: adDescs)
     }
 

@@ -80,7 +80,7 @@ class PlayerViewController: UIViewController {
             metadataKeys: nil
         )
 
-        // Retuns a computed SourceDescription object
+        // Returns a computed SourceDescription object
         return SourceDescription(source: typedSource, poster: posterUrl, metadata: chromecastMetadataDescription)
     }
 
@@ -114,6 +114,18 @@ class PlayerViewController: UIViewController {
 
         // Configure the player's source to initilaise playback
         theoplayer.source = source
+
+        // To set custom cast source
+        /*
+        if var chromecast = theoplayer.cast?.chromecast {
+            chromecast.source = SourceDescription(source:
+                TypedSource(
+                    src: videoUrl,
+                    type: mimeType
+                )
+            )
+        }
+         */
     }
 
     override func viewWillDisappear(_ animated: Bool) {

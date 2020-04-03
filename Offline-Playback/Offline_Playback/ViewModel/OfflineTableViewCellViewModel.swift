@@ -64,6 +64,7 @@ class OfflineTableViewCellViewModel {
     }
     var taskPercentage: Double {
         if let task = cachingTask, task.percentageCached.isFinite {
+            // Get completion rate of the caching task
             return task.percentageCached
         } else {
             return 0.0
@@ -136,7 +137,7 @@ class OfflineTableViewCellViewModel {
     }
 
     private func removeCachingEventListeners() {
-        // Remove caching event listenrs
+        // Remove caching event listeners
         cachingTask?.removeEventListener(type: CachingTaskEventTypes.STATE_CHANGE, listener: cachingListener["stateChange"]!)
         cachingTask?.removeEventListener(type: CachingTaskEventTypes.PROGRESS, listener: cachingListener["progress"]!)
 
@@ -174,7 +175,9 @@ class OfflineTableViewCellViewModel {
 
     func createCachingTask() {
         let target = Calendar.current.date(byAdding: .minute, value: expiryInMinutes, to: Date())
+        // Create caching task with specific expirationDate
         cachingTask = THEOplayer.cache.createTask(source: source, parameters: CachingParameters.init(expirationDate: target!))
+        // Start the new caching task
         cachingTask?.start()
         // Set DRM license renew timer immedately after new DRM caching task is added
         setDrmLicenseRenewTimer()
@@ -182,17 +185,20 @@ class OfflineTableViewCellViewModel {
     }
 
     func pauseCaching() {
+        // Pause caching task
         cachingTask?.pause()
         os_log("pauseCaching: status : %@ bytesCached: %d", cachingTask?.status.rawValue ?? "nil", cachingTask?.bytesCached ?? 0)
     }
 
     func resumeCaching() {
+        // Use start() to resume caching task
         cachingTask?.start()
         os_log("resumeCaching: status : %@ bytesCached: %d", cachingTask?.status.rawValue ?? "nil", cachingTask?.bytesCached ?? 0)
     }
 
     func removeCaching() {
         os_log("removeCaching: status : %@ bytesCached: %d", cachingTask?.status.rawValue ?? "nil", cachingTask?.bytesCached ?? 0)
+        // Remove caching task
         cachingTask?.remove()
         cachingTask = nil
         UserDefaults.standard.removeObject(forKey: url)

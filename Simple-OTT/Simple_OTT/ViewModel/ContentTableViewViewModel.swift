@@ -52,6 +52,7 @@ class ContentTableViewViewModel {
                         case .done:
                             contentTableViewCellVM.cachingTask = task
                         default:
+                            // Remove caching task
                             task.remove()
                         }
                     }

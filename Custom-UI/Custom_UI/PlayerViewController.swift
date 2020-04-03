@@ -65,7 +65,7 @@ class PlayerViewController: UIViewController {
             type: mimeType
         )
 
-        // Retuns a computed SourceDescription object
+        // Returns a computed SourceDescription object
         return SourceDescription(source: typedSource, poster: posterUrl)
     }
 
@@ -158,7 +158,7 @@ class PlayerViewController: UIViewController {
             theoplayerView and apply constraints.
             This function will be called on returning from fullscreen to inline
             mode in which case playerInterfaceView will be removed
-            automatically from the keyWindow and so as the assoicated constraints
+            automatically from the keyWindow and so as the associated constraints
          */
         theoplayerView.addSubview(playerInterfaceView)
 

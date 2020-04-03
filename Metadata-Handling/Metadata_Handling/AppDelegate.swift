@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Initialise window
         window = UIWindow(frame: UIScreen.main.bounds)
 
-        // Initailise MetadataViewController
+        // Initialise MetadataViewController
         let metadataViewController = MetadataViewController()
         // Create navigationController and set metadataViewController as its root view controller
         let navigationController = createNavigationController(rootViewController: metadataViewController)
@@ -31,7 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     private func createNavigationController(rootViewController: UIViewController) -> UINavigationController {
-        // Initailise UINavigationController and set provided UIViewController as root view controller
+        // Initialise UINavigationController and set provided UIViewController as root view controller
         let navigationController = UINavigationController(rootViewController: rootViewController)
 
         // Disable swipe to navigate back
@@ -40,7 +40,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         navigationController.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController.navigationBar.shadowImage = UIImage()
         navigationController.navigationBar.isTranslucent = true
-        // Set navigationBar tinit colour
+        // Set navigationBar tint colour
         navigationController.navigationBar.tintColor = .theoLightningYellow
         // Set navigationBar title text colour
         navigationController.navigationBar.titleTextAttributes = [ NSAttributedString.Key.foregroundColor: UIColor.theoWhite ]
