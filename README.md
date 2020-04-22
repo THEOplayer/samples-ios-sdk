@@ -1,5 +1,11 @@
 # THEOplayer iOS Reference Apps
 
+## License
+
+This projects falls under the license as defined in https://github.com/THEOplayer/license-and-disclaimer.
+
+## Introduction
+
 In order to get a common understanding of how the THEOplayer SDKs are
 to be used, we will include rich example apps. These apps will have
 following characteristics:
@@ -54,10 +60,6 @@ different use cases.
 ## Streams/Content Rights:
 
 The DRM streams used in this app (if any) are provided by our Partner: [EZ DRM] and hold all the rights for the content. These streams are DRM protected and cannot be used for any other purposes.
-
-## License
-
-This project is licensed under the BSD 3 Clause License - see the [LICENSE] file for details.
 
 [//]: # (Links reference)
 [EZ DRM]: https://www.ezdrm.com/
