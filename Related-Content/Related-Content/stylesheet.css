@@ -1,0 +1,9 @@
+.theo-related-grid {
+    height: 100% !important;
+    overflow-y: scroll !imporant;
+}
+
+.theo-related-grid-tile {
+    display: block !important;
+    
+}
