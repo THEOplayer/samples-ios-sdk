@@ -1,9 +1,11 @@
 //
-//  Theme.swift
-//  Basic_Playback
+//  PlayerViewController.swift
+//  Related-Content
 //
-//  Copyright © 2019 THEOPlayer. All rights reserved.
+//  Created by savdeep on 18/05/2020.
+//  Copyright © 2020 THEOplayer. All rights reserved.
 //
+
 
 import UIKit
 
