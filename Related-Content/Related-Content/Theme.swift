@@ -1,5 +1,5 @@
 //
-//  PlayerViewController.swift
+//  Theme.swift
 //  Related-Content
 //
 //  Created by savdeep on 18/05/2020.
