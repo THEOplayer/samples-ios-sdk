@@ -56,7 +56,7 @@ class PlayerViewController: UIViewController {
 
 ## Full Screen Orientation Handling
 
-THEOplayer also offers an extentended API for `fullscreen` to handle the orientations as well. This API helps to customise the orientation of the player when it is defined in the `fullscreen` mode. 
+THEOplayer also offers an extended API for `fullscreen` to handle the orientations as well. This API helps to customise the orientation of the player when it is defined in the `fullscreen` mode. 
 
 ```swift
 class PlayerViewController: UIViewController {
