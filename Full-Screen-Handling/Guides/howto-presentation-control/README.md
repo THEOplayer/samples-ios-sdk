@@ -8,6 +8,7 @@ The complete implementation can be found in [PlayerViewController.swift] with in
 
 * [THEOplayer Presentation Mode]
 * [Full Screen Orientation Coupling]
+* [Full Screen Orientation Handling]
 * [Presentation Mode Change Event]
 * [Summary]
 
@@ -52,6 +53,28 @@ class PlayerViewController: UIViewController {
     ...
 }
 ```
+
+## Full Screen Orientation Handling
+
+THEOplayer also offers an extentended API for `fullscreen` to handle the orientations as well. This API helps to customise the orientation of the player when it is defined in the `fullscreen` mode. 
+
+```swift
+class PlayerViewController: UIViewController {
+
+    ...
+
+    private func setupTheoplayer() {
+        theoplayer = THEOplayer()
+        // To handle the fullscreen Orientation
+        theoplayer.fullscreen.setSupportedInterfaceOrientations(supportedInterfaceOrientations: .landscapeRight)
+
+        ...
+    }
+
+    ...
+}
+```
+>Note that a THEOplayer `fullscreenOrientationCoupling` API cannot be used in combination with the above API.
 
 ## Presentation Mode Change Event
 
@@ -99,6 +122,7 @@ For more guides about THEOplayer please visit [THEO Docs] portal.
 [//]: # (Sections reference)
 [THEOplayer Presentation Mode]: #THEOplayer-Presentation-Mode
 [Full Screen Orientation Coupling]: #Full-Screen-Orientation-Coupling
+[Full Screen Orientation Handling]: #Full-Screen-Orientation-Handling
 [Presentation Mode Change Event]: #Presentation-Mode-Change-Event
 [Summary]: #Summary
 
