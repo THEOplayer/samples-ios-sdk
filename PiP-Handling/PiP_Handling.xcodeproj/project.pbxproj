@@ -300,8 +300,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = H3Y3HKZ7JZ;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Pieter-Jan Speelmans (HWTFRRY3PS)";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = 8YAB8ZY55Y;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -311,8 +312,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.theoplayer.sample.ui.pip;
+				PRODUCT_BUNDLE_IDENTIFIER = com.theoplayer.sample.pip.handling;
 				PRODUCT_NAME = "THEO PiP Handling";
+				PROVISIONING_PROFILE_SPECIFIER = "match Development theoplayer.THEOplayer-iOS-SDK-Demo";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -322,8 +324,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = H3Y3HKZ7JZ;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Pieter-Jan Speelmans (HWTFRRY3PS)";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = 8YAB8ZY55Y;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -333,8 +336,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.theoplayer.sample.ui.pip;
+				PRODUCT_BUNDLE_IDENTIFIER = com.theoplayer.sample.pip.handling;
 				PRODUCT_NAME = "THEO PiP Handling";
+				PROVISIONING_PROFILE_SPECIFIER = "match Development theoplayer.THEOplayer-iOS-SDK-Demo";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

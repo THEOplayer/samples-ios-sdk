@@ -62,25 +62,20 @@ class PlayerViewController: UIViewController {
 
         setupView()
         setupPlayerView()
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-
         setupTheoplayer()
-
         // Configure the player's source to initilaise playback
-//        let verizonMediaSource = createMultiAssetFairPlayStream()
+        // let verizonMediaSource = createMultiAssetFairPlayStream()
         let verizonMediaSource = createHLSStreamWithAds()
         let sourceDescription = SourceDescription(verizonMediaSource: verizonMediaSource)
         theoplayer.source = sourceDescription
     }
 
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-
-        unloadTheoplayer()
-    }
+    override func viewDidDisappear(_ animated: Bool) {
+           super.viewDidDisappear(animated)
+           if (self.isMovingFromParent){
+               unloadTheoplayer()
+           }
+       }
 
     // MARK: - View setup
 

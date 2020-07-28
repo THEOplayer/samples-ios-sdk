@@ -45,8 +45,6 @@
 		BEA04E0D24071C9700B04611 /* SettingsViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA04E0C24071C9700B04611 /* SettingsViewViewModel.swift */; };
 		BEA996242411CADA00B18D90 /* THEOplayerSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEA996212411CAD600B18D90 /* THEOplayerSDK.framework */; };
 		BEA996252411CADA00B18D90 /* THEOplayerSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BEA996212411CAD600B18D90 /* THEOplayerSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		BEA996272411CADF00B18D90 /* GoogleCast.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEA996202411CAD600B18D90 /* GoogleCast.framework */; };
-		BEA996282411CADF00B18D90 /* GoogleCast.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BEA996202411CAD600B18D90 /* GoogleCast.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BEC30FB224086FCD0048DB10 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC30FB124086FCD0048DB10 /* GradientView.swift */; };
 /* End PBXBuildFile section */
 
@@ -57,7 +55,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				BEA996282411CADF00B18D90 /* GoogleCast.framework in Embed Frameworks */,
 				BEA996252411CADA00B18D90 /* THEOplayerSDK.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -128,7 +125,6 @@
 				BE5DF2DD240B32630056C3E4 /* CoreText.framework in Frameworks */,
 				BE5DF2D7240B32480056C3E4 /* CoreData.framework in Frameworks */,
 				BE5DF2DB240B325C0056C3E4 /* CoreMedia.framework in Frameworks */,
-				BEA996272411CADF00B18D90 /* GoogleCast.framework in Frameworks */,
 				BE5DF2CD240B32100056C3E4 /* Accelerate.framework in Frameworks */,
 				BE5DF2EB240B329F0056C3E4 /* UIKit.framework in Frameworks */,
 				BE5DF2D9240B32560056C3E4 /* CoreGraphics.framework in Frameworks */,

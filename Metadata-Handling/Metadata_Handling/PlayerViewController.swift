@@ -122,25 +122,22 @@ class PlayerViewController: UIViewController {
         setupMetadataContainer()
         setupMetadataTitle()
         setupScrollableTextView()
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-
         // Set initial orientation constraints
         setOrientationConstraints()
-
         setupTheoplayer()
 
         // Configure the player's source to initilaise playback
         theoplayer.source = source
     }
 
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
+ 
+    override func viewDidDisappear(_ animated: Bool) {
+           super.viewDidDisappear(animated)
 
-        unloadTheoplayer()
-    }
+           if (self.isMovingFromParent){
+              unloadTheoplayer()
+          }
+       }
 
     override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
         coordinator.animate(alongsideTransition: { _ in

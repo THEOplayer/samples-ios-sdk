@@ -312,7 +312,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = theoplayer.VerizonMedia;
+				PRODUCT_BUNDLE_IDENTIFIER = com.theoplayer.sample.VerizonMedia;
 				PRODUCT_NAME = "Verizon Media";
 				PROVISIONING_PROFILE_SPECIFIER = "match Development theoplayer.*";
 				SWIFT_VERSION = 5.0;
@@ -336,7 +336,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = theoplayer.VerizonMedia;
+				PRODUCT_BUNDLE_IDENTIFIER = com.theoplayer.sample.VerizonMedia;
 				PRODUCT_NAME = "Verizon Media";
 				PROVISIONING_PROFILE_SPECIFIER = "match Development theoplayer.*";
 				SWIFT_VERSION = 5.0;

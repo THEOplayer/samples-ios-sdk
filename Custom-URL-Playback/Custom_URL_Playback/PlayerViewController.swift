@@ -97,26 +97,22 @@ class PlayerViewController: UIViewController {
     // MARK: - View controller life cycle
 
     override func viewDidLoad() {
-        super.viewDidLoad()
+          super.viewDidLoad()
 
-        setupView()
-        setupPlayerView()
-    }
+          setupView()
+          setupPlayerView()
+          setupTheoplayer()
+          // Configure the player's source to initilaise playback
+          theoplayer.source = source
+      }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+      override func viewDidDisappear(_ animated: Bool) {
+          super.viewDidDisappear(animated)
 
-        setupTheoplayer()
-
-        // Configure the player's source to initilaise playback
-        theoplayer.source = source
-    }
-
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-
-        unloadTheoplayer()
-    }
+          if (self.isMovingFromParent){
+             unloadTheoplayer()
+         }
+      }
 
     // MARK: - View setup
 

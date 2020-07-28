@@ -78,26 +78,24 @@ class PlayerViewController: UIViewController {
     // MARK: - View controller life cycle
 
     override func viewDidLoad() {
-        super.viewDidLoad()
+           super.viewDidLoad()
 
-        setupView()
-        setupPlayerView()
-    }
+           setupView()
+           setupPlayerView()
+           setupTheoplayer()
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+           // Configure the player's source to initilaise playback
+           theoplayer.source = source
+       }
 
-        setupTheoplayer()
+       override func viewDidDisappear(_ animated: Bool) {
+           super.viewDidDisappear(animated)
 
-        // Configure the player's source to initilaise playback
-        theoplayer.source = source
-    }
+           if (self.isMovingFromParent){
+              unloadTheoplayer()
+          }
+       }
 
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-
-        unloadTheoplayer()
-    }
 
     // MARK: - View setup
 
@@ -108,6 +106,10 @@ class PlayerViewController: UIViewController {
 
     private func setupPlayerView() {
         theoplayerView = THEOPlayerView() { (updatedFrame) in
+            
+            if (self.theoplayer.presentationMode != .inline) {
+                                      return
+                                  }
             // Create a frame based on the playView's updated frame
             var playerFrame = updatedFrame
 
@@ -142,7 +144,7 @@ class PlayerViewController: UIViewController {
         theoplayer = THEOplayer(configuration: playerConfig)
 
         // Configure picture-in-picture mode
-        theoplayer.pip?.configure(movable: true, defaultCorner: .bottomLeft, scale: 0.33, visibility: nil)
+        theoplayer.pip?.configure(movable: true, defaultCorner: .bottomRight, scale: 0.33, visibility: nil)
 
         // Add the player to playerView's view hierarchy
         theoplayer.addAsSubview(of: theoplayerView)

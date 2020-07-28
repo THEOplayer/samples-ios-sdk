@@ -86,19 +86,13 @@ class PlayerViewController: UIViewController {
         setupView()
         setupPlayerView()
         setupPlayerInterfaceView()
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-
         setupTheoplayer()
-
         // Initialising control interface view based on device orientation
-        if UIDevice.current.orientation == .portrait {
-            inlinePlayerInterfaceView()
-        } else {
-            fullscreenPlayerInterfaceView()
-        }
+               if UIDevice.current.orientation == .portrait {
+                   inlinePlayerInterfaceView()
+               } else {
+                   fullscreenPlayerInterfaceView()
+               }
 
         // Initialing playerInterfaceView state to set its UI components.
         playerInterfaceView.state = .initialise
@@ -107,10 +101,13 @@ class PlayerViewController: UIViewController {
         theoplayer.source = source
     }
 
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
 
-        unloadTheoplayer()
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+
+        if (self.isMovingFromParent){
+                     unloadTheoplayer()
+                 }
     }
 
     // MARK: - View setup

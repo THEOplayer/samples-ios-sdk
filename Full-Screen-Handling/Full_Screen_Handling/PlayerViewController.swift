@@ -93,13 +93,7 @@ class PlayerViewController: UIViewController {
         setupPlayerView()
         setupDescriptionLabel()
         setupFullscreenButton()
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-
         setupTheoplayer()
-
         // Configure the player's source to initilaise playback
         theoplayer.source = source
     }
@@ -107,7 +101,9 @@ class PlayerViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
 
-        unloadTheoplayer()
+        if (self.isMovingFromParent){
+            unloadTheoplayer()
+        }
     }
 
     // MARK: - View setup
@@ -184,9 +180,9 @@ class PlayerViewController: UIViewController {
     private func setupTheoplayer() {
         // Instantiate player object
         theoplayer = THEOplayer()
-
-        // Coupling fullscreen with device orientation so that rotation will trigger fullscreen
-        theoplayer.fullscreenOrientationCoupling = true
+        
+        //Add FullScreen Handling Orientation
+        theoplayer.fullscreen.setSupportedInterfaceOrientations(supportedInterfaceOrientations: .landscapeRight)
 
         // Add the player to playerView's view hierarchy
         theoplayer.addAsSubview(of: theoplayerView)

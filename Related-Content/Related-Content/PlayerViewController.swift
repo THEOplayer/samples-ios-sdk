@@ -83,11 +83,6 @@ class PlayerViewController: UIViewController {
 
         setupView()
         setupPlayerView()
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-
         setupTheoplayer()
 
         // Configure the player's source to initilaise playback
@@ -117,7 +112,9 @@ class PlayerViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
 
-        unloadTheoplayer()
+         if (self.isMovingFromParent){
+                  unloadTheoplayer()
+              }
     }
 
     // MARK: - View setup

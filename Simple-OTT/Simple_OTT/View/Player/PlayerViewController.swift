@@ -67,23 +67,18 @@ class PlayerViewController: UIViewController {
 
         setupView()
         setupPlayerView()
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-
         navigationController?.navigationBar.isHidden = false
-
         setupTheoplayer()
-
         // Configure the player’s source to initilaise playback
         theoplayer.source = source
     }
 
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
 
-        unloadTheoplayer()
+        if (self.isMovingFromParent){
+           unloadTheoplayer()
+       }
     }
 
     // MARK: - View setup
@@ -95,6 +90,10 @@ class PlayerViewController: UIViewController {
 
     private func setupPlayerView() {
         theoplayerView = THEOPlayerView() { (updatedFrame) in
+            
+            if (self.theoplayer.presentationMode != .inline) {
+                                      return
+                                  }
             // Create a frame based on the playView's updated frame
             var playerFrame = updatedFrame
 
@@ -126,7 +125,7 @@ class PlayerViewController: UIViewController {
         THEOplayerCastHelper.setGCKCastContextSharedInstanceWithDefaultCastOptions()
 
         // Enable googleIMA, picture-in-picture and configure cast join strategy to auto
-        let playerConfig = THEOplayerConfiguration(googleIMA: true, pictureInPicture: true, cast: CastConfiguration(strategy: .auto))
+        let playerConfig = THEOplayerConfiguration(chromeless: false, pip: PiPConfiguration(retainPresentationModeOnSourceChange: true), ads: AdsConfiguration(showCountdown: true, preload: .NONE, googleImaConfiguration: GoogleIMAConfiguration(useNativeIma: true)), cast: CastConfiguration(strategy: .auto))
 
         // Instantiate player object with playerConfig
         theoplayer = THEOplayer(configuration: playerConfig)
