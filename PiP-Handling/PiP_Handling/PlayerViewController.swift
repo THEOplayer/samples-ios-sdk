@@ -137,14 +137,14 @@ class PlayerViewController: UIViewController {
     // MARK: - THEOplayer setup and unload
 
     private func setupTheoplayer() {
-        // Declare player config with Picture-In-Picture enabled
-        let playerConfig = THEOplayerConfiguration(pictureInPicture: true)
+        // Declare player config with Picture-In-Picture 
+        let playerConfig = THEOplayerConfiguration(pip: PiPConfiguration(retainPresentationModeOnSourceChange: true))
 
         // Instantiate player object with player config
         theoplayer = THEOplayer(configuration: playerConfig)
 
         // Configure picture-in-picture mode
-        theoplayer.pip?.configure(movable: true, defaultCorner: .bottomRight, scale: 0.33, visibility: nil)
+        theoplayer.pip?.configure(movable: true, defaultCorner: .bottomRight, scale: 0.3, visibility: nil, margin: THEOMargins(all: 20))
 
         // Add the player to playerView's view hierarchy
         theoplayer.addAsSubview(of: theoplayerView)

@@ -14,7 +14,7 @@ The complete implementation can be found in [PlayerViewController.swift] with in
 
 The code snippet shows how to enable Picture in Picture during THEOplayer initialisation.
 
-Simply create a `THEOplayerConfiguration` object with `pictureInPicture` set to `true` and pass this player configuration object to the `THEOplayer` constructor as follows:
+Simply create a `THEOplayerConfiguration` object with `pip` and create the `PiPConfiguration` to set the `retainPresentationModeOnSourceChange: true` and pass this player configuration object to the `THEOplayer` constructor as follows:
 
 ```swift
 class PlayerViewController: UIViewController {
@@ -22,7 +22,7 @@ class PlayerViewController: UIViewController {
     ...
 
     private func setupTheoplayer() {
-        let playerConfig = THEOplayerConfiguration(pictureInPicture: true)
+        let playerConfig = THEOplayerConfiguration(pip: PiPConfiguration(retainPresentationModeOnSourceChange: true))
         theoplayer = THEOplayer(configuration: playerConfig)
 
         ...
@@ -39,7 +39,10 @@ The `PictureInPicture` object in `THEOplayer` offers the `configure()` API to cu
 * **`movable`**: Indicates whether or not the PiP view is movable
 * **`defaultCorner`**: Indicates the default corner at which the PiP view will appear when entering PiP mode
 * **`scale:`** Indicates the scale of the PiP view default to 0.33
-* **`visibility`**: (from 0 to 1) The maximum percentage of the original player position that should be visible to enable picture-in-picture automatically. If not configured, picture-in-picture can only be turned on by setting presentationMode to pictureInPicture. default to nil
+* **`visibility`**: (from 0 to 1) The maximum percentage of the original player position that should be visible to enable picture-in-picture automatically.
+* **`margin`**: The THEOMargins value indicating the distance between the PiP view and the screen. It has a `THEOMargins` API to customise the margins for `all`, `horizontal` & `vertical` or set all seperately for `top`, `right`, `bottom` and `left`. The deafult is set to nil taking screen ratio into consideration.
+
+If not configured, picture-in-picture can only be turned on by setting presentationMode to pictureInPicture. default to nil
 
 For example:
 
@@ -49,9 +52,9 @@ class PlayerViewController: UIViewController {
     ...
 
     private func setupTheoplayer() {
-        let playerConfig = THEOplayerConfiguration(pictureInPicture: true)
+        let playerConfig = THEOplayerConfiguration(pip: PiPConfiguration(retainPresentationModeOnSourceChange: true))
         theoplayer = THEOplayer(configuration: playerConfig)
-        theoplayer.pip?.configure(movable: true, defaultCorner: .bottomLeft, scale: 0.33, visibility: nil)
+        theoplayer.pip?.configure(movable: true, defaultCorner: .bottomLeft, scale: 0.33, visibility: nil, margin: THEOMargins(all: 20))
 
         ...
     }
@@ -59,6 +62,7 @@ class PlayerViewController: UIViewController {
     ...
 }
 ```
+* Note : The above pip configuration is only available in THEOplayer iOS SDK Version 2.74 and above
 
 ## Summary
 
