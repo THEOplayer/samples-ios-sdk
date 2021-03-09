@@ -18,6 +18,16 @@ The complete implementation can be found in [PlayerViewController.swift] with in
 * [Ads Event Listeners]
 * [Summary]
 
+## Including the IMA SDK
+
+You must embed the Google IMA iOS SDK in your project. You can do this through the pre-configured Cocoapods in this workspace.
+
+* Install the `Podfile` by running `pod install --repo-update` in the root `Google-IMA` folder which contains the `Podfile` file.
+  Running this command installs the Google IMA iOS SDK which is a mandatory dependency.
+* Open the reference app project `Google_IMA.xworkspace` with Xcode.
+
+Alternatively, you can also manually download and install the Google IMA iOS SDK, as described at [https://developers.google.com/interactive-media-ads/docs/sdks/ios/client-side#manually_downloading_and_installing_the_sdk](https://developers.google.com/interactive-media-ads/docs/sdks/ios/client-side#manually_downloading_and_installing_the_sdk).
+
 ## Enabling Google IMA
 
 The code snippet shows how to enable Google IMA during THEOplayer initialisation.

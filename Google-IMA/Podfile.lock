@@ -1,0 +1,16 @@
+PODS:
+  - GoogleAds-IMA-iOS-SDK (3.14.1)
+
+DEPENDENCIES:
+  - GoogleAds-IMA-iOS-SDK (~> 3.14.1)
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - GoogleAds-IMA-iOS-SDK
+
+SPEC CHECKSUMS:
+  GoogleAds-IMA-iOS-SDK: cc10f58c94fe19664f223e290099624f4696001f
+
+PODFILE CHECKSUM: aacf9e299b6cf769443f4e1d4f45cb655aca583f
+
+COCOAPODS: 1.8.4

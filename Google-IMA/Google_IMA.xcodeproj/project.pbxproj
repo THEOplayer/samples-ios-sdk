@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		43650F3079BC777AA1BD735B /* libPods-Google_IMA.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CC1D6256C92A57CF01FBA0D5 /* libPods-Google_IMA.a */; };
 		BE01A75923875BE1000EFF53 /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE01A75823875BE1000EFF53 /* PlayerViewController.swift */; };
 		BE01A76423876674000EFF53 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE01A76323876674000EFF53 /* Theme.swift */; };
 		BE8242F82363AAB100994FB2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8242F72363AAB100994FB2 /* AppDelegate.swift */; };
@@ -31,6 +32,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1F503341D4D9A7A26CC125E7 /* Pods-Google_IMA.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Google_IMA.debug.xcconfig"; path = "Target Support Files/Pods-Google_IMA/Pods-Google_IMA.debug.xcconfig"; sourceTree = "<group>"; };
+		5FE78D65D86F470D623868CE /* Pods-Google_IMA.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Google_IMA.release.xcconfig"; path = "Target Support Files/Pods-Google_IMA/Pods-Google_IMA.release.xcconfig"; sourceTree = "<group>"; };
+		763DD6E525F80C07007D0F54 /* GoogleInteractiveMediaAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleInteractiveMediaAds.framework; sourceTree = "<group>"; };
 		BE01A75823875BE1000EFF53 /* PlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
 		BE01A76323876674000EFF53 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		BE8242F42363AAB100994FB2 /* THEO Google IMA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "THEO Google IMA.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -39,6 +43,7 @@
 		BE8243032363AAB200994FB2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BE8243052363AAB200994FB2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BED1C38924112EA900A4ABEB /* THEOplayerSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = THEOplayerSDK.framework; sourceTree = "<group>"; };
+		CC1D6256C92A57CF01FBA0D5 /* libPods-Google_IMA.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Google_IMA.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +52,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BED1C38B24112EAE00A4ABEB /* THEOplayerSDK.framework in Frameworks */,
+				43650F3079BC777AA1BD735B /* libPods-Google_IMA.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,6 +65,7 @@
 				BE8242F62363AAB100994FB2 /* Google_IMA */,
 				BE8242F52363AAB100994FB2 /* Products */,
 				BED1C38824112E8700A4ABEB /* Frameworks */,
+				D88ADD3C18BC51C055105B49 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -86,9 +93,21 @@
 		BED1C38824112E8700A4ABEB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				763DD6E525F80C07007D0F54 /* GoogleInteractiveMediaAds.framework */,
 				BED1C38924112EA900A4ABEB /* THEOplayerSDK.framework */,
+				CC1D6256C92A57CF01FBA0D5 /* libPods-Google_IMA.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D88ADD3C18BC51C055105B49 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1F503341D4D9A7A26CC125E7 /* Pods-Google_IMA.debug.xcconfig */,
+				5FE78D65D86F470D623868CE /* Pods-Google_IMA.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -98,10 +117,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BE8243082363AAB200994FB2 /* Build configuration list for PBXNativeTarget "Google_IMA" */;
 			buildPhases = (
+				A700503E3BA0E853178323EB /* [CP] Check Pods Manifest.lock */,
 				BE8242F02363AAB100994FB2 /* Sources */,
 				BE8242F12363AAB100994FB2 /* Frameworks */,
 				BE8242F22363AAB100994FB2 /* Resources */,
 				BED1C38D24112EAE00A4ABEB /* Embed Frameworks */,
+				DCE8DD9DFBEA2125C14D12AF /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -156,6 +177,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A700503E3BA0E853178323EB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Google_IMA-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DCE8DD9DFBEA2125C14D12AF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Google_IMA/Pods-Google_IMA-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Google_IMA/Pods-Google_IMA-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Google_IMA/Pods-Google_IMA-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		BE8242F02363AAB100994FB2 /* Sources */ = {
@@ -298,6 +361,7 @@
 		};
 		BE8243092363AAB200994FB2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1F503341D4D9A7A26CC125E7 /* Pods-Google_IMA.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -315,11 +379,13 @@
 				PRODUCT_NAME = "THEO Google IMA";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_WORKSPACE = YES;
 			};
 			name = Debug;
 		};
 		BE82430A2363AAB200994FB2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5FE78D65D86F470D623868CE /* Pods-Google_IMA.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -337,6 +403,7 @@
 				PRODUCT_NAME = "THEO Google IMA";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_WORKSPACE = YES;
 			};
 			name = Release;
 		};
