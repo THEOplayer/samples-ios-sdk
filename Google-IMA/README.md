@@ -27,7 +27,9 @@ This app is an extension of [THEO Basic Playback] application. Please checkout t
 
       cp -a THEOplayerSDK.framework/ Google-IMA/
 
-* Open the reference app project `Google_IMA.xcodeproj` with Xcode.
+* Install the `Podfile` by running `pod install --repo-update` in the root `Google-IMA` folder which contains the `Podfile` file.
+  Running this command installs the Google IMA iOS SDK which is a mandatory dependency.
+* Open the reference app project `Google_IMA.xworkspace` with Xcode.
 * Select `Product > Run` from Xcode menu bar or press `⌘ + R` on the keyboard to build and run the application.
   * Should there be any problems with launching the application, please check the [THEO Knowledge Base - Simulator And iOS Device] guide for more information.
 
