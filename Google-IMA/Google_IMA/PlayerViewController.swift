@@ -63,7 +63,7 @@ class PlayerViewController: UIViewController {
         )
 
         // Flag to switch between VAST and VMAP ads. Default to VAST.
-        let useVast: Bool = true
+        let useVast: Bool = false
         var vastAdDescs: [AdDescription] = [AdDescription]()
         // VAST - A linear pre-roll:
         vastAdDescs.append(GoogleImaAdDescription(src: "https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/single_ad_samples&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ct%3Dlinear&correlator="))
@@ -150,8 +150,8 @@ class PlayerViewController: UIViewController {
     // MARK: - THEOplayer setup and unload
 
     private func setupTheoplayer() {
-        // Player config with Goolge IMA enabled
-        let playerConfig = THEOplayerConfiguration(googleIMA: true)
+        // Player config with Google IMA enabled
+        let playerConfig = THEOplayerConfiguration(ads: AdsConfiguration(showCountdown: true, preload: AdPreloadType.MIDROLL_AND_POSTROLL, googleImaConfiguration: GoogleIMAConfiguration(useNativeIma: true)))
         // Instantiate player object with playerConfig
         theoplayer = THEOplayer(configuration: playerConfig)
 
