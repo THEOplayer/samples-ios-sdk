@@ -141,7 +141,11 @@ class PlayerViewController: UIViewController {
 
     private func setupTheoplayer() {
         // Instantiate player object
-        theoplayer = THEOplayer()
+        let playerConfig = THEOplayerConfiguration(
+            pip: nil,
+            license: "your_license_string"
+        )
+        theoplayer = THEOplayer(configuration: playerConfig)
 
         // Add the player to playerView's view hierarchy
         theoplayer.addAsSubview(of: theoplayerView)

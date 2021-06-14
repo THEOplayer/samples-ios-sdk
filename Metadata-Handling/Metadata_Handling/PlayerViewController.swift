@@ -269,7 +269,11 @@ class PlayerViewController: UIViewController {
 
     private func setupTheoplayer() {
         // Instantiate player object
-        theoplayer = THEOplayer()
+        let playerConfig = THEOplayerConfiguration(
+            pip: nil,
+            license: "your_license_string"
+        )
+        theoplayer = THEOplayer(configuration: playerConfig)
 
         // dateRange metadata event is not sent consistently when autoplay flag is set
         theoplayer.autoplay = stream.type != .dateRange

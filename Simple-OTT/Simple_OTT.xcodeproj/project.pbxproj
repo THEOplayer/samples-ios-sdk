@@ -3,11 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		2B0A63679C40C5AEA98847CE /* Pods_Simple_OTT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D997E2E1689454F536904EEB /* Pods_Simple_OTT.framework */; };
+		7617EED92677E9AE00EBE674 /* THEOplayerSDK.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7617EED82677E9AD00EBE674 /* THEOplayerSDK.xcframework */; };
+		7617EEDA2677E9AE00EBE674 /* THEOplayerSDK.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7617EED82677E9AD00EBE674 /* THEOplayerSDK.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BE01A75923875BE1000EFF53 /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE01A75823875BE1000EFF53 /* PlayerViewController.swift */; };
 		BE01A76423876674000EFF53 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE01A76323876674000EFF53 /* Theme.swift */; };
 		BE3DAC5C2406E48C00661F87 /* Config.json in Resources */ = {isa = PBXBuildFile; fileRef = BE3DAC5B2406E48C00661F87 /* Config.json */; };
@@ -43,19 +45,17 @@
 		BEA04E0924071C5B00B04611 /* ContentTableViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA04E0824071C5B00B04611 /* ContentTableViewViewModel.swift */; };
 		BEA04E0B24071C7900B04611 /* ContentTableCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA04E0A24071C7900B04611 /* ContentTableCellViewModel.swift */; };
 		BEA04E0D24071C9700B04611 /* SettingsViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA04E0C24071C9700B04611 /* SettingsViewViewModel.swift */; };
-		BEA996242411CADA00B18D90 /* THEOplayerSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEA996212411CAD600B18D90 /* THEOplayerSDK.framework */; };
-		BEA996252411CADA00B18D90 /* THEOplayerSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BEA996212411CAD600B18D90 /* THEOplayerSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BEC30FB224086FCD0048DB10 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC30FB124086FCD0048DB10 /* GradientView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		BEA996262411CADB00B18D90 /* Embed Frameworks */ = {
+		7617EEDB2677E9AE00EBE674 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				BEA996252411CADA00B18D90 /* THEOplayerSDK.framework in Embed Frameworks */,
+				7617EEDA2677E9AE00EBE674 /* THEOplayerSDK.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -64,6 +64,7 @@
 
 /* Begin PBXFileReference section */
 		22622F6C23A92B176A880A7D /* Pods-Simple_OTT.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Simple_OTT.debug.xcconfig"; path = "Target Support Files/Pods-Simple_OTT/Pods-Simple_OTT.debug.xcconfig"; sourceTree = "<group>"; };
+		7617EED82677E9AD00EBE674 /* THEOplayerSDK.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = THEOplayerSDK.xcframework; sourceTree = "<group>"; };
 		BE01A75823875BE1000EFF53 /* PlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
 		BE01A76323876674000EFF53 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		BE3DAC5B2406E48C00661F87 /* Config.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Config.json; sourceTree = "<group>"; };
@@ -104,7 +105,6 @@
 		BEA04E0A24071C7900B04611 /* ContentTableCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentTableCellViewModel.swift; sourceTree = "<group>"; };
 		BEA04E0C24071C9700B04611 /* SettingsViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewViewModel.swift; sourceTree = "<group>"; };
 		BEA996202411CAD600B18D90 /* GoogleCast.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleCast.framework; sourceTree = "<group>"; };
-		BEA996212411CAD600B18D90 /* THEOplayerSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = THEOplayerSDK.framework; sourceTree = "<group>"; };
 		BEC30FB124086FCD0048DB10 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		D997E2E1689454F536904EEB /* Pods_Simple_OTT.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Simple_OTT.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBE773367AAB16C39608DED4 /* Pods-Simple_OTT.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Simple_OTT.release.xcconfig"; path = "Target Support Files/Pods-Simple_OTT/Pods-Simple_OTT.release.xcconfig"; sourceTree = "<group>"; };
@@ -128,11 +128,11 @@
 				BE5DF2CD240B32100056C3E4 /* Accelerate.framework in Frameworks */,
 				BE5DF2EB240B329F0056C3E4 /* UIKit.framework in Frameworks */,
 				BE5DF2D9240B32560056C3E4 /* CoreGraphics.framework in Frameworks */,
-				BEA996242411CADA00B18D90 /* THEOplayerSDK.framework in Frameworks */,
 				BE5DF2CF240B32250056C3E4 /* AudioToolbox.framework in Frameworks */,
 				BE5DF2D5240B32410056C3E4 /* CoreBluetooth.framework in Frameworks */,
 				BE5DF2D3240B323A0056C3E4 /* CFNetwork.framework in Frameworks */,
 				BE5DF2DF240B326B0056C3E4 /* Foundation.framework in Frameworks */,
+				7617EED92677E9AE00EBE674 /* THEOplayerSDK.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -152,8 +152,8 @@
 		88B4E71935B8C9A7142D232F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7617EED82677E9AD00EBE674 /* THEOplayerSDK.xcframework */,
 				BEA996202411CAD600B18D90 /* GoogleCast.framework */,
-				BEA996212411CAD600B18D90 /* THEOplayerSDK.framework */,
 				D997E2E1689454F536904EEB /* Pods_Simple_OTT.framework */,
 				BE5DF2EA240B329F0056C3E4 /* UIKit.framework */,
 				BE5DF2E8240B32980056C3E4 /* SystemConfiguration.framework */,
@@ -298,7 +298,7 @@
 				BE8242F12363AAB100994FB2 /* Frameworks */,
 				BE8242F22363AAB100994FB2 /* Resources */,
 				934CFD5AF318D33A839EB99D /* [CP] Embed Pods Frameworks */,
-				BEA996262411CADB00B18D90 /* Embed Frameworks */,
+				7617EEDB2677E9AE00EBE674 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

@@ -18,6 +18,9 @@ A typical **`THEOplayer SDK`** contains the THEOplayer doc in a zip file and the
 
 !["THEOplayer SDK Content"][01]
 
+Recent version of the THEOplayer SDK offer a `THEOplayerSDK.framework` and `THEOplayerSDK.xcframework` file.
+You should try to use `THEOplayerSDK.xcframework` whenever possible.
+
 Drag and drop **`THEOplayer SDK`** file from **`Finder`** as shown in the screenshot below:
 
 !["Drag And Drop THEOplayer SDK"][02]
@@ -37,6 +40,8 @@ Optional. Right click on project and `New Group without Folder` to create a logi
 Optional. Rename the new group to `Frameworks` which is a common folder name in Xcode projects. Repeat 2 - 4 above but drop the **`THEOplayer SDK`** under the `Frameworks` folder instead:
 
 !["SDK in Frameworks group"][06]
+
+Note: refer to [https://github.com/THEOplayer/theoplayer-sdk-ios] if you want to import the THEOplayer SDK through Cocoapods instead of this manual approach.
 
 ## Implementation
 
@@ -71,7 +76,11 @@ Instantiate THEOplayer before view controller appears, keep the reference in vie
         ...
 
         private func setupTheoplayer() {
-            theoplayer = THEOplayer()
+            let playerConfig = THEOplayerConfiguration(
+                pip: nil,
+                license: "your_license_string"
+            )
+            theoplayer = THEOplayer(configuration: playerConfig)
 
             ...
         }
@@ -79,6 +88,12 @@ Instantiate THEOplayer before view controller appears, keep the reference in vie
         ...
     }
 ```
+
+Remember to swap `your_license_string` with your THEOplayer Android SDK license.
+You can find your license value on the [THEOplayer Developer Portal](https://portal.theoplayer.com)
+associated with your Android SDK, as illustrated by the screenshot below.
+
+![](https://cdn.theoplayer.com/images/git/theoplayer-ios-sdk-license-string.png)
 
 THEOplayer needs to be added as a sub-view of another view (theoplayerView) using the `addAsSubView()` API. Detail on the `THEOPlayerView` class will be covered later.
 
@@ -113,7 +128,11 @@ THEOplayer needs to be added as a sub-view of another view (theoplayerView) usin
         ...
 
         private func setupTheoplayer() {
-            theoplayer = THEOplayer()
+            let playerConfig = THEOplayerConfiguration(
+                pip: nil,
+                license: "your_license_string"
+            )
+            theoplayer = THEOplayer(configuration: playerConfig)
             theoplayer.addAsSubview(of: theoplayerView)
 
             ...

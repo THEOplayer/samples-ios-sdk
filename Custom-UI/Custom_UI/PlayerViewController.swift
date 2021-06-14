@@ -189,7 +189,11 @@ class PlayerViewController: UIViewController {
 
     private func setupTheoplayer() {
         // Enable chromeless flag in THEOplayer configuration
-        let playerConfig = THEOplayerConfiguration(chromeless: true)
+        let playerConfig = THEOplayerConfiguration(
+            chromeless: true,
+            pip: nil,
+            license: "your_license_string"
+        )
 
         // Instantiate player object
         theoplayer = THEOplayer(configuration: playerConfig)

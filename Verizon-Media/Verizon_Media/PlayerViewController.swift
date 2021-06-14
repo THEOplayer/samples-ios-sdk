@@ -115,6 +115,8 @@ class PlayerViewController: UIViewController {
     private func setupTheoplayer() {
         
         let theoplayerConfiguration = THEOplayerConfiguration(
+            pip: nil,
+            license: "your_license_string",
             verizonMedia: VerizonMediaConfiguration(
                 defaultSkipOffset: 15, // optional; defaults to -1 (=unskippable)
                 onSeekOverAd: SkippedAdStrategy.PLAY_LAST, // optional; default to PLAY_NONE

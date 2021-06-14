@@ -179,7 +179,11 @@ class PlayerViewController: UIViewController {
 
     private func setupTheoplayer() {
         // Instantiate player object
-        theoplayer = THEOplayer()
+        let playerConfig = THEOplayerConfiguration(
+            pip: nil,
+            license: "your_license_string"
+        )
+        theoplayer = THEOplayer(configuration: playerConfig)
         
         //Add FullScreen Handling Orientation
         theoplayer.fullscreen.setSupportedInterfaceOrientations(supportedInterfaceOrientations: .landscapeRight)

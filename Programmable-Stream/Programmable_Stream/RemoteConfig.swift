@@ -169,7 +169,7 @@ class PlayerConfiguration: Decodable {
     }
 
     func getTheoPlayerConfiguration(chromeless: Bool = false, googleIMA: Bool = false, pictureInPicture: Bool = false) -> THEOplayerConfiguration? {
-        return THEOplayerConfiguration(chromeless: chromeless, googleIMA: googleIMA, pictureInPicture: pictureInPicture, ads: ads?.adsConfiguration, ui: ui?.uiConfiguration, cast: cast?.castConfiguration, hlsDateRange: hlsDateRange, verizonMedia: verizonMedia?.verizonMediaConfiguration)
+        return THEOplayerConfiguration(chromeless: chromeless, googleIMA: googleIMA, pictureInPicture: pictureInPicture, ads: ads?.adsConfiguration, ui: ui?.uiConfiguration, cast: cast?.castConfiguration, hlsDateRange: hlsDateRange, verizonMedia: verizonMedia?.verizonMediaConfiguration, license: "your_license_string")
     }
 }
 

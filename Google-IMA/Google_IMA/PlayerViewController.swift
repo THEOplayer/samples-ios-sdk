@@ -151,7 +151,15 @@ class PlayerViewController: UIViewController {
 
     private func setupTheoplayer() {
         // Player config with Google IMA enabled
-        let playerConfig = THEOplayerConfiguration(ads: AdsConfiguration(showCountdown: true, preload: AdPreloadType.MIDROLL_AND_POSTROLL, googleImaConfiguration: GoogleIMAConfiguration(useNativeIma: true)))
+        let playerConfig = THEOplayerConfiguration(
+            pip: nil,
+            ads: AdsConfiguration(
+                showCountdown: true,
+                preload: AdPreloadType.MIDROLL_AND_POSTROLL,
+                googleImaConfiguration: GoogleIMAConfiguration(useNativeIma: true)
+            ),
+            license: "your_license_string"
+        )
         // Instantiate player object with playerConfig
         theoplayer = THEOplayer(configuration: playerConfig)
 

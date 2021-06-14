@@ -125,7 +125,7 @@ class PlayerViewController: UIViewController {
         THEOplayerCastHelper.setGCKCastContextSharedInstanceWithDefaultCastOptions()
 
         // Enable googleIMA, picture-in-picture and configure cast join strategy to auto
-        let playerConfig = THEOplayerConfiguration(chromeless: false, pip: PiPConfiguration(retainPresentationModeOnSourceChange: true), ads: AdsConfiguration(showCountdown: true, preload: .NONE, googleImaConfiguration: GoogleIMAConfiguration(useNativeIma: true)), cast: CastConfiguration(strategy: .auto))
+        let playerConfig = THEOplayerConfiguration(chromeless: false, pip: PiPConfiguration(retainPresentationModeOnSourceChange: true), ads: AdsConfiguration(showCountdown: true, preload: .NONE, googleImaConfiguration: GoogleIMAConfiguration(useNativeIma: true)), cast: CastConfiguration(strategy: .auto), license: "your_license_string")
 
         // Instantiate player object with playerConfig
         theoplayer = THEOplayer(configuration: playerConfig)

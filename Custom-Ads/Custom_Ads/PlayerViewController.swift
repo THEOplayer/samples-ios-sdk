@@ -153,7 +153,15 @@ class PlayerViewController: UIViewController {
     // MARK: - THEOplayer setup and unload
 
     private func setupTheoplayer() {
-        let playerConfig = THEOplayerConfiguration(googleIMA: true)
+        let playerConfig = THEOplayerConfiguration(
+            pip: nil,
+            ads: AdsConfiguration(
+                showCountdown: true,
+                preload: AdPreloadType.MIDROLL_AND_POSTROLL,
+                googleImaConfiguration: GoogleIMAConfiguration(useNativeIma: true)
+            ),
+            license: "your_license_string"
+        )
         // Instantiate player object with playerConfig
         theoplayer = THEOplayer(configuration: playerConfig)
 
