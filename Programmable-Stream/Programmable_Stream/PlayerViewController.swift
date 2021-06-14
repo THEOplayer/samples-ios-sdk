@@ -219,7 +219,7 @@ class PlayerViewController: UIViewController {
 
             playerConfig = playerConfiguration.getTheoPlayerConfiguration(googleIMA: googleIMA, pictureInPicture: pictureInPicture)
         } else {
-           playerConfig = THEOplayerConfiguration(googleIMA: googleIMA, pictureInPicture: pictureInPicture)
+            playerConfig = THEOplayerConfiguration(googleIMA: googleIMA, pictureInPicture: pictureInPicture, license: "your_license_string")
         }
 
         // Instantiate player object with playerConfig

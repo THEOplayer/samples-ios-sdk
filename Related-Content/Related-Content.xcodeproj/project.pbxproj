@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,21 +11,21 @@
 		4CCB95212472A88500798720 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CCB951F2472A88500798720 /* Main.storyboard */; };
 		4CCB95232472A88700798720 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CCB95222472A88700798720 /* Assets.xcassets */; };
 		4CCB95262472A88700798720 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CCB95242472A88700798720 /* LaunchScreen.storyboard */; };
-		4CCB952F2472A91E00798720 /* THEOplayerSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CCB952E2472A91E00798720 /* THEOplayerSDK.framework */; };
-		4CCB95302472A91E00798720 /* THEOplayerSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4CCB952E2472A91E00798720 /* THEOplayerSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4CCB95332472AA8800798720 /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCB95322472AA8800798720 /* PlayerViewController.swift */; };
 		4CCB95352472AB1600798720 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCB95342472AB1600798720 /* Theme.swift */; };
 		4CCB95372472B5AD00798720 /* stylesheet.css in Resources */ = {isa = PBXBuildFile; fileRef = 4CCB95362472B5AD00798720 /* stylesheet.css */; };
+		7617EED52677E8B800EBE674 /* THEOplayerSDK.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7617EED42677E8B800EBE674 /* THEOplayerSDK.xcframework */; };
+		7617EED62677E8B800EBE674 /* THEOplayerSDK.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7617EED42677E8B800EBE674 /* THEOplayerSDK.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		4CCB95312472A91E00798720 /* Embed Frameworks */ = {
+		7617EED72677E8B800EBE674 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				4CCB95302472A91E00798720 /* THEOplayerSDK.framework in Embed Frameworks */,
+				7617EED62677E8B800EBE674 /* THEOplayerSDK.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -39,10 +39,10 @@
 		4CCB95222472A88700798720 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4CCB95252472A88700798720 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4CCB95272472A88700798720 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4CCB952E2472A91E00798720 /* THEOplayerSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = THEOplayerSDK.framework; sourceTree = "<group>"; };
 		4CCB95322472AA8800798720 /* PlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
 		4CCB95342472AB1600798720 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		4CCB95362472B5AD00798720 /* stylesheet.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = stylesheet.css; sourceTree = "<group>"; };
+		7617EED42677E8B800EBE674 /* THEOplayerSDK.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = THEOplayerSDK.xcframework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,7 +50,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4CCB952F2472A91E00798720 /* THEOplayerSDK.framework in Frameworks */,
+				7617EED52677E8B800EBE674 /* THEOplayerSDK.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,7 +92,7 @@
 		4CCB952D2472A91E00798720 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				4CCB952E2472A91E00798720 /* THEOplayerSDK.framework */,
+				7617EED42677E8B800EBE674 /* THEOplayerSDK.xcframework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -107,7 +107,7 @@
 				4CCB95122472A88500798720 /* Sources */,
 				4CCB95132472A88500798720 /* Frameworks */,
 				4CCB95142472A88500798720 /* Resources */,
-				4CCB95312472A91E00798720 /* Embed Frameworks */,
+				7617EED72677E8B800EBE674 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

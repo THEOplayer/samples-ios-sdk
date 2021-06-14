@@ -197,7 +197,11 @@ class PlayerViewController: UIViewController {
 
     private func setupTheoplayer() {
         // Configure cast join strategy to auto
-        let playerConfig = THEOplayerConfiguration(cast: CastConfiguration(strategy: .auto))
+        let playerConfig = THEOplayerConfiguration(
+            pip: nil,
+            cast: CastConfiguration(strategy: .auto),
+            license: "your_license_string"
+        )
 
         // Instantiate player object with playerConfig
         theoplayer = THEOplayer(configuration: playerConfig)

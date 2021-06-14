@@ -138,7 +138,10 @@ class PlayerViewController: UIViewController {
 
     private func setupTheoplayer() {
         // Declare player config with Picture-In-Picture 
-        let playerConfig = THEOplayerConfiguration(pip: PiPConfiguration(retainPresentationModeOnSourceChange: true))
+        let playerConfig = THEOplayerConfiguration(
+            pip: PiPConfiguration(retainPresentationModeOnSourceChange: true),
+            license: "your_license_string"
+        )
 
         // Instantiate player object with player config
         theoplayer = THEOplayer(configuration: playerConfig)

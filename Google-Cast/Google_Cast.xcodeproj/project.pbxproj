@@ -3,10 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7617EEC02677E0F200EBE674 /* THEOplayerSDK.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7617EEBF2677E0F200EBE674 /* THEOplayerSDK.xcframework */; };
+		7617EEC12677E0F200EBE674 /* THEOplayerSDK.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7617EEBF2677E0F200EBE674 /* THEOplayerSDK.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BE01A75923875BE1000EFF53 /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE01A75823875BE1000EFF53 /* PlayerViewController.swift */; };
 		BE01A76423876674000EFF53 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE01A76323876674000EFF53 /* Theme.swift */; };
 		BE8242F82363AAB100994FB2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8242F72363AAB100994FB2 /* AppDelegate.swift */; };
@@ -28,8 +30,6 @@
 		BEA11110238F596E00B20862 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEA1110F238F596E00B20862 /* Security.framework */; };
 		BEA11112238F597500B20862 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEA11111238F597500B20862 /* SystemConfiguration.framework */; };
 		BEA11114238F597D00B20862 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEA11113238F597D00B20862 /* UIKit.framework */; };
-		BED1C39E24112FF300A4ABEB /* THEOplayerSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BED1C39A24112FE900A4ABEB /* THEOplayerSDK.framework */; };
-		BED1C39F24112FF300A4ABEB /* THEOplayerSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BED1C39A24112FE900A4ABEB /* THEOplayerSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BED1C3A124112FF800A4ABEB /* GoogleCast.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BED1C39B24112FE900A4ABEB /* GoogleCast.framework */; };
 		BED1C3A224112FF800A4ABEB /* GoogleCast.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BED1C39B24112FE900A4ABEB /* GoogleCast.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
@@ -42,7 +42,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				BED1C3A224112FF800A4ABEB /* GoogleCast.framework in Embed Frameworks */,
-				BED1C39F24112FF300A4ABEB /* THEOplayerSDK.framework in Embed Frameworks */,
+				7617EEC12677E0F200EBE674 /* THEOplayerSDK.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -50,6 +50,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		7617EEBF2677E0F200EBE674 /* THEOplayerSDK.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = THEOplayerSDK.xcframework; sourceTree = "<group>"; };
 		BE01A75823875BE1000EFF53 /* PlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
 		BE01A76323876674000EFF53 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		BE6A30B823E0F92200951546 /* THEO Google Cast.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "THEO Google Cast.entitlements"; sourceTree = "<group>"; };
@@ -74,7 +75,6 @@
 		BEA1110F238F596E00B20862 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		BEA11111238F597500B20862 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		BEA11113238F597D00B20862 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		BED1C39A24112FE900A4ABEB /* THEOplayerSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = THEOplayerSDK.framework; sourceTree = "<group>"; };
 		BED1C39B24112FE900A4ABEB /* GoogleCast.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleCast.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -87,7 +87,6 @@
 				BEA11114238F597D00B20862 /* UIKit.framework in Frameworks */,
 				BEA11112238F597500B20862 /* SystemConfiguration.framework in Frameworks */,
 				BEA1110E238F596500B20862 /* QuartzCore.framework in Frameworks */,
-				BED1C39E24112FF300A4ABEB /* THEOplayerSDK.framework in Frameworks */,
 				BEA110F6238F590400B20862 /* Accelerate.framework in Frameworks */,
 				BEA11100238F592B00B20862 /* CoreData.framework in Frameworks */,
 				BEA11110238F596E00B20862 /* Security.framework in Frameworks */,
@@ -101,6 +100,7 @@
 				BEA110FA238F591600B20862 /* AVFoundation.framework in Frameworks */,
 				BEA1110C238F595C00B20862 /* MediaPlayer.framework in Frameworks */,
 				BEA1110A238F595300B20862 /* MediaAccessibility.framework in Frameworks */,
+				7617EEC02677E0F200EBE674 /* THEOplayerSDK.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,8 +141,8 @@
 		BEA110F4238F590400B20862 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7617EEBF2677E0F200EBE674 /* THEOplayerSDK.xcframework */,
 				BED1C39B24112FE900A4ABEB /* GoogleCast.framework */,
-				BED1C39A24112FE900A4ABEB /* THEOplayerSDK.framework */,
 				BEA11113238F597D00B20862 /* UIKit.framework */,
 				BEA11111238F597500B20862 /* SystemConfiguration.framework */,
 				BEA1110F238F596E00B20862 /* Security.framework */,

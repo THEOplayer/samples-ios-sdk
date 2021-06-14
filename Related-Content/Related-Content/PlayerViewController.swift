@@ -154,14 +154,16 @@ class PlayerViewController: UIViewController {
     // MARK: - THEOplayer setup and unload
 
     private func setupTheoplayer() {
-        // Instantiate player object
-        theoplayer = THEOplayer()
-        
         // Adding the CSS external file
         let stylePath = Bundle.main.path(forResource:"stylesheet", ofType: "css")!
         
         // Setting the CSS files to player configuration
-        let playerConfig = THEOplayerConfiguration(defaultCSS: true, cssPaths:[stylePath])
+        let playerConfig = THEOplayerConfiguration(
+            defaultCSS: true,
+            cssPaths:[stylePath],
+            pip: nil,
+            license: "your_license_string"
+        )
         
         // Adding player configuration to THEOplayer
         theoplayer = THEOplayer(configuration: playerConfig)
