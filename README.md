@@ -56,6 +56,7 @@ different use cases.
 * [Custom UI](Custom-UI/README.md)
 * [Simple OTT](Simple-OTT/README.md)
 * [Programmable Stream](Programmable-Stream/README.md)
+* [Verizon Media](Verizon-Media/README.md)
 
 ## Streams/Content Rights:
 
