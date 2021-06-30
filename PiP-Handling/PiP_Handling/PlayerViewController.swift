@@ -137,17 +137,23 @@ class PlayerViewController: UIViewController {
     // MARK: - THEOplayer setup and unload
 
     private func setupTheoplayer() {
-        // Declare player config with Picture-In-Picture 
+        // If nativePictureInPicture is true, then out-of-app PiP is used. Otherwise it will make use of in-app Pip.
+        // Also note that you need to add the following capability in the xcodeproj: 'Background Modes > Audio, Airplay and Picture in Picture'
+        let nativePictureInPicture = true
+        
+        // Declare player config with Picture-In-Picture
         let playerConfig = THEOplayerConfiguration(
-            pip: PiPConfiguration(retainPresentationModeOnSourceChange: true),
+            pip: PiPConfiguration(retainPresentationModeOnSourceChange: true, nativePictureInPicture: nativePictureInPicture),
             license: "your_license_string"
         )
 
         // Instantiate player object with player config
         theoplayer = THEOplayer(configuration: playerConfig)
 
-        // Configure picture-in-picture mode
-        theoplayer.pip?.configure(movable: true, defaultCorner: .bottomRight, scale: 0.3, visibility: nil, margin: THEOMargins(all: 20))
+        // Configure picture-in-picture mode, only supported for in-app PiP.
+        if !nativePictureInPicture {
+            theoplayer.pip?.configure(movable: true, defaultCorner: .bottomRight, scale: 0.3, visibility: nil, margin: THEOMargins(all: 20))
+        }
 
         // Add the player to playerView's view hierarchy
         theoplayer.addAsSubview(of: theoplayerView)
