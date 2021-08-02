@@ -261,8 +261,8 @@ class PlayerViewController: UIViewController {
     private func createLiveFairPlayStreamWithAds() -> VerizonMediaSource {
         let verizonMediaSource = VerizonMediaSource(
             assetId: "3c367669a83b4cdab20cceefac253684",
-            parameters: [ // preplay query parameters
-                "ad": "cleardashnew"
+            orderedParameters: [ // preplay query parameters
+                ("ad", "cleardashnew")
             ],
             assetType: .CHANNEL,
             contentProtected: true, // Optional, defaults to false.
@@ -283,9 +283,9 @@ class PlayerViewController: UIViewController {
                 "a4c40e2a8d5b46338b09d7f863049675",
                 "bcf7d78c4ff94c969b2668a6edc64278"
             ],
-            parameters: [ // preplay query parameters
-                "ad": "adtest",
-                "ad.lib": "15_sec_spots"
+            orderedParameters: [ // preplay query parameters
+                ("ad", "adtest"),
+                ("ad.lib", "15_sec_spots")
             ],
             assetType: .ASSET,
             contentProtected: false // Optional, defaults to false.
