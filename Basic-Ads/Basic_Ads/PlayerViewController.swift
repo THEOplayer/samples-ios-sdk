@@ -119,7 +119,9 @@ class PlayerViewController: UIViewController {
     }
 
     private func setupPlayerView() {
-        theoplayerView = THEOPlayerView() { (updatedFrame) in
+        theoplayerView = THEOPlayerView() { [weak self] (updatedFrame) in
+            guard let viewController = self else { return }
+
             // Create a frame based on the playView's updated frame
             var playerFrame = updatedFrame
 

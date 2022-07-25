@@ -40,7 +40,7 @@ related to mistakes in the integration.
 
 In order to keep these apps as simple as possible, we will maintain
 a set of different sample apps over a single sample app showing all
-different use cases.
+different use cases. The following apps are made to work with THEOplayerSDK v2.88.0 :
 
 * [Basic Playback](Basic-Playback/README.md)
 * [DRM Playback](DRM-Playback/README.md)

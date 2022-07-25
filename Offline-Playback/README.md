@@ -2,7 +2,7 @@
 
 The purpose of this app is to demonstrate how [THEOplayer] can be used to download protected and unprotected content for offline playback.
 
-For quick start, please proceed with the [Quick Start](#Quick-Start) guide.
+For quick start, please proceed with the [Quick Start](#Quick-Start) guide and make sure to run the app on a real device because offline playback is not supported in simulators.
 
 ## Guides
 

@@ -143,7 +143,9 @@ class PlayerViewController: UIViewController {
     }
 
     private func setupPlayerView() {
-        theoplayerView = THEOPlayerView() { (updatedFrame) in
+        theoplayerView = THEOPlayerView() { [weak self] (updatedFrame) in
+            guard let viewController = self else { return }
+
             // Create a frame based on the playView's updated frame
             var playerFrame = updatedFrame
 
@@ -151,7 +153,7 @@ class PlayerViewController: UIViewController {
             playerFrame.origin = .zero
 
             // Assign the frame to THEOplayer. Closure might be invoked prior to THEOplayer initialisation hence the optional chaining
-            self.theoplayer?.frame = playerFrame
+            viewController.theoplayer?.frame = playerFrame
         }
         // Disable automatic auto layout constraints
         theoplayerView.translatesAutoresizingMaskIntoConstraints = false
@@ -204,7 +206,6 @@ class PlayerViewController: UIViewController {
     private func setupTheoplayer() {
         // Player config with Goolge IMA and picture-in-picture enabled
         let googleIMA = true
-        let pictureInPicture = true
 
         var playerConfig: THEOplayerConfiguration!
         if let remoteConfig = remoteConfig, let playerConfiguration = remoteConfig.playerConfiguration {
@@ -217,9 +218,9 @@ class PlayerViewController: UIViewController {
                 THEOplayerCastHelper.setGCKCastContextSharedInstanceWithDefaultCastOptions()
             }
 
-            playerConfig = playerConfiguration.getTheoPlayerConfiguration(googleIMA: googleIMA, pictureInPicture: pictureInPicture)
+            playerConfig = playerConfiguration.getTheoPlayerConfiguration(googleIMA: googleIMA)
         } else {
-            playerConfig = THEOplayerConfiguration(googleIMA: googleIMA, pictureInPicture: pictureInPicture, license: "your_license_string")
+            playerConfig = THEOplayerConfiguration(googleIMA: googleIMA)
         }
 
         // Instantiate player object with playerConfig
