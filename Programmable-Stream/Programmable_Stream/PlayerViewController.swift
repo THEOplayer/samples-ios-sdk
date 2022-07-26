@@ -204,10 +204,7 @@ class PlayerViewController: UIViewController {
     // MARK: - THEOplayer setup and unload
 
     private func setupTheoplayer() {
-        // Player config with Goolge IMA and picture-in-picture enabled
-        let googleIMA = true
-
-        var playerConfig: THEOplayerConfiguration!
+        var playerConfig: THEOplayerConfiguration
         if let remoteConfig = remoteConfig, let playerConfiguration = remoteConfig.playerConfiguration {
             if let appId = playerConfiguration.cast?.chromecast?.appID {
                 // Set Chromecast AppID via GCKCastContext option
@@ -218,9 +215,9 @@ class PlayerViewController: UIViewController {
                 THEOplayerCastHelper.setGCKCastContextSharedInstanceWithDefaultCastOptions()
             }
 
-            playerConfig = playerConfiguration.getTheoPlayerConfiguration(googleIMA: googleIMA)
+            playerConfig = playerConfiguration.getTheoPlayerConfiguration()
         } else {
-            playerConfig = THEOplayerConfiguration(googleIMA: googleIMA)
+            playerConfig = THEOplayerConfiguration()
         }
 
         // Instantiate player object with playerConfig

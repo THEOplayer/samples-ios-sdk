@@ -168,8 +168,17 @@ class PlayerConfiguration: Decodable {
         case verizonMedia
     }
 
-    func getTheoPlayerConfiguration(chromeless: Bool = false, googleIMA: Bool = false) -> THEOplayerConfiguration? {
-        return THEOplayerConfiguration(chromeless: chromeless, pip: nil, ads: ads?.adsConfiguration, ui: ui?.uiConfiguration, cast: cast?.castConfiguration, hlsDateRange: hlsDateRange, license: "your_license_string", verizonMedia: verizonMedia?.verizonMediaConfiguration)
+    func getTheoPlayerConfiguration() -> THEOplayerConfiguration {
+        THEOplayerConfiguration(
+            chromeless: false,
+            pip: nil,
+            ads: ads?.adsConfiguration,
+            ui: ui?.uiConfiguration,
+            cast: cast?.castConfiguration,
+            hlsDateRange: hlsDateRange,
+            license: "your_license_string",
+            verizonMedia: verizonMedia?.verizonMediaConfiguration
+        )
     }
 }
 
