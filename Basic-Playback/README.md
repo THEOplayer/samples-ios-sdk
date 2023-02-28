@@ -2,7 +2,7 @@
 
 The purpose of this app is to demonstrate how to integrate [THEOplayer] into an iOS app and playback a HLS stream.
 
-For quick start, please proceed with the [Quick Start](https://docs.theoplayer.com/getting-started/01-sdks/03-ios/00-getting-started.md) guide.
+For a quick start with this sample, please proceed with the [Quick Start](#Quick-Start) section. You can also take a look at our [Getting Started on iOS](https://docs.theoplayer.com/getting-started/01-sdks/03-ios/00-getting-started.md) guide for more information.
 
 Please checkout the following guides should any help is needed to get started with Xcode and/or THEOplayer SDK.
 
