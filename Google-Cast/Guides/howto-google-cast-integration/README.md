@@ -17,7 +17,7 @@ The complete implementation can be found in [PlayerViewController.swift] with in
 
 ## Setup Google Cast Framework
 
-Before starting, please note the warning in [Google Cast iOS Sender] regarding specific iOS versions.
+Before starting, please note the warnings in [Google Cast iOS Sender] regarding specific iOS versions.
 
 [Google Cast iOS Sender] offers 2 ways to install Google Cast Framework. Please refer to the [How To Guide](https://docs.theoplayer.com/how-to-guides/03-cast/01-chromecast/06-enable-chromecast-on-the-sender.md#ios-sdk) on our website to learn how to set up the Cast framework.
 
