@@ -101,7 +101,7 @@ class PlayerViewController: UIViewController {
         self.chromeCastButton!.tintColor = UIColor.white
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: self.chromeCastButton!)
         
-        self.chromeCastButton?.delegate = self // native button
+        self.chromeCastButton?.delegate = self // native Chromecast button
     }
 
     @objc private func onChromecast() {
