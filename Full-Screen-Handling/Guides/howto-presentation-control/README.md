@@ -101,10 +101,7 @@ class PlayerViewController: UIViewController {
     }
 
     private func onPresentationModeChange(event: PresentationModeChangeEvent) {
-        os_log("onPresentationModeChange: %@", event.presentationMode.rawValue)
-        if event.presentationMode == .inline {
-            UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation")
-        }
+        os_log("onPresentationModeChange: %@", event.presentationMode._rawValue)
     }
 
     ...
@@ -128,7 +125,7 @@ For more guides about THEOplayer please visit [THEO Docs] portal.
 
 [//]: # (Links and Guides reference)
 [THEO Basic Playback]: ../Basic-Playback
-[THEO Docs]: https://docs.portal.theoplayer.com/
+[THEO Docs]: https://docs.theoplayer.com/
 
 [//]: # (Project files reference)
 [PlayerViewController.swift]: ../../Full_Screen_Handling/PlayerViewController.swift
