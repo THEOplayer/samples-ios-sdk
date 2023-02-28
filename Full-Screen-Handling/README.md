@@ -17,7 +17,7 @@ For quick start, please proceed with the [Quick Start](https://docs.theoplayer.c
        pod install --repo-update
        
       &emsp;
-   Please keep in mind [the included features](https://github.com/THEOplayer/theoplayer-sdk-ios#included-features) on the Cocoapods releases. If you want to use any features other than these, you need to create a custom THEOplayer iOS SDK framework from THEOportal with the features you wish and embed the framework in your project instead of using Cocoapods.
+      Please keep in mind [the included features](https://github.com/THEOplayer/theoplayer-sdk-ios#included-features) on the Cocoapods releases. If you           want      to use any features other than these, you need to create a custom THEOplayer iOS SDK framework from THEOportal with the features you wish         and embed the    framework in your project instead of using Cocoapods.
       &emsp;
 2. On player's configuration, replace the placeholder `your_license_here` with your license for iOS SDK.
       ```swift
