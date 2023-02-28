@@ -8,7 +8,7 @@ This app is an extension of [THEO Basic Playback] application. Please checkout t
 
 The purpose of this app is to demonstrate how to manage [THEOplayer] presentation mode.
 
-For quick start, please proceed with the [Quick Start](https://docs.theoplayer.com/getting-started/01-sdks/03-ios/00-getting-started.md) guide.
+For a quick start with this sample, please proceed with the [Quick Start](#Quick-Start) section. You can also take a look at our [Getting Started on iOS](https://docs.theoplayer.com/getting-started/01-sdks/03-ios/00-getting-started.md) guide for more information.
 
 ## Quick Start
 
