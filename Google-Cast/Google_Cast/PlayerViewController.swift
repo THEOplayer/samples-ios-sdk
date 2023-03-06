@@ -176,11 +176,11 @@ class PlayerViewController: UIViewController, GCKUICastButtonDelegate {
         THEOplayerCastHelper.setGCKCastContextSharedInstanceWithDefaultCastOptions()
 
         // Or you can provide your own options and appID instead
-        // GCKCastContext.sharedInstance().discoveryManager.startDiscovery() // start discovery
         // let criteria = GCKDiscoveryCriteria(applicationID: "1ADD53F3")
         // let options = GCKCastOptions(discoveryCriteria: criteria)
         // options.suspendSessionsWhenBackgrounded = false
         // GCKCastContext.setSharedInstanceWith(options)
+        // GCKCastContext.sharedInstance().discoveryManager.startDiscovery() // start discovery
     }
 
     // MARK: - Chromecast button handler
