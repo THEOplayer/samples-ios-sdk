@@ -146,7 +146,7 @@ class PlayerViewController: UIViewController {
             // Assign the frame to THEOplayer. Closure might be invoked prior to THEOplayer initialisation hence the optional chaining
             if viewController.theoplayer?.presentationMode == .inline {
                     viewController.theoplayer?.frame = playerFrame
-                  }
+            }
         }
         
         // Disable automatic auto layout constraints
