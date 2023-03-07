@@ -19,7 +19,7 @@ The complete implementation can be found in [PlayerViewController.swift] with in
 
 Before starting, please note the warnings in [Google Cast iOS Sender] regarding specific iOS versions.
 
-[Google Cast iOS Sender] offers 2 ways to install Google Cast Framework. Please refer to the [How To Guide](https://docs.theoplayer.com/how-to-guides/03-cast/01-chromecast/06-enable-chromecast-on-the-sender.md#ios-sdk) on our website to learn how to set up the Cast framework.
+[Google Cast iOS Sender] offers 2 ways to install the Google Cast framework. Please refer to the [How To Guide](https://docs.theoplayer.com/how-to-guides/03-cast/01-chromecast/06-enable-chromecast-on-the-sender.md#ios-sdk) on our website to learn how to set up the Cast framework.
 
 ## GCKCastContext
 
@@ -35,7 +35,7 @@ let options = GCKCastOptions(receiverApplicationID: "realAppID")
 GCKCastContext.setSharedInstanceWith(options)
 ```
 
-Or use default cast option provided by THEOplayer SDK.
+Or use default cast options provided by THEOplayer SDK.
 
 ```swift
 THEOplayerCastHelper.setGCKCastContextSharedInstanceWithDefaultCastOptions()
@@ -73,7 +73,7 @@ class PlayerViewController: UIViewController {
 
 This section describes how to add a native iOS button outside THEOplayer UI to start/leave chrome cast session. It can also be used to indicate the current cast status by listening to the `ChromecastEventTypes.STATE_CHANGE` event, see [Cast Event Listeners] for more detail.
 
-Create a `GCKUICastButton` button and set it as the right button on the navigation bar. The button handler is using the `Chromecast` object to join/leave chrome cast session depending on the `casting` flag.
+Create a `GCKUICastButton` button and set it as the right button on the navigation bar. The button handler is using the `Chromecast` object to join/leave the Chromecast session depending on the `casting` flag.
 
 ```swift
 class PlayerViewController: UIViewController {
