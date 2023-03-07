@@ -1,6 +1,6 @@
-# THEOplayer iOS Reference Apps - THEO Full Screen Handling
+# THEOplayer iOS Reference Apps - THEO Fullscreen Handling
 
-This app is an extension of [THEO Basic Playback] application. Please checkout the following guides should any help is needed to get started with Xcode and/or THEOplayer SDK.
+This app is an extension of [THEO Basic Playback] application. Please check out the following guides should any help be needed to get started with Xcode and/or THEOplayer SDK.
 
 * [THEO Knowledge Base - Xcode Setup]
 * [THEOplayer How To's - Setup Reference Application]
@@ -12,14 +12,14 @@ For a quick start with this sample, please proceed with the [Quick Start](#Quick
 
 ## Quick Start
 
-1. Using the terminal, navigate to the directory where Podfile is located  is located and run:
+1. Using the terminal, navigate to the directory where Podfile is located and run:
 
        pod install --repo-update
        
       &emsp;
       Please keep in mind [the included features](https://github.com/THEOplayer/theoplayer-sdk-ios#included-features) on the Cocoapods releases. If you           want      to use any features other than these, you need to create a custom THEOplayer iOS SDK framework from THEOportal with the features you wish         and embed the    framework in your project instead of using Cocoapods.
       &emsp;
-2. On player's configuration, replace the placeholder `your_license_here` with your license for iOS SDK.
+2. In the player configuration, replace the placeholder `your_license_here` with your license for iOS SDK.
       ```swift
         THEOplayerConfiguration(pip: nil, license: "your_license_string")
       ```
@@ -46,8 +46,7 @@ This project is licensed under the BSD 3 Clause License - see the [LICENSE] file
 [THEOplayer How To's - Setup Reference Application]: ../Basic-Playback/Guides/howto-setup-reference-application/README.md
 [THEOplayer How To's - THEOplayer iOS SDK Integration]: ../Basic-Playback/Guides/howto-theoplayer-ios-sdk-integration/README.md
 [THEOplayer]: https://www.theoplayer.com
-[Get Started with THEOplayer]: https://www.theoplayer.com/licensing
-[EZ DRM]: https://www.ezdrm.com/
+[Get Started with THEOplayer]: https://www.theoplayer.com/pricing/theoplayer
 
 [//]: # (Project files reference)
 [LICENSE]: LICENSE
