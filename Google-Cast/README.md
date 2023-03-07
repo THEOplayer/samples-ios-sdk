@@ -18,7 +18,7 @@ This app is an extension of [THEO Basic Playback] application. Please checkout t
 
 ## Quick Start
 
-* Obtain THEOplayer iOS SDK with Google Cast feature enabled. If you don't have a SDK yet, please visit [Get Started with THEOplayer]. At the time of writing, the THEOplayer iOS SDK on CocaoPods [does not include](https://github.com/THEOplayer/theoplayer-sdk-ios#included-features) the Chromecast feature in it and therefore will not work with this sample. To use Chromecast, you will need to build a custom SDK on [THEOportal](https://portal.theoplayer.com/login).
+* Obtain THEOplayer iOS SDK with Google Cast feature enabled. If you don't have an SDK yet, please visit [Get Started with THEOplayer]. At the time of writing, the THEOplayer iOS SDK on CocaoPods [does not include](https://github.com/THEOplayer/theoplayer-sdk-ios#included-features) the Chromecast feature in it and therefore will not work with this sample. To use Chromecast, you will need to build a custom SDK on [THEOportal](https://portal.theoplayer.com/login).
 * Extract the downloaded **`iOSSDK-[version]-[name].zip`**. For example:
 
       unzip iOSSDK-[version]-[name].zip
