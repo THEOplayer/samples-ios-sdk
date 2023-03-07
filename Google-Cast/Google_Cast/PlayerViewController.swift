@@ -162,13 +162,13 @@ class PlayerViewController: UIViewController, GCKUICastButtonDelegate {
     }
 
     private func prepareCustomChromecastLogic() {
-        // Set up Chromecast Button
+        // Set up Chromecast button
         self.chromeCastButton = GCKUICastButton(frame: CGRect(x: CGFloat(0), y: CGFloat(0), width: CGFloat(24), height: CGFloat(24)))
         
         self.chromeCastButton!.tintColor = UIColor.white
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: self.chromeCastButton!)
         
-        self.chromeCastButton?.delegate = self // native button
+        self.chromeCastButton?.delegate = self // Native button
     }
 
     private func setupChromecast() {
@@ -188,7 +188,7 @@ class PlayerViewController: UIViewController, GCKUICastButtonDelegate {
     @objc private func onChromecast() {
         if let cast = theoplayer.cast, let chromecast = cast.chromecast {
             if chromecast.casting {
-                chromecast.stop() // Alternatively, you can "leave" the session and keep Chromecast app running with chromecast.leave()
+                chromecast.stop() // Alternatively, you can "leave" the session and keep the Chromecast app running with chromecast.leave()
             } else {
                 chromecast.start()
             }
