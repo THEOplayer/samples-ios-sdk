@@ -83,7 +83,7 @@ class PlayerViewController: UIViewController {
         setupView()
         setupPlayerView()
         setupTheoplayer()
-        // Configure the player's source to initilize the playback
+        // Configure the player's source to initialize the playback
         theoplayer.source = source
     }
 
