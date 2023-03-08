@@ -108,7 +108,7 @@ class PlayerViewController: UIViewController, GCKUICastButtonDelegate {
         setupChromecast()
         setupTheoplayer()
         prepareCustomChromecastLogic()
-        // Configure the player's source to initilize the playback
+        // Configure the player's source to initialize the playback
         theoplayer.source = source
 
         // To set a custom Chromecast source please refer to https://docs.theoplayer.com/how-to-guides/03-cast/01-chromecast/03-how-to-configure-to-a-different-stream.md#ios-sdk
