@@ -94,7 +94,7 @@ class PlayerViewController: UIViewController {
         setupDescriptionLabel()
         setupFullscreenButton()
         setupTheoplayer()
-        // Configure the player's source to initilize the playback
+        // Configure the player's source to initialize the playback
         theoplayer.source = source
     }
 
