@@ -83,7 +83,7 @@ class PlayerViewController: UIViewController {
         setupView()
         setupPlayerView()
         setupTheoplayer()
-        // Configure the player's source to initilaise playback
+        // Configure the player's source to initialize the playback
         theoplayer.source = source
     }
 
@@ -98,7 +98,7 @@ class PlayerViewController: UIViewController {
     // MARK: - View setup
 
     private func setupView() {
-        // Set the background colour to THEO blue
+        // Set the background color to THEO blue
         view.backgroundColor = .theoCello
     }
 
@@ -111,9 +111,12 @@ class PlayerViewController: UIViewController {
             // Reset the origin 0 to prevent unnecessary offset
             playerFrame.origin = .zero
 
-            // Assign the frame to THEOplayer. Closure might be invoked prior to THEOplayer initialisation hence the optional chaining
-            viewController.theoplayer?.frame = playerFrame
+            // Assign the frame to THEOplayer. Closure might be invoked prior to THEOplayer initialization hence the optional chaining
+            if viewController.theoplayer?.presentationMode == .inline {
+                    viewController.theoplayer?.frame = playerFrame
+            }
         }
+        
         // Disable automatic auto layout constraints
         theoplayerView.translatesAutoresizingMaskIntoConstraints = false
 
@@ -137,6 +140,7 @@ class PlayerViewController: UIViewController {
             pip: nil,
             license: "your_license_string"
         )
+        
         theoplayer = THEOplayer(configuration: playerConfig)
 
         // Add the player to playerView's view hierarchy
@@ -163,7 +167,7 @@ class PlayerViewController: UIViewController {
     }
 
     private func removeEventListeners() {
-        // Remove event listenrs
+        // Remove event listeners
         theoplayer.removeEventListener(type: PlayerEventTypes.PLAY, listener: listeners["play"]!)
         theoplayer.removeEventListener(type: PlayerEventTypes.PLAYING, listener: listeners["playing"]!)
         theoplayer.removeEventListener(type: PlayerEventTypes.PAUSE, listener: listeners["pause"]!)
