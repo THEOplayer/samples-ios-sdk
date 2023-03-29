@@ -94,7 +94,7 @@ class PlayerViewController: UIViewController {
         setupDescriptionLabel()
         setupFullscreenButton()
         setupTheoplayer()
-        // Configure the player's source to initilaise playback
+        // Configure the player's source to initialize the playback
         theoplayer.source = source
     }
 
@@ -144,8 +144,11 @@ class PlayerViewController: UIViewController {
             playerFrame.origin = .zero
 
             // Assign the frame to THEOplayer. Closure might be invoked prior to THEOplayer initialisation hence the optional chaining
-            viewController.theoplayer?.frame = playerFrame
+            if viewController.theoplayer?.presentationMode == .inline {
+                    viewController.theoplayer?.frame = playerFrame
+            }
         }
+        
         // Disable automatic auto layout constraints
         theoplayerView.translatesAutoresizingMaskIntoConstraints = false
 
@@ -189,7 +192,7 @@ class PlayerViewController: UIViewController {
         
         //Add FullScreen Handling Orientation
         theoplayer.fullscreen.setSupportedInterfaceOrientations(supportedInterfaceOrientations: .landscapeRight)
-
+        
         // Add the player to playerView's view hierarchy
         theoplayer.addAsSubview(of: theoplayerView)
 
@@ -247,11 +250,7 @@ class PlayerViewController: UIViewController {
     }
 
     private func onPresentationModeChange(event: PresentationModeChangeEvent) {
-        os_log("onPresentationModeChange: %@", event.presentationMode.rawValue)
-        // Set device to portrait when theoplayer exit from fullscreen mode. This is added to handle the case when user uses THEOplayer UI to exit full screen mode when device remains in landscape
-        if event.presentationMode == .inline {
-            UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation")
-        }
+        os_log("onPresentationModeChange: %@", event.presentationMode._rawValue)
     }
 
     // MARK: - @objc functions
