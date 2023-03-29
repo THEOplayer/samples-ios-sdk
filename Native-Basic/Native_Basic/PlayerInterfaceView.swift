@@ -2,7 +2,7 @@
 //  PlayerInterfaceView.swift
 //  Native_Basic
 //
-//  Copyright © 2020 THEOPlayer. All rights reserved.
+//  Copyright © 2023 THEOPlayer. All rights reserved.
 //
 
 import UIKit
