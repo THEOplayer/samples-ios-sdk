@@ -7,9 +7,6 @@ The complete implementation can be found in [PlayerViewController.swift] with in
 ## Table of Contents
 
 * [Setup Google Cast Framework]
-  * [Cocoapods Setup]
-  * [Manual Setup]
-  * [Access WiFi Information]
 * [GCKCastContext]
 * [Cast Strategy]
 * [Cast Button]
@@ -20,52 +17,13 @@ The complete implementation can be found in [PlayerViewController.swift] with in
 
 ## Setup Google Cast Framework
 
-Please note the warnings state in [Google Cast iOS Sender]:
+Before starting, please note the warnings in [Google Cast iOS Sender] regarding specific iOS versions.
 
-> **`iOS 13 Warning`**: Apple permissions changes to iOS 13 and Xcode 11 have impacted the Google Cast iOS SDK in a number of ways. Please see the [iOS 13 Changes] document to see how your app will be impacted.
-
-and
-
-> **`iOS 12 Warning`**: If developing using Xcode 10 and targeting iOS devices running iOS 12 or higher, the "Access WiFi Information" capability is required in order to discover and connect to Cast devices.
-
-[Google Cast iOS Sender] offers 2 ways to install Google Cast Framework:
-
-### Cocoapods Setup
-
-THEOplayer only supports Google Cast Framework installed by Cocoapods until version `4.3.0`, example `Podfile` is listed below. Please visit [Cocoapods] to find out how to setup Cocoapods for Xcode project.
-
-```bash
-# Comment the next line if you are not using Swift and do not want to use dynamic frameworks
-use_frameworks!
-
-# Uncomment the next line to define a global platform for your project
-# platform :ios, '9.0'
-
-def target_pods
-    pod 'google-cast-sdk'
-end
-
-target'YourProjectTarget' do
-    # Select one of the chromecast versions
-    pod 'google-cast-sdk', '4.3.0'
-end
-```
-
-### Manual Setup
-
-Download the Dynamic Google Cast Framework from [Google Cast iOS Sender] and follow the very detailed instructions in the `Manual Setup` section. Note the following when choosing between framework with or without [Guest Mode].
-
-> Libraries without [guest mode] have been provided for situations where your app does not require the feature or you do not wish to require Bluetooth® permissions, which have been introduced in iOS 13. Please see the [iOS 13 Changes] document for more information.
-
-At the time of writing, the latest Google Cast Framework version is `4.4.7` and the reference app setup Google Cast Framework as per the `Manual Setup` instructions.
-
-### Access WiFi Information
-
-As stated in [Google Cast iOS Sender], the **`Access WiFi Information`** capability is required. Note that only enrolled Apple Developer account can enable this capability, please visit [Apple Developer Program] for more information.
+[Google Cast iOS Sender] offers 2 ways to install the Google Cast framework. Please refer to the [How To Guide](https://docs.theoplayer.com/how-to-guides/03-cast/01-chromecast/06-enable-chromecast-on-the-sender.md#ios-sdk) on our website to learn how to set up the Cast framework.
 
 ## GCKCastContext
 
-To enable Google Cast on iOS the GCKCastContext shared instance shall be set.
+To enable Google Cast on iOS the `GCKCastContext` shared instance shall be set.
 There are 2 ways to achieve this:
 
 Instantiate [GCKCastOptions] with a `receiverApplicationID` and set it directly to `GCKCastContext`.
@@ -77,7 +35,7 @@ let options = GCKCastOptions(receiverApplicationID: "realAppID")
 GCKCastContext.setSharedInstanceWith(options)
 ```
 
-Or use default cast option provided by THEOplayer SDK.
+Or use default cast options provided by THEOplayer SDK.
 
 ```swift
 THEOplayerCastHelper.setGCKCastContextSharedInstanceWithDefaultCastOptions()
@@ -115,14 +73,14 @@ class PlayerViewController: UIViewController {
 
 This section describes how to add a native iOS button outside THEOplayer UI to start/leave chrome cast session. It can also be used to indicate the current cast status by listening to the `ChromecastEventTypes.STATE_CHANGE` event, see [Cast Event Listeners] for more detail.
 
-Create a `UIBarButtonItem` button and set it as the right button on the navigation bar. The button handler is using the `Chromecast` object to join/leave chrome cast session depending on the `casting` flag.
+Create a `GCKUICastButton` button and set it as the right button on the navigation bar. The button handler is using the `Chromecast` object to join/leave the Chromecast session depending on the `casting` flag.
 
 ```swift
 class PlayerViewController: UIViewController {
 
     ...
 
-    private var chromeCastButton: UIBarButtonItem!
+    private var chromeCastButton: GCKUICastButton?
 
     ...
 
@@ -138,20 +96,18 @@ class PlayerViewController: UIViewController {
     private func setupchromeCast() {
         ...
 
-        chromeCastButton = UIBarButtonItem(image: UIImage(named: "ic_cast_black_24dp"),
-                                           style: .plain,
-                                           target: self,
-                                           action: #selector(onChromecast))
-        chromeCastButton.tintColor = .theoWhite
-        chromeCastButton.isEnabled = false
-
-        navigationItem.rightBarButtonItem = chromeCastButton
+        self.chromeCastButton = GCKUICastButton(frame: CGRect(x: CGFloat(0), y: CGFloat(0), width: CGFloat(24), height: CGFloat(24)))
+        
+        self.chromeCastButton!.tintColor = UIColor.white
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: self.chromeCastButton!)
+        
+        self.chromeCastButton?.delegate = self // native Chromecast button
     }
 
     @objc private func onChromecast() {
         if let cast = theoplayer.cast, let chromecast = cast.chromecast {
             if chromecast.casting {
-                chromecast.leave()
+                chromecast.stop()
             } else {
                 chromecast.start()
             }
@@ -199,32 +155,7 @@ class PlayerViewController: UIViewController {
 
 ## Custom Cast Source
 
-The code snippet below demonstrates how to setup a different stream and use the `Chromecast` object to cast the stream to the Cast Receiver device.
-
-```swift
-class PlayerViewController: UIViewController {
-
-    ...
-
-     override func viewWillAppear(_ animated: Bool) {
-
-        ...
-
-        if var chromecast = theoplayer.cast?.chromecast {
-            chromecast.source = SourceDescription(source:
-                TypedSource(
-                    src: videoUrl,
-                    type: mimeType
-                )
-            )
-        }
-
-        ...
-    }
-
-...
-}
-```
+Please refer to the [How To Guide](https://docs.theoplayer.com/how-to-guides/03-cast/01-chromecast/03-how-to-configure-to-a-different-stream.md#ios-sdk) on our website to learn how to do this.
 
 ## Cast Event Listeners
 
@@ -260,17 +191,12 @@ class PlayerViewController: UIViewController {
     ...
 
     private func onCastStateChange(event: StateChangeEvent) {
-        os_log("Chromecast STATE_CHANGE event, state: %@", event.state.rawValue)
-
+        os_log("Chromecast STATE_CHANGE event, state: %@", event.state._rawValue)
+        
         if event.state != .unavailable {
-            chromeCastButton.isEnabled = true
-            if event.state == .connected {
-                chromeCastButton.image = UIImage(named: "ic_cast_connected_black_24dp")
-            } else {
-                chromeCastButton.image = UIImage(named: "ic_cast_black_24dp")
-            }
+            chromeCastButton?.isEnabled = true
         } else {
-            chromeCastButton.isEnabled = false
+            chromeCastButton?.isEnabled = false
         }
     }
 
@@ -288,9 +214,6 @@ For more guides about THEOplayer please visit [THEO Docs] portal.
 
 [//]: # (Sections reference)
 [Setup Google Cast Framework]: #Setup-Google-Cast-Framework
-[Cocoapods Setup]: #Cocoapods-Setup
-[Manual Setup]: #Manual-Setup
-[Access WiFi Information]: #Access-WiFi-Information
 [GCKCastContext]: #GCKCastContext
 [Cast Strategy]: #Cast-Strategy
 [Cast Button]: #Cast-Button
@@ -302,12 +225,8 @@ For more guides about THEOplayer please visit [THEO Docs] portal.
 [//]: # (Links and Guides reference)
 [THEO Basic Playback]: ../../Basic-Playback
 [Google Cast iOS Sender]: https://developers.google.com/cast/docs/ios_sender
-[Guest Mode]: https://developers.google.com/cast/docs/guest_mode
-[iOS 13 Changes]: https://developers.google.com/cast/docs/ios_sender/ios13_changes
 [GCKCastOptions]: https://developers.google.com/cast/docs/reference/ios/interface_g_c_k_cast_options
-[Cocoapods]: https://cocoapods.org/
-[Apple Developer Program]: https://developer.apple.com/support/compare-memberships/
-[THEO Docs]: https://docs.portal.theoplayer.com/
+[THEO Docs]: https://docs.theoplayer.com/
 
 [//]: # (Project files reference)
 [PlayerViewController.swift]: ../../Google_Cast/PlayerViewController.swift

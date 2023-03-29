@@ -8,6 +8,7 @@
 import UIKit
 import os.log
 import THEOplayerSDK
+import GoogleCast
 
 // MARK: - THEOPlayerView declaration
 
@@ -42,7 +43,7 @@ class THEOPlayerView: UIView {
 
 // MARK: - PlayerView declaration
 
-class PlayerViewController: UIViewController {
+class PlayerViewController: UIViewController, GCKUICastButtonDelegate {
 
     // MARK: - Private properties
 
@@ -53,7 +54,7 @@ class PlayerViewController: UIViewController {
     private var theoplayer: THEOplayer!
 
     // Chromecast button on the navigation bar
-    private var chromeCastButton: UIBarButtonItem!
+    private var chromeCastButton: GCKUICastButton?
 
     // Dictionary of player event listeners
     private var listeners: [String: EventListener] = [:]
@@ -72,7 +73,7 @@ class PlayerViewController: UIViewController {
                     src: posterUrl,
                     width: posterWidth,
                     height: posterHeight)
-                ],
+            ],
             releaseDate: nil,
             title: streamTitle,
             subtitle: nil,
@@ -104,36 +105,28 @@ class PlayerViewController: UIViewController {
 
         setupView()
         setupPlayerView()
-        setupchromeCast()
+        setupChromecast()
         setupTheoplayer()
-        // Configure the player's source to initilaise playback
+        prepareCustomChromecastLogic()
+        // Configure the player's source to initialize the playback
         theoplayer.source = source
 
-        // To set custom cast source
-             /*
-             if var chromecast = theoplayer.cast?.chromecast {
-                 chromecast.source = SourceDescription(source:
-                     TypedSource(
-                         src: videoUrl,
-                         type: mimeType
-                     )
-                 )
-             }
-              */
+        // To set a custom Chromecast source please refer to https://docs.theoplayer.com/how-to-guides/03-cast/01-chromecast/03-how-to-configure-to-a-different-stream.md#ios-sdk
+        
     }
 
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-
-         if (self.isMovingFromParent){
-                  unloadTheoplayer()
-              }
+        
+        if (self.isMovingFromParent){
+            unloadTheoplayer()
+        }
     }
 
     // MARK: - View setup
 
     private func setupView() {
-        // Set the background colour to THEO blue
+        // Set the background color to THEO blue
         view.backgroundColor = .theoCello
     }
 
@@ -147,9 +140,12 @@ class PlayerViewController: UIViewController {
             // Reset the origin 0 to prevent unnecessary offset
             playerFrame.origin = .zero
 
-            // Assign the frame to THEOplayer. Closure might be invoked prior to THEOplayer initialisation hence the optional chaining
-            viewController.theoplayer?.frame = playerFrame
+            // Assign the frame to THEOplayer. Closure might be invoked prior to THEOplayer initialization hence the optional chaining
+            if viewController.theoplayer?.presentationMode == .inline {
+                    viewController.theoplayer?.frame = playerFrame
+            }
         }
+
         // Disable automatic auto layout constraints
         theoplayerView.translatesAutoresizingMaskIntoConstraints = false
 
@@ -165,20 +161,26 @@ class PlayerViewController: UIViewController {
         theoplayerView.heightAnchor.constraint(equalTo: safeArea.heightAnchor).isActive = true
     }
 
-    private func setupchromeCast() {
-        // Use the default THEOplayer cast options
+    private func prepareCustomChromecastLogic() {
+        // Set up Chromecast button
+        self.chromeCastButton = GCKUICastButton(frame: CGRect(x: CGFloat(0), y: CGFloat(0), width: CGFloat(24), height: CGFloat(24)))
+        
+        self.chromeCastButton!.tintColor = UIColor.white
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: self.chromeCastButton!)
+        
+        self.chromeCastButton?.delegate = self // Native button
+    }
+
+    private func setupChromecast() {
+        // You can use the default THEOplayer cast options
         THEOplayerCastHelper.setGCKCastContextSharedInstanceWithDefaultCastOptions()
 
-        // Setup chromecast button and set it as right button of the navigation bar
-        chromeCastButton = UIBarButtonItem(image: UIImage(named: "ic_cast_black_24dp"),
-                                           style: .plain,
-                                           target: self,
-                                           action: #selector(onChromecast))
-        chromeCastButton.tintColor = .theoWhite
-        // Disable by default. To be enabled in state change callback when casting device is avaiable
-        chromeCastButton.isEnabled = false
-
-        navigationItem.rightBarButtonItem = chromeCastButton
+        // Or you can provide your own options and appID instead
+        // let criteria = GCKDiscoveryCriteria(applicationID: "1ADD53F3")
+        // let options = GCKCastOptions(discoveryCriteria: criteria)
+        // options.suspendSessionsWhenBackgrounded = false
+        // GCKCastContext.setSharedInstanceWith(options)
+        // GCKCastContext.sharedInstance().discoveryManager.startDiscovery() // start discovery
     }
 
     // MARK: - Chromecast button handler
@@ -186,7 +188,7 @@ class PlayerViewController: UIViewController {
     @objc private func onChromecast() {
         if let cast = theoplayer.cast, let chromecast = cast.chromecast {
             if chromecast.casting {
-                chromecast.leave()
+                chromecast.stop() // Alternatively, you can "leave" the session and keep the Chromecast app running with chromecast.leave()
             } else {
                 chromecast.start()
             }
@@ -198,10 +200,9 @@ class PlayerViewController: UIViewController {
     // MARK: - THEOplayer setup and unload
 
     private func setupTheoplayer() {
-        // Configure cast join strategy to auto
         let playerConfig = THEOplayerConfiguration(
             pip: nil,
-            cast: CastConfiguration(strategy: .auto),
+            cast: CastConfiguration(strategy: .manual),
             license: "your_license_string"
         )
 
@@ -230,7 +231,7 @@ class PlayerViewController: UIViewController {
         listeners["ended"] = theoplayer.addEventListener(type: PlayerEventTypes.ENDED, listener: onEnded)
         listeners["error"] = theoplayer.addEventListener(type: PlayerEventTypes.ERROR, listener: onError)
 
-        // Add chromecast listeners
+        // Add Chromecast listeners
         if let cast = theoplayer.cast, let chromecast = cast.chromecast {
             listeners["castStateChange"] = chromecast.addEventListener(type: ChromecastEventTypes.STATE_CHANGE, listener: onCastStateChange)
             listeners["castError"] = chromecast.addEventListener(type: ChromecastEventTypes.ERROR, listener: onCastError)
@@ -238,19 +239,19 @@ class PlayerViewController: UIViewController {
     }
 
     private func removeEventListeners() {
-        // Remove event listenrs
+        // Remove event listeners
         theoplayer.removeEventListener(type: PlayerEventTypes.PLAY, listener: listeners["play"]!)
         theoplayer.removeEventListener(type: PlayerEventTypes.PLAYING, listener: listeners["playing"]!)
         theoplayer.removeEventListener(type: PlayerEventTypes.PAUSE, listener: listeners["pause"]!)
         theoplayer.removeEventListener(type: PlayerEventTypes.ENDED, listener: listeners["ended"]!)
         theoplayer.removeEventListener(type: PlayerEventTypes.ERROR, listener: listeners["error"]!)
-
-        // Remove chromecast listeners
+        
+        // Remove Chromecast listeners
         if let cast = theoplayer.cast, let _ = cast.chromecast  {
             theoplayer.removeEventListener(type: ChromecastEventTypes.STATE_CHANGE, listener: listeners["castStateChange"]!)
             theoplayer.removeEventListener(type: ChromecastEventTypes.ERROR, listener: listeners["castError"]!)
         }
-
+        
         listeners.removeAll()
     }
 
@@ -275,18 +276,12 @@ class PlayerViewController: UIViewController {
     }
 
     private func onCastStateChange(event: StateChangeEvent) {
-        os_log("Chromecast STATE_CHANGE event, state: %@", event.state.rawValue)
-
-        // Toggle the chromecast button and set image based on the current chromecast state
+        os_log("Chromecast STATE_CHANGE event, state: %@", event.state._rawValue)
+        // Toggle the Chromecast button on toolbar based on the current Chromecast state
         if event.state != .unavailable {
-            chromeCastButton.isEnabled = true
-            if event.state == .connected {
-                chromeCastButton.image = UIImage(named: "ic_cast_connected_black_24dp")
-            } else {
-                chromeCastButton.image = UIImage(named: "ic_cast_black_24dp")
-            }
+            chromeCastButton?.isEnabled = true
         } else {
-            chromeCastButton.isEnabled = false
+            chromeCastButton?.isEnabled = false
         }
     }
 

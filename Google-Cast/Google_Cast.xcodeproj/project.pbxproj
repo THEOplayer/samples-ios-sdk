@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7617EEC02677E0F200EBE674 /* THEOplayerSDK.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7617EEBF2677E0F200EBE674 /* THEOplayerSDK.xcframework */; };
-		7617EEC12677E0F200EBE674 /* THEOplayerSDK.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7617EEBF2677E0F200EBE674 /* THEOplayerSDK.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3AA379C729AE240E00959B32 /* THEOplayerSDK.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AA379C629AE240E00959B32 /* THEOplayerSDK.xcframework */; };
+		3AA379C829AE240E00959B32 /* THEOplayerSDK.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3AA379C629AE240E00959B32 /* THEOplayerSDK.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3AA379CA29AE241800959B32 /* GoogleCast.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AA379C929AE241800959B32 /* GoogleCast.xcframework */; };
+		3AA379CB29AE241900959B32 /* GoogleCast.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3AA379C929AE241800959B32 /* GoogleCast.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BE01A75923875BE1000EFF53 /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE01A75823875BE1000EFF53 /* PlayerViewController.swift */; };
 		BE01A76423876674000EFF53 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE01A76323876674000EFF53 /* Theme.swift */; };
 		BE8242F82363AAB100994FB2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8242F72363AAB100994FB2 /* AppDelegate.swift */; };
@@ -30,8 +32,6 @@
 		BEA11110238F596E00B20862 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEA1110F238F596E00B20862 /* Security.framework */; };
 		BEA11112238F597500B20862 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEA11111238F597500B20862 /* SystemConfiguration.framework */; };
 		BEA11114238F597D00B20862 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEA11113238F597D00B20862 /* UIKit.framework */; };
-		BED1C3A124112FF800A4ABEB /* GoogleCast.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BED1C39B24112FE900A4ABEB /* GoogleCast.framework */; };
-		BED1C3A224112FF800A4ABEB /* GoogleCast.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BED1C39B24112FE900A4ABEB /* GoogleCast.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -41,8 +41,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				BED1C3A224112FF800A4ABEB /* GoogleCast.framework in Embed Frameworks */,
-				7617EEC12677E0F200EBE674 /* THEOplayerSDK.xcframework in Embed Frameworks */,
+				3AA379C829AE240E00959B32 /* THEOplayerSDK.xcframework in Embed Frameworks */,
+				3AA379CB29AE241900959B32 /* GoogleCast.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -50,7 +50,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		7617EEBF2677E0F200EBE674 /* THEOplayerSDK.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = THEOplayerSDK.xcframework; sourceTree = "<group>"; };
+		3AA379C629AE240E00959B32 /* THEOplayerSDK.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = THEOplayerSDK.xcframework; sourceTree = "<group>"; };
+		3AA379C929AE241800959B32 /* GoogleCast.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = GoogleCast.xcframework; sourceTree = "<group>"; };
 		BE01A75823875BE1000EFF53 /* PlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
 		BE01A76323876674000EFF53 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		BE6A30B823E0F92200951546 /* THEO Google Cast.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "THEO Google Cast.entitlements"; sourceTree = "<group>"; };
@@ -75,7 +76,6 @@
 		BEA1110F238F596E00B20862 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		BEA11111238F597500B20862 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		BEA11113238F597D00B20862 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		BED1C39B24112FE900A4ABEB /* GoogleCast.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleCast.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,17 +90,17 @@
 				BEA110F6238F590400B20862 /* Accelerate.framework in Frameworks */,
 				BEA11100238F592B00B20862 /* CoreData.framework in Frameworks */,
 				BEA11110238F596E00B20862 /* Security.framework in Frameworks */,
+				3AA379CA29AE241800959B32 /* GoogleCast.xcframework in Frameworks */,
 				BEA110F8238F590E00B20862 /* AudioToolbox.framework in Frameworks */,
 				BEA11102238F593200B20862 /* CoreGraphics.framework in Frameworks */,
 				BEA11108238F594B00B20862 /* Foundation.framework in Frameworks */,
 				BEA11106238F594000B20862 /* CoreText.framework in Frameworks */,
-				BED1C3A124112FF800A4ABEB /* GoogleCast.framework in Frameworks */,
 				BEA110FC238F591E00B20862 /* CFNetwork.framework in Frameworks */,
 				BEA110FE238F592400B20862 /* CoreBluetooth.framework in Frameworks */,
 				BEA110FA238F591600B20862 /* AVFoundation.framework in Frameworks */,
+				3AA379C729AE240E00959B32 /* THEOplayerSDK.xcframework in Frameworks */,
 				BEA1110C238F595C00B20862 /* MediaPlayer.framework in Frameworks */,
 				BEA1110A238F595300B20862 /* MediaAccessibility.framework in Frameworks */,
-				7617EEC02677E0F200EBE674 /* THEOplayerSDK.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,8 +141,8 @@
 		BEA110F4238F590400B20862 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				7617EEBF2677E0F200EBE674 /* THEOplayerSDK.xcframework */,
-				BED1C39B24112FE900A4ABEB /* GoogleCast.framework */,
+				3AA379C929AE241800959B32 /* GoogleCast.xcframework */,
+				3AA379C629AE240E00959B32 /* THEOplayerSDK.xcframework */,
 				BEA11113238F597D00B20862 /* UIKit.framework */,
 				BEA11111238F597500B20862 /* SystemConfiguration.framework */,
 				BEA1110F238F596E00B20862 /* Security.framework */,
@@ -304,7 +304,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -358,7 +358,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -374,13 +374,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Google_Cast/THEO Google Cast.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = H3Y3HKZ7JZ;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Google_Cast/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -389,7 +390,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.theoplayer.sample.playback.googlecast;
+				PRODUCT_BUNDLE_IDENTIFIER = theo.sample.playback.googlecast;
 				PRODUCT_NAME = "THEO Google Cast";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -403,13 +404,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Google_Cast/THEO Google Cast.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = H3Y3HKZ7JZ;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Google_Cast/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -418,7 +420,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.theoplayer.sample.playback.googlecast;
+				PRODUCT_BUNDLE_IDENTIFIER = theo.sample.playback.googlecast;
 				PRODUCT_NAME = "THEO Google Cast";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;

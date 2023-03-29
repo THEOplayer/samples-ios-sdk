@@ -2,7 +2,7 @@
 
 The purpose of this app is to demonstrate how to enable and configure Google Cast functionality in [THEOplayer] and the ability to cast to a neighbouring Cast device.
 
-For quick start, please proceed with the [Quick Start](#Quick-Start) guide.
+For a quick start with this sample, please proceed with the [Quick Start](#Quick-Start) section. You can also take a look at our [Getting Started on iOS](https://docs.theoplayer.com/getting-started/01-sdks/03-ios/00-getting-started.md) guide for more information.
 
 ## Guides
 
@@ -18,33 +18,28 @@ This app is an extension of [THEO Basic Playback] application. Please checkout t
 
 ## Quick Start
 
-* Obtain THEOplayer iOS SDK with Google Cast feature enabled. If you don't have a SDK yet, please visit [Get Started with THEOplayer].
+* Obtain THEOplayer iOS SDK with Google Cast feature enabled. If you don't have an SDK yet, please visit [Get Started with THEOplayer]. At the time of writing, the THEOplayer iOS SDK on CocaoPods [does not include](https://github.com/THEOplayer/theoplayer-sdk-ios#included-features) the Chromecast feature in it and therefore will not work with this sample. To use Chromecast, you will need to build a custom SDK on [THEOportal](https://portal.theoplayer.com/login).
 * Extract the downloaded **`iOSSDK-[version]-[name].zip`**. For example:
 
       unzip iOSSDK-[version]-[name].zip
 
-* Copy & paste the **`THEOplayerSDK.framework`** folder to the root of the reference app project. For example:
+* Copy & paste the **`THEOplayerSDK.xcframework`** folder to the root of the reference app project. For example:
 
-      cp -a THEOplayerSDK.framework/ Google-Cast/
+      cp -a THEOplayerSDK.xcframework/ Google-Cast/
 
-* Download dynamic Google Cast framework from [Google Cast iOS Sender].
+* Download dynamic Google Cast framework from [Google Cast iOS Sender]. We recommend the `.xcframework` if you need M1 Mac support.
 * Extract the downloaded **`GoogleCastSDK-ios-[version]_dynamic.zip`**. For example:
 
       unzip GoogleCastSDK-ios-[version]_dynamic.zip
 
-* Copy & paste the **`GoogleCast.framework`** folder to the root of the reference app project. For example:
+* Copy & paste the **`GoogleCast.xcframework`** folder to the root of the reference app project. For example:
 
-      cp -a GoogleCastSDK-ios-[version]_dynamic/GoogleCast.framework/ Google-Cast/
+      cp -a GoogleCastSDK-ios-[version]_dynamic/GoogleCast.xcframework/ Google-Cast/
 
-* Sign in Xcode with an enrolled Apple Developer account.
-  * Required for `Access WiFi Information`, see [Apple Developer Program] for more info.
 * Open the reference app project `Google_Cast.xcodeproj` with Xcode.
+* Select a Development Team for signing.
 * Select `Product > Run` from Xcode menu bar or press `⌘ + R` on the keyboard to build and run the application.
   * Should there be any problems with launching the application, please check the [THEO Knowledge Base - Simulator And iOS Device] guide for more information.
-
-## Streams/Content Rights
-
-The DRM streams used in this app (if any) are provided by our Partner: [EZ DRM] and hold all the rights for the content. These streams are DRM protected and cannot be used for any other purposes.
 
 ## License
 
@@ -58,10 +53,8 @@ This project is licensed under the BSD 3 Clause License - see the [LICENSE] file
 [THEOplayer How To's - Setup Reference Application]: ../Basic-Playback/Guides/howto-setup-reference-application/README.md
 [THEOplayer How To's - THEOplayer iOS SDK Integration]: ../Basic-Playback/Guides/howto-theoplayer-ios-sdk-integration/README.md
 [THEOplayer]: https://www.theoplayer.com
-[Get Started with THEOplayer]: https://www.theoplayer.com/licensing
+[Get Started with THEOplayer]: https://www.theoplayer.com/pricing/theoplayer
 [Google Cast iOS Sender]: https://developers.google.com/cast/docs/ios_sender
-[Apple Developer Program]: https://developer.apple.com/support/compare-memberships/
-[EZ DRM]: https://www.ezdrm.com/
 
 [//]: # (Project files reference)
 [LICENSE]: LICENSE
