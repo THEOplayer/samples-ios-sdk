@@ -8,6 +8,8 @@
 import UIKit
 import os.log
 import THEOplayerSDK
+import THEOplayerGoogleCastIntegration
+import GoogleCast
 
 // MARK: - THEOPlayerView declaration
 
@@ -58,6 +60,9 @@ class PlayerViewController: UIViewController {
     // THEOPlayerView for the player
     private var theoplayerView: THEOPlayerView!
 
+    // Chromecast button on the navigation bar
+    private var chromeCastButton: GCKUICastButton!
+
     // THEOplayer object
     private var theoplayer: THEOplayer!
 
@@ -96,12 +101,15 @@ class PlayerViewController: UIViewController {
         setupPlayerView()
         setupTheoplayer()
         setupPlayerInterfaceView()
+        setupCastIntegration()
+        prepareCustomChromecastLogic()
 
         // Initialing playerInterfaceView state to set its UI components.
         playerInterfaceView.state = .initialise
 
         // Configure the player's source to initialise playback
         theoplayer.source = source
+        theoplayer.play()
     }
 
     override func viewDidDisappear(_ animated: Bool) {
@@ -178,6 +186,22 @@ class PlayerViewController: UIViewController {
         
         var fullscreen: Fullscreen = self.theoplayer.fullscreen
         fullscreen.presentationDelegate = self
+    }
+
+    private func setupCastIntegration() {
+        let castConfiguration: CastConfiguration = CastConfiguration(strategy: .manual)
+        let castIntegration: THEOplayerSDK.Integration = GoogleCastIntegrationFactory.createIntegration(on: self.theoplayer, with: castConfiguration)
+        theoplayer.addIntegration(castIntegration)
+    }
+
+    private func prepareCustomChromecastLogic() {
+        // Set up Chromecast button
+        self.chromeCastButton = GCKUICastButton(frame: CGRect(x: CGFloat(0), y: CGFloat(0), width: CGFloat(24), height: CGFloat(24)))
+
+        self.chromeCastButton.tintColor = UIColor.white
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: self.chromeCastButton!)
+
+        self.chromeCastButton.delegate = self
     }
 
     private func unloadTheoplayer() {
@@ -344,6 +368,22 @@ extension PlayerViewController: FullscreenPresentationDelegate {
             self.view.addSubview(self.theoplayerView)
             self.theoplayerView.setConstraintsToSafeArea(safeArea: self.view.safeAreaLayoutGuide)
             completion()
+        }
+    }
+}
+
+extension PlayerViewController: GCKUICastButtonDelegate {
+    // Workaround due to existing bug. Fix is due in the upcoming THEOplayer releases.
+    // Avoid using the `castState: GCKCastState` parameter, instead use `theoplayer.cast.chromecast.state`.
+    // Internally both of the above are in sync.
+    func castButtonDidTap(_ castButton: GCKUICastButton, toPresentDialogFor castState: GCKCastState) {
+        guard let chromecast = self.theoplayer.cast?.chromecast else {
+            return
+        }
+        if chromecast.state == PlayerCastState.available {
+            chromecast.start()
+        } else if chromecast.state == PlayerCastState.connected || chromecast.state == PlayerCastState.connecting {
+            chromecast.stop()
         }
     }
 }

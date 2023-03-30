@@ -47,5 +47,15 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>NSBluetoothAlwaysUsageDescription</key>
+	<string>${PRODUCT_NAME} uses Bluetooth to discover nearby Cast devices.</string>
+	<key>NSLocalNetworkUsageDescription</key>
+	<string>Cast network discovery description</string>
+	<key>NSBonjourServices</key>
+	<array>
+		<string>_googlecast._tcp</string>
+		<string>_1ADD53F3._googlecast._tcp</string>
+		<string>_CC1AD845._googlecast._tcp</string>
+	</array>
 </dict>
 </plist>
