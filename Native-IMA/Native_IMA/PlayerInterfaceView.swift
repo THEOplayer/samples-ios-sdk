@@ -23,6 +23,8 @@ enum PlayerInterfaceViewState: Int {
     case buffering
     case playing
     case paused
+    case adplaying
+    case adpaused
 }
 
 // MARK: - PlayerInterfaceView declaration
@@ -79,7 +81,7 @@ class PlayerInterfaceView: UIView {
             skipBackwardButton.isHidden = true
             skipForwardButton.isHidden = true
             footerView.isHidden = true
-
+            slider.isEnabled = true
             switch state {
             case .initialise:
                 containerView.isHidden = false
@@ -103,6 +105,15 @@ class PlayerInterfaceView: UIView {
                 skipBackwardButton.isHidden = false
                 skipForwardButton.isHidden = false
                 footerView.isHidden = false
+            case .adplaying:
+                startAutoHideTimer()
+                pauseButton.isHidden = false
+                footerView.isHidden = false
+                slider.isEnabled = false
+            case .adpaused:
+                playButton.isHidden = false
+                footerView.isHidden = false
+                slider.isEnabled = false
             default:
                 break
             }
@@ -375,7 +386,7 @@ extension PlayerInterfaceView: UIGestureRecognizerDelegate {
          */
         let isControlViewTapped = (touch.view == containerView || touch.view == controllerStackView)
         // Toggle to show/hide interface is only needed in the playing state. The interface stays on for other states
-        if state == .playing {
+        if state == .playing || state == .adplaying {
             if isInterfaceShowing && isControlViewTapped {
                 // If interface is currently showing and user tapped on empty area, hide interface and stop auto hide timer
                 showInterface = false

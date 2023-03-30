@@ -8,6 +8,7 @@
 import UIKit
 import os.log
 import THEOplayerSDK
+import THEOplayerGoogleIMAIntegration
 
 // MARK: - THEOPlayerView declaration
 
@@ -74,8 +75,15 @@ class PlayerViewController: UIViewController {
             type: mimeType
         )
 
+        // The AdDescription object that defines the IMA ad to be played.
+        let adDescription: GoogleImaAdDescription = GoogleImaAdDescription(src: adTagUrl)
+
         // Returns a computed SourceDescription object
-        return SourceDescription(source: typedSource, poster: posterUrl)
+        return SourceDescription(
+            source: typedSource,
+            ads: [adDescription],
+            poster: posterUrl
+        )
     }
 
     // MARK: - Public properties
@@ -86,6 +94,8 @@ class PlayerViewController: UIViewController {
     var posterUrl: String = "https://cdn.theoplayer.com/video/elephants-dream/playlist.png"
     // MIME type of the URL
     var mimeType: String = "application/x-mpegURL"
+    // IMA ad tag URL
+    var adTagUrl: String = "https://pubads.g.doubleclick.net/gampad/ads?slotname=/124319096/external/ad_rule_samples&sz=640x480&ciu_szs=300x250&cust_params=deployment%3Ddevsite%26sample_ar%3Dpreonly&url=https://developers.google.com/interactive-media-ads/docs/sdks/android/client-side/tags&unviewed_position_start=1&output=xml_vast3&impl=s&env=vp&gdfp_req=1&ad_rule=0&vad_type=linear&vpos=preroll&pod=1&ppos=1&lip=true&min_ad_duration=0&max_ad_duration=30000&vrid=5776&video_doc_id=short_onecue&cmsid=496&kfa=0&tfcd=0"
 
     // MARK: - View controller life cycle
 
@@ -96,12 +106,22 @@ class PlayerViewController: UIViewController {
         setupPlayerView()
         setupTheoplayer()
         setupPlayerInterfaceView()
+        setupImaIntegration()
+        attachEventListeners()
 
         // Initialing playerInterfaceView state to set its UI components.
         playerInterfaceView.state = .initialise
+    }
 
-        // Configure the player's source to initialise playback
-        theoplayer.source = source
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        // Configure the player's source to initialise playback.
+        // If the source contains an AdDescription, then it must be called when viewDidAppear is called (or later) so that the IMAAdDisplayContainer is ready.
+        // If the IMAAdDisplayContainer is not ready yet, then the IMAAdsRequest will fail.
+        if theoplayer.source == nil {
+            theoplayer.source = source
+        }
     }
 
     override func viewDidDisappear(_ animated: Bool) {
@@ -173,11 +193,14 @@ class PlayerViewController: UIViewController {
 
         // Add the player to playerView's view hierarchy
         theoplayer.addAsSubview(of: theoplayerView)
-
-        attachEventListeners()
         
         var fullscreen: Fullscreen = self.theoplayer.fullscreen
         fullscreen.presentationDelegate = self
+    }
+
+    private func setupImaIntegration() {
+        let imaIntegration: THEOplayerSDK.Integration = GoogleIMAIntegrationFactory.createIntegration(on: self.theoplayer)
+        theoplayer.addIntegration(imaIntegration)
     }
 
     private func unloadTheoplayer() {
@@ -202,6 +225,9 @@ class PlayerViewController: UIViewController {
         listeners["durationChange"] = theoplayer.addEventListener(type: PlayerEventTypes.DURATION_CHANGE, listener: onDurationChange)
         listeners["timeUpdate"] = theoplayer.addEventListener(type: PlayerEventTypes.TIME_UPDATE, listener: onTimeUpdate)
         listeners["presentationModeChange"] = theoplayer.addEventListener(type: PlayerEventTypes.PRESENTATION_MODE_CHANGE, listener: onPresentationModeChange)
+
+        listeners["adBreakBegin"] = theoplayer.ads.addEventListener(type: AdsEventTypes.AD_BREAK_BEGIN, listener: onAdBreakBegin)
+        listeners["adBreakEnd"] = theoplayer.ads.addEventListener(type: AdsEventTypes.AD_BREAK_END, listener: onAdBreakEnd)
     }
 
     private func removeEventListeners() {
@@ -219,6 +245,9 @@ class PlayerViewController: UIViewController {
         theoplayer.removeEventListener(type: PlayerEventTypes.TIME_UPDATE, listener: listeners["timeUpdate"]!)
         theoplayer.removeEventListener(type: PlayerEventTypes.PRESENTATION_MODE_CHANGE, listener: listeners["presentationModeChange"]!)
 
+        theoplayer.removeEventListener(type: AdsEventTypes.AD_BREAK_BEGIN, listener: listeners["adBreakBegin"]!)
+        theoplayer.removeEventListener(type: AdsEventTypes.AD_BREAK_END, listener: listeners["adBreakEnd"]!)
+
         listeners.removeAll()
     }
 
@@ -226,6 +255,12 @@ class PlayerViewController: UIViewController {
         os_log("PLAY event, currentTime: %f", event.currentTime)
         if playerInterfaceView.state == .initialise {
             playerInterfaceView.state = .buffering
+        }
+        theoplayer.ads.requestPlaying { [weak self] adsPlaying, err in
+            guard let viewController = self else { return }
+            if adsPlaying == true {
+                viewController.playerInterfaceView.state = .adplaying
+            }
         }
     }
 
@@ -238,7 +273,14 @@ class PlayerViewController: UIViewController {
         os_log("PAUSE event, currentTime: %f", event.currentTime)
         // Pause might be triggered when Application goes into background which should be ignored if playback is not started yet
         if playerInterfaceView.state != .initialise {
-            playerInterfaceView.state = .paused
+            theoplayer.ads.requestPlaying { [weak self] adsPlaying, err in
+                guard let viewController = self else { return }
+                if adsPlaying == true {
+                    viewController.playerInterfaceView.state = .adpaused
+                } else {
+                    viewController.playerInterfaceView.state = .paused
+                }
+            }
         }
     }
 
@@ -292,6 +334,15 @@ class PlayerViewController: UIViewController {
 
     private func onPresentationModeChange(event: PresentationModeChangeEvent) {
         os_log("PRESENTATION_MODE_CHANGE event, presentationMode: %d", event.presentationMode.rawValue)
+    }
+
+    private func onAdBreakBegin(event: AdBreakBeginEvent) {
+        os_log("AD_BREAK_BEGIN event")
+        self.playerInterfaceView.state = .adplaying
+    }
+
+    private func onAdBreakEnd(event: AdBreakEndEvent) {
+        os_log("AD_BREAK_END event")
     }
 }
 
