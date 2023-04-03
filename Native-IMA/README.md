@@ -2,14 +2,7 @@
 
 The purpose of this app is to demonstrate how to integrate [THEOplayer] into an iOS app and integrate with the Google IMA framework to schedule and play advertisements.
 
-For a quick start with this sample, please proceed with the [Quick Start](#Quick-Start) section. You can also take a look at our [Getting Started on iOS](https://docs.theoplayer.com/getting-started/01-sdks/03-ios/00-getting-started.md) guide for more information.
-
-Please check out the following guides should any help be needed to get started with Xcode and/or THEOplayer SDK.
-
-* [THEO Knowledge Base - Xcode Setup]
-* [THEO Knowledge Base - Simulator And iOS Device]
-* [THEOplayer How To's - Setup Reference Application]
-* [THEOplayer How To's - THEOplayer iOS SDK Integration]
+For a quick start with this sample, please proceed with the [Quick Start](#Quick-Start) section. You can also take a look at our [Getting Started on iOS](https://docs.theoplayer.com/getting-started/01-sdks/03-ios-unified/00-getting-started.md) guide for more information.
 
 ## Quick Start
 
