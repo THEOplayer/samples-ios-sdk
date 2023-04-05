@@ -40,7 +40,15 @@ related to mistakes in the integration.
 
 In order to keep these apps as simple as possible, we will maintain
 a set of different sample apps over a single sample app showing all
-different use cases. The following apps are made to work with THEOplayerSDK v2.88.0 :
+different use cases.
+
+The following apps are made to work with THEOplayerSDK v5.0.0:
+
+* [Native Basic](Native-Basic/README.md)
+* [Native GoogleIMA](Native-IMA/README.md)
+* [Native GoogleCast](Native-GoogleCast/README.md)
+
+The following apps are made to work with THEOplayerSDK v2.88.0 up to v4.12.0:
 
 * [Basic Playback](Basic-Playback/README.md)
 * [DRM Playback](DRM-Playback/README.md)
