@@ -70,7 +70,7 @@ class OfflineViewViewModel {
             for task in THEOplayer.cache.tasks {
                 for source in task.source.sources {
                     if source.src == URL(string: stream.url) {
-                        os_log("Found caching task for URL: %@, task status: %@", stream.url, task.status.rawValue)
+                        os_log("Found caching task for URL: %@, task status: %@", stream.url, task.status._rawValue)
                         switch task.status {
                         case .done:
                             offlineTableViewCellViewModel.cachingTask = task
