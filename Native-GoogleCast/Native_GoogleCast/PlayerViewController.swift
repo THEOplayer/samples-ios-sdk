@@ -331,23 +331,19 @@ extension PlayerViewController: PlayerInterfaceViewDelegate {
     }
 
     func skip(isForward: Bool) {
-        theoplayer.requestCurrentTime { (time, error) in
-            if let timeInSeconds = time {
-                var newTime = timeInSeconds + (isForward ? 10 : -10)
-                // Make sure newTime is not less than 0
-                newTime = newTime < 0 ? 0 : newTime
-                if let duration = self.theoplayer.duration {
-                    // Make sure newTime is not bigger than duration
-                    newTime = newTime > duration ? duration : newTime
-                }
-                self.seek(timeInSeconds: Float(newTime))
-            }
+        var newTime = theoplayer.currentTime + (isForward ? 10 : -10)
+        // Make sure newTime is not less than 0
+        newTime = newTime < 0 ? 0 : newTime
+        if let duration = theoplayer.duration {
+            // Make sure newTime is not bigger than duration
+            newTime = newTime > duration ? duration : newTime
         }
+        seek(timeInSeconds: Float(newTime))
     }
 
     func seek(timeInSeconds: Float) {
         // Set current time will trigger waiting event
-        theoplayer.setCurrentTime(Double(timeInSeconds))
+        theoplayer.currentTime = Double(timeInSeconds)
         playerInterfaceView.currentTime = timeInSeconds
     }
 }
