@@ -57,7 +57,8 @@ class PlayerViewController: UIViewController {
 
     private var source: SourceDescription {
         // DRM configuration for EZDRM
-        let ezdrmDrmConfig = EzdrmDRMConfiguration(
+        let ezdrmDrmConfig = FairPlayDRMConfiguration(
+            customIntegrationId: EzdrmDRMIntegration.integrationID,
             licenseAcquisitionURL: licenseUrl,
             certificateURL: certificateUrl
         )
@@ -94,6 +95,7 @@ class PlayerViewController: UIViewController {
           setupTheoplayer()
           // Configure the player's source to initilaise playback
           theoplayer.source = source
+          theoplayer.play()
       }
 
       override func viewDidDisappear(_ animated: Bool) {
@@ -144,8 +146,7 @@ class PlayerViewController: UIViewController {
     private func setupTheoplayer() {
         // Instantiate player object
         let playerConfig = THEOplayerConfiguration(
-            pip: nil,
-            license: "your_license_string"
+            /*,license: "your_license_string"*/
         )
         theoplayer = THEOplayer(configuration: playerConfig)
 
