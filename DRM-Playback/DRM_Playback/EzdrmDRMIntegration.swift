@@ -1,9 +1,8 @@
 //
 //  EzdrmDRMIntegration.swift
-//  THEOplayer_iOS_SDK_Sandbox_Swift
+//  DRM_Playback
 //
-//  Created by Mohamed on 07/01/2021.
-//  Copyright © 2021 THEOplayer. All rights reserved.
+//  Copyright © 2023 THEOPlayer. All rights reserved.
 //
 
 import Foundation
