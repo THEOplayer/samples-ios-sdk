@@ -1,40 +1,97 @@
 # THEOplayer How To's - Configure DRM Source
 
-THEOplayer iOS SDK provides support to different [FairPlay Streaming] integration. This guide is going to cover the steps to configure a source description with an [EZ DRM] FairPlay stream.
-
-The complete implementation can be found in [PlayerViewController.swift] with inline comments. The following sub-sections only highlight the key points.
+THEOplayer iOS SDK provides support for [FairPlay Streaming]. This guide is going to cover the steps to configure a source description with a [EZ DRM] FairPlay stream.
 
 ## Table of Contents
 
-* [Creating EZDRM Configuration]
+* [Creating a custom EZDRM Integration]
+* [Registering the custom integration through a factory]
 * [Creating Source Description with DRM Configuration]
 * [Summary]
 
-## Creating EZDRM Configuration
+## Creating a custom EZDRM Integration
 
-Use `EzdrmDRMConfiguration` to instantiate a `DRMConfiguration` for EZDRM. FairPlayer license and certificate shall be provided as initialization parameters.
+Implement the  `ContentProtectionIntegration` protocol to handle the certificate and license requests and reponses.
 
 ```swift
-class PlayerViewController: UIViewController {
+class EzdrmDRMIntegration: ContentProtectionIntegration {
+    static let integrationID = "EzdrmDRMIntegration"
 
-    ...
-
-    private var source: SourceDescription {
-        let ezdrmDrmConfig = EzdrmDRMConfiguration(
-            licenseAcquisitionURL: licenseUrl,
-            certificateURL: certificateUrl
-        )
-
-        ...
+    func onExtractFairplayContentId(skdUrl: String, callback: ExtractContentIdCallback) {
+        let arr = skdUrl.components(separatedBy: ";")
+        let skd = arr[arr.count - 1]
+        callback.respond(contentID: skd.data(using: .utf8))
     }
 
-    ...
+    func onCertificateRequest(request: CertificateRequest, callback: CertificateRequestCallback) {
+        callback.request(request: request)
+    }
+
+    func onCertificateResponse(response: CertificateResponse, callback: CertificateResponseCallback) {
+        callback.respond(certificate: response.body)
+    }
+
+    func onLicenseRequest(request: LicenseRequest, callback: LicenseRequestCallback) {
+        callback.request(request: request)
+    }
+
+    func onLicenseResponse(response: LicenseResponse, callback: LicenseResponseCallback) {
+        callback.respond(license: response.body)
+    }
 }
 ```
 
+Depending on the DRM integration requirements, you could customize the requests and responses:
+
+```swift
+
+    ...
+
+    func onLicenseRequest(request: LicenseRequest, callback: LicenseRequestCallback) {
+        guard let serviceUrl = URL(string: LAURL) else {
+            fatalError("'\(LAURL)' is not a valid URL")
+        }
+        var urlRequest = URLRequest(url: serviceUrl)
+        urlRequest.httpMethod = "POST"
+        urlRequest.httpBody = request.body
+        urlRequest.setValue("application/octet-stream", forHTTPHeaderField: "Content-Type")
+        URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
+            if let data = data {
+                callback.respond(license: data)
+            } else {
+                callback.error(error: error!)
+            }
+        }.resume()
+    }
+
+    ...
+
+```
+
+## Registering the custom integration through a factory
+
+Implement the `ContentProtectionIntegrationFactory` protocol to help build the custom integration.
+
+```swift
+class EzdrmDRMIntegrationFactory: ContentProtectionIntegrationFactory {
+    func build(configuration: DRMConfiguration) -> ContentProtectionIntegration {
+        return EzdrmDRMIntegration()
+    }
+}
+```
+
+And register the integration with the following API method:
+
+```swift
+let factory = EzdrmDRMIntegrationFactory()
+THEOplayer.registerContentProtectionIntegration(integrationId: EzdrmDRMIntegration.integrationID, keySystem: .FAIRPLAY, integrationFactory: factory)
+```
+
+Once the integration is registered, it can be used for all `TypedSource` objects for the remainder of the application runtime.
+
 ## Creating Source Description with DRM Configuration
 
-`TypedSource` will be used just as [THEO Basic Playback] except that the `EzdrmDRMConfiguration` will be passed as the `drm` property.
+`TypedSource` will be used just as [THEO Basic Playback] except that the `FairPlayDRMConfiguration` with a custom integration will be passed as the `drm` property.
 
 ```swift
 class PlayerViewController: UIViewController {
@@ -42,7 +99,8 @@ class PlayerViewController: UIViewController {
     ...
 
     private var source: SourceDescription {
-        let ezdrmDrmConfig = EzdrmDRMConfiguration(
+        let ezdrmDrmConfig = FairPlayDRMConfiguration(
+            customIntegrationId: EzdrmDRMIntegration.integrationID,
             licenseAcquisitionURL: licenseUrl,
             certificateURL: certificateUrl
         )
@@ -67,7 +125,8 @@ Source description with DRM stream has been created successfully. When the `sour
 For more guides about THEOplayer please visit [THEO Docs] portal.
 
 [//]: # (Sections reference)
-[Creating EZDRM Configuration]: #Creating-EZDRM-Configuration
+[Creating EZDRM Configuration]: #Creating-a-custom-EZDRM-Integration
+[Registering the custom integration through a factory]: #Registering-the-custom-integration-through-a-factory
 [Creating Source Description with DRM Configuration]: #Creating-Source-Description-with-DRM-Configuration
 [Summary]: #Summary
 
