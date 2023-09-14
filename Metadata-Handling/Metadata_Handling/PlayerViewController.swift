@@ -272,8 +272,8 @@ class PlayerViewController: UIViewController {
     private func setupTheoplayer() {
         // Instantiate player object
         let playerConfig = THEOplayerConfiguration(
-            pip: nil,
-            license: "your_license_string"
+            chromeless: true
+            /*,license: "your_license_string"*/
         )
         theoplayer = THEOplayer(configuration: playerConfig)
 
@@ -456,18 +456,12 @@ class PlayerViewController: UIViewController {
     private func onTimeUpdated(event: TimeUpdateEvent) {
         os_log("TIME_UPDATE event, currentTime: %f", event.currentTime)
 
-        theoplayer.requestCurrentProgramDateTime { (date, error) in
-            if let date = date {
-                let formatter = DateFormatter()
-                formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        if let date = theoplayer.currentProgramDateTime {
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
 
-                os_log("TIME_UPDATE event, content: %@", formatter.string(from: date))
-                self.metadataTextView.text += "\(formatter.string(from: date))\n"
-            } else if let error = error {
-                os_log("requestCurrentProgramDateTime, error: %@", error.localizedDescription)
-            } else {
-                os_log("Both date and error are nil")
-            }
+            os_log("TIME_UPDATE event, content: %@", formatter.string(from: date))
+            self.metadataTextView.text += "\(formatter.string(from: date))\n"
         }
     }
 

@@ -112,7 +112,7 @@ THEOplayer has support for associating media segments with an absolute date and 
 
 THEOplayer enables this feature by making use of the `EXT-X-PROGRAM-DATE-TIME` information that gets embedded in the HLS manifest file.
 
-To collect program date time metadata in HLS, add listener to the `PlayerEventTypes.TIME_UPDATE` event for time update and then use the `requestCurrentProgramDateTime()` API when the event is fired. Program date time will be returned as a `Date` object which will then formatted and appended to `metadataTextView`.
+To collect program date time metadata in HLS, add listener to the `PlayerEventTypes.TIME_UPDATE` event for time update and then use the `currentProgramDateTime` API when the event is fired. Program date time will be returned as a `Date` object which will then formatted and appended to `metadataTextView`.
 
 ```swift
 class PlayerViewController: UIViewController {
@@ -131,18 +131,12 @@ class PlayerViewController: UIViewController {
     private func onTimeUpdated(event: TimeUpdateEvent) {
         os_log("TIME_UPDATE event, currentTime: %f", event.currentTime)
 
-        theoplayer.requestCurrentProgramDateTime { (date, error) in
-            if let date = date {
-                let formatter = DateFormatter()
-                formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        if let date = theoplayer.currentProgramDateTime {
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
 
-                os_log("TIME_UPDATE event, content: %@", formatter.string(from: date))
-                self.metadataTextView.text += "\(formatter.string(from: date))\n"
-            } else if let error = error {
-                os_log("requestCurrentProgramDateTime, error: %@", error.localizedDescription)
-            } else {
-                os_log("Both date and error are nil")
-            }
+            os_log("TIME_UPDATE event, content: %@", formatter.string(from: date))
+            self.metadataTextView.text += "\(formatter.string(from: date))\n"
         }
     }
 
