@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import THEOplayerSDK
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -21,6 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let playerViewController = PlayerViewController()
         // Create navigationController and set playerViewController as its root view controller
         let navigationController = createNavigationController(rootViewController: playerViewController)
+        registerDRM()
 
         // Set window's root view controller
         window?.rootViewController = navigationController
@@ -48,5 +50,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         navigationController.navigationBar.topItem?.title = Bundle.main.infoDictionary![kCFBundleNameKey as String] as? String
 
         return navigationController
+    }
+
+    private func registerDRM() {
+        let factory = EzdrmDRMIntegrationFactory()
+        THEOplayer.registerContentProtectionIntegration(integrationId: EzdrmDRMIntegration.integrationID, keySystem: .FAIRPLAY, integrationFactory: factory)
     }
 }

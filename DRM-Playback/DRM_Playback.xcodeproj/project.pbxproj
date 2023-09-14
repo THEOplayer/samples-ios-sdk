@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		07D5F3202AAB589D00A31BBA /* EzdrmDRMIntegration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D5F31F2AAB589D00A31BBA /* EzdrmDRMIntegration.swift */; };
 		7617EEB92677DFA700EBE674 /* THEOplayerSDK.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7617EEB82677DFA700EBE674 /* THEOplayerSDK.xcframework */; };
 		7617EEBA2677DFA700EBE674 /* THEOplayerSDK.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7617EEB82677DFA700EBE674 /* THEOplayerSDK.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BE01A75923875BE1000EFF53 /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE01A75823875BE1000EFF53 /* PlayerViewController.swift */; };
@@ -31,6 +32,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		07D5F31F2AAB589D00A31BBA /* EzdrmDRMIntegration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EzdrmDRMIntegration.swift; sourceTree = "<group>"; };
 		7617EEB82677DFA700EBE674 /* THEOplayerSDK.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = THEOplayerSDK.xcframework; sourceTree = "<group>"; };
 		BE01A75823875BE1000EFF53 /* PlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
 		BE01A76323876674000EFF53 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
@@ -75,6 +77,7 @@
 			children = (
 				BE8242F72363AAB100994FB2 /* AppDelegate.swift */,
 				BE01A75823875BE1000EFF53 /* PlayerViewController.swift */,
+				07D5F31F2AAB589D00A31BBA /* EzdrmDRMIntegration.swift */,
 				BE01A76323876674000EFF53 /* Theme.swift */,
 				BE8243002363AAB200994FB2 /* Assets.xcassets */,
 				BE8243022363AAB200994FB2 /* LaunchScreen.storyboard */,
@@ -163,6 +166,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE8242F82363AAB100994FB2 /* AppDelegate.swift in Sources */,
+				07D5F3202AAB589D00A31BBA /* EzdrmDRMIntegration.swift in Sources */,
 				BE01A75923875BE1000EFF53 /* PlayerViewController.swift in Sources */,
 				BE01A76423876674000EFF53 /* Theme.swift in Sources */,
 			);
