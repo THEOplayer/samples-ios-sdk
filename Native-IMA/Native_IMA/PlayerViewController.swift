@@ -369,16 +369,19 @@ extension PlayerViewController: PlayerInterfaceViewDelegate {
 extension PlayerViewController: FullscreenPresentationDelegate {
     func present(viewController: THEOplayerSDK.FullscreenViewController, completion: @escaping () -> Void) {
         self.present(viewController, animated: true) {
-            viewController.view.addSubview(self.theoplayerView)
-            self.theoplayerView.setConstraintsToSafeArea(safeArea: viewController.view.safeAreaLayoutGuide)
+            viewController.view.addSubview(self.playerInterfaceView)
+            self.playerInterfaceView.setConstraintsToSafeArea(safeArea: viewController.view.safeAreaLayoutGuide)
             completion()
         }
     }
 
     func dismiss(viewController: THEOplayerSDK.FullscreenViewController, completion: @escaping () -> Void) {
         viewController.presentingViewController?.dismiss(animated: false) {
-            self.view.addSubview(self.theoplayerView)
-            self.theoplayerView.setConstraintsToSafeArea(safeArea: self.view.safeAreaLayoutGuide)
+            self.theoplayerView.insertSubview(self.playerInterfaceView, at: self.theoplayerView.subviews.count)
+            self.playerInterfaceView.leadingAnchor.constraint(equalTo: self.theoplayerView.leadingAnchor).isActive = true
+            self.playerInterfaceView.trailingAnchor.constraint(equalTo: self.theoplayerView.trailingAnchor).isActive = true
+            self.playerInterfaceView.topAnchor.constraint(equalTo: self.theoplayerView.topAnchor).isActive = true
+            self.playerInterfaceView.bottomAnchor.constraint(equalTo: self.theoplayerView.bottomAnchor).isActive = true
             completion()
         }
     }

@@ -159,6 +159,15 @@ class PlayerInterfaceView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
+    func setConstraintsToSafeArea(safeArea: UILayoutGuide) {
+        // Position PlayerInterfaceView at the center of the safe area
+        self.centerXAnchor.constraint(equalTo: safeArea.centerXAnchor).isActive = true
+        self.centerYAnchor.constraint(equalTo: safeArea.centerYAnchor).isActive = true
+        // Set width and height using the width and height of the safe area
+        self.widthAnchor.constraint(equalTo: safeArea.widthAnchor).isActive = true
+        self.heightAnchor.constraint(equalTo: safeArea.heightAnchor).isActive = true
+    }
+
     // MARK: - View setup
 
     private func setupView() {
