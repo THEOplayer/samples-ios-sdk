@@ -6,7 +6,7 @@ target 'Native_IMA' do
 
   # Pods for Native_IMA
   
-    pod 'THEOplayerSDK-core', '~> 5'
-    pod 'THEOplayer-Integration-GoogleIMA', '~> 5'
+    pod 'THEOplayerSDK-core', '~> 7'
+    pod 'THEOplayer-Integration-GoogleIMA', '~> 7'
     
 end
