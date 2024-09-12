@@ -1,8 +1,7 @@
 //
 //  PlayerInterfaceView.swift
-//  Native_Basic
 //
-//  Copyright © 2023 THEOPlayer. All rights reserved.
+//  Copyright © 2024 THEOPlayer. All rights reserved.
 //
 
 import UIKit
@@ -23,6 +22,8 @@ enum PlayerInterfaceViewState: Int {
     case buffering
     case playing
     case paused
+    case adplaying
+    case adpaused
 }
 
 // MARK: - PlayerInterfaceView declaration
@@ -79,7 +80,7 @@ class PlayerInterfaceView: UIView {
             skipBackwardButton.isHidden = true
             skipForwardButton.isHidden = true
             footerView.isHidden = true
-
+            slider.isEnabled = true
             switch state {
             case .initialise:
                 containerView.isHidden = false
@@ -103,6 +104,15 @@ class PlayerInterfaceView: UIView {
                 skipBackwardButton.isHidden = false
                 skipForwardButton.isHidden = false
                 footerView.isHidden = false
+            case .adplaying:
+                startAutoHideTimer()
+                pauseButton.isHidden = false
+                footerView.isHidden = false
+                slider.isEnabled = false
+            case .adpaused:
+                playButton.isHidden = false
+                footerView.isHidden = false
+                slider.isEnabled = false
             default:
                 break
             }
@@ -148,6 +158,15 @@ class PlayerInterfaceView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
+    func setConstraintsToSafeArea(safeArea: UILayoutGuide) {
+        // Position PlayerInterfaceView at the center of the safe area
+        self.centerXAnchor.constraint(equalTo: safeArea.centerXAnchor).isActive = true
+        self.centerYAnchor.constraint(equalTo: safeArea.centerYAnchor).isActive = true
+        // Set width and height using the width and height of the safe area
+        self.widthAnchor.constraint(equalTo: safeArea.widthAnchor).isActive = true
+        self.heightAnchor.constraint(equalTo: safeArea.heightAnchor).isActive = true
+    }
+
     // MARK: - View setup
 
     private func setupView() {
@@ -191,7 +210,7 @@ class PlayerInterfaceView: UIView {
     }
 
     private func setupActivityIndicatorView() {
-        activityIndicatorView = UIActivityIndicatorView(style: .whiteLarge)
+        activityIndicatorView = UIActivityIndicatorView(style: .large)
 
         controllerStackView.addArrangedSubview(activityIndicatorView)
         activityIndicatorView.widthAnchor.constraint(equalTo: activityIndicatorView.heightAnchor).isActive = true
@@ -375,7 +394,7 @@ extension PlayerInterfaceView: UIGestureRecognizerDelegate {
          */
         let isControlViewTapped = (touch.view == containerView || touch.view == controllerStackView)
         // Toggle to show/hide interface is only needed in the playing state. The interface stays on for other states
-        if state == .playing {
+        if state == .playing || state == .adplaying {
             if isInterfaceShowing && isControlViewTapped {
                 // If interface is currently showing and user tapped on empty area, hide interface and stop auto hide timer
                 showInterface = false

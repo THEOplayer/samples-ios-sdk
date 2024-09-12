@@ -7,11 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		07DEEA2329D47C0100A7579C /* PlayerInterfaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DEEA2229D47C0000A7579C /* PlayerInterfaceView.swift */; };
-		07DEEA2529D47C0600A7579C /* THEOComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DEEA2429D47C0600A7579C /* THEOComponent.swift */; };
-		BE01A75923875BE1000EFF53 /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE01A75823875BE1000EFF53 /* PlayerViewController.swift */; };
-		BE01A76423876674000EFF53 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE01A76323876674000EFF53 /* Theme.swift */; };
-		BE8242F82363AAB100994FB2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8242F72363AAB100994FB2 /* AppDelegate.swift */; };
+		075D9D5C2C93133500CB6646 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075D9D5B2C93133500CB6646 /* AppDelegate.swift */; };
+		075D9D632C9317B300CB6646 /* AppDelegate+Basic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075D9D622C9317B300CB6646 /* AppDelegate+Basic.swift */; };
+		075D9D6E2C931BB100CB6646 /* THEOPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075D9D6D2C931BB100CB6646 /* THEOPlayerView.swift */; };
+		075D9D7C2C9336E200CB6646 /* PlayerViewController+Basic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075D9D7B2C9336E200CB6646 /* PlayerViewController+Basic.swift */; };
+		075D9D812C93377400CB6646 /* PlayerInterfaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075D9D7D2C93377400CB6646 /* PlayerInterfaceView.swift */; };
+		075D9D822C93377400CB6646 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075D9D7E2C93377400CB6646 /* Theme.swift */; };
+		075D9D832C93377400CB6646 /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075D9D7F2C93377400CB6646 /* PlayerViewController.swift */; };
+		075D9D842C93377400CB6646 /* THEOComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075D9D802C93377400CB6646 /* THEOComponent.swift */; };
 		BE8243012363AAB200994FB2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE8243002363AAB200994FB2 /* Assets.xcassets */; };
 		BE8243042363AAB200994FB2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE8243022363AAB200994FB2 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -30,12 +33,15 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		07DEEA2229D47C0000A7579C /* PlayerInterfaceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerInterfaceView.swift; sourceTree = "<group>"; };
-		07DEEA2429D47C0600A7579C /* THEOComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = THEOComponent.swift; sourceTree = "<group>"; };
-		BE01A75823875BE1000EFF53 /* PlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
-		BE01A76323876674000EFF53 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		075D9D5B2C93133500CB6646 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		075D9D622C9317B300CB6646 /* AppDelegate+Basic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Basic.swift"; sourceTree = "<group>"; };
+		075D9D6D2C931BB100CB6646 /* THEOPlayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = THEOPlayerView.swift; sourceTree = "<group>"; };
+		075D9D7B2C9336E200CB6646 /* PlayerViewController+Basic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlayerViewController+Basic.swift"; sourceTree = "<group>"; };
+		075D9D7D2C93377400CB6646 /* PlayerInterfaceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerInterfaceView.swift; sourceTree = "<group>"; };
+		075D9D7E2C93377400CB6646 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		075D9D7F2C93377400CB6646 /* PlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
+		075D9D802C93377400CB6646 /* THEOComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = THEOComponent.swift; sourceTree = "<group>"; };
 		BE8242F42363AAB100994FB2 /* THEO Native Basic Playback.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "THEO Native Basic Playback.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		BE8242F72363AAB100994FB2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BE8243002363AAB200994FB2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BE8243032363AAB200994FB2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BE8243052363AAB200994FB2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -52,9 +58,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		075D9D5A2C93133500CB6646 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				075D9D5B2C93133500CB6646 /* AppDelegate.swift */,
+				075D9D7D2C93377400CB6646 /* PlayerInterfaceView.swift */,
+				075D9D7F2C93377400CB6646 /* PlayerViewController.swift */,
+				075D9D7E2C93377400CB6646 /* Theme.swift */,
+				075D9D802C93377400CB6646 /* THEOComponent.swift */,
+				075D9D6D2C931BB100CB6646 /* THEOPlayerView.swift */,
+			);
+			name = Shared;
+			path = ../Shared;
+			sourceTree = "<group>";
+		};
 		BE8242EB2363AAB100994FB2 = {
 			isa = PBXGroup;
 			children = (
+				075D9D5A2C93133500CB6646 /* Shared */,
 				BE8242F62363AAB100994FB2 /* Native_Basic */,
 				BE8242F52363AAB100994FB2 /* Products */,
 				F7E6091F2329D14E53F8B02A /* Pods */,
@@ -72,11 +93,8 @@
 		BE8242F62363AAB100994FB2 /* Native_Basic */ = {
 			isa = PBXGroup;
 			children = (
-				BE8242F72363AAB100994FB2 /* AppDelegate.swift */,
-				07DEEA2229D47C0000A7579C /* PlayerInterfaceView.swift */,
-				BE01A75823875BE1000EFF53 /* PlayerViewController.swift */,
-				07DEEA2429D47C0600A7579C /* THEOComponent.swift */,
-				BE01A76323876674000EFF53 /* Theme.swift */,
+				075D9D622C9317B300CB6646 /* AppDelegate+Basic.swift */,
+				075D9D7B2C9336E200CB6646 /* PlayerViewController+Basic.swift */,
 				BE8243002363AAB200994FB2 /* Assets.xcassets */,
 				BE8243022363AAB200994FB2 /* LaunchScreen.storyboard */,
 				BE8243052363AAB200994FB2 /* Info.plist */,
@@ -162,11 +180,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BE8242F82363AAB100994FB2 /* AppDelegate.swift in Sources */,
-				07DEEA2329D47C0100A7579C /* PlayerInterfaceView.swift in Sources */,
-				BE01A75923875BE1000EFF53 /* PlayerViewController.swift in Sources */,
-				07DEEA2529D47C0600A7579C /* THEOComponent.swift in Sources */,
-				BE01A76423876674000EFF53 /* Theme.swift in Sources */,
+				075D9D812C93377400CB6646 /* PlayerInterfaceView.swift in Sources */,
+				075D9D842C93377400CB6646 /* THEOComponent.swift in Sources */,
+				075D9D7C2C9336E200CB6646 /* PlayerViewController+Basic.swift in Sources */,
+				075D9D6E2C931BB100CB6646 /* THEOPlayerView.swift in Sources */,
+				075D9D832C93377400CB6646 /* PlayerViewController.swift in Sources */,
+				075D9D822C93377400CB6646 /* Theme.swift in Sources */,
+				075D9D5C2C93133500CB6646 /* AppDelegate.swift in Sources */,
+				075D9D632C9317B300CB6646 /* AppDelegate+Basic.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
