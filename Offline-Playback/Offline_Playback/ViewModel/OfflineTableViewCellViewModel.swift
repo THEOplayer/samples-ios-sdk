@@ -55,7 +55,7 @@ class OfflineTableViewCellViewModel {
                     // Should never happen as evicated cachingTask will be not set in OfflineViewViewModel
                     break
                 @unknown default:
-                    os_log("Unkown task status: %@", task.status.rawValue)
+                    os_log("Unkown task status: %@", task.status._rawValue)
                 }
             } else {
                 removeCachingEventListeners()
@@ -145,7 +145,7 @@ class OfflineTableViewCellViewModel {
     }
 
     private func onStateChangeEvent(event: CacheEvent) {
-        os_log("onStateChangeEvent status: %@", self.cachingTask?.status.rawValue ?? "")
+        os_log("onStateChangeEvent status: %@", self.cachingTask?.status._rawValue ?? "")
         if let status = cachingTask?.status {
             switch status {
             case .done:
@@ -166,7 +166,7 @@ class OfflineTableViewCellViewModel {
 
     private func onProgressEvent(event: CacheEvent) {
         if let task = cachingTask {
-            os_log("title: %@, status: %@, percentage: %.2f", title,  task.status.rawValue, taskPercentage * 100)
+            os_log("title: %@, status: %@, percentage: %.2f", title,  task.status._rawValue, taskPercentage * 100)
             delegate?.onProgressUpdate(percentage: taskPercentage)
         }
     }
@@ -181,23 +181,23 @@ class OfflineTableViewCellViewModel {
         cachingTask?.start()
         // Set DRM license renew timer immedately after new DRM caching task is added
         setDrmLicenseRenewTimer()
-        os_log("createCachingTask: status : %@ bytesCached: %d", cachingTask?.status.rawValue ?? "nil", cachingTask?.bytesCached ?? 0)
+        os_log("createCachingTask: status : %@ bytesCached: %d", cachingTask?.status._rawValue ?? "nil", cachingTask?.bytesCached ?? 0)
     }
 
     func pauseCaching() {
         // Pause caching task
         cachingTask?.pause()
-        os_log("pauseCaching: status : %@ bytesCached: %d", cachingTask?.status.rawValue ?? "nil", cachingTask?.bytesCached ?? 0)
+        os_log("pauseCaching: status : %@ bytesCached: %d", cachingTask?.status._rawValue ?? "nil", cachingTask?.bytesCached ?? 0)
     }
 
     func resumeCaching() {
         // Use start() to resume caching task
         cachingTask?.start()
-        os_log("resumeCaching: status : %@ bytesCached: %d", cachingTask?.status.rawValue ?? "nil", cachingTask?.bytesCached ?? 0)
+        os_log("resumeCaching: status : %@ bytesCached: %d", cachingTask?.status._rawValue ?? "nil", cachingTask?.bytesCached ?? 0)
     }
 
     func removeCaching() {
-        os_log("removeCaching: status : %@ bytesCached: %d", cachingTask?.status.rawValue ?? "nil", cachingTask?.bytesCached ?? 0)
+        os_log("removeCaching: status : %@ bytesCached: %d", cachingTask?.status._rawValue ?? "nil", cachingTask?.bytesCached ?? 0)
         // Remove caching task
         cachingTask?.remove()
         cachingTask = nil
