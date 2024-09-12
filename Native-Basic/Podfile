@@ -6,6 +6,6 @@ target 'Native_Basic' do
 
   # Pods for Native_Basic
   
-    pod 'THEOplayerSDK-core', '~> 5'
+    pod 'THEOplayerSDK-core', '~> 8'
     
 end

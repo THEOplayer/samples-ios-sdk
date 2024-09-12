@@ -6,7 +6,7 @@ target 'Native_GoogleCast' do
 
   # Pods for Native_GoogleCast
   
-    pod 'THEOplayerSDK-core', '~> 5'
-    pod 'THEOplayer-Integration-GoogleCast', '~> 5'
+    pod 'THEOplayerSDK-core', '~> 8'
+    pod 'THEOplayer-Integration-GoogleCast', '~> 8'
     
 end

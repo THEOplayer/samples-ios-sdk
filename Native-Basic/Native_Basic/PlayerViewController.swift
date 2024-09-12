@@ -160,13 +160,11 @@ class PlayerViewController: UIViewController {
 
     private func setupTheoplayer() {
         // Enable chromeless flag in THEOplayer configuration
-        let playerConfig = THEOplayerConfiguration(
-            chromeless: true
-            /*,license: "your_license_string"*/
-        )
+        let playerConfigBuilder = THEOplayerConfigurationBuilder()
+        // playerConfigBuilder.license = "<your_license_string>"
 
         // Instantiate player object
-        theoplayer = THEOplayer(configuration: playerConfig)
+        theoplayer = THEOplayer(configuration: playerConfigBuilder.build())
 
         // Coupling fullscreen with device orientation so that rotation will trigger fullscreen
         theoplayer.fullscreenOrientationCoupling = true
