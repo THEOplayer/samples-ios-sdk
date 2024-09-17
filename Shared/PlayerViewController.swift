@@ -47,6 +47,15 @@ class PlayerViewController: UIViewController {
         )
     }
 
+    var adPlaying: Bool {
+        let integrations: [Integration] = self.theoplayer.getAllIntegrations()
+        if (integrations.first { $0.type == .ADS }) != nil,
+           self.theoplayer.ads.playing {
+            return true
+        }
+        return false
+    }
+
     // MARK: - View controller life cycle
 
     override func viewDidLoad() {
@@ -190,7 +199,7 @@ class PlayerViewController: UIViewController {
         if self.playerInterfaceView.state == .initialise {
             self.playerInterfaceView.state = .buffering
         }
-        if self.theoplayer.ads.playing {
+        if self.adPlaying {
             self.playerInterfaceView.state = .adplaying
         }
     }
@@ -204,7 +213,7 @@ class PlayerViewController: UIViewController {
         os_log("PAUSE event, currentTime: %f", event.currentTime)
         // Pause might be triggered when Application goes into background which should be ignored if playback is not started yet
         if self.playerInterfaceView.state != .initialise {
-            self.playerInterfaceView.state = self.theoplayer.ads.playing ? .adpaused : .paused
+            self.playerInterfaceView.state = self.adPlaying ? .adpaused : .paused
         }
     }
 
