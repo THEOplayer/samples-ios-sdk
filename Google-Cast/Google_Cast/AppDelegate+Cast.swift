@@ -1,6 +1,6 @@
 //
 //  AppDelegate+Cast.swift
-//  Native_GoogleCast
+//  Google_Cast
 //
 //  Copyright © 2024 THEOPlayer. All rights reserved.
 //
