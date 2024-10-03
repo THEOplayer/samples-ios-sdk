@@ -41,7 +41,7 @@
 		075D9D882C93394D00CB6646 /* PlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
 		075D9D892C93394D00CB6646 /* PlayerInterfaceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerInterfaceView.swift; sourceTree = "<group>"; };
 		075D9D8A2C93394D00CB6646 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
-		BE8242F42363AAB100994FB2 /* THEO GoogleCast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "THEO GoogleCast.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE8242F42363AAB100994FB2 /* THEO Google Cast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "THEO Google Cast.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE8243002363AAB200994FB2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BE8243032363AAB200994FB2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BE8243052363AAB200994FB2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -85,7 +85,7 @@
 		BE8242F52363AAB100994FB2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				BE8242F42363AAB100994FB2 /* THEO GoogleCast.app */,
+				BE8242F42363AAB100994FB2 /* THEO Google Cast.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -127,7 +127,7 @@
 			);
 			name = Google_Cast;
 			productName = Google_Cast;
-			productReference = BE8242F42363AAB100994FB2 /* THEO GoogleCast.app */;
+			productReference = BE8242F42363AAB100994FB2 /* THEO Google Cast.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -336,7 +336,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = theo.google.cast;
-				PRODUCT_NAME = "THEO GoogleCast";
+				PRODUCT_NAME = "THEO Google Cast";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -360,7 +360,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = theo.google.cast;
-				PRODUCT_NAME = "THEO GoogleCast";
+				PRODUCT_NAME = "THEO Google Cast";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

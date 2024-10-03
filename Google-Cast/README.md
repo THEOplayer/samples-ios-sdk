@@ -1,4 +1,4 @@
-# THEOplayer iOS Reference Apps - THEO GoogleCast
+# THEOplayer iOS Reference Apps - THEO Google Cast
 
 The purpose of this app is to demonstrate how to integrate [THEOplayer] into an iOS app and integrate with the Google Cast framework to act as the sender application during chromecast.
 
