@@ -1,10 +1,10 @@
 platform :ios, '13.0'
 
-target 'Native_Basic' do
+target 'Basic_Playback' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
-  # Pods for Native_Basic
+  # Pods for Basic_Playback
   
     pod 'THEOplayerSDK-core', '~> 8'
     

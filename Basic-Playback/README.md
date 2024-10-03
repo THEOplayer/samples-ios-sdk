@@ -1,4 +1,4 @@
-# THEOplayer iOS Reference Apps - THEO Native Basic Playback
+# THEOplayer iOS Reference Apps - THEO Basic Playback
 
 The purpose of this app is to demonstrate how to integrate [THEOplayer] into an iOS app and playback a HLS stream.
 

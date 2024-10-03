@@ -1,6 +1,6 @@
 //
 //  PlayerViewController+Basic.swift
-//  Native_Basic
+//  Basic_Playback
 //
 //  Copyright © 2024 THEOPlayer. All rights reserved.
 //
