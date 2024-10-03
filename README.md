@@ -42,29 +42,13 @@ In order to keep these apps as simple as possible, we will maintain
 a set of different sample apps over a single sample app showing all
 different use cases.
 
-The following apps are made to work with THEOplayerSDK v5.0.0:
-
-* [Native Basic](Native-Basic/README.md)
-* [Native GoogleIMA](Native-IMA/README.md)
-* [Native GoogleCast](Native-GoogleCast/README.md)
-
-The following apps are made to work with THEOplayerSDK v2.88.0 up to v4.12.0:
+The following apps are made to work with THEOplayerSDK v8.0.0:
 
 * [Basic Playback](Basic-Playback/README.md)
 * [DRM Playback](DRM-Playback/README.md)
-* [Basic Ads](Basic-Ads/README.md)
+* [Google Cast](Google-GoogleCast/README.md)
 * [Google IMA](Google-IMA/README.md)
-* [Custom URL Playback](Custom-URL-Playback/README.md)
-* [Custom Ads](Custom-Ads/README.md)
-* [Google Cast](Google-Cast/README.md)
-* [Full Screen Handling](Full-Screen-Handling/README.md)
-* [PiP Handling](PiP-Handling/README.md)
-* [Metadata Handling](Metadata-Handling/README.md)
 * [Offline Playback](Offline-Playback/README.md)
-* [Custom UI](Custom-UI/README.md)
-* [Simple OTT](Simple-OTT/README.md)
-* [Programmable Stream](Programmable-Stream/README.md)
-* [Verizon Media](Verizon-Media/README.md)
 
 ## Streams/Content Rights:
 
