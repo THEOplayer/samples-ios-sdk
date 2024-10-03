@@ -1,0 +1,10 @@
+platform :ios, '13.0'
+
+target 'Google_IMA' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for Google_IMA
+  pod 'THEOplayerSDK-core', '~> 8'
+  pod 'THEOplayer-Integration-GoogleIMA', '~> 8'  
+end

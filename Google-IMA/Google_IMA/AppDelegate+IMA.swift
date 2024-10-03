@@ -1,6 +1,6 @@
 //
 //  AppDelegate+IMA.swift
-//  Native_IMA
+//  Google_IMA
 //
 //  Copyright © 2024 THEOPlayer. All rights reserved.
 //

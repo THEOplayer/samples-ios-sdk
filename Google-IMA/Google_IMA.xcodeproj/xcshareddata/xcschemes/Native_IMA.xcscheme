@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "BE8242F32363AAB100994FB2"
-               BuildableName = "THEO Native IMA.app"
-               BlueprintName = "Native_IMA"
-               ReferencedContainer = "container:Native_IMA.xcodeproj">
+               BuildableName = "THEO Google IMA.app"
+               BlueprintName = "Google_IMA"
+               ReferencedContainer = "container:Google_IMA.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -45,9 +45,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "BE8242F32363AAB100994FB2"
-            BuildableName = "THEO Native IMA.app"
-            BlueprintName = "Native_IMA"
-            ReferencedContainer = "container:Native_IMA.xcodeproj">
+            BuildableName = "THEO Google IMA.app"
+            BlueprintName = "Google_IMA"
+            ReferencedContainer = "container:Google_IMA.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -62,9 +62,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "BE8242F32363AAB100994FB2"
-            BuildableName = "THEO Native IMA.app"
-            BlueprintName = "Native_IMA"
-            ReferencedContainer = "container:Native_IMA.xcodeproj">
+            BuildableName = "THEO Google IMA.app"
+            BlueprintName = "Google_IMA"
+            ReferencedContainer = "container:Google_IMA.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

@@ -1,4 +1,4 @@
-# THEOplayer iOS Reference Apps - THEO Native IMA
+# THEOplayer iOS Reference Apps - THEO Google IMA
 
 The purpose of this app is to demonstrate how to integrate [THEOplayer] into an iOS app and integrate with the Google IMA framework to schedule and play advertisements.
 

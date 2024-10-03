@@ -41,7 +41,7 @@
 		075D9D752C9335F400CB6646 /* PlayerInterfaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerInterfaceView.swift; sourceTree = "<group>"; };
 		075D9D772C93364E00CB6646 /* THEOComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THEOComponent.swift; sourceTree = "<group>"; };
 		075D9D792C93366A00CB6646 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
-		BE8242F42363AAB100994FB2 /* THEO Native IMA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "THEO Native IMA.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE8242F42363AAB100994FB2 /* THEO Google IMA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "THEO Google IMA.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE8243002363AAB200994FB2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BE8243032363AAB200994FB2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BE8243052363AAB200994FB2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -76,7 +76,7 @@
 			isa = PBXGroup;
 			children = (
 				075D9D642C93180300CB6646 /* Shared */,
-				BE8242F62363AAB100994FB2 /* Native_IMA */,
+				BE8242F62363AAB100994FB2 /* Google_IMA */,
 				BE8242F52363AAB100994FB2 /* Products */,
 				F7E6091F2329D14E53F8B02A /* Pods */,
 			);
@@ -85,12 +85,12 @@
 		BE8242F52363AAB100994FB2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				BE8242F42363AAB100994FB2 /* THEO Native IMA.app */,
+				BE8242F42363AAB100994FB2 /* THEO Google IMA.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		BE8242F62363AAB100994FB2 /* Native_IMA */ = {
+		BE8242F62363AAB100994FB2 /* Google_IMA */ = {
 			isa = PBXGroup;
 			children = (
 				075D9D672C93181C00CB6646 /* AppDelegate+IMA.swift */,
@@ -99,7 +99,7 @@
 				BE8243022363AAB200994FB2 /* LaunchScreen.storyboard */,
 				BE8243052363AAB200994FB2 /* Info.plist */,
 			);
-			path = Native_IMA;
+			path = Google_IMA;
 			sourceTree = "<group>";
 		};
 		F7E6091F2329D14E53F8B02A /* Pods */ = {
@@ -112,9 +112,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		BE8242F32363AAB100994FB2 /* Native_IMA */ = {
+		BE8242F32363AAB100994FB2 /* Google_IMA */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BE8243082363AAB200994FB2 /* Build configuration list for PBXNativeTarget "Native_IMA" */;
+			buildConfigurationList = BE8243082363AAB200994FB2 /* Build configuration list for PBXNativeTarget "Google_IMA" */;
 			buildPhases = (
 				BE8242F02363AAB100994FB2 /* Sources */,
 				BE8242F12363AAB100994FB2 /* Frameworks */,
@@ -125,9 +125,9 @@
 			);
 			dependencies = (
 			);
-			name = Native_IMA;
-			productName = Native_IMA;
-			productReference = BE8242F42363AAB100994FB2 /* THEO Native IMA.app */;
+			name = Google_IMA;
+			productName = Google_IMA;
+			productReference = BE8242F42363AAB100994FB2 /* THEO Google IMA.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -145,7 +145,7 @@
 					};
 				};
 			};
-			buildConfigurationList = BE8242EF2363AAB100994FB2 /* Build configuration list for PBXProject "Native_IMA" */;
+			buildConfigurationList = BE8242EF2363AAB100994FB2 /* Build configuration list for PBXProject "Google_IMA" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -158,7 +158,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				BE8242F32363AAB100994FB2 /* Native_IMA */,
+				BE8242F32363AAB100994FB2 /* Google_IMA */,
 			);
 		};
 /* End PBXProject section */
@@ -329,14 +329,14 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				INFOPLIST_FILE = Native_IMA/Info.plist;
+				INFOPLIST_FILE = Google_IMA/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = theo.native.ima;
-				PRODUCT_NAME = "THEO Native IMA";
+				PRODUCT_BUNDLE_IDENTIFIER = theo.google.ima;
+				PRODUCT_NAME = "THEO Google IMA";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -353,14 +353,14 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				INFOPLIST_FILE = Native_IMA/Info.plist;
+				INFOPLIST_FILE = Google_IMA/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = theo.native.ima;
-				PRODUCT_NAME = "THEO Native IMA";
+				PRODUCT_BUNDLE_IDENTIFIER = theo.google.ima;
+				PRODUCT_NAME = "THEO Google IMA";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -370,7 +370,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		BE8242EF2363AAB100994FB2 /* Build configuration list for PBXProject "Native_IMA" */ = {
+		BE8242EF2363AAB100994FB2 /* Build configuration list for PBXProject "Google_IMA" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BE8243062363AAB200994FB2 /* Debug */,
@@ -379,7 +379,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		BE8243082363AAB200994FB2 /* Build configuration list for PBXNativeTarget "Native_IMA" */ = {
+		BE8243082363AAB200994FB2 /* Build configuration list for PBXNativeTarget "Google_IMA" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BE8243092363AAB200994FB2 /* Debug */,
