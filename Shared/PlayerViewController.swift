@@ -165,7 +165,7 @@ class PlayerViewController: UIViewController {
         self.listeners["readyStateChange"] = self.theoplayer.addEventListener(type: PlayerEventTypes.READY_STATE_CHANGE, listener: self.onReadyStateChange)
         self.listeners["waiting"] = self.theoplayer.addEventListener(type: PlayerEventTypes.WAITING, listener: self.onWaiting)
         self.listeners["seeking"] = self.theoplayer.addEventListener(type: PlayerEventTypes.SEEKING, listener: self.onSeeking)
-        self.listeners["seeked"] = self.theoplayer.addEventListener(type: PlayerEventTypes.SEEKING, listener: self.onSeeked)
+        self.listeners["seeked"] = self.theoplayer.addEventListener(type: PlayerEventTypes.SEEKED, listener: self.onSeeked)
         self.listeners["loadedData"] = self.theoplayer.addEventListener(type: PlayerEventTypes.LOADED_DATA, listener: self.onLoadedData)
         self.listeners["loadedMetadata"] = self.theoplayer.addEventListener(type: PlayerEventTypes.LOADED_META_DATA, listener: self.onLoadedMetadata)
         self.listeners["durationChange"] = self.theoplayer.addEventListener(type: PlayerEventTypes.DURATION_CHANGE, listener: self.onDurationChange)
