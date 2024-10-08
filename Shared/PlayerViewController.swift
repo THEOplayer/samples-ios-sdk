@@ -165,6 +165,10 @@ class PlayerViewController: UIViewController {
         self.listeners["sourceChange"] = self.theoplayer.addEventListener(type: PlayerEventTypes.SOURCE_CHANGE, listener: self.onSourceChange)
         self.listeners["readyStateChange"] = self.theoplayer.addEventListener(type: PlayerEventTypes.READY_STATE_CHANGE, listener: self.onReadyStateChange)
         self.listeners["waiting"] = self.theoplayer.addEventListener(type: PlayerEventTypes.WAITING, listener: self.onWaiting)
+        self.listeners["seeking"] = self.theoplayer.addEventListener(type: PlayerEventTypes.SEEKING, listener: self.onSeeking)
+        self.listeners["seeked"] = self.theoplayer.addEventListener(type: PlayerEventTypes.SEEKING, listener: self.onSeeked)
+        self.listeners["loadedData"] = self.theoplayer.addEventListener(type: PlayerEventTypes.LOADED_DATA, listener: self.onLoadedData)
+        self.listeners["loadedMetadata"] = self.theoplayer.addEventListener(type: PlayerEventTypes.LOADED_META_DATA, listener: self.onLoadedMetadata)
         self.listeners["durationChange"] = self.theoplayer.addEventListener(type: PlayerEventTypes.DURATION_CHANGE, listener: self.onDurationChange)
         self.listeners["timeUpdate"] = self.theoplayer.addEventListener(type: PlayerEventTypes.TIME_UPDATE, listener: self.onTimeUpdate)
         self.listeners["presentationModeChange"] = self.theoplayer.addEventListener(type: PlayerEventTypes.PRESENTATION_MODE_CHANGE, listener: self.onPresentationModeChange)
@@ -184,6 +188,10 @@ class PlayerViewController: UIViewController {
         self.theoplayer.removeEventListener(type: PlayerEventTypes.SOURCE_CHANGE, listener: self.listeners["sourceChange"]!)
         self.theoplayer.removeEventListener(type: PlayerEventTypes.READY_STATE_CHANGE, listener: self.listeners["readyStateChange"]!)
         self.theoplayer.removeEventListener(type: PlayerEventTypes.WAITING, listener: self.listeners["waiting"]!)
+        self.theoplayer.removeEventListener(type: PlayerEventTypes.SEEKING, listener: self.listeners["seeking"]!)
+        self.theoplayer.removeEventListener(type: PlayerEventTypes.SEEKED, listener: self.listeners["seeked"]!)
+        self.theoplayer.removeEventListener(type: PlayerEventTypes.LOADED_DATA, listener: self.listeners["loadedData"]!)
+        self.theoplayer.removeEventListener(type: PlayerEventTypes.LOADED_META_DATA, listener: self.listeners["loadedMetadata"]!)
         self.theoplayer.removeEventListener(type: PlayerEventTypes.DURATION_CHANGE, listener: self.listeners["durationChange"]!)
         self.theoplayer.removeEventListener(type: PlayerEventTypes.TIME_UPDATE, listener: self.listeners["timeUpdate"]!)
         self.theoplayer.removeEventListener(type: PlayerEventTypes.PRESENTATION_MODE_CHANGE, listener: self.listeners["presentationModeChange"]!)
@@ -247,6 +255,22 @@ class PlayerViewController: UIViewController {
         os_log("WAITING event, currentTime: %f", event.currentTime)
         // Waiting event indicates there is not enough data to play, hence the buffering state
         self.playerInterfaceView.state = .buffering
+    }
+    
+    private func onSeeking(event: SeekingEvent) {
+        os_log("SEEKING event, currentTime: %f", event.currentTime)
+    }
+    
+    private func onSeeked(event: SeekedEvent) {
+        os_log("SEEKED event, currentTime: %f", event.currentTime)
+    }
+    
+    private func onLoadedData(event: LoadedDataEvent) {
+        os_log("LOADEDDATA event")
+    }
+    
+    private func onLoadedMetadata(event: LoadedMetaDataEvent) {
+        os_log("LOADEDMETADATA event")
     }
 
     private func onDurationChange(event: DurationChangeEvent) {
