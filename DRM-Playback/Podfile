@@ -1,10 +1,9 @@
 platform :ios, '13.0'
 
-target 'Google_IMA' do
+target 'DRM_Playback' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
-  # Pods for Google_IMA
+  # Pods for DRM_Playback
   pod 'THEOplayerSDK-core', '~> 8'
-  pod 'THEOplayer-Integration-GoogleIMA', '~> 8'  
 end

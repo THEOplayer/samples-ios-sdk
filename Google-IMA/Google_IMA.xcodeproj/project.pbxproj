@@ -3,28 +3,29 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		43650F3079BC777AA1BD735B /* libPods-Google_IMA.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CC1D6256C92A57CF01FBA0D5 /* libPods-Google_IMA.a */; };
-		7617EEC32677E19E00EBE674 /* THEOplayerSDK.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7617EEC22677E19E00EBE674 /* THEOplayerSDK.xcframework */; };
-		7617EEC42677E19E00EBE674 /* THEOplayerSDK.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7617EEC22677E19E00EBE674 /* THEOplayerSDK.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		BE01A75923875BE1000EFF53 /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE01A75823875BE1000EFF53 /* PlayerViewController.swift */; };
-		BE01A76423876674000EFF53 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE01A76323876674000EFF53 /* Theme.swift */; };
-		BE8242F82363AAB100994FB2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8242F72363AAB100994FB2 /* AppDelegate.swift */; };
+		075D9D662C93180300CB6646 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075D9D652C93180300CB6646 /* AppDelegate.swift */; };
+		075D9D682C93181C00CB6646 /* AppDelegate+IMA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075D9D672C93181C00CB6646 /* AppDelegate+IMA.swift */; };
+		075D9D6C2C931B5A00CB6646 /* THEOPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075D9D6B2C931B5A00CB6646 /* THEOPlayerView.swift */; };
+		075D9D722C932A5D00CB6646 /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075D9D712C932A5D00CB6646 /* PlayerViewController.swift */; };
+		075D9D742C932A8A00CB6646 /* PlayerViewController+IMA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075D9D732C932A8A00CB6646 /* PlayerViewController+IMA.swift */; };
+		075D9D762C9335F400CB6646 /* PlayerInterfaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075D9D752C9335F400CB6646 /* PlayerInterfaceView.swift */; };
+		075D9D782C93364E00CB6646 /* THEOComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075D9D772C93364E00CB6646 /* THEOComponent.swift */; };
+		075D9D7A2C93366A00CB6646 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075D9D792C93366A00CB6646 /* Theme.swift */; };
 		BE8243012363AAB200994FB2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE8243002363AAB200994FB2 /* Assets.xcassets */; };
 		BE8243042363AAB200994FB2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE8243022363AAB200994FB2 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		7617EEC52677E19E00EBE674 /* Embed Frameworks */ = {
+		7617EEA72677D90D00EBE674 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				7617EEC42677E19E00EBE674 /* THEOplayerSDK.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -32,18 +33,18 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		1F503341D4D9A7A26CC125E7 /* Pods-Google_IMA.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Google_IMA.debug.xcconfig"; path = "Target Support Files/Pods-Google_IMA/Pods-Google_IMA.debug.xcconfig"; sourceTree = "<group>"; };
-		5FE78D65D86F470D623868CE /* Pods-Google_IMA.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Google_IMA.release.xcconfig"; path = "Target Support Files/Pods-Google_IMA/Pods-Google_IMA.release.xcconfig"; sourceTree = "<group>"; };
-		7617EEC22677E19E00EBE674 /* THEOplayerSDK.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = THEOplayerSDK.xcframework; sourceTree = "<group>"; };
-		763DD6E525F80C07007D0F54 /* GoogleInteractiveMediaAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleInteractiveMediaAds.framework; sourceTree = "<group>"; };
-		BE01A75823875BE1000EFF53 /* PlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
-		BE01A76323876674000EFF53 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		075D9D652C93180300CB6646 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		075D9D672C93181C00CB6646 /* AppDelegate+IMA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+IMA.swift"; sourceTree = "<group>"; };
+		075D9D6B2C931B5A00CB6646 /* THEOPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THEOPlayerView.swift; sourceTree = "<group>"; };
+		075D9D712C932A5D00CB6646 /* PlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
+		075D9D732C932A8A00CB6646 /* PlayerViewController+IMA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlayerViewController+IMA.swift"; sourceTree = "<group>"; };
+		075D9D752C9335F400CB6646 /* PlayerInterfaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerInterfaceView.swift; sourceTree = "<group>"; };
+		075D9D772C93364E00CB6646 /* THEOComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THEOComponent.swift; sourceTree = "<group>"; };
+		075D9D792C93366A00CB6646 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		BE8242F42363AAB100994FB2 /* THEO Google IMA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "THEO Google IMA.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		BE8242F72363AAB100994FB2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BE8243002363AAB200994FB2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BE8243032363AAB200994FB2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BE8243052363AAB200994FB2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CC1D6256C92A57CF01FBA0D5 /* libPods-Google_IMA.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Google_IMA.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,21 +52,33 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				43650F3079BC777AA1BD735B /* libPods-Google_IMA.a in Frameworks */,
-				7617EEC32677E19E00EBE674 /* THEOplayerSDK.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		075D9D642C93180300CB6646 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				075D9D652C93180300CB6646 /* AppDelegate.swift */,
+				075D9D752C9335F400CB6646 /* PlayerInterfaceView.swift */,
+				075D9D712C932A5D00CB6646 /* PlayerViewController.swift */,
+				075D9D772C93364E00CB6646 /* THEOComponent.swift */,
+				075D9D792C93366A00CB6646 /* Theme.swift */,
+				075D9D6B2C931B5A00CB6646 /* THEOPlayerView.swift */,
+			);
+			name = Shared;
+			path = ../Shared;
+			sourceTree = "<group>";
+		};
 		BE8242EB2363AAB100994FB2 = {
 			isa = PBXGroup;
 			children = (
+				075D9D642C93180300CB6646 /* Shared */,
 				BE8242F62363AAB100994FB2 /* Google_IMA */,
 				BE8242F52363AAB100994FB2 /* Products */,
-				BED1C38824112E8700A4ABEB /* Frameworks */,
-				D88ADD3C18BC51C055105B49 /* Pods */,
+				F7E6091F2329D14E53F8B02A /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -80,9 +93,8 @@
 		BE8242F62363AAB100994FB2 /* Google_IMA */ = {
 			isa = PBXGroup;
 			children = (
-				BE8242F72363AAB100994FB2 /* AppDelegate.swift */,
-				BE01A75823875BE1000EFF53 /* PlayerViewController.swift */,
-				BE01A76323876674000EFF53 /* Theme.swift */,
+				075D9D672C93181C00CB6646 /* AppDelegate+IMA.swift */,
+				075D9D732C932A8A00CB6646 /* PlayerViewController+IMA.swift */,
 				BE8243002363AAB200994FB2 /* Assets.xcassets */,
 				BE8243022363AAB200994FB2 /* LaunchScreen.storyboard */,
 				BE8243052363AAB200994FB2 /* Info.plist */,
@@ -90,21 +102,9 @@
 			path = Google_IMA;
 			sourceTree = "<group>";
 		};
-		BED1C38824112E8700A4ABEB /* Frameworks */ = {
+		F7E6091F2329D14E53F8B02A /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				7617EEC22677E19E00EBE674 /* THEOplayerSDK.xcframework */,
-				763DD6E525F80C07007D0F54 /* GoogleInteractiveMediaAds.framework */,
-				CC1D6256C92A57CF01FBA0D5 /* libPods-Google_IMA.a */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		D88ADD3C18BC51C055105B49 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				1F503341D4D9A7A26CC125E7 /* Pods-Google_IMA.debug.xcconfig */,
-				5FE78D65D86F470D623868CE /* Pods-Google_IMA.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -116,12 +116,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BE8243082363AAB200994FB2 /* Build configuration list for PBXNativeTarget "Google_IMA" */;
 			buildPhases = (
-				A700503E3BA0E853178323EB /* [CP] Check Pods Manifest.lock */,
 				BE8242F02363AAB100994FB2 /* Sources */,
 				BE8242F12363AAB100994FB2 /* Frameworks */,
 				BE8242F22363AAB100994FB2 /* Resources */,
-				DCE8DD9DFBEA2125C14D12AF /* [CP] Embed Pods Frameworks */,
-				7617EEC52677E19E00EBE674 /* Embed Frameworks */,
+				7617EEA72677D90D00EBE674 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -177,56 +175,19 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		A700503E3BA0E853178323EB /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Google_IMA-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		DCE8DD9DFBEA2125C14D12AF /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Google_IMA/Pods-Google_IMA-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Google_IMA/Pods-Google_IMA-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Google_IMA/Pods-Google_IMA-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		BE8242F02363AAB100994FB2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BE8242F82363AAB100994FB2 /* AppDelegate.swift in Sources */,
-				BE01A75923875BE1000EFF53 /* PlayerViewController.swift in Sources */,
-				BE01A76423876674000EFF53 /* Theme.swift in Sources */,
+				075D9D7A2C93366A00CB6646 /* Theme.swift in Sources */,
+				075D9D682C93181C00CB6646 /* AppDelegate+IMA.swift in Sources */,
+				075D9D722C932A5D00CB6646 /* PlayerViewController.swift in Sources */,
+				075D9D762C9335F400CB6646 /* PlayerInterfaceView.swift in Sources */,
+				075D9D6C2C931B5A00CB6646 /* THEOPlayerView.swift in Sources */,
+				075D9D662C93180300CB6646 /* AppDelegate.swift in Sources */,
+				075D9D742C932A8A00CB6646 /* PlayerViewController+IMA.swift in Sources */,
+				075D9D782C93364E00CB6646 /* THEOComponent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -294,7 +255,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -348,7 +309,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -360,49 +321,49 @@
 		};
 		BE8243092363AAB200994FB2 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1F503341D4D9A7A26CC125E7 /* Pods-Google_IMA.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = H3Y3HKZ7JZ;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Google_IMA/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.theoplayer.sample.ads.googleima;
+				PRODUCT_BUNDLE_IDENTIFIER = theo.google.ima;
 				PRODUCT_NAME = "THEO Google IMA";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_WORKSPACE = YES;
 			};
 			name = Debug;
 		};
 		BE82430A2363AAB200994FB2 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5FE78D65D86F470D623868CE /* Pods-Google_IMA.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = H3Y3HKZ7JZ;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Google_IMA/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.theoplayer.sample.ads.googleima;
+				PRODUCT_BUNDLE_IDENTIFIER = theo.google.ima;
 				PRODUCT_NAME = "THEO Google IMA";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_WORKSPACE = YES;
 			};
 			name = Release;
 		};
