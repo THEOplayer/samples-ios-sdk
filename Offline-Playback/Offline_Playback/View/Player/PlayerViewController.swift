@@ -71,6 +71,7 @@ class PlayerViewController: UIViewController {
 
            // Configure the player's source to initilaise playback
            theoplayer.source = source
+           theoplayer.play()
        }
 
     override func viewDidDisappear(_ animated: Bool) {
@@ -120,12 +121,11 @@ class PlayerViewController: UIViewController {
     // MARK: - THEOplayer setup and unload
 
     private func setupTheoplayer() {
+        let playerConfigBuilder = THEOplayerConfigurationBuilder()
+        // playerConfigBuilder.license = "<your_license_string>"
+
         // Instantiate player object
-        let playerConfig = THEOplayerConfiguration(
-            pip: nil,
-            license: "your_license_string"
-        )
-        theoplayer = THEOplayer(configuration: playerConfig)
+        theoplayer = THEOplayer(configuration: playerConfigBuilder.build())
 
         // Add the player to playerView's view hierarchy
         theoplayer.addAsSubview(of: theoplayerView)
@@ -162,22 +162,22 @@ class PlayerViewController: UIViewController {
     }
 
     private func onPlay(event: PlayEvent) {
-        os_log("PLAY event, currentTime: %f", event.currentTime)
+        print("PLAY event, currentTime: %f", event.currentTime)
     }
 
     private func onPlaying(event: PlayingEvent) {
-        os_log("PLAYING event, currentTime: %f", event.currentTime)
+        print("PLAYING event, currentTime: %f", event.currentTime)
     }
 
     private func onPause(event: PauseEvent) {
-        os_log("PAUSE event, currentTime: %f", event.currentTime)
+        print("PAUSE event, currentTime: %f", event.currentTime)
     }
 
     private func onEnded(event: EndedEvent) {
-        os_log("ENDED event, currentTime: %f", event.currentTime)
+        print("ENDED event, currentTime: %f", event.currentTime)
     }
 
     private func onError(event: ErrorEvent) {
-        os_log("ERROR event, error: %@", event.error)
+        print("ERROR event, error: %@", event.error)
     }
 }
