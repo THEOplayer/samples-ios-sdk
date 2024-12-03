@@ -158,7 +158,7 @@ class OfflineTableViewCell: UITableViewCell {
         downloadButton.addTarget(self, action: #selector(onDownload), for: .touchUpInside)
         optionStackView.addArrangedSubview(downloadButton)
 
-        pauseButton = setupActionButton(image: UIImage(named: "pause"))
+        pauseButton = setupActionButton(image: UIImage(named: "pauseDownload"))
         pauseButton.addTarget(self, action: #selector(onPause), for: .touchUpInside)
         pauseButton.isHidden = true
         optionStackView.addArrangedSubview(pauseButton)
