@@ -138,8 +138,12 @@ class OfflineTableViewCellViewModel {
 
     private func attachCachingEventListeners() {
         // Listen to caching event and store references in dictionary
-        cachingListener["stateChange"] = cachingTask?.addEventListener(type: CachingTaskEventTypes.STATE_CHANGE, listener: onStateChangeEvent)
-        cachingListener["progress"] = cachingTask?.addEventListener(type: CachingTaskEventTypes.PROGRESS, listener: onProgressEvent)
+        self.cachingListener["stateChange"] = self.cachingTask?.addEventListener(type: CachingTaskEventTypes.STATE_CHANGE, listener: { [weak self] event in
+            self?.onStateChangeEvent(event: event)
+        })
+        self.cachingListener["progress"] = self.cachingTask?.addEventListener(type: CachingTaskEventTypes.PROGRESS, listener: { [weak self] event in
+            self?.onProgressEvent(event: event)
+        })
     }
 
     private func removeCachingEventListeners() {

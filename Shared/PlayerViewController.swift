@@ -40,11 +40,16 @@ class PlayerViewController: UIViewController {
     }
 
     // Returns a computed SourceDescription object
-    var source: SourceDescription {
+    private var defaultSource: SourceDescription {
         return .init(
             source: self.typedSource,
             poster: self.posterUrl
         )
+    }
+
+    var configuredSource: SourceDescription?
+    var source: SourceDescription {
+        return self.configuredSource ?? self.defaultSource
     }
 
     var adPlaying: Bool {
@@ -155,25 +160,25 @@ class PlayerViewController: UIViewController {
 
     private func attachEventListeners() {
         // Listen to event and store references in dictionary
-        self.listeners["play"] = self.theoplayer.addEventListener(type: PlayerEventTypes.PLAY, listener: self.onPlay)
-        self.listeners["playing"] = self.theoplayer.addEventListener(type: PlayerEventTypes.PLAYING, listener: self.onPlaying)
-        self.listeners["pause"] = self.theoplayer.addEventListener(type: PlayerEventTypes.PAUSE, listener: self.onPause)
-        self.listeners["ended"] = self.theoplayer.addEventListener(type: PlayerEventTypes.ENDED, listener: self.onEnded)
-        self.listeners["error"] = self.theoplayer.addEventListener(type: PlayerEventTypes.ERROR, listener: self.onError)
+        self.listeners["play"] = self.theoplayer.addEventListener(type: PlayerEventTypes.PLAY, listener: { [weak self] event in self?.onPlay(event: event) })
+        self.listeners["playing"] = self.theoplayer.addEventListener(type: PlayerEventTypes.PLAYING, listener: { [weak self] event in self?.onPlaying(event: event) })
+        self.listeners["pause"] = self.theoplayer.addEventListener(type: PlayerEventTypes.PAUSE, listener: { [weak self] event in self?.onPause(event: event) })
+        self.listeners["ended"] = self.theoplayer.addEventListener(type: PlayerEventTypes.ENDED, listener: { [weak self] event in self?.onEnded(event: event) })
+        self.listeners["error"] = self.theoplayer.addEventListener(type: PlayerEventTypes.ERROR, listener: { [weak self] event in self?.onError(event: event) })
 
-        self.listeners["sourceChange"] = self.theoplayer.addEventListener(type: PlayerEventTypes.SOURCE_CHANGE, listener: self.onSourceChange)
-        self.listeners["readyStateChange"] = self.theoplayer.addEventListener(type: PlayerEventTypes.READY_STATE_CHANGE, listener: self.onReadyStateChange)
-        self.listeners["waiting"] = self.theoplayer.addEventListener(type: PlayerEventTypes.WAITING, listener: self.onWaiting)
-        self.listeners["seeking"] = self.theoplayer.addEventListener(type: PlayerEventTypes.SEEKING, listener: self.onSeeking)
-        self.listeners["seeked"] = self.theoplayer.addEventListener(type: PlayerEventTypes.SEEKED, listener: self.onSeeked)
-        self.listeners["loadedData"] = self.theoplayer.addEventListener(type: PlayerEventTypes.LOADED_DATA, listener: self.onLoadedData)
-        self.listeners["loadedMetadata"] = self.theoplayer.addEventListener(type: PlayerEventTypes.LOADED_META_DATA, listener: self.onLoadedMetadata)
-        self.listeners["durationChange"] = self.theoplayer.addEventListener(type: PlayerEventTypes.DURATION_CHANGE, listener: self.onDurationChange)
-        self.listeners["timeUpdate"] = self.theoplayer.addEventListener(type: PlayerEventTypes.TIME_UPDATE, listener: self.onTimeUpdate)
-        self.listeners["presentationModeChange"] = self.theoplayer.addEventListener(type: PlayerEventTypes.PRESENTATION_MODE_CHANGE, listener: self.onPresentationModeChange)
+        self.listeners["sourceChange"] = self.theoplayer.addEventListener(type: PlayerEventTypes.SOURCE_CHANGE, listener: { [weak self] event in self?.onSourceChange(event: event) })
+        self.listeners["readyStateChange"] = self.theoplayer.addEventListener(type: PlayerEventTypes.READY_STATE_CHANGE, listener: { [weak self] event in self?.onReadyStateChange(event: event) })
+        self.listeners["waiting"] = self.theoplayer.addEventListener(type: PlayerEventTypes.WAITING, listener: { [weak self] event in self?.onWaiting(event: event) })
+        self.listeners["seeking"] = self.theoplayer.addEventListener(type: PlayerEventTypes.SEEKING, listener: { [weak self] event in self?.onSeeking(event: event) })
+        self.listeners["seeked"] = self.theoplayer.addEventListener(type: PlayerEventTypes.SEEKED, listener: { [weak self] event in self?.onSeeked(event: event) })
+        self.listeners["loadedData"] = self.theoplayer.addEventListener(type: PlayerEventTypes.LOADED_DATA, listener: { [weak self] event in self?.onLoadedData(event: event) })
+        self.listeners["loadedMetadata"] = self.theoplayer.addEventListener(type: PlayerEventTypes.LOADED_META_DATA, listener: { [weak self] event in self?.onLoadedMetadata(event: event) })
+        self.listeners["durationChange"] = self.theoplayer.addEventListener(type: PlayerEventTypes.DURATION_CHANGE, listener: { [weak self] event in self?.onDurationChange(event: event) })
+        self.listeners["timeUpdate"] = self.theoplayer.addEventListener(type: PlayerEventTypes.TIME_UPDATE, listener: { [weak self] event in self?.onTimeUpdate(event: event) })
+        self.listeners["presentationModeChange"] = self.theoplayer.addEventListener(type: PlayerEventTypes.PRESENTATION_MODE_CHANGE, listener: { [weak self] event in self?.onPresentationModeChange(event: event) })
 
-        self.listeners["adBreakBegin"] = self.theoplayer.ads.addEventListener(type: AdsEventTypes.AD_BREAK_BEGIN, listener: self.onAdBreakBegin)
-        self.listeners["adBreakEnd"] = self.theoplayer.ads.addEventListener(type: AdsEventTypes.AD_BREAK_END, listener: self.onAdBreakEnd)
+        self.listeners["adBreakBegin"] = self.theoplayer.ads.addEventListener(type: AdsEventTypes.AD_BREAK_BEGIN, listener: { [weak self] event in self?.onAdBreakBegin(event: event) })
+        self.listeners["adBreakEnd"] = self.theoplayer.ads.addEventListener(type: AdsEventTypes.AD_BREAK_END, listener: { [weak self] event in self?.onAdBreakEnd(event: event) })
     }
 
     private func removeEventListeners() {

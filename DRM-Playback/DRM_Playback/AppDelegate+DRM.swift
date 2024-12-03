@@ -10,7 +10,7 @@ import THEOplayerSDK
 
 @UIApplicationMain
 class AppDelegateDRM: AppDelegate {
-    override class var ROOT_VC_CLASS: PlayerViewController.Type { PlayerViewControllerDRM.self }
+    override class var ROOT_VC_CLASS: UIViewController.Type { PlayerViewControllerDRM.self }
 
     override func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]?) -> Bool {
         self.registerDRM()

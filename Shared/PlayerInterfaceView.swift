@@ -8,7 +8,7 @@ import UIKit
 
 // MARK: - PlayerInterfaceViewDelegate declaration
 
-protocol PlayerInterfaceViewDelegate {
+protocol PlayerInterfaceViewDelegate: AnyObject {
     func play()
     func pause()
     func skip(isForward: Bool)
@@ -137,7 +137,7 @@ class PlayerInterfaceView: UIView {
             }
         }
     }
-    var delegate: PlayerInterfaceViewDelegate? = nil
+    weak var delegate: PlayerInterfaceViewDelegate? = nil
 
     // MARK: - View life cycle
 

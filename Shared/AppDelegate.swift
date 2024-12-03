@@ -7,7 +7,7 @@
 import UIKit
 
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    class var ROOT_VC_CLASS: PlayerViewController.Type { PlayerViewController.self }
+    class var ROOT_VC_CLASS: UIViewController.Type { PlayerViewController.self }
 
     var window: UIWindow?
 

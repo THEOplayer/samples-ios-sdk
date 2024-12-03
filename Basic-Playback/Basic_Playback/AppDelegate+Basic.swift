@@ -6,8 +6,9 @@
 //
 
 import Foundation
+import UIKit
 
 @UIApplicationMain
 class AppDelegateBasic: AppDelegate {
-    override class var ROOT_VC_CLASS: PlayerViewController.Type { PlayerViewControllerBasic.self }
+    override class var ROOT_VC_CLASS: UIViewController.Type { PlayerViewControllerBasic.self }
 }

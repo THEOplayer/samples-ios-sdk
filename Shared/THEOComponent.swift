@@ -51,6 +51,30 @@ class THEOComponent {
         return slider
     }
 
+    static func progressView(height: CGFloat = 10.0) -> UIProgressView {
+        let progressView = UIProgressView(progressViewStyle: .bar)
+        progressView.translatesAutoresizingMaskIntoConstraints = false
+        progressView.backgroundColor = .theoCello
+        progressView.progressTintColor = .theoLightningYellow
+        progressView.clipsToBounds = true
+        progressView.layer.cornerRadius = height / 2
+        progressView.heightAnchor.constraint(equalToConstant: height).isActive = true
+
+        return progressView
+    }
+
+    static func tableView(useBlackIndicator: Bool = true) -> UITableView {
+        let tableView = UITableView(frame: .zero, style: .plain)
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.bounces = false
+        tableView.backgroundColor = .clear
+        tableView.separatorStyle = .none
+        tableView.showsVerticalScrollIndicator = true
+        tableView.indicatorStyle = useBlackIndicator ? .black : .white
+
+        return tableView
+    }
+
     static func stackView(axis: NSLayoutConstraint.Axis = .vertical, spacing: CGFloat = 20.0) -> UIStackView {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
