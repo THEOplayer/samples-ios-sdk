@@ -96,8 +96,10 @@ extension OfflineViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // Instantiate playerViewController and assign source description
         if let offlineStreamCell = tableView.cellForRow(at: indexPath) as? OfflineTableViewCell {
-            let playerViewController = PlayerViewController()
-            playerViewController.source = offlineStreamCell.viewModel?.source ?? nil
+            let playerViewController = PlayerViewControllerOffline()
+            let cachedSource = offlineStreamCell.viewModel?.cachingTask?.source
+            let viewModelSource = offlineStreamCell.viewModel?.source
+            playerViewController.configuredSource = cachedSource ?? viewModelSource ?? nil
             playerViewController.navigationItem.title = navigationItem.title
             navigationItem.title = ""
             navigationController?.pushViewController(playerViewController, animated: true)

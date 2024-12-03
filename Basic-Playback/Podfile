@@ -6,6 +6,6 @@ target 'Basic_Playback' do
 
   # Pods for Basic_Playback
   
-    pod 'THEOplayerSDK-basic', '~> 4'
+    pod 'THEOplayerSDK-core', '~> 8'
     
 end

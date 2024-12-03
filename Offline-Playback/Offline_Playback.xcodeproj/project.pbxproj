@@ -7,49 +7,41 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7617EECB2677E77A00EBE674 /* THEOplayerSDK.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7617EECA2677E77A00EBE674 /* THEOplayerSDK.xcframework */; };
-		7617EECC2677E77A00EBE674 /* THEOplayerSDK.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7617EECA2677E77A00EBE674 /* THEOplayerSDK.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		BE01A75923875BE1000EFF53 /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE01A75823875BE1000EFF53 /* PlayerViewController.swift */; };
-		BE01A76423876674000EFF53 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE01A76323876674000EFF53 /* Theme.swift */; };
+		0727D2902CFF0AFB00CDB544 /* THEOComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0727D28A2CFF0AFB00CDB544 /* THEOComponent.swift */; };
+		0727D2912CFF0AFB00CDB544 /* PlayerInterfaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0727D28B2CFF0AFB00CDB544 /* PlayerInterfaceView.swift */; };
+		0727D2922CFF0AFB00CDB544 /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0727D28C2CFF0AFB00CDB544 /* PlayerViewController.swift */; };
+		0727D2932CFF0AFB00CDB544 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0727D28D2CFF0AFB00CDB544 /* AppDelegate.swift */; };
+		0727D2942CFF0AFB00CDB544 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0727D28E2CFF0AFB00CDB544 /* Theme.swift */; };
+		0727D2952CFF0AFB00CDB544 /* THEOPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0727D28F2CFF0AFB00CDB544 /* THEOPlayerView.swift */; };
+		0727D2972CFF137F00CDB544 /* PlayerViewController+Offline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0727D2962CFF137F00CDB544 /* PlayerViewController+Offline.swift */; };
 		BE5719F223D1FE0C000FD1CD /* Drm.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5719F123D1FE0C000FD1CD /* Drm.swift */; };
 		BE792A8E239E144F00FBE8C4 /* OfflineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE792A8D239E144F00FBE8C4 /* OfflineViewController.swift */; };
 		BE792A90239E556300FBE8C4 /* OfflineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE792A8F239E556300FBE8C4 /* OfflineTableViewCell.swift */; };
-		BE8242F82363AAB100994FB2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8242F72363AAB100994FB2 /* AppDelegate.swift */; };
+		BE8242F82363AAB100994FB2 /* AppDelegate+Offline.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8242F72363AAB100994FB2 /* AppDelegate+Offline.swift */; };
 		BE8243012363AAB200994FB2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE8243002363AAB200994FB2 /* Assets.xcassets */; };
 		BE8243042363AAB200994FB2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE8243022363AAB200994FB2 /* LaunchScreen.storyboard */; };
-		BE9475B023A0E4C700DC3C9C /* THEOComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9475AF23A0E4C700DC3C9C /* THEOComponent.swift */; };
 		BE9475B723A12FD500DC3C9C /* Stream.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9475B623A12FD500DC3C9C /* Stream.swift */; };
 		BEC15FE623A23032002CF401 /* OfflineTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC15FE523A23032002CF401 /* OfflineTableViewCellViewModel.swift */; };
 		BEE8614323A1355200A6E44E /* OfflineViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE8614223A1355200A6E44E /* OfflineViewViewModel.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		7617EECD2677E77A00EBE674 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				7617EECC2677E77A00EBE674 /* THEOplayerSDK.xcframework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
+		0727D28A2CFF0AFB00CDB544 /* THEOComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = THEOComponent.swift; sourceTree = "<group>"; };
+		0727D28B2CFF0AFB00CDB544 /* PlayerInterfaceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerInterfaceView.swift; sourceTree = "<group>"; };
+		0727D28C2CFF0AFB00CDB544 /* PlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
+		0727D28D2CFF0AFB00CDB544 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		0727D28E2CFF0AFB00CDB544 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		0727D28F2CFF0AFB00CDB544 /* THEOPlayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = THEOPlayerView.swift; sourceTree = "<group>"; };
+		0727D2962CFF137F00CDB544 /* PlayerViewController+Offline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlayerViewController+Offline.swift"; sourceTree = "<group>"; };
 		7617EECA2677E77A00EBE674 /* THEOplayerSDK.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = THEOplayerSDK.xcframework; sourceTree = "<group>"; };
-		BE01A75823875BE1000EFF53 /* PlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
-		BE01A76323876674000EFF53 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		BE5719F123D1FE0C000FD1CD /* Drm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drm.swift; sourceTree = "<group>"; };
 		BE792A8D239E144F00FBE8C4 /* OfflineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfflineViewController.swift; sourceTree = "<group>"; };
 		BE792A8F239E556300FBE8C4 /* OfflineTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfflineTableViewCell.swift; sourceTree = "<group>"; };
 		BE8242F42363AAB100994FB2 /* THEO Offline Playback.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "THEO Offline Playback.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		BE8242F72363AAB100994FB2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		BE8242F72363AAB100994FB2 /* AppDelegate+Offline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Offline.swift"; sourceTree = "<group>"; };
 		BE8243002363AAB200994FB2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BE8243032363AAB200994FB2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BE8243052363AAB200994FB2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BE9475AF23A0E4C700DC3C9C /* THEOComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THEOComponent.swift; sourceTree = "<group>"; };
 		BE9475B623A12FD500DC3C9C /* Stream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stream.swift; sourceTree = "<group>"; };
 		BEC15FE523A23032002CF401 /* OfflineTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfflineTableViewCellViewModel.swift; sourceTree = "<group>"; };
 		BEE8614223A1355200A6E44E /* OfflineViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfflineViewViewModel.swift; sourceTree = "<group>"; };
@@ -60,16 +52,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7617EECB2677E77A00EBE674 /* THEOplayerSDK.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0727D2892CFF0AFB00CDB544 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				0727D28A2CFF0AFB00CDB544 /* THEOComponent.swift */,
+				0727D28B2CFF0AFB00CDB544 /* PlayerInterfaceView.swift */,
+				0727D28C2CFF0AFB00CDB544 /* PlayerViewController.swift */,
+				0727D28D2CFF0AFB00CDB544 /* AppDelegate.swift */,
+				0727D28E2CFF0AFB00CDB544 /* Theme.swift */,
+				0727D28F2CFF0AFB00CDB544 /* THEOPlayerView.swift */,
+			);
+			name = Shared;
+			path = ../Shared;
+			sourceTree = "<group>";
+		};
 		BE8242EB2363AAB100994FB2 = {
 			isa = PBXGroup;
 			children = (
+				0727D2892CFF0AFB00CDB544 /* Shared */,
 				BE8242F62363AAB100994FB2 /* Offline_Playback */,
 				BE8242F52363AAB100994FB2 /* Products */,
 				BED1C3B52411327300A4ABEB /* Frameworks */,
@@ -90,7 +96,8 @@
 				BE9475B823A133DE00DC3C9C /* Model */,
 				BE9475B923A133EB00DC3C9C /* View */,
 				BE9475BA23A133F200DC3C9C /* ViewModel */,
-				BE8242F72363AAB100994FB2 /* AppDelegate.swift */,
+				BE8242F72363AAB100994FB2 /* AppDelegate+Offline.swift */,
+				0727D2962CFF137F00CDB544 /* PlayerViewController+Offline.swift */,
 				BE8243002363AAB200994FB2 /* Assets.xcassets */,
 				BE8243052363AAB200994FB2 /* Info.plist */,
 			);
@@ -109,9 +116,7 @@
 		BE9475B923A133EB00DC3C9C /* View */ = {
 			isa = PBXGroup;
 			children = (
-				BEE8613F23A1344000A6E44E /* Common */,
 				BEE8614023A1346200A6E44E /* Offline */,
-				BEE8614123A134A800A6E44E /* Player */,
 				BE8243022363AAB200994FB2 /* LaunchScreen.storyboard */,
 			);
 			path = View;
@@ -134,15 +139,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		BEE8613F23A1344000A6E44E /* Common */ = {
-			isa = PBXGroup;
-			children = (
-				BE01A76323876674000EFF53 /* Theme.swift */,
-				BE9475AF23A0E4C700DC3C9C /* THEOComponent.swift */,
-			);
-			path = Common;
-			sourceTree = "<group>";
-		};
 		BEE8614023A1346200A6E44E /* Offline */ = {
 			isa = PBXGroup;
 			children = (
@@ -150,14 +146,6 @@
 				BE792A8F239E556300FBE8C4 /* OfflineTableViewCell.swift */,
 			);
 			path = Offline;
-			sourceTree = "<group>";
-		};
-		BEE8614123A134A800A6E44E /* Player */ = {
-			isa = PBXGroup;
-			children = (
-				BE01A75823875BE1000EFF53 /* PlayerViewController.swift */,
-			);
-			path = Player;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -170,7 +158,6 @@
 				BE8242F02363AAB100994FB2 /* Sources */,
 				BE8242F12363AAB100994FB2 /* Frameworks */,
 				BE8242F22363AAB100994FB2 /* Resources */,
-				7617EECD2677E77A00EBE674 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -231,16 +218,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BE8242F82363AAB100994FB2 /* AppDelegate.swift in Sources */,
-				BE9475B023A0E4C700DC3C9C /* THEOComponent.swift in Sources */,
+				0727D2932CFF0AFB00CDB544 /* AppDelegate.swift in Sources */,
+				BE8242F82363AAB100994FB2 /* AppDelegate+Offline.swift in Sources */,
+				0727D2902CFF0AFB00CDB544 /* THEOComponent.swift in Sources */,
 				BE5719F223D1FE0C000FD1CD /* Drm.swift in Sources */,
+				0727D2952CFF0AFB00CDB544 /* THEOPlayerView.swift in Sources */,
+				0727D2912CFF0AFB00CDB544 /* PlayerInterfaceView.swift in Sources */,
 				BEC15FE623A23032002CF401 /* OfflineTableViewCellViewModel.swift in Sources */,
 				BE792A90239E556300FBE8C4 /* OfflineTableViewCell.swift in Sources */,
 				BEE8614323A1355200A6E44E /* OfflineViewViewModel.swift in Sources */,
-				BE01A75923875BE1000EFF53 /* PlayerViewController.swift in Sources */,
 				BE792A8E239E144F00FBE8C4 /* OfflineViewController.swift in Sources */,
-				BE01A76423876674000EFF53 /* Theme.swift in Sources */,
+				0727D2942CFF0AFB00CDB544 /* Theme.swift in Sources */,
+				0727D2972CFF137F00CDB544 /* PlayerViewController+Offline.swift in Sources */,
 				BE9475B723A12FD500DC3C9C /* Stream.swift in Sources */,
+				0727D2922CFF0AFB00CDB544 /* PlayerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -376,19 +367,21 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = H3Y3HKZ7JZ;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Offline_Playback/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.theoplayer.sample.playback.offline;
 				PRODUCT_NAME = "THEO Offline Playback";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -398,19 +391,21 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = H3Y3HKZ7JZ;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Offline_Playback/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.theoplayer.sample.playback.offline;
 				PRODUCT_NAME = "THEO Offline Playback";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

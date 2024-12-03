@@ -3,46 +3,29 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3AA379C729AE240E00959B32 /* THEOplayerSDK.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AA379C629AE240E00959B32 /* THEOplayerSDK.xcframework */; };
-		3AA379C829AE240E00959B32 /* THEOplayerSDK.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3AA379C629AE240E00959B32 /* THEOplayerSDK.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		3AA379CA29AE241800959B32 /* GoogleCast.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AA379C929AE241800959B32 /* GoogleCast.xcframework */; };
-		3AA379CB29AE241900959B32 /* GoogleCast.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3AA379C929AE241800959B32 /* GoogleCast.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		BE01A75923875BE1000EFF53 /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE01A75823875BE1000EFF53 /* PlayerViewController.swift */; };
-		BE01A76423876674000EFF53 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE01A76323876674000EFF53 /* Theme.swift */; };
-		BE8242F82363AAB100994FB2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8242F72363AAB100994FB2 /* AppDelegate.swift */; };
+		075D9D5F2C9313CB00CB6646 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075D9D5E2C9313CB00CB6646 /* AppDelegate.swift */; };
+		075D9D612C93140900CB6646 /* AppDelegate+Cast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075D9D602C93140900CB6646 /* AppDelegate+Cast.swift */; };
+		075D9D702C931BC700CB6646 /* THEOPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075D9D6F2C931BC700CB6646 /* THEOPlayerView.swift */; };
+		075D9D862C9337C100CB6646 /* PlayerViewController+Cast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075D9D852C9337C100CB6646 /* PlayerViewController+Cast.swift */; };
+		075D9D8B2C93394D00CB6646 /* THEOComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075D9D872C93394D00CB6646 /* THEOComponent.swift */; };
+		075D9D8C2C93394D00CB6646 /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075D9D882C93394D00CB6646 /* PlayerViewController.swift */; };
+		075D9D8D2C93394D00CB6646 /* PlayerInterfaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075D9D892C93394D00CB6646 /* PlayerInterfaceView.swift */; };
+		075D9D8E2C93394D00CB6646 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075D9D8A2C93394D00CB6646 /* Theme.swift */; };
 		BE8243012363AAB200994FB2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE8243002363AAB200994FB2 /* Assets.xcassets */; };
 		BE8243042363AAB200994FB2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE8243022363AAB200994FB2 /* LaunchScreen.storyboard */; };
-		BEA110F6238F590400B20862 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEA110F5238F590400B20862 /* Accelerate.framework */; };
-		BEA110F8238F590E00B20862 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEA110F7238F590E00B20862 /* AudioToolbox.framework */; };
-		BEA110FA238F591600B20862 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEA110F9238F591600B20862 /* AVFoundation.framework */; };
-		BEA110FC238F591E00B20862 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEA110FB238F591E00B20862 /* CFNetwork.framework */; };
-		BEA110FE238F592400B20862 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEA110FD238F592400B20862 /* CoreBluetooth.framework */; };
-		BEA11100238F592B00B20862 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEA110FF238F592B00B20862 /* CoreData.framework */; };
-		BEA11102238F593200B20862 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEA11101238F593200B20862 /* CoreGraphics.framework */; };
-		BEA11104238F593900B20862 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEA11103238F593900B20862 /* CoreMedia.framework */; };
-		BEA11106238F594000B20862 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEA11105238F594000B20862 /* CoreText.framework */; };
-		BEA11108238F594B00B20862 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEA11107238F594B00B20862 /* Foundation.framework */; };
-		BEA1110A238F595300B20862 /* MediaAccessibility.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEA11109238F595300B20862 /* MediaAccessibility.framework */; };
-		BEA1110C238F595C00B20862 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEA1110B238F595C00B20862 /* MediaPlayer.framework */; };
-		BEA1110E238F596500B20862 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEA1110D238F596500B20862 /* QuartzCore.framework */; };
-		BEA11110238F596E00B20862 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEA1110F238F596E00B20862 /* Security.framework */; };
-		BEA11112238F597500B20862 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEA11111238F597500B20862 /* SystemConfiguration.framework */; };
-		BEA11114238F597D00B20862 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEA11113238F597D00B20862 /* UIKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		BED1C3A024112FF300A4ABEB /* Embed Frameworks */ = {
+		7617EEA72677D90D00EBE674 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				3AA379C829AE240E00959B32 /* THEOplayerSDK.xcframework in Embed Frameworks */,
-				3AA379CB29AE241900959B32 /* GoogleCast.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -50,32 +33,18 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		3AA379C629AE240E00959B32 /* THEOplayerSDK.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = THEOplayerSDK.xcframework; sourceTree = "<group>"; };
-		3AA379C929AE241800959B32 /* GoogleCast.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = GoogleCast.xcframework; sourceTree = "<group>"; };
-		BE01A75823875BE1000EFF53 /* PlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
-		BE01A76323876674000EFF53 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
-		BE6A30B823E0F92200951546 /* THEO Google Cast.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "THEO Google Cast.entitlements"; sourceTree = "<group>"; };
+		075D9D5E2C9313CB00CB6646 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		075D9D602C93140900CB6646 /* AppDelegate+Cast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Cast.swift"; sourceTree = "<group>"; };
+		075D9D6F2C931BC700CB6646 /* THEOPlayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = THEOPlayerView.swift; sourceTree = "<group>"; };
+		075D9D852C9337C100CB6646 /* PlayerViewController+Cast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlayerViewController+Cast.swift"; sourceTree = "<group>"; };
+		075D9D872C93394D00CB6646 /* THEOComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = THEOComponent.swift; sourceTree = "<group>"; };
+		075D9D882C93394D00CB6646 /* PlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
+		075D9D892C93394D00CB6646 /* PlayerInterfaceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerInterfaceView.swift; sourceTree = "<group>"; };
+		075D9D8A2C93394D00CB6646 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		BE8242F42363AAB100994FB2 /* THEO Google Cast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "THEO Google Cast.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		BE8242F72363AAB100994FB2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BE8243002363AAB200994FB2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BE8243032363AAB200994FB2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BE8243052363AAB200994FB2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BEA110F5238F590400B20862 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
-		BEA110F7238F590E00B20862 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
-		BEA110F9238F591600B20862 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		BEA110FB238F591E00B20862 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
-		BEA110FD238F592400B20862 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
-		BEA110FF238F592B00B20862 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		BEA11101238F593200B20862 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		BEA11103238F593900B20862 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
-		BEA11105238F594000B20862 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
-		BEA11107238F594B00B20862 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		BEA11109238F595300B20862 /* MediaAccessibility.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaAccessibility.framework; path = System/Library/Frameworks/MediaAccessibility.framework; sourceTree = SDKROOT; };
-		BEA1110B238F595C00B20862 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
-		BEA1110D238F596500B20862 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		BEA1110F238F596E00B20862 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		BEA11111238F597500B20862 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		BEA11113238F597D00B20862 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,36 +52,33 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BEA11104238F593900B20862 /* CoreMedia.framework in Frameworks */,
-				BEA11114238F597D00B20862 /* UIKit.framework in Frameworks */,
-				BEA11112238F597500B20862 /* SystemConfiguration.framework in Frameworks */,
-				BEA1110E238F596500B20862 /* QuartzCore.framework in Frameworks */,
-				BEA110F6238F590400B20862 /* Accelerate.framework in Frameworks */,
-				BEA11100238F592B00B20862 /* CoreData.framework in Frameworks */,
-				BEA11110238F596E00B20862 /* Security.framework in Frameworks */,
-				3AA379CA29AE241800959B32 /* GoogleCast.xcframework in Frameworks */,
-				BEA110F8238F590E00B20862 /* AudioToolbox.framework in Frameworks */,
-				BEA11102238F593200B20862 /* CoreGraphics.framework in Frameworks */,
-				BEA11108238F594B00B20862 /* Foundation.framework in Frameworks */,
-				BEA11106238F594000B20862 /* CoreText.framework in Frameworks */,
-				BEA110FC238F591E00B20862 /* CFNetwork.framework in Frameworks */,
-				BEA110FE238F592400B20862 /* CoreBluetooth.framework in Frameworks */,
-				BEA110FA238F591600B20862 /* AVFoundation.framework in Frameworks */,
-				3AA379C729AE240E00959B32 /* THEOplayerSDK.xcframework in Frameworks */,
-				BEA1110C238F595C00B20862 /* MediaPlayer.framework in Frameworks */,
-				BEA1110A238F595300B20862 /* MediaAccessibility.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		075D9D5D2C9313CB00CB6646 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				075D9D5E2C9313CB00CB6646 /* AppDelegate.swift */,
+				075D9D892C93394D00CB6646 /* PlayerInterfaceView.swift */,
+				075D9D882C93394D00CB6646 /* PlayerViewController.swift */,
+				075D9D8A2C93394D00CB6646 /* Theme.swift */,
+				075D9D872C93394D00CB6646 /* THEOComponent.swift */,
+				075D9D6F2C931BC700CB6646 /* THEOPlayerView.swift */,
+			);
+			name = Shared;
+			path = ../Shared;
+			sourceTree = "<group>";
+		};
 		BE8242EB2363AAB100994FB2 = {
 			isa = PBXGroup;
 			children = (
+				075D9D5D2C9313CB00CB6646 /* Shared */,
 				BE8242F62363AAB100994FB2 /* Google_Cast */,
 				BE8242F52363AAB100994FB2 /* Products */,
-				BEA110F4238F590400B20862 /* Frameworks */,
+				F7E6091F2329D14E53F8B02A /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -127,40 +93,20 @@
 		BE8242F62363AAB100994FB2 /* Google_Cast */ = {
 			isa = PBXGroup;
 			children = (
-				BE8242F72363AAB100994FB2 /* AppDelegate.swift */,
-				BE01A75823875BE1000EFF53 /* PlayerViewController.swift */,
-				BE01A76323876674000EFF53 /* Theme.swift */,
+				075D9D602C93140900CB6646 /* AppDelegate+Cast.swift */,
+				075D9D852C9337C100CB6646 /* PlayerViewController+Cast.swift */,
 				BE8243002363AAB200994FB2 /* Assets.xcassets */,
 				BE8243022363AAB200994FB2 /* LaunchScreen.storyboard */,
 				BE8243052363AAB200994FB2 /* Info.plist */,
-				BE6A30B823E0F92200951546 /* THEO Google Cast.entitlements */,
 			);
 			path = Google_Cast;
 			sourceTree = "<group>";
 		};
-		BEA110F4238F590400B20862 /* Frameworks */ = {
+		F7E6091F2329D14E53F8B02A /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				3AA379C929AE241800959B32 /* GoogleCast.xcframework */,
-				3AA379C629AE240E00959B32 /* THEOplayerSDK.xcframework */,
-				BEA11113238F597D00B20862 /* UIKit.framework */,
-				BEA11111238F597500B20862 /* SystemConfiguration.framework */,
-				BEA1110F238F596E00B20862 /* Security.framework */,
-				BEA1110D238F596500B20862 /* QuartzCore.framework */,
-				BEA1110B238F595C00B20862 /* MediaPlayer.framework */,
-				BEA11109238F595300B20862 /* MediaAccessibility.framework */,
-				BEA11107238F594B00B20862 /* Foundation.framework */,
-				BEA11105238F594000B20862 /* CoreText.framework */,
-				BEA11103238F593900B20862 /* CoreMedia.framework */,
-				BEA11101238F593200B20862 /* CoreGraphics.framework */,
-				BEA110FF238F592B00B20862 /* CoreData.framework */,
-				BEA110FD238F592400B20862 /* CoreBluetooth.framework */,
-				BEA110FB238F591E00B20862 /* CFNetwork.framework */,
-				BEA110F9238F591600B20862 /* AVFoundation.framework */,
-				BEA110F7238F590E00B20862 /* AudioToolbox.framework */,
-				BEA110F5238F590400B20862 /* Accelerate.framework */,
 			);
-			name = Frameworks;
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -173,7 +119,7 @@
 				BE8242F02363AAB100994FB2 /* Sources */,
 				BE8242F12363AAB100994FB2 /* Frameworks */,
 				BE8242F22363AAB100994FB2 /* Resources */,
-				BED1C3A024112FF300A4ABEB /* Embed Frameworks */,
+				7617EEA72677D90D00EBE674 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -234,9 +180,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BE8242F82363AAB100994FB2 /* AppDelegate.swift in Sources */,
-				BE01A75923875BE1000EFF53 /* PlayerViewController.swift in Sources */,
-				BE01A76423876674000EFF53 /* Theme.swift in Sources */,
+				075D9D702C931BC700CB6646 /* THEOPlayerView.swift in Sources */,
+				075D9D8E2C93394D00CB6646 /* Theme.swift in Sources */,
+				075D9D8D2C93394D00CB6646 /* PlayerInterfaceView.swift in Sources */,
+				075D9D862C9337C100CB6646 /* PlayerViewController+Cast.swift in Sources */,
+				075D9D5F2C9313CB00CB6646 /* AppDelegate.swift in Sources */,
+				075D9D8B2C93394D00CB6646 /* THEOComponent.swift in Sources */,
+				075D9D612C93140900CB6646 /* AppDelegate+Cast.swift in Sources */,
+				075D9D8C2C93394D00CB6646 /* PlayerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -372,8 +323,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "Google_Cast/THEO Google Cast.entitlements";
-				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -386,11 +335,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				OTHER_LDFLAGS = (
-					"-ObjC",
-					"-lc++",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = theo.sample.playback.googlecast;
+				PRODUCT_BUNDLE_IDENTIFIER = theo.google.cast;
 				PRODUCT_NAME = "THEO Google Cast";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -402,8 +347,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "Google_Cast/THEO Google Cast.entitlements";
-				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -416,11 +359,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				OTHER_LDFLAGS = (
-					"-ObjC",
-					"-lc++",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = theo.sample.playback.googlecast;
+				PRODUCT_BUNDLE_IDENTIFIER = theo.google.cast;
 				PRODUCT_NAME = "THEO Google Cast";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;

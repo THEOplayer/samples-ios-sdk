@@ -1,0 +1,10 @@
+platform :ios, '13.0'
+
+target 'Google_Cast' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for Google_Cast
+  pod 'THEOplayerSDK-core', '~> 8'
+  pod 'THEOplayer-Integration-GoogleCast', '~> 8'  
+end
