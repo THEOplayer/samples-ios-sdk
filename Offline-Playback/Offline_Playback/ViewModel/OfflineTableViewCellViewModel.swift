@@ -55,7 +55,7 @@ class OfflineTableViewCellViewModel {
                     // Should never happen as evicated cachingTask will be not set in OfflineViewViewModel
                     break
                 @unknown default:
-                    print("Unkown task status: %@", task.status.rawValue)
+                    print("Unknown task status: \(task.status.rawValue)")
                 }
             } else {
                 removeCachingEventListeners()
@@ -75,6 +75,12 @@ class OfflineTableViewCellViewModel {
     }
     var isEvicted: Bool {
         return cachingTask?.status ?? .idle == .evicted
+    }
+    var status: String {
+        return cachingTask?.status._rawValue ?? "nil"
+    }
+    var bytesCached: UInt {
+        return cachingTask?.bytesCached ?? 0
     }
     var cachingListener: [String : EventListener] = [:]
     var delegate: OfflineTableViewCellViewModelDelegate? = nil
@@ -145,7 +151,7 @@ class OfflineTableViewCellViewModel {
     }
 
     private func onStateChangeEvent(event: CacheEvent) {
-        print("onStateChangeEvent status: %@", self.cachingTask?.status.rawValue ?? "")
+        print("onStateChangeEvent - status: \(status)")
         if let status = cachingTask?.status {
             switch status {
             case .done:
@@ -165,8 +171,8 @@ class OfflineTableViewCellViewModel {
     }
 
     private func onProgressEvent(event: CacheEvent) {
-        if let task = cachingTask {
-            print("title: %@, status: %@, percentage: %.2f", title,  task.status.rawValue, taskPercentage * 100)
+        if let _ = cachingTask {
+            print("onProgressEvent - title: \(title), status: \(status), percentage: \(String(format:"%.2f", taskPercentage * 100))")
             delegate?.onProgressUpdate(percentage: taskPercentage)
         }
     }
@@ -181,23 +187,23 @@ class OfflineTableViewCellViewModel {
         cachingTask?.start()
         // Set DRM license renew timer immedately after new DRM caching task is added
         setDrmLicenseRenewTimer()
-        print("createCachingTask: status : %@ bytesCached: %d", cachingTask?.status.rawValue ?? "nil", cachingTask?.bytesCached ?? 0)
+        print("createCachingTask - status: \(status), bytesCached: \(bytesCached)")
     }
 
     func pauseCaching() {
         // Pause caching task
         cachingTask?.pause()
-        print("pauseCaching: status : %@ bytesCached: %d", cachingTask?.status.rawValue ?? "nil", cachingTask?.bytesCached ?? 0)
+        print("pauseCaching - status: \(status), bytesCached: \(bytesCached)")
     }
 
     func resumeCaching() {
         // Use start() to resume caching task
         cachingTask?.start()
-        print("resumeCaching: status : %@ bytesCached: %d", cachingTask?.status.rawValue ?? "nil", cachingTask?.bytesCached ?? 0)
+        print("resumeCaching - status: \(status), bytesCached: \(bytesCached)")
     }
 
     func removeCaching() {
-        print("removeCaching: status : %@ bytesCached: %d", cachingTask?.status.rawValue ?? "nil", cachingTask?.bytesCached ?? 0)
+        print("removeCaching - status: \(status), bytesCached: \(bytesCached)")
         // Remove caching task
         cachingTask?.remove()
         cachingTask = nil
@@ -265,14 +271,14 @@ class OfflineTableViewCellViewModel {
                     targetDate = recordedDate
                 } else {
                     // Should never happen, use default target date
-                    print("Recorded date is more then %d day(s). ", drmLicenseRenewIntervalInDays)
+                    print("Recorded date is more then \(drmLicenseRenewIntervalInDays) day(s). ")
                 }
             }
         }
 
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        print("DRM license for URL: %@ will be renewed at: %@", url, formatter.string(from: targetDate))
+        print("DRM license for URL: \(url) will be renewed at: \(formatter.string(from: targetDate))")
 
         return targetDate
     }

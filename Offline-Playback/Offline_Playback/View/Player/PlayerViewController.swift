@@ -71,7 +71,6 @@ class PlayerViewController: UIViewController {
 
            // Configure the player's source to initilaise playback
            theoplayer.source = source
-           theoplayer.play()
        }
 
     override func viewDidDisappear(_ animated: Bool) {
@@ -130,6 +129,8 @@ class PlayerViewController: UIViewController {
         // Add the player to playerView's view hierarchy
         theoplayer.addAsSubview(of: theoplayerView)
 
+        theoplayer.autoplay = true
+
         attachEventListeners()
     }
 
@@ -162,22 +163,22 @@ class PlayerViewController: UIViewController {
     }
 
     private func onPlay(event: PlayEvent) {
-        print("PLAY event, currentTime: %f", event.currentTime)
+        print("onPlay - currentTime: \(event.currentTime)")
     }
 
     private func onPlaying(event: PlayingEvent) {
-        print("PLAYING event, currentTime: %f", event.currentTime)
+        print("onPlaying - currentTime: \(event.currentTime)")
     }
 
     private func onPause(event: PauseEvent) {
-        print("PAUSE event, currentTime: %f", event.currentTime)
+        print("onPause - currentTime: \(event.currentTime)")
     }
 
     private func onEnded(event: EndedEvent) {
-        print("ENDED event, currentTime: %f", event.currentTime)
+        print("onEnded - currentTime: \(event.currentTime)")
     }
 
     private func onError(event: ErrorEvent) {
-        print("ERROR event, error: %@", event.error)
+        print("onError - error: \(event.error)")
     }
 }
