@@ -69,7 +69,7 @@ class OfflineViewViewModel {
              */
             for task in THEOplayer.cache.tasks {
                 for source in task.source.sources {
-                    if source.src == URL(string: stream.url) {
+                    if source.src == stream.url {
                         print("Found caching task for URL: \(stream.url), task status: \(task.status._rawValue)")
                         switch task.status {
                         case .done:
