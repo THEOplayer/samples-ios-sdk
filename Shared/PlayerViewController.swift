@@ -54,7 +54,7 @@ class PlayerViewController: UIViewController {
 
     var adPlaying: Bool {
         let integrations: [Integration] = self.theoplayer.getAllIntegrations()
-        let isAdsIntegration: Bool = integrations.first { $0.kind == .GOOGLE_IMA || $0.kind == .GOOGLE_DAI || $0.kind == .THEO_ADS} != nil
+        let isAdsIntegration: Bool = integrations.first { $0.isAdIntegration } != nil
 
         if isAdsIntegration,
            self.theoplayer.ads.playing {
@@ -358,6 +358,21 @@ extension PlayerViewController: FullscreenPresentationDelegate {
             self.playerInterfaceView.topAnchor.constraint(equalTo: self.theoplayerView.topAnchor).isActive = true
             self.playerInterfaceView.bottomAnchor.constraint(equalTo: self.theoplayerView.bottomAnchor).isActive = true
             completion()
+        }
+    }
+}
+
+extension THEOplayerSDK.Integration {
+    var isAdIntegration: Bool {
+        switch self.kind {
+        case .GOOGLE_DAI:
+            return true
+        case .GOOGLE_IMA:
+            return true
+        case .THEO_ADS:
+            return true
+        default:
+            return false
         }
     }
 }
