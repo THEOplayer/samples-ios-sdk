@@ -6,6 +6,6 @@ target 'Offline_Playback' do
 
   # Pods for Offline_Playback
 
-    pod 'THEOplayerSDK-core', '~> 8'
+    pod 'THEOplayerSDK-core', '~> 9'
 
 end

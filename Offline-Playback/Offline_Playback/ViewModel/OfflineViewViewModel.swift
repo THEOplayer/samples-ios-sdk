@@ -63,22 +63,22 @@ class OfflineViewViewModel {
         for stream in streams {
             let offlineTableViewCellViewModel = OfflineTableViewCellViewModel(stream: stream)
 
-            /* Check status of all existing caching tasks
-                If task status is done assign the task to the view model object
-                Remove the task by default as terminating app during caching for example will resulting an error task.
+            /* Check the status of all existing caching tasks
+                If the task status is done, assign the task to the view model object
+                Remove the task by default as terminating app during caching for example will result in an error task.
              */
             for task in THEOplayer.cache.tasks {
                 for source in task.source.sources {
-                    if source.src == URL(string: stream.url) {
+                    if source.src == stream.url {
                         print("Found caching task for URL: \(stream.url), task status: \(task.status._rawValue)")
                         switch task.status {
                         case .done:
                             offlineTableViewCellViewModel.cachingTask = task
                         default:
-                            // Remove caching task
+                            // Remove the caching task
                             task.remove()
                             if let _ = source.drm {
-                                // Remove DRM renew record
+                                // Remove the DRM renew record
                                 UserDefaults.standard.removeObject(forKey: stream.url)
                             }
                         }

@@ -13,18 +13,18 @@ import THEOplayerSDK
 class PlayerViewController: UIViewController {
     // MARK: - Private properties
 
-    // THEOPlayerView for the player
+    // THEOPlayerView used for the player
     private var theoplayerView: THEOPlayerView!
-    // View contains custom player interface
+    // The View that contains the custom player interface
     private var playerInterfaceView: PlayerInterfaceView!
-    // Dictionary of player event listeners
+    // Dictionary of the player event listeners
     private var listeners: [String: EventListener] = [:]
 
     // MARK: - Public properties
 
     // THEOplayer object
     var theoplayer: THEOplayer!
-    // Default poster URL
+    // Default poster URL for the source
     var posterUrl: String = "https://cdn.theoplayer.com/video/elephants-dream/playlist.png"
 
     // Declare a TypedSource object with a stream URL and its type
@@ -54,7 +54,9 @@ class PlayerViewController: UIViewController {
 
     var adPlaying: Bool {
         let integrations: [Integration] = self.theoplayer.getAllIntegrations()
-        if (integrations.first { $0.type == .ADS }) != nil,
+        let isAdsIntegration: Bool = integrations.first { $0.isAdIntegration } != nil
+
+        if isAdsIntegration,
            self.theoplayer.ads.playing {
             return true
         }
@@ -73,7 +75,7 @@ class PlayerViewController: UIViewController {
         self.setupIntegrations()
         self.attachEventListeners()
 
-        // Initialing playerInterfaceView state to set its UI components.
+        // Initializing playerInterfaceView state to set its UI components.
         self.playerInterfaceView.state = .initialise
     }
 
@@ -102,14 +104,14 @@ class PlayerViewController: UIViewController {
             // Create a frame based on the playView's updated frame
             var playerFrame: CGRect = updatedFrame
 
-            // Reset the origin 0 to prevent unnecessary offset
+            // Reset the origin 0 to prevent an unnecessary offset
             playerFrame.origin = .zero
 
-            // Assign the frame to THEOplayer. Closure might be invoked prior to THEOplayer initialisation hence the optional chaining
+            // Assign the frame to THEOplayer. Closure might be invoked before the player is initialized, hence the optional chaining
             viewController.theoplayer?.frame = playerFrame
         }
 
-        // Disable automatic auto layout constraints
+        // Disable the auto layout constraints
         self.theoplayerView.translatesAutoresizingMaskIntoConstraints = false
 
         // Add the playerView to view controller's view hierarchy
@@ -128,7 +130,7 @@ class PlayerViewController: UIViewController {
         self.playerInterfaceView.topAnchor.constraint(equalTo: self.theoplayerView.topAnchor).isActive = true
         self.playerInterfaceView.bottomAnchor.constraint(equalTo: self.theoplayerView.bottomAnchor).isActive = true
 
-        // Ensure interface is the top subview of theoplayerView
+        // Make sure the interface is the top subview of theoplayerView
         self.theoplayerView.insertSubview(playerInterfaceView, at: self.theoplayerView.subviews.count)
     }
 
@@ -138,10 +140,10 @@ class PlayerViewController: UIViewController {
         let playerConfigBuilder = THEOplayerConfigurationBuilder()
         // playerConfigBuilder.license = "<your_license_string>"
 
-        // Instantiate player object
+        // Instantiate the player object
         self.theoplayer = THEOplayer(configuration: playerConfigBuilder.build())
 
-        // Coupling fullscreen with device orientation so that rotation will trigger fullscreen
+        // Coupling fullscreen with device orientation so that the device rotation will trigger fullscreen
         self.theoplayer.fullscreenOrientationCoupling = true
 
         // Add the player to playerView's view hierarchy
@@ -159,7 +161,7 @@ class PlayerViewController: UIViewController {
     // MARK: - THEOplayer listener related functions and closures
 
     private func attachEventListeners() {
-        // Listen to event and store references in dictionary
+        // Listen to events and store references in dictionary
         self.listeners["play"] = self.theoplayer.addEventListener(type: PlayerEventTypes.PLAY, listener: { [weak self] event in self?.onPlay(event: event) })
         self.listeners["playing"] = self.theoplayer.addEventListener(type: PlayerEventTypes.PLAYING, listener: { [weak self] event in self?.onPlaying(event: event) })
         self.listeners["pause"] = self.theoplayer.addEventListener(type: PlayerEventTypes.PAUSE, listener: { [weak self] event in self?.onPause(event: event) })
@@ -231,7 +233,7 @@ class PlayerViewController: UIViewController {
 
     private func onEnded(event: EndedEvent) {
         os_log("ENDED event, currentTime: %f", event.currentTime)
-        // Stop player
+        // Stop the player
         self.theoplayer.stop()
         // Set the same source to restart playback
         self.theoplayer.source = source
@@ -242,8 +244,8 @@ class PlayerViewController: UIViewController {
     }
 
     private func onSourceChange(event: SourceChangeEvent) {
-        os_log("SOURCE_CHANGE event, url: %@", event.source?.sources[0].src.absoluteString ?? "")
-        // Initialise UI on source change
+        os_log("SOURCE_CHANGE event, url: %@", event.source?.sources[0].src ?? "")
+        // Initialize the UI on source change
         self.playerInterfaceView.state = .initialise
     }
 
@@ -279,7 +281,7 @@ class PlayerViewController: UIViewController {
 
     private func onDurationChange(event: DurationChangeEvent) {
         os_log("DURATION_CHANGE event, duration: %f", event.duration ?? 0.0)
-        // Set UI duration
+        // Set the UI duration
         if let duration: Double = event.duration,
            duration.isNormal {
             self.playerInterfaceView.duration = Float(duration)
@@ -288,7 +290,7 @@ class PlayerViewController: UIViewController {
 
     private func onTimeUpdate(event: TimeUpdateEvent) {
         os_log("TIME_UPDATE event, currentTime: %f", event.currentTime)
-        // Update UI current time
+        // Update the UI current time
         if !self.theoplayer.seeking {
             self.playerInterfaceView.currentTime = Float(event.currentTime)
         }
@@ -321,17 +323,17 @@ extension PlayerViewController: PlayerInterfaceViewDelegate {
 
     func skip(isForward: Bool) {
         var newTime: Double = self.theoplayer.currentTime + (isForward ? 10 : -10)
-        // Make sure newTime is not less than 0
+        // Make sure the newTime is not less than 0
         newTime = newTime < 0 ? 0 : newTime
         if let duration: Double = self.theoplayer.duration {
-            // Make sure newTime is not bigger than duration
+            // Make sure the newTime is not bigger than duration
             newTime = newTime > duration ? duration : newTime
         }
         self.seek(timeInSeconds: Float(newTime))
     }
 
     func seek(timeInSeconds: Float) {
-        // Set current time will trigger waiting event
+        // Setting the current time will trigger a waiting event
         self.theoplayer.currentTime = Double(timeInSeconds)
         self.playerInterfaceView.currentTime = timeInSeconds
     }
@@ -356,6 +358,21 @@ extension PlayerViewController: FullscreenPresentationDelegate {
             self.playerInterfaceView.topAnchor.constraint(equalTo: self.theoplayerView.topAnchor).isActive = true
             self.playerInterfaceView.bottomAnchor.constraint(equalTo: self.theoplayerView.bottomAnchor).isActive = true
             completion()
+        }
+    }
+}
+
+extension THEOplayerSDK.Integration {
+    var isAdIntegration: Bool {
+        switch self.kind {
+        case .GOOGLE_DAI:
+            return true
+        case .GOOGLE_IMA:
+            return true
+        case .THEO_ADS:
+            return true
+        default:
+            return false
         }
     }
 }

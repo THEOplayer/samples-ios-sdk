@@ -42,7 +42,7 @@ class OfflineTableViewCellViewModel {
                 attachCachingEventListeners()
                 switch task.status {
                 case .idle:
-                    // No action for newly created caching task
+                    // No action for a newly created caching task
                     break
                 case .loading:
                     delegate?.onCacheResumed()
@@ -52,7 +52,7 @@ class OfflineTableViewCellViewModel {
                     setDrmLicenseRenewTimer()
                     delegate?.onCacheCompleted()
                 case .evicted:
-                    // Should never happen as evicated cachingTask will be not set in OfflineViewViewModel
+                    // Should never happen as an evicted cachingTask will be not set in OfflineViewViewModel
                     break
                 @unknown default:
                     print("Unknown task status: \(task.status.rawValue)")
@@ -95,7 +95,7 @@ class OfflineTableViewCellViewModel {
         url = stream.url
         mimeType = stream.mimeType
 
-        // Parse DRM config
+        // Parse the DRM config
         var drmConfig: DRMConfiguration? = nil
         /*if let drm = stream.drm {
             switch drm.type {
@@ -129,7 +129,7 @@ class OfflineTableViewCellViewModel {
     }
 
     deinit {
-        // Set caching task to nil will also remove event listener
+        // Set caching task to nil and also remove event listener
         cachingTask = nil
         terminateDrmLicenseRenewTimer()
     }
@@ -137,7 +137,7 @@ class OfflineTableViewCellViewModel {
     // MARK: - Cache event listener related functions and closures
 
     private func attachCachingEventListeners() {
-        // Listen to caching event and store references in dictionary
+        // Listen to the caching event and store references in dictionary
         self.cachingListener["stateChange"] = self.cachingTask?.addEventListener(type: CachingTaskEventTypes.STATE_CHANGE, listener: { [weak self] event in
             self?.onStateChangeEvent(event: event)
         })
@@ -163,7 +163,7 @@ class OfflineTableViewCellViewModel {
             case .error:
                 delegate?.onError()
             case .evicted:
-                // Currently THEO SDK is not firing evicted event from the main thread hence the dispatch to main queue block below
+                // Currently THEOplayer iOS SDK does not fire the evicted event from the main thread, hence the dispatch to main queue block below
                 DispatchQueue.main.async {
                     self.delegate?.onCacheRemoved()
                 }
@@ -185,30 +185,30 @@ class OfflineTableViewCellViewModel {
 
     func createCachingTask() {
         let target = Calendar.current.date(byAdding: .minute, value: expiryInMinutes, to: Date())
-        // Create caching task with specific expirationDate
+        // Create caching task with a specific expirationDate
         cachingTask = THEOplayer.cache.createTask(source: source, parameters: CachingParameters.init(expirationDate: target!))
         // Start the new caching task
         cachingTask?.start()
-        // Set DRM license renew timer immedately after new DRM caching task is added
+        // Set DRM license renew timer immedately after a new DRM caching task is added
         setDrmLicenseRenewTimer()
         print("createCachingTask - status: \(status), bytesCached: \(bytesCached)")
     }
 
     func pauseCaching() {
-        // Pause caching task
+        // Pause the caching task
         cachingTask?.pause()
         print("pauseCaching - status: \(status), bytesCached: \(bytesCached)")
     }
 
     func resumeCaching() {
-        // Use start() to resume caching task
+        // Use start() to resume the caching task
         cachingTask?.start()
         print("resumeCaching - status: \(status), bytesCached: \(bytesCached)")
     }
 
     func removeCaching() {
         print("removeCaching - status: \(status), bytesCached: \(bytesCached)")
-        // Remove caching task
+        // Remove the caching task
         cachingTask?.remove()
         cachingTask = nil
         UserDefaults.standard.removeObject(forKey: url)
@@ -231,13 +231,13 @@ class OfflineTableViewCellViewModel {
     private func setDrmLicenseRenewTimer() {
         if let task = cachingTask {
             if let drm = source.sources[0].drm {
-                // Get next renew date
+                // Get the next renew date
                 let renewDate = getDrmLicenseRenewDate() {
-                    // Renew immediately if it has passed last recorded renew date
+                    // Renew immediately if it has passed the last recorded renew date
                     task.license.renew(drm)
                 }
 
-                // Update new renew date
+                // Update the new renew date
                 UserDefaults.standard.set(renewDate, forKey: url)
 
                 // Clean old timer just in case
@@ -247,7 +247,7 @@ class OfflineTableViewCellViewModel {
                     guard let self = self else { return }
 
                     /* Download DRM license here if needed.
-                       For demo purpose, renew with DRM configuration which does not expire
+                       For demo purposes, renew with a non-expiring DRM configuration
                     */
                     self.cachingTask?.license.renew(drm)
                     self.setDrmLicenseRenewTimer()
@@ -271,10 +271,10 @@ class OfflineTableViewCellViewModel {
             } else {
                 // Recorded date is in future
                 if (diff.second! / (60 * 60 * 24)) < drmLicenseRenewIntervalInDays {
-                    // If on the same date, reuse recorded date
+                    // If on the same date, reuse the recorded date
                     targetDate = recordedDate
                 } else {
-                    // Should never happen, use default target date
+                    // Should never happen, use the default target date
                     print("Recorded date is more then \(drmLicenseRenewIntervalInDays) day(s). ")
                 }
             }
