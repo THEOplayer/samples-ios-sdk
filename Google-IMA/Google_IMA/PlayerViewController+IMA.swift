@@ -34,7 +34,8 @@ class PlayerViewControllerIMA: PlayerViewController {
             self.theoplayer.source = source
         }
     }
-
+    
+    // THEOplayer automatically adds all available integrations to the player via the `autoIntegrations()` configuration. When automatically integrated, you can pass a configuration to the IMA integration via `THEOplayerConfigurationBuilder.setGoogleIMAConfiguration`. Otherwise, you can also add the integration manually and pass a configuration as shown below.
     override func setupIntegrations() {
         let imaIntegration: THEOplayerSDK.Integration = GoogleIMAIntegrationFactory.createIntegration(on: self.theoplayer)
         self.theoplayer.addIntegration(imaIntegration)
