@@ -5,6 +5,7 @@
 //
 
 import UIKit
+import AVKit
 
 // MARK: - PlayerInterfaceViewDelegate declaration
 
@@ -64,7 +65,7 @@ class PlayerInterfaceView: UIView {
     private var currentTimeString: String = "00:00" {
         didSet {
             // Update progress label when curent time string is set
-            progressLabel.text = "\(currentTimeString) / \(durationString)"
+            progressLabel.text = "\(currentTimeString)"
         }
     }
 
@@ -118,22 +119,27 @@ class PlayerInterfaceView: UIView {
             }
         }
     }
-    var duration: Float = 0.0 {
+    var duration: CMTimeRange = .init(start: .zero, duration: .zero) {
         didSet {
             // Set duration as the slider maximum value
-            slider.maximumValue = duration
-
-            isOverHourLong = (duration / 3600) >= 1
-            durationString = convertTimeString(time: duration)
+            let range = duration.duration
+            slider.minimumValue = -Float(range.seconds)
+            slider.maximumValue = 0.0
+            isOverHourLong = (range.seconds / 3600) >= 1
+            durationString = convertTimeString(time: Float(range.seconds))
         }
     }
     var currentTime: Float = 0.0 {
         didSet {
             if !isDraggingSlider {
                 // Update slider value
-                slider.value = currentTime
-
-                currentTimeString = convertTimeString(time: currentTime)
+                let sliderValue = currentTime - Float(duration.duration.seconds)
+                guard sliderValue <= 0 else {
+                    return
+                }
+                slider.value = sliderValue
+                
+                currentTimeString = convertTimeString(time: sliderValue)
             }
         }
     }
@@ -287,14 +293,15 @@ class PlayerInterfaceView: UIView {
     // MARK: - Util function to convert time string
 
     private func convertTimeString(time: Float) -> String {
-        let seconds = Int(time)
+        let seconds = Int(abs(time))
         let (hour, mim, sec) = ((seconds / 3600), ((seconds % 3600) / 60), ((seconds % 3600) % 60))
 
-        if isOverHourLong {
-            return String(format: "%02d:%02d:%02d", hour, mim, sec)
+        let formattedString = if isOverHourLong {
+           String(format: "%02d:%02d:%02d", hour, mim, sec)
         } else {
-            return String(format: "%02d:%02d", mim, sec)
+           String(format: "%02d:%02d", mim, sec)
         }
+        return time < 0.0 ? "-" + formattedString : formattedString
     }
 
     // MARK: - Start/stop auto hide timer
@@ -361,6 +368,7 @@ class PlayerInterfaceView: UIView {
     }
 
     @objc private func onSliderValueChange(slider: UISlider, event: UIEvent) {
+        // HACK
         if let touch = event.allTouches?.first {
             switch touch.phase {
             case .began:
@@ -373,7 +381,8 @@ class PlayerInterfaceView: UIView {
                 currentTimeString = convertTimeString(time: slider.value)
             case .ended:
                 isDraggingSlider = false
-                delegate?.seek(timeInSeconds: slider.value)
+                let adjustedTimeForLive = Float(duration.duration.seconds) + slider.value
+                delegate?.seek(timeInSeconds: adjustedTimeForLive)
             default:
                 break
             }

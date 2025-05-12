@@ -7,6 +7,8 @@
 import UIKit
 import os.log
 import THEOplayerSDK
+import THEOplayerTHEOliveIntegration
+import AVKit
 
 // MARK: - PlayerView declaration
 
@@ -38,7 +40,7 @@ class PlayerViewController: UIViewController {
             type: mimeType
         )
     }
-
+    
     // Returns a computed SourceDescription object
     private var defaultSource: SourceDescription {
         return .init(
@@ -51,7 +53,9 @@ class PlayerViewController: UIViewController {
     var source: SourceDescription {
         return self.configuredSource ?? self.defaultSource
     }
-
+    
+    var livePoint: Bool = true
+    
     var adPlaying: Bool {
         let integrations: [Integration] = self.theoplayer.getAllIntegrations()
         if (integrations.first { $0.kind == .THEO_ADS }) != nil,
@@ -136,6 +140,7 @@ class PlayerViewController: UIViewController {
 
     private func setupTheoplayer() {
         let playerConfigBuilder = THEOplayerConfigurationBuilder()
+        playerConfigBuilder.enableStreamingDVR = true
         // playerConfigBuilder.license = "<your_license_string>"
 
         // Instantiate player object
@@ -262,6 +267,7 @@ class PlayerViewController: UIViewController {
     }
     
     private func onSeeking(event: SeekingEvent) {
+        livePoint = false
         os_log("SEEKING event, currentTime: %f", event.currentTime)
     }
     
@@ -282,16 +288,28 @@ class PlayerViewController: UIViewController {
         // Set UI duration
         if let duration: Double = event.duration,
            duration.isNormal {
-            self.playerInterfaceView.duration = Float(duration)
+            self.playerInterfaceView.duration = .init(start: .zero, duration: CMTime(seconds:duration, preferredTimescale: 1))
+        } else {
+            guard let range = theoplayer.seekable.first else { return }
+            let start = CMTime(seconds: range.start, preferredTimescale: 1)
+            let duration = CMTime(seconds: (range.end - range.start), preferredTimescale: 1)
+            self.playerInterfaceView.duration = .init(start: start, duration: duration)
         }
     }
-
+    
     private func onTimeUpdate(event: TimeUpdateEvent) {
         os_log("TIME_UPDATE event, currentTime: %f", event.currentTime)
         // Update UI current time
         if !self.theoplayer.seeking {
-            self.playerInterfaceView.currentTime = Float(event.currentTime)
+            if !livePoint {
+                self.playerInterfaceView.currentTime = Float(event.currentTime)
+            }
         }
+        os_log("SEEKABLE_TIME_RANGE count: %d start %f end %f", theoplayer.seekable.count, theoplayer.seekable.first?.start ?? -1, theoplayer.seekable.first?.end ?? -1)
+        guard let range = theoplayer.seekable.first else { return }
+        let start = CMTime(seconds: range.start, preferredTimescale: 1)
+        let duration = CMTime(seconds: (range.end - range.start), preferredTimescale: 1)
+        self.playerInterfaceView.duration = .init(start: start, duration: duration)
     }
 
     private func onPresentationModeChange(event: PresentationModeChangeEvent) {
