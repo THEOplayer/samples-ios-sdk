@@ -54,7 +54,7 @@ class PlayerViewController: UIViewController {
 
     var adPlaying: Bool {
         let integrations: [Integration] = self.theoplayer.getAllIntegrations()
-        if (integrations.first { $0.type == .ADS }) != nil,
+        if (integrations.first { $0.kind == .THEO_ADS }) != nil,
            self.theoplayer.ads.playing {
             return true
         }
@@ -242,7 +242,7 @@ class PlayerViewController: UIViewController {
     }
 
     private func onSourceChange(event: SourceChangeEvent) {
-        os_log("SOURCE_CHANGE event, url: %@", event.source?.sources[0].src.absoluteString ?? "")
+        os_log("SOURCE_CHANGE event, url: %@", event.source?.sources[0].src ?? "")
         // Initialise UI on source change
         self.playerInterfaceView.state = .initialise
     }
