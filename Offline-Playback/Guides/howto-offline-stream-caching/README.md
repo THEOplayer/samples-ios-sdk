@@ -1,37 +1,38 @@
-# THEOplayer How To's - Offline Stream Caching
+# OptiView How To's - Offline Stream Caching
 
-This guide is going to cover how to use THEOplayer Cache API to download clear and DRM protected stream for offline playback.
+This guide is going to cover how to use OptiView Player Cache API to download clear and DRM protected stream for offline playback.
 
 ## Table of Contents
-
-* [Overview]
-* [Initialising a Caching Task]
-* [Starting a Caching Task]
-* [Pausing a Caching Task]
-* [Resuming a Caching Task]
-* [Removing a Caching task]
-* [Inspecting which Caching Tasks are Active]
-* [Inspecting the Completion Rate of a Caching Task]
-* [Caching a DRM Stream]
-* [Renewing DRM license]
-* [Playing Cached Stream]
-* [Summary]
+- [OptiView How To's - Offline Stream Caching](#optiview-how-tos---offline-stream-caching)
+  - [Table of Contents](#table-of-contents)
+  - [Overview](#overview)
+  - [Initializing a Caching Task](#initializing-a-caching-task)
+  - [Starting a Caching Task](#starting-a-caching-task)
+  - [Pausing a Caching Task](#pausing-a-caching-task)
+  - [Resuming a Caching Task](#resuming-a-caching-task)
+  - [Removing a Caching task](#removing-a-caching-task)
+  - [Inspecting which Caching Tasks are Active](#inspecting-which-caching-tasks-are-active)
+  - [Inspecting the Completion Rate of a Caching Task](#inspecting-the-completion-rate-of-a-caching-task)
+  - [Caching a DRM Stream](#caching-a-drm-stream)
+  - [Renewing DRM license](#renewing-drm-license)
+  - [Playing Cached Stream](#playing-cached-stream)
+  - [Summary](#summary)
 
 ## Overview
 
-An overview of changes made to [THEO Basic Playback] are highlighted below, this helps to clarify the logic and data flow behind this reference app.
+An overview of changes made to the [Basic Playback] sample are highlighted below, which should help clarify the logic and data flow behind this reference app.
 
 * MVVM (Model-View-ViewModel) architectural was used in this reference app to separate business logic from user interface code.
 * `PlayerViewController` as the Navigation Controller's root view controller has been replaced by `OfflineViewController`.
 * `OfflineViewController` has a `UITableVIew` that presents `Stream` objects as `OfflineTableViewCell`.
 * `OfflineTableViewCell` has download, pause, resume and delete buttons for user to interact with.
-* Each `OfflineTableViewCell` will be assigned a `OfflineTableViewCellViewModel` object, which is instantiated with a `Stream` object and invokes THEOplayer Caching API directly.
+* Each `OfflineTableViewCell` will be assigned a `OfflineTableViewCellViewModel` object, which is instantiated with a `Stream` object and invokes OptiView Player Caching API directly.
 * The `OfflineTableViewCellViewModelDelegate` protocol is defined for `OfflineTableViewCellViewModel`to notify its delegate (`OfflineTableViewCell`).
-* `OfflineTableViewCellViewModel` will create `SourceDescription` object which will be passed to the THEOplayer Caching API and to `PlayerViewController` through `OfflineViewController` when user tap on a `OfflineTableViewCell`.
+* `OfflineTableViewCellViewModel` will create `SourceDescription` object which will be passed to the OptiView Player Caching API and to `PlayerViewController` through `OfflineViewController` when user tap on a `OfflineTableViewCell`.
 
-## Initialising a Caching Task
+## Initializing a Caching Task
 
-THEOplayer Cache API can be accessed using the static `Cache` object from `THEOplayer`. To create a `CachingTask` object, use the `createTask()` API which requires a `SourceDescription` and an optional `CachingParameters`. Expiration date and desired bandwidth of the to-be-created `CachingTask` can be set via `CachingParameters`.
+OptiView Player Cache API can be accessed using the static `Cache` object from `THEOplayer`. To create a `CachingTask` object, use the `createTask()` API which requires a `SourceDescription` and an optional `CachingParameters`. Expiration date and desired bandwidth of the to-be-created `CachingTask` can be set via `CachingParameters`.
 
 ```swift
 class OfflineTableViewCellViewModel {
@@ -247,11 +248,11 @@ class OfflineTableViewCellViewModel {
 }
 ```
 
-As described previously, `CachingTask` progress can also be monitored by listening to the `CachingTaskEventTypes.PROGRESS` event. Please visit [Initialising a Caching Task] for code snippet.
+As described previously, `CachingTask` progress can also be monitored by listening to the `CachingTaskEventTypes.PROGRESS` event. Please visit [Initializing a Caching Task] for the code snippet.
 
 ## Caching a DRM Stream
 
-To cache a DRM stream, a `SourceDescription` with the appropriate `DRMConfiguration` shall be passed to the `createTask()` function (see [Initialising a Caching Task]). The rest of the procedure will be the same once the DRM `CachingTask` is created.
+To cache a DRM stream, a `SourceDescription` with the appropriate `DRMConfiguration` should be passed to the `createTask()` function (see [Initializing a Caching Task]). The rest of the procedure will be the same once the DRM `CachingTask` is created.
 
 ## Renewing DRM license
 
@@ -275,17 +276,17 @@ Example implementation can be found across [AppDelegate.swift],[OfflineViewViewM
 
 ## Playing Cached Stream
 
-Simply pass the same `SourceDescription` to `THEOplayer` instance to playback the cached content. THEOplayer SDK will check against the `CachingTask` array it has internally to determine if cache exists for the provided `SourceDescription`.
+Fetch the `SourceDescription` of the `CachingTask` from the cache API and pass it to the `THEOplayer` instance to playback the cached content.
 
 ## Summary
 
-This guide covered the usage of THEOplayer Cache API and how to download clear and DRM protected stream for offline playback.
+This guide covered the usage of OptiView Player Cache API and how to download clear and DRM protected stream for offline playback.
 
-For more guides about THEOplayer please visit [THEO Docs] portal.
+For more guides about OptiView Player please visit [OptiView Docs] portal.
 
 [//]: # (Sections reference)
 [Overview]: #Overview
-[Initialising a Caching Task]: #Initialising-a-Caching-Task
+[Initializing a Caching Task]: #Initializing-a-Caching-Task
 [Starting a Caching Task]: #Starting-a-Caching-Task
 [Pausing a Caching Task]: #Pausing-a-Caching-Task
 [Resuming a Caching Task]: #Resuming-a-Caching-Task
@@ -298,8 +299,8 @@ For more guides about THEOplayer please visit [THEO Docs] portal.
 [Summary]: #Summary
 
 [//]: # (Links and Guides reference)
-[THEO Basic Playback]: ../Basic-Playback
-[THEO Docs]: https://docs.portal.theoplayer.com/
+[Basic Playback]: ../Basic-Playback
+[OptiView Docs]: https://optiview.dolby.com/docs/
 
 [//]: # (Project files reference)
 [AppDelegate.swift]: ../../Offline_Playback/AppDelegate.swift
