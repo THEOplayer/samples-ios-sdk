@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "BE8242F32363AAB100994FB2"
-               BuildableName = "THEO Basic Playback.app"
+               BuildableName = "Basic Playback.app"
                BlueprintName = "Basic_Playback"
                ReferencedContainer = "container:Basic_Playback.xcodeproj">
             </BuildableReference>
@@ -45,7 +45,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "BE8242F32363AAB100994FB2"
-            BuildableName = "THEO Basic Playback.app"
+            BuildableName = "Basic Playback.app"
             BlueprintName = "Basic_Playback"
             ReferencedContainer = "container:Basic_Playback.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "BE8242F32363AAB100994FB2"
-            BuildableName = "THEO Basic Playback.app"
+            BuildableName = "Basic Playback.app"
             BlueprintName = "Basic_Playback"
             ReferencedContainer = "container:Basic_Playback.xcodeproj">
          </BuildableReference>

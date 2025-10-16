@@ -2,7 +2,7 @@
 //  PlayerViewController+Basic.swift
 //  Basic_Playback
 //
-//  Copyright © 2024 THEOPlayer. All rights reserved.
+//  Copyright © 2025 Dolby OptiView. All rights reserved.
 //
 
 import Foundation
