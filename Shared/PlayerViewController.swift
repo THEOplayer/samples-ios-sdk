@@ -145,6 +145,9 @@ class PlayerViewController: UIViewController {
 
         // Coupling fullscreen with device orientation so that the device rotation will trigger fullscreen
         self.theoplayer.fullscreenOrientationCoupling = true
+        
+        // Set autoplay
+        self.theoplayer.autoplay = true
 
         // Add the player to playerView's view hierarchy
         self.theoplayer.addAsSubview(of: theoplayerView)
@@ -181,6 +184,19 @@ class PlayerViewController: UIViewController {
 
         self.listeners["adBreakBegin"] = self.theoplayer.ads.addEventListener(type: AdsEventTypes.AD_BREAK_BEGIN, listener: { [weak self] event in self?.onAdBreakBegin(event: event) })
         self.listeners["adBreakEnd"] = self.theoplayer.ads.addEventListener(type: AdsEventTypes.AD_BREAK_END, listener: { [weak self] event in self?.onAdBreakEnd(event: event) })
+        self.listeners["adBreakChange"] = self.theoplayer.ads.addEventListener(type: AdsEventTypes.AD_BREAK_CHANGE, listener: { [weak self] event in self?.onAdBreakChange(event: event) })
+        self.listeners["adBegin"] = self.theoplayer.ads.addEventListener(type: AdsEventTypes.AD_BEGIN, listener: { [weak self] event in self?.onAdBegin(event: event) })
+        self.listeners["adEnd"] = self.theoplayer.ads.addEventListener(type: AdsEventTypes.AD_END, listener: { [weak self] event in self?.onAdEnd(event: event) })
+        self.listeners["adError"] = self.theoplayer.ads.addEventListener(type: AdsEventTypes.AD_ERROR, listener: { [weak self] event in self?.onAdError(event: event) })
+        self.listeners["adFirstQuartile"] = self.theoplayer.ads.addEventListener(type: AdsEventTypes.AD_FIRST_QUARTILE, listener: { [weak self] event in self?.onAdFirstQuartile(event: event) })
+        self.listeners["adMidpoint"] = self.theoplayer.ads.addEventListener(type: AdsEventTypes.AD_MIDPOINT, listener: { [weak self] event in self?.onAdMidpoint(event: event) })
+        self.listeners["adThirdQuartile"] = self.theoplayer.ads.addEventListener(type: AdsEventTypes.AD_THIRD_QUARTILE, listener: { [weak self] event in self?.onAdThirdQuartile(event: event) })
+        self.listeners["adClicked"] = self.theoplayer.ads.addEventListener(type: AdsEventTypes.AD_CLICKED, listener: { [weak self] event in self?.onAdClicked(event: event) })
+        self.listeners["adLoaded"] = self.theoplayer.ads.addEventListener(type: AdsEventTypes.AD_LOADED, listener: { [weak self] event in self?.onAdLoaded(event: event) })
+        self.listeners["adSkip"] = self.theoplayer.ads.addEventListener(type: AdsEventTypes.AD_SKIP, listener: { [weak self] event in self?.onAdSkip(event: event) })
+        self.listeners["removeAdBreak"] = self.theoplayer.ads.addEventListener(type: AdsEventTypes.REMOVE_AD_BREAK, listener: { [weak self] event in self?.onRemoveAdBreak(event: event) })
+        self.listeners["updateAd"] = self.theoplayer.ads.addEventListener(type: AdsEventTypes.UPDATE_AD, listener: { [weak self] event in self?.onUpdateAd(event: event) })
+        self.listeners["updateAdBreak"] = self.theoplayer.ads.addEventListener(type: AdsEventTypes.UPDATE_AD_BREAK, listener: { [weak self] event in self?.onUpdateAdBreak(event: event) })
     }
 
     private func removeEventListeners() {
@@ -204,6 +220,19 @@ class PlayerViewController: UIViewController {
 
         self.theoplayer.removeEventListener(type: AdsEventTypes.AD_BREAK_BEGIN, listener: self.listeners["adBreakBegin"]!)
         self.theoplayer.removeEventListener(type: AdsEventTypes.AD_BREAK_END, listener: self.listeners["adBreakEnd"]!)
+        self.theoplayer.removeEventListener(type: AdsEventTypes.AD_BREAK_CHANGE, listener: self.listeners["adBreakChange"]!)
+        self.theoplayer.removeEventListener(type: AdsEventTypes.AD_BEGIN, listener: self.listeners["adBegin"]!)
+        self.theoplayer.removeEventListener(type: AdsEventTypes.AD_END, listener: self.listeners["adEnd"]!)
+        self.theoplayer.removeEventListener(type: AdsEventTypes.AD_ERROR, listener: self.listeners["adError"]!)
+        self.theoplayer.removeEventListener(type: AdsEventTypes.AD_FIRST_QUARTILE, listener: self.listeners["adFirstQuartile"]!)
+        self.theoplayer.removeEventListener(type: AdsEventTypes.AD_MIDPOINT, listener: self.listeners["adMidpoint"]!)
+        self.theoplayer.removeEventListener(type: AdsEventTypes.AD_THIRD_QUARTILE, listener: self.listeners["adThirdQuartile"]!)
+        self.theoplayer.removeEventListener(type: AdsEventTypes.AD_CLICKED, listener: self.listeners["adClicked"]!)
+        self.theoplayer.removeEventListener(type: AdsEventTypes.AD_LOADED, listener: self.listeners["adLoaded"]!)
+        self.theoplayer.removeEventListener(type: AdsEventTypes.AD_SKIP, listener: self.listeners["adSkip"]!)
+        self.theoplayer.removeEventListener(type: AdsEventTypes.REMOVE_AD_BREAK, listener: self.listeners["removeAdBreak"]!)
+        self.theoplayer.removeEventListener(type: AdsEventTypes.UPDATE_AD, listener: self.listeners["updateAd"]!)
+        self.theoplayer.removeEventListener(type: AdsEventTypes.UPDATE_AD_BREAK, listener: self.listeners["updateAdBreak"]!)
 
         self.listeners.removeAll()
     }
@@ -250,7 +279,7 @@ class PlayerViewController: UIViewController {
     }
 
     private func onReadyStateChange(event: ReadyStateChangeEvent) {
-        os_log("READY_STATE_CHANGE event, state: %d", event.readyState.rawValue)
+        os_log("READY_STATE_CHANGE event, state: %@", String(describing: event.readyState))
         // Restore the appropriate UI state if there is enough data
         if event.readyState == .HAVE_ENOUGH_DATA {
             self.playerInterfaceView.state = self.theoplayer?.paused ?? false ? .paused : .playing
@@ -307,6 +336,58 @@ class PlayerViewController: UIViewController {
 
     private func onAdBreakEnd(event: AdBreakEndEvent) {
         os_log("AD_BREAK_END event")
+    }
+    
+    private func onAdBreakChange(event: AdBreakChangeEvent) {
+        os_log("AD_BREAK_CHANGE event")
+    }
+    
+    private func onAdBegin(event: AdBeginEvent) {
+        os_log("AD_BEGIN event")
+    }
+    
+    private func onAdEnd(event: AdEndEvent) {
+        os_log("AD_END event")
+    }
+    
+    private func onAdError(event: AdErrorEvent) {
+        os_log("AD_ERROR event")
+    }
+    
+    private func onAdFirstQuartile(event: AdFirstQuartileEvent) {
+        os_log("AD_FIRST_QUARTILE event")
+    }
+    
+    private func onAdMidpoint(event: AdMidpointEvent) {
+        os_log("AD_MIDPOINT event")
+    }
+    
+    private func onAdThirdQuartile(event: AdThirdQuartileEvent) {
+        os_log("AD_THIRD_QUARTILE event")
+    }
+    
+    private func onAdClicked(event: AdClickedEvent) {
+        os_log("AD_CLICKED event")
+    }
+    
+    private func onAdLoaded(event: AdLoadedEvent) {
+        os_log("AD_LOADED event")
+    }
+    
+    private func onAdSkip(event: AdSkipEvent) {
+        os_log("AD_SKIP event")
+    }
+    
+    private func onRemoveAdBreak(event: RemoveAdBreakEvent) {
+        os_log("REMOVE_AD_BREAK event")
+    }
+    
+    private func onUpdateAd(event: UpdateAdEvent) {
+        os_log("UPDATE_AD event")
+    }
+    
+    private func onUpdateAdBreak(event: UpdateAdBreakEvent) {
+        os_log("UPDATE_AD_BREAK event")
     }
 }
 
