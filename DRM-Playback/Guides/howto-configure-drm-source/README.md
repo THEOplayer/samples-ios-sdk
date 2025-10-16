@@ -1,8 +1,8 @@
-# THEOplayer How To's - Configure DRM Source
+# OptiView How To's - Configure DRM Source
 
-THEOplayer iOS SDK provides support for [FairPlay Streaming]. This guide is going to cover the steps to configure a source description with a [EZDRM] FairPlay stream.
+OptiView Player iOS SDK provides support for [FairPlay Streaming]. This guide is going to cover the steps to configure a source description with a [EZDRM] FairPlay stream.
 
-If you need information on how you can make your own DRM connectors such as the EZDRM one covered as part of this guide, feel free to take a look at our [DRM integrations repository] for an explanation of the DRM API and a bunch of examples for all platforms. DRM connector samples for the THEOplayer React Native SDK can be found [here](https://github.com/THEOplayer/react-native-theoplayer-drm).
+If you need information on how you can make your own DRM connectors such as the EZ DRM one covered as part of this guide, feel free to take a look at our [DRM integrations repository] for an explanation of the DRM API and a bunch of examples for all platforms. DRM connector samples for the OptiView Player React Native SDK can be found [here](https://github.com/THEOplayer/react-native-connectors/tree/main/drm).
 
 ## Table of Contents
 
@@ -93,7 +93,7 @@ Once the integration is registered, it can be used for all `TypedSource` objects
 
 ## Creating Source Description with DRM Configuration
 
-`TypedSource` will be used just as [THEO Basic Playback] except that the `FairPlayDRMConfiguration` with a custom integration will be passed as the `drm` property.
+A `TypedSource` will be used just like in our [Basic Playback] sample, except that the `FairPlayDRMConfiguration` with a custom integration will be passed as the `drm` property.
 
 ```swift
 class PlayerViewController: UIViewController {
@@ -122,9 +122,9 @@ class PlayerViewController: UIViewController {
 
 ## Summary
 
-Source description with DRM stream has been created successfully. When the `source` property is invoked, the DRM source description will be returned and then played by THEOplayer.
+Source description with DRM stream has been created successfully. When the `source` property is invoked, the DRM source description will be returned and then played by OptiView Player.
 
-For more guides about THEOplayer please visit [THEO Docs] portal.
+For more guides about OptiView Player, please visit the [OptiView Docs] portal.
 
 [//]: # (Sections reference)
 [Creating a custom EZDRM integration]: #Creating-a-custom-EZDRM-integration
@@ -133,11 +133,11 @@ For more guides about THEOplayer please visit [THEO Docs] portal.
 [Summary]: #Summary
 
 [//]: # (Links and Guides reference)
-[THEO Basic Playback]: ../Basic-Playback
+[Basic Playback]: ../Basic-Playback
 [FairPlay Streaming]: https://developer.apple.com/streaming/fps/
 [EZDRM]: https://www.ezdrm.com/
 [DRM integrations repository]: https://github.com/THEOplayer/samples-drm-integration/tree/master
-[THEO Docs]: https://docs.portal.theoplayer.com/
+[OptiView Docs]: https://optiview.dolby.com/docs/
 
 [//]: # (Project files reference)
 [PlayerViewController.swift]: ../../DRM_Playback/PlayerViewController.swift
