@@ -46,7 +46,7 @@
 		3A15B11C2DCB90870045EA1F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3A15B11D2DCB90870045EA1F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3A15B11F2DCB90870045EA1F /* PlayerViewController+Basic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlayerViewController+Basic.swift"; sourceTree = "<group>"; };
-		BE8242F42363AAB100994FB2 /* THEO Basic Playback (SPM).app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "THEO Basic Playback (SPM).app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE8242F42363AAB100994FB2 /* Basic Playback (SPM).app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Basic Playback (SPM).app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,8 +91,8 @@
 		BE8242EB2363AAB100994FB2 = {
 			isa = PBXGroup;
 			children = (
-				075D9D5A2C93133500CB6646 /* Shared */,
 				3A15B1202DCB90870045EA1F /* Basic_Playback_SPM */,
+				075D9D5A2C93133500CB6646 /* Shared */,
 				BE8242F52363AAB100994FB2 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -100,7 +100,7 @@
 		BE8242F52363AAB100994FB2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				BE8242F42363AAB100994FB2 /* THEO Basic Playback (SPM).app */,
+				BE8242F42363AAB100994FB2 /* Basic Playback (SPM).app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -123,7 +123,7 @@
 			);
 			name = Basic_Playback_SPM;
 			productName = Basic_Playback;
-			productReference = BE8242F42363AAB100994FB2 /* THEO Basic Playback (SPM).app */;
+			productReference = BE8242F42363AAB100994FB2 /* Basic Playback (SPM).app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -342,8 +342,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = theo.basic.playback.spm;
-				PRODUCT_NAME = "THEO Basic Playback (SPM)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.theoplayer.basic.spm;
+				PRODUCT_NAME = "Basic Playback (SPM)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -367,8 +367,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = theo.basic.playback.spm;
-				PRODUCT_NAME = "THEO Basic Playback (SPM)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.theoplayer.basic.spm;
+				PRODUCT_NAME = "Basic Playback (SPM)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -404,7 +404,7 @@
 			repositoryURL = "https://github.com/THEOplayer/theoplayer-sdk-apple/";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 9.2.0;
+				minimumVersion = 10.2.2;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
