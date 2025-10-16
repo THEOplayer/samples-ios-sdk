@@ -27,7 +27,7 @@ class PlayerViewControllerIMA: PlayerViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        // Configure the player's source to initialise playback.
+        // Configure the player's source to initialize the playback.
         // If the source contains an AdDescription, then it must be called when viewDidAppear is called (or later) so that the IMAAdDisplayContainer is ready.
         // If the IMAAdDisplayContainer is not ready yet, then the IMAAdsRequest will fail.
         if self.theoplayer.source == nil {

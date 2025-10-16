@@ -18,7 +18,7 @@ class PlayerViewControllerCast: PlayerViewController {
 
         self.prepareCustomChromecastLogic()
 
-        // Configure the player's source to initialise playback
+        // Configure the player's source to initialize the playback
         self.theoplayer.source = source
     }
 

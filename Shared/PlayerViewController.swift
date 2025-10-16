@@ -184,7 +184,7 @@ class PlayerViewController: UIViewController {
     }
 
     private func removeEventListeners() {
-        // Remove event listenrs
+        // Remove event listeners
         self.theoplayer.removeEventListener(type: PlayerEventTypes.PLAY, listener: self.listeners["play"]!)
         self.theoplayer.removeEventListener(type: PlayerEventTypes.PLAYING, listener: self.listeners["playing"]!)
         self.theoplayer.removeEventListener(type: PlayerEventTypes.PAUSE, listener: self.listeners["pause"]!)

@@ -12,10 +12,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Initialise window
+        //Initialize the window
         window = UIWindow(frame: UIScreen.main.bounds)
 
-        // Initialise PlayerViewController
+        // Initialize the PlayerViewController
         let playerViewController = Self.ROOT_VC_CLASS.init()
         // Create navigationController and set playerViewController as its root view controller
         let navigationController = createNavigationController(rootViewController: playerViewController)

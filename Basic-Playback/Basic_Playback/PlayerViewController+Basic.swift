@@ -10,7 +10,7 @@ import Foundation
 class PlayerViewControllerBasic: PlayerViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Configure the player's source to initialise playback
+        // Configure the player's source to initialize the playback
         self.theoplayer.source = self.source
     }
 }

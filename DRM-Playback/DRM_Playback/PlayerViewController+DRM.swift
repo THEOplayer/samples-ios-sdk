@@ -33,7 +33,7 @@ class PlayerViewControllerDRM: PlayerViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Configure the player's source to initialise playback
+        // Configure the player's source to initialize the playback
         self.theoplayer.source = source
     }
 }
