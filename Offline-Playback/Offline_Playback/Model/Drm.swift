@@ -2,7 +2,7 @@
 //  Drm.swift
 //  Offline_Playback
 //
-//  Copyright © 2020 THEOPlayer. All rights reserved.
+//  Copyright © 2025 Dolby OptiView. All rights reserved.
 //
 
 // MARK: - DrmType enumeration declaration
