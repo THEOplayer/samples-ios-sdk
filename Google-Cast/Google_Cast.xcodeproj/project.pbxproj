@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,6 +15,9 @@
 		075D9D8C2C93394D00CB6646 /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075D9D882C93394D00CB6646 /* PlayerViewController.swift */; };
 		075D9D8D2C93394D00CB6646 /* PlayerInterfaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075D9D892C93394D00CB6646 /* PlayerInterfaceView.swift */; };
 		075D9D8E2C93394D00CB6646 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075D9D8A2C93394D00CB6646 /* Theme.swift */; };
+		3AE404682EA10B6400D2A469 /* THEOplayerGoogleCastIntegration in Frameworks */ = {isa = PBXBuildFile; productRef = 3AE404672EA10B6400D2A469 /* THEOplayerGoogleCastIntegration */; };
+		3AE4046A2EA10B6400D2A469 /* THEOplayerSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 3AE404692EA10B6400D2A469 /* THEOplayerSDK */; };
+		3AE4046D2EA10BCA00D2A469 /* GoogleCast in Frameworks */ = {isa = PBXBuildFile; productRef = 3AE4046C2EA10BCA00D2A469 /* GoogleCast */; };
 		BE8243012363AAB200994FB2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE8243002363AAB200994FB2 /* Assets.xcassets */; };
 		BE8243042363AAB200994FB2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE8243022363AAB200994FB2 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -52,6 +55,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3AE4046D2EA10BCA00D2A469 /* GoogleCast in Frameworks */,
+				3AE4046A2EA10B6400D2A469 /* THEOplayerSDK in Frameworks */,
+				3AE404682EA10B6400D2A469 /* THEOplayerGoogleCastIntegration in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,7 +84,6 @@
 				075D9D5D2C9313CB00CB6646 /* Shared */,
 				BE8242F62363AAB100994FB2 /* Google_Cast */,
 				BE8242F52363AAB100994FB2 /* Products */,
-				F7E6091F2329D14E53F8B02A /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -100,13 +105,6 @@
 				BE8243052363AAB200994FB2 /* Info.plist */,
 			);
 			path = Google_Cast;
-			sourceTree = "<group>";
-		};
-		F7E6091F2329D14E53F8B02A /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -154,6 +152,10 @@
 				Base,
 			);
 			mainGroup = BE8242EB2363AAB100994FB2;
+			packageReferences = (
+				3AE404662EA10B6400D2A469 /* XCRemoteSwiftPackageReference "theoplayer-sdk-apple" */,
+				3AE4046B2EA10BCA00D2A469 /* XCRemoteSwiftPackageReference "google-cast-sdk" */,
+			);
 			productRefGroup = BE8242F52363AAB100994FB2 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -323,6 +325,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -335,7 +338,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = theo.google.cast;
+				PRODUCT_BUNDLE_IDENTIFIER = com.theoplayer.google.cast;
 				PRODUCT_NAME = "THEO Google Cast";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -347,6 +350,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -359,7 +363,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = theo.google.cast;
+				PRODUCT_BUNDLE_IDENTIFIER = com.theoplayer.google.cast;
 				PRODUCT_NAME = "THEO Google Cast";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -389,6 +393,43 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3AE404662EA10B6400D2A469 /* XCRemoteSwiftPackageReference "theoplayer-sdk-apple" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/THEOplayer/theoplayer-sdk-apple/";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.2.2;
+			};
+		};
+		3AE4046B2EA10BCA00D2A469 /* XCRemoteSwiftPackageReference "google-cast-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SRGSSR/google-cast-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.8.4;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3AE404672EA10B6400D2A469 /* THEOplayerGoogleCastIntegration */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3AE404662EA10B6400D2A469 /* XCRemoteSwiftPackageReference "theoplayer-sdk-apple" */;
+			productName = THEOplayerGoogleCastIntegration;
+		};
+		3AE404692EA10B6400D2A469 /* THEOplayerSDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3AE404662EA10B6400D2A469 /* XCRemoteSwiftPackageReference "theoplayer-sdk-apple" */;
+			productName = THEOplayerSDK;
+		};
+		3AE4046C2EA10BCA00D2A469 /* GoogleCast */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3AE4046B2EA10BCA00D2A469 /* XCRemoteSwiftPackageReference "google-cast-sdk" */;
+			productName = GoogleCast;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = BE8242EC2363AAB100994FB2 /* Project object */;
 }

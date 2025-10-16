@@ -7,6 +7,7 @@
 
 import UIKit
 import THEOplayerGoogleCastIntegration
+import GoogleCast
 
 @UIApplicationMain
 class AppDelegateCast: AppDelegate {
