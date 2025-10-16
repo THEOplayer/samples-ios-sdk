@@ -13,7 +13,7 @@ apps will have following characteristics:
 * Easy to read code, allowing them to be used as samples on how specific
   features can be integrated.
 * Open source code, providing common ground when investigating issues,
-  allowing the THEO support team to showcase reference implementations,
+  allowing the OptiView support team to showcase reference implementations,
   and customers to provide a clear reproduction project showcasing the
   issue they are seeing during integration or production.
 * Clean look and feel, allowing the apps to be used for marketing demo's
@@ -29,7 +29,7 @@ within an application. During the development of these applications,
 developers need access to solid documentation and examples at the risk
 of integrations not being of sufficient quality. As these applications
 are developed by and owned by customers, it is not always possible for
-THEOplayer team to get insights into the code. As a result, when issues
+OptiView team to get insights into the code. As a result, when issues
 occur during integration or when the app is in production, it can be
 difficult to analyse where the issue is. Similarly, when issues occur
 in the integrated code which are hard to reproduce, this is most often
