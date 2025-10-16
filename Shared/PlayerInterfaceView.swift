@@ -45,7 +45,7 @@ class PlayerInterfaceView: UIView {
 
     // Auto hide timer variable and interval constant
     private var autoHideTimer: Timer? = nil
-    private let autoHideTimeInSeconds: Double = 5.0
+    private let autoHideTimeInSeconds: Double = 3.0
 
     // Boolean flag to show/hide the interface
     private var showInterface: Bool = true {
