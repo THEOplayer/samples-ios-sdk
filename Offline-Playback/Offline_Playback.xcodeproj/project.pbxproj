@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,6 +14,8 @@
 		0727D2942CFF0AFB00CDB544 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0727D28E2CFF0AFB00CDB544 /* Theme.swift */; };
 		0727D2952CFF0AFB00CDB544 /* THEOPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0727D28F2CFF0AFB00CDB544 /* THEOPlayerView.swift */; };
 		0727D2972CFF137F00CDB544 /* PlayerViewController+Offline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0727D2962CFF137F00CDB544 /* PlayerViewController+Offline.swift */; };
+		3AE404732EA10F3000D2A469 /* THEOplayerSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 3AE404722EA10F3000D2A469 /* THEOplayerSDK */; };
+		3AE404752EA1159B00D2A469 /* EzdrmDRMIntegration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE404742EA1159B00D2A469 /* EzdrmDRMIntegration.swift */; };
 		BE5719F223D1FE0C000FD1CD /* Drm.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5719F123D1FE0C000FD1CD /* Drm.swift */; };
 		BE792A8E239E144F00FBE8C4 /* OfflineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE792A8D239E144F00FBE8C4 /* OfflineViewController.swift */; };
 		BE792A90239E556300FBE8C4 /* OfflineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE792A8F239E556300FBE8C4 /* OfflineTableViewCell.swift */; };
@@ -33,11 +35,11 @@
 		0727D28E2CFF0AFB00CDB544 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		0727D28F2CFF0AFB00CDB544 /* THEOPlayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = THEOPlayerView.swift; sourceTree = "<group>"; };
 		0727D2962CFF137F00CDB544 /* PlayerViewController+Offline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlayerViewController+Offline.swift"; sourceTree = "<group>"; };
-		7617EECA2677E77A00EBE674 /* THEOplayerSDK.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = THEOplayerSDK.xcframework; sourceTree = "<group>"; };
+		3AE404742EA1159B00D2A469 /* EzdrmDRMIntegration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EzdrmDRMIntegration.swift; sourceTree = "<group>"; };
 		BE5719F123D1FE0C000FD1CD /* Drm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drm.swift; sourceTree = "<group>"; };
 		BE792A8D239E144F00FBE8C4 /* OfflineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfflineViewController.swift; sourceTree = "<group>"; };
 		BE792A8F239E556300FBE8C4 /* OfflineTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfflineTableViewCell.swift; sourceTree = "<group>"; };
-		BE8242F42363AAB100994FB2 /* THEO Offline Playback.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "THEO Offline Playback.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE8242F42363AAB100994FB2 /* Offline Playback.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Offline Playback.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE8242F72363AAB100994FB2 /* AppDelegate+Offline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Offline.swift"; sourceTree = "<group>"; };
 		BE8243002363AAB200994FB2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BE8243032363AAB200994FB2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -52,6 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3AE404732EA10F3000D2A469 /* THEOplayerSDK in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,14 +81,13 @@
 				0727D2892CFF0AFB00CDB544 /* Shared */,
 				BE8242F62363AAB100994FB2 /* Offline_Playback */,
 				BE8242F52363AAB100994FB2 /* Products */,
-				BED1C3B52411327300A4ABEB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
 		BE8242F52363AAB100994FB2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				BE8242F42363AAB100994FB2 /* THEO Offline Playback.app */,
+				BE8242F42363AAB100994FB2 /* Offline Playback.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -98,6 +100,7 @@
 				BE9475BA23A133F200DC3C9C /* ViewModel */,
 				BE8242F72363AAB100994FB2 /* AppDelegate+Offline.swift */,
 				0727D2962CFF137F00CDB544 /* PlayerViewController+Offline.swift */,
+				3AE404742EA1159B00D2A469 /* EzdrmDRMIntegration.swift */,
 				BE8243002363AAB200994FB2 /* Assets.xcassets */,
 				BE8243052363AAB200994FB2 /* Info.plist */,
 			);
@@ -131,14 +134,6 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		BED1C3B52411327300A4ABEB /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				7617EECA2677E77A00EBE674 /* THEOplayerSDK.xcframework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		BEE8614023A1346200A6E44E /* Offline */ = {
 			isa = PBXGroup;
 			children = (
@@ -165,7 +160,7 @@
 			);
 			name = Offline_Playback;
 			productName = Offline_Playback;
-			productReference = BE8242F42363AAB100994FB2 /* THEO Offline Playback.app */;
+			productReference = BE8242F42363AAB100994FB2 /* Offline Playback.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -192,6 +187,9 @@
 				Base,
 			);
 			mainGroup = BE8242EB2363AAB100994FB2;
+			packageReferences = (
+				3AE404712EA10F3000D2A469 /* XCRemoteSwiftPackageReference "theoplayer-sdk-apple" */,
+			);
 			productRefGroup = BE8242F52363AAB100994FB2 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -225,6 +223,7 @@
 				0727D2952CFF0AFB00CDB544 /* THEOPlayerView.swift in Sources */,
 				0727D2912CFF0AFB00CDB544 /* PlayerInterfaceView.swift in Sources */,
 				BEC15FE623A23032002CF401 /* OfflineTableViewCellViewModel.swift in Sources */,
+				3AE404752EA1159B00D2A469 /* EzdrmDRMIntegration.swift in Sources */,
 				BE792A90239E556300FBE8C4 /* OfflineTableViewCell.swift in Sources */,
 				BEE8614323A1355200A6E44E /* OfflineViewViewModel.swift in Sources */,
 				BE792A8E239E144F00FBE8C4 /* OfflineViewController.swift in Sources */,
@@ -367,6 +366,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -379,8 +379,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.theoplayer.sample.playback.offline;
-				PRODUCT_NAME = "THEO Offline Playback";
+				PRODUCT_BUNDLE_IDENTIFIER = com.theoplayer.offline;
+				PRODUCT_NAME = "Offline Playback";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -391,6 +391,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -403,8 +404,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.theoplayer.sample.playback.offline;
-				PRODUCT_NAME = "THEO Offline Playback";
+				PRODUCT_BUNDLE_IDENTIFIER = com.theoplayer.offline;
+				PRODUCT_NAME = "Offline Playback";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -433,6 +434,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3AE404712EA10F3000D2A469 /* XCRemoteSwiftPackageReference "theoplayer-sdk-apple" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/THEOplayer/theoplayer-sdk-apple/";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.2.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3AE404722EA10F3000D2A469 /* THEOplayerSDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3AE404712EA10F3000D2A469 /* XCRemoteSwiftPackageReference "theoplayer-sdk-apple" */;
+			productName = THEOplayerSDK;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = BE8242EC2363AAB100994FB2 /* Project object */;
 }

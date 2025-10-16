@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import THEOplayerSDK
+import OSLog
 
 @UIApplicationMain
 class AppDelegateOffline: AppDelegate {
@@ -14,14 +16,24 @@ class AppDelegateOffline: AppDelegate {
     var offlineViewController: OfflineViewController? {
         return (self.window?.rootViewController as? UINavigationController)?.viewControllers.first as? OfflineViewController
     }
+    
+    override func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]?) -> Bool {
+        self.registerDRM()
+        return super.application(application, didFinishLaunchingWithOptions: launchOptions)
+    }
 
-    func applicationDidEnterBackground(_ application: UIApplication) {
-        // Remove all DRM licnese renew timer
+    private func registerDRM() {
+        let factory = EzdrmDRMIntegrationFactory()
+        THEOplayer.registerContentProtectionIntegration(integrationId: EzdrmDRMIntegration.integrationID, keySystem: .FAIRPLAY, integrationFactory: factory)
+    }
+
+    override func applicationDidEnterBackground(_ application: UIApplication) {
+        // Remove all DRM license renew timers
         self.offlineViewController?.viewModel.terminateDrmLicenseRenewTimers()
     }
 
-    func applicationWillEnterForeground(_ application: UIApplication) {
-        // Retore all DRM licnese renew timer
+    override func applicationWillEnterForeground(_ application: UIApplication) {
+        // Restore all DRM license renew timers
         self.offlineViewController?.viewModel.restoreDrmLicenseRenewTimers()
     }
 }

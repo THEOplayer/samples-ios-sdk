@@ -24,7 +24,7 @@ class OfflineTableViewCellViewModel {
 
     // MARK: - Private properties
 
-    // Set cache default expiry time to 7 days
+    // Set the cache default expiration time to 7 days
     private let expiryInMinutes: Int = 60 * 24 * 7
     private let drmLicenseRenewIntervalInDays: Int = 1
     private var drmTimer: Timer?
@@ -96,7 +96,7 @@ class OfflineTableViewCellViewModel {
         mimeType = stream.mimeType
 
         // Parse the DRM config
-        var drmConfig: DRMConfiguration? = nil
+        let drmConfig: DRMConfiguration? = nil
         /*if let drm = stream.drm {
             switch drm.type {
             case .ezDrm:

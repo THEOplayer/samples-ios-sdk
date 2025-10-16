@@ -46,9 +46,9 @@ class OfflineViewViewModel {
                url: "https://fps.ezdrm.com/demo/video/ezdrm.m3u8",
                mimeType: "application/x-mpegURL",
                drm: Drm(
-                    type: .ezDrm,
-                    licenseUrl: "https://fps.ezdrm.com/api/licenses/09cc0377-6dd4-40cb-b09d-b582236e70fe",
-                    certificateUrl: "https://fps.ezdrm.com/demo/video/eleisure.cer")
+                    customIntegrationId: EzdrmDRMIntegration.integrationID,
+                    licenseAcquisitionURL: "https://fps.ezdrm.com/api/licenses/09cc0377-6dd4-40cb-b09d-b582236e70fe",
+                    certificateURL: "https://fps.ezdrm.com/demo/video/eleisure.cer")
                 )
     ]
 
