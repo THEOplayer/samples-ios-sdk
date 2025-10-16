@@ -1,4 +1,4 @@
-# THEOplayer iOS Reference Apps
+# OptiView Player iOS Reference Apps
 
 ## License
 
@@ -6,9 +6,9 @@ This projects falls under the license as defined in https://github.com/THEOplaye
 
 ## Introduction
 
-In order to get a common understanding of how the THEOplayer SDKs are
-to be used, we will include rich example apps. These apps will have
-following characteristics:
+In order to get a common understanding of how the OptiView Player (formerly 
+THEOplayer) SDKs are to be used, we will include rich example apps. These 
+apps will have following characteristics:
 
 * Easy to read code, allowing them to be used as samples on how specific
   features can be integrated.
@@ -42,13 +42,17 @@ In order to keep these apps as simple as possible, we will maintain
 a set of different sample apps over a single sample app showing all
 different use cases.
 
-The following apps are made to work with THEOplayerSDK v9.0.0:
+The following apps are made to work with OptiView Player v10:
 
+* [Advertising (OptiView Ads)](Advertising-OptiView-Ads/README.md)
 * [Basic Playback](Basic-Playback/README.md)
+* [Basic Playback (SPM)](Basic-Playback-SPM/README.md)
 * [DRM Playback](DRM-Playback/README.md)
 * [Google Cast](Google-GoogleCast/README.md)
 * [Google IMA](Google-IMA/README.md)
 * [Offline Playback](Offline-Playback/README.md)
+* [Streaming (Millicast)](Streaming-Millicast/README.md)
+* [Streaming (THEOlive)](Streaming-THEOlive/README.md)
 
 ## Streams/Content Rights:
 
