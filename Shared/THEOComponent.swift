@@ -19,8 +19,8 @@ class THEOComponent {
     static func label(text: String?, isTitle: Bool = false) -> UILabel {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = isTitle ? .theoTitle : .theoText
-        label.textColor = .theoCello
+        label.font = isTitle ? .dolbyTitle : .dolbyText
+        label.textColor = .dolbyWhite
         label.text = text
 
         return label
@@ -29,7 +29,7 @@ class THEOComponent {
     static func button(text: String?, image: UIImage?) -> UIButton {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.backgroundColor = .theoLightningYellow
+        button.backgroundColor = .dolbyWhite
 
         if let _ = text {
             button.setTitle(text, for: .normal)
@@ -44,8 +44,8 @@ class THEOComponent {
     static func slider() -> UISlider {
         let slider = UISlider(frame: .zero)
         slider.translatesAutoresizingMaskIntoConstraints = false
-        slider.tintColor = .theoLightningYellow
-        slider.thumbTintColor = .theoLightningYellow
+        slider.tintColor = .dolbyPurple
+        slider.thumbTintColor = .dolbyPurple
         slider.maximumValue = 1.0
 
         return slider
@@ -54,8 +54,8 @@ class THEOComponent {
     static func progressView(height: CGFloat = 10.0) -> UIProgressView {
         let progressView = UIProgressView(progressViewStyle: .bar)
         progressView.translatesAutoresizingMaskIntoConstraints = false
-        progressView.backgroundColor = .theoCello
-        progressView.progressTintColor = .theoLightningYellow
+        progressView.backgroundColor = .dolbyBlack
+        progressView.progressTintColor = .dolbyPurple
         progressView.clipsToBounds = true
         progressView.layer.cornerRadius = height / 2
         progressView.heightAnchor.constraint(equalToConstant: height).isActive = true

@@ -7,58 +7,38 @@
 import UIKit
 
 extension UIFont {
-    static var theoTitle: UIFont {
+    static var dolbyTitle: UIFont {
+        return UIFont.systemFont(ofSize: 18)
+    }
+
+    static var dolbyText: UIFont {
         return UIFont.systemFont(ofSize: 16)
     }
 
-    static var theoText: UIFont {
-        return UIFont.systemFont(ofSize: 14)
-    }
-
-    static func theoFont(ofSize: CGFloat) -> UIFont {
+    static func dolbyFont(ofSize: CGFloat) -> UIFont {
         return UIFont.systemFont(ofSize: ofSize)
     }
 }
 
 extension UIColor {
-    static var theoWhite: UIColor {
+    static var dolbyWhite: UIColor {
         // #FFFFFF
         return UIColor(displayP3Red: 1, green: 1, blue: 1, alpha: 1.0)
     }
-    static var theoBlack: UIColor {
+    static var dolbyBlack: UIColor {
         // #000000
         return UIColor(displayP3Red: 0, green: 0, blue: 0, alpha: 1.0)
     }
-    static var theoStarDust: UIColor {
-        // #989897
-        return UIColor(displayP3Red: 152 / 255, green: 152 / 255, blue: 151 / 255, alpha: 1.0)
+    static var dolbyPurple: UIColor {
+        // #8339FC
+        return UIColor(displayP3Red: 0.514, green: 0.224, blue: 0.988, alpha: 0.7)
     }
-    static var theoCello: UIColor {
-        // #344A5E
-        return UIColor(displayP3Red: 52 / 255, green: 74 / 255, blue: 94 / 255, alpha: 1.0)
+    static var dolbyBlue: UIColor {
+        // #3E44FE
+        return UIColor(displayP3Red: 0.243, green: 0.267, blue: 0.996, alpha: 1.0)
     }
-    static var theoBermudaGrey: UIColor {
-        // #7293A4
-        return UIColor(displayP3Red: 114 / 255, green: 147 / 255, blue: 164 / 255, alpha: 1.0)
-    }
-    static var theoEchoBlue: UIColor {
-        // #9CB9C9
-        return UIColor(displayP3Red: 156 / 255, green: 185 / 255, blue: 201 / 255, alpha: 1.0)
-    }
-    static var theoLinkWater: UIColor {
-        // #CED9E1
-        return UIColor(displayP3Red: 206 / 255, green: 217 / 255, blue: 225 / 255, alpha: 1.0)
-    }
-    static var theoLightYellow: UIColor {
-        // #FFF3D4
-        return UIColor(displayP3Red: 255 / 255, green: 243 / 255, blue: 212 / 255, alpha: 1.0)
-    }
-    static var theoLightningYellow: UIColor {
-        // #FFC713
-        return UIColor(displayP3Red: 255 / 255, green: 199 / 255, blue: 19 / 255, alpha: 1.0)
-    }
-    static var theoStrongRed: UIColor {
-        // #BB0000
-        return UIColor(displayP3Red: 187 / 255, green: 0, blue: 0, alpha: 1.0)
+    static var dolbyTransparentBlue: UIColor {
+        // #3E44FE
+        return UIColor(displayP3Red: 0.243, green: 0.267, blue: 0.996, alpha: 0.3)
     }
 }

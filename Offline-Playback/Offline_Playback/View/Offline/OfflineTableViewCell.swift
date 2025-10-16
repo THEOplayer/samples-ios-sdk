@@ -102,10 +102,10 @@ class OfflineTableViewCell: UITableViewCell {
 
     private func setupContainerView() {
         container = THEOComponent.view()
-        container.backgroundColor = .theoWhite
+        container.backgroundColor = .dolbyTransparentBlue
         container.layer.cornerRadius = 10
         // Set broder width for error highlight (disabled initially)
-        container.layer.borderWidth = 5
+        container.layer.borderWidth = 1
         toggleErrorHighlight(enable: false)
 
         contentView.addSubview(container)
@@ -140,7 +140,7 @@ class OfflineTableViewCell: UITableViewCell {
         posterImageView = UIImageView()
         posterImageView.translatesAutoresizingMaskIntoConstraints = false
         stackView.addArrangedSubview(posterImageView)
-        posterImageView.heightAnchor.constraint(equalTo: stackView.heightAnchor).isActive = true
+        posterImageView.heightAnchor.constraint(equalTo: stackView.heightAnchor, multiplier: 0.75).isActive = true
         posterImageView.heightAnchor.constraint(equalTo: posterImageView.widthAnchor, multiplier: 9.0 / 16.0).isActive = true
     }
 
@@ -176,24 +176,25 @@ class OfflineTableViewCell: UITableViewCell {
 
     private func setupRightDetail() {
         // verticalStackView is the container for titleOptionsStackView and progressSectionView
-        verticalStackView = THEOComponent.stackView(axis: .vertical, spacing: 5)
+        verticalStackView = THEOComponent.stackView(axis: .vertical, spacing: 3)
         verticalStackView.distribution = .fill
         verticalStackView.alignment = .center
 
         // titleOptionsStackView is a horizontal stackView for title and a stack of option buttons
-        titleOptionsStackView = THEOComponent.stackView(axis: .horizontal, spacing: 5)
+        titleOptionsStackView = THEOComponent.stackView(axis: .horizontal, spacing: 3)
         titleOptionsStackView.distribution = .fillProportionally
         titleOptionsStackView.alignment = .center
 
         title = THEOComponent.label(text: "")
-        title.font = .theoTitle
+        title.font = .dolbyTitle
         title.numberOfLines = 2
         titleOptionsStackView.addArrangedSubview(title)
 
         // Setup option stack view for option buttons
-        optionStackView = THEOComponent.stackView(axis: .horizontal, spacing: 5)
+        optionStackView = THEOComponent.stackView(axis: .horizontal, spacing: 3)
         optionStackView.distribution = .equalSpacing
         optionStackView.alignment = .trailing
+        
         // Setup all option buttons and show/hide them accordingly based on the cell state
         setupActionButtons()
         titleOptionsStackView.addArrangedSubview(optionStackView)
@@ -213,7 +214,8 @@ class OfflineTableViewCell: UITableViewCell {
         progressView.heightAnchor.constraint(lessThanOrEqualTo: progressSectionView.heightAnchor).isActive = true
         progressView.leadingAnchor.constraint(equalTo: progressSectionView.leadingAnchor).isActive = true
         progressView.centerYAnchor.constraint(equalTo: progressSectionView.centerYAnchor).isActive = true
-        // Reserve space for progresLabel
+        
+        // Reserve space for progressLabel
         progressView.widthAnchor.constraint(equalTo: progressSectionView.widthAnchor, constant: -45).isActive = true
 
         // Setup progressLabel
@@ -235,9 +237,9 @@ class OfflineTableViewCell: UITableViewCell {
 
     private func toggleErrorHighlight(enable: Bool) {
         if enable {
-            container.layer.borderColor = UIColor.theoStrongRed.cgColor
+            container.layer.borderColor = UIColor.red.cgColor
         } else {
-            container.layer.borderColor = UIColor.theoWhite.cgColor
+            container.layer.borderColor = UIColor.dolbyBlue.cgColor
         }
     }
 

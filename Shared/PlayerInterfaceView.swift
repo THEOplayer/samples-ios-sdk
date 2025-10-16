@@ -188,7 +188,7 @@ class PlayerInterfaceView: UIView {
     }
 
     private func setupControllerStackView() {
-        controllerStackView = THEOComponent.stackView(axis: .horizontal, spacing: 40)
+        controllerStackView = THEOComponent.stackView(axis: .horizontal, spacing: 60)
         controllerStackView.alignment = .center
 
         containerView.addSubview(controllerStackView)
@@ -200,12 +200,22 @@ class PlayerInterfaceView: UIView {
 
     private func setupButton(imageName: String, isLarge: Bool) -> UIButton {
         let button = THEOComponent.button(text: nil, image: UIImage(named: imageName))
+        button.tintColor = .white
         button.backgroundColor = .clear
-
+        button.imageView?.contentMode = .scaleAspectFit
+        
+        if let imageView = button.imageView {
+            imageView.contentMode = .scaleAspectFit
+            imageView.translatesAutoresizingMaskIntoConstraints = false
+            
+            NSLayoutConstraint.activate([
+                imageView.widthAnchor.constraint(equalToConstant: isLarge ? 80 : 55),
+                imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor)
+            ])
+        }
+        
         controllerStackView.addArrangedSubview(button)
-        button.widthAnchor.constraint(equalTo: button.heightAnchor).isActive = true
-        button.widthAnchor.constraint(equalToConstant: isLarge ? 100 : 60).isActive = true
-
+        
         return button
     }
 
@@ -273,7 +283,7 @@ class PlayerInterfaceView: UIView {
 
     private func setupProgressLabel() {
         progressLabel = THEOComponent.label(text: "00:00 / 00:00")
-        progressLabel.textColor = .theoWhite
+        progressLabel.textColor = .dolbyWhite
         progressLabel.textAlignment = .center
 
         footerView.addSubview(progressLabel)

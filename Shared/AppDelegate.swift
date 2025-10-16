@@ -34,14 +34,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         // Disable swipe to navigate back
         navigationController.interactivePopGestureRecognizer?.isEnabled = false
-        // Remove navigationBar default highlight
-        navigationController.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        navigationController.navigationBar.shadowImage = UIImage()
-        navigationController.navigationBar.isTranslucent = true
+        // Set navigationBar background colour
+        navigationController.navigationBar.backgroundColor = .dolbyPurple
         // Set navigationBar tint colour
-        navigationController.navigationBar.tintColor = .theoLightningYellow
+        navigationController.navigationBar.tintColor = .dolbyPurple
         // Set navigationBar title text colour
-        navigationController.navigationBar.titleTextAttributes = [ NSAttributedString.Key.foregroundColor: UIColor.theoWhite ]
+        navigationController.navigationBar.titleTextAttributes = [ NSAttributedString.Key.foregroundColor: UIColor.dolbyWhite ]
         // Set navigationBar title
         navigationController.navigationBar.topItem?.title = Bundle.main.infoDictionary![kCFBundleNameKey as String] as? String
 

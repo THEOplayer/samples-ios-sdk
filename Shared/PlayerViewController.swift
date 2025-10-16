@@ -92,8 +92,8 @@ class PlayerViewController: UIViewController {
     // MARK: - View setup
 
     private func setupView() {
-        // Set the background colour to THEO blue
-        self.view.backgroundColor = .theoCello
+        // Set the background colour
+        self.view.backgroundColor = .dolbyBlack
     }
 
     private func setupPlayerView() {
