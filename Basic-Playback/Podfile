@@ -7,5 +7,7 @@ target 'Basic_Playback' do
   # Pods for Basic_Playback
   
     pod 'THEOplayerSDK-core', '~> 10'
+    pod 'THEOplayer-Integration-THEOlive', '~> 10'
+    pod 'THEOplayer-Integration-Millicast', '~> 10'
     
 end

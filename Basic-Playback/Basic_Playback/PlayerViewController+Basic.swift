@@ -6,6 +6,11 @@
 //
 
 import Foundation
+import THEOplayerSDK
+// If you would like to playback THEOlive Sources, make sure to import this.
+import THEOplayerTHEOliveIntegration
+// If you would like to playback Millicast Sources, make sure to import this.
+import THEOplayerMillicastIntegration
 
 class PlayerViewControllerBasic: PlayerViewController {
     override func viewDidLoad() {
