@@ -5,6 +5,7 @@
 //
 
 import UIKit
+import CoreMedia
 
 // MARK: - PlayerInterfaceViewDelegate declaration
 
@@ -30,6 +31,9 @@ enum PlayerInterfaceViewState: Int {
 
 class PlayerInterfaceView: UIView {
 
+    // MARK: - Constants
+    private static let LIVE_THRESHOLD: Float = 10.0
+    
     // MARK: - Private properties
 
     private var containerView: UIView!
@@ -41,6 +45,7 @@ class PlayerInterfaceView: UIView {
     private var skipBackwardButton: UIButton!
     private var skipForwardButton: UIButton!
     private var slider: UISlider!
+    private var liveButton: UIButton!
     private var progressLabel: UILabel!
 
     // Auto hide timer variable and interval constant
@@ -55,14 +60,29 @@ class PlayerInterfaceView: UIView {
             containerView.isHidden = !showInterface
         }
     }
+    
     private var isInterfaceShowing: Bool {
         return state == .initialise || !containerView.isHidden
     }
+    
+    var seekableRange: CMTimeRange = .zero {
+        didSet {
+            // Set duration as the slider maximum value
+            slider.maximumValue = Float(seekableRange.duration.seconds)
+            isOverHourLong = (seekableRange.duration.seconds / 3600) >= 1
+        }
+    }
+    
     private var isOverHourLong: Bool = false
     private var isDraggingSlider: Bool = false
+    private var isLive: Bool = false
     private var durationString: String = "00:00"
     private var currentTimeString: String = "00:00" {
         didSet {
+            if isLive {
+                progressLabel.text = "\(currentTimeString)"
+                return
+            }
             // Update progress label when curent time string is set
             progressLabel.text = "\(currentTimeString) / \(durationString)"
         }
@@ -120,10 +140,11 @@ class PlayerInterfaceView: UIView {
     }
     var duration: Float = 0.0 {
         didSet {
-            // Set duration as the slider maximum value
-            slider.maximumValue = duration
-
-            isOverHourLong = (duration / 3600) >= 1
+            if duration == .infinity {
+                liveButton.isHidden = false
+                isLive = true
+                return
+            }
             durationString = convertTimeString(time: duration)
         }
     }
@@ -131,9 +152,16 @@ class PlayerInterfaceView: UIView {
         didSet {
             if !isDraggingSlider {
                 // Update slider value
-                slider.value = currentTime
-
-                currentTimeString = convertTimeString(time: currentTime)
+                if isLive {
+                    let showableCurrentTime = Float(seekableRange.end.seconds) - currentTime
+                    slider.value = showableCurrentTime
+                    currentTimeString = "-\(convertTimeString(time: showableCurrentTime))"
+                    liveButton.isLive = showableCurrentTime < PlayerInterfaceView.LIVE_THRESHOLD ? true : false
+                } else {
+                    let showableCurrentTime = currentTime - Float(seekableRange.start.seconds)
+                    currentTimeString = convertTimeString(time: showableCurrentTime)
+                }
+                slider.value = currentTime - Float(seekableRange.start.seconds)
             }
         }
     }
@@ -151,6 +179,7 @@ class PlayerInterfaceView: UIView {
         setupFooterView()
         setupTransparentSubview()
         setupSlider()
+        setupLiveButtonLabel()
         setupProgressLabel()
     }
 
@@ -271,22 +300,41 @@ class PlayerInterfaceView: UIView {
         slider.bottomAnchor.constraint(equalTo: layoutMarginsGuide.bottomAnchor).isActive = true
     }
 
+    private func setupLiveButtonLabel() {
+        liveButton = THEOComponent.liveButton()
+        liveButton.isHidden = true
+        liveButton.addTarget(self, action: #selector(onLiveButtonTapped), for: .touchUpInside)
+
+        footerView.addSubview(liveButton) // Use addSubview instead of insertSubview
+
+        NSLayoutConstraint.activate([
+            liveButton.leadingAnchor.constraint(equalTo: slider.trailingAnchor, constant: 10),
+            liveButton.centerYAnchor.constraint(equalTo: slider.centerYAnchor),
+            liveButton.widthAnchor.constraint(greaterThanOrEqualToConstant: 30)
+            // Remove the trailingAnchor constraint - let the progress label handle the trailing edge
+        ])
+    }
+
     private func setupProgressLabel() {
         progressLabel = THEOComponent.label(text: "00:00 / 00:00")
         progressLabel.textColor = .theoWhite
         progressLabel.textAlignment = .center
-
         footerView.addSubview(progressLabel)
-        progressLabel.widthAnchor.constraint(equalToConstant: 130).isActive = true
+        
         let layoutMarginsGuide = footerView.layoutMarginsGuide
-        progressLabel.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor).isActive = true
-        progressLabel.centerYAnchor.constraint(equalTo: layoutMarginsGuide.centerYAnchor).isActive = true
-        progressLabel.leadingAnchor.constraint(equalTo: slider.trailingAnchor, constant: 10).isActive = true
+        
+        NSLayoutConstraint.activate([
+            progressLabel.leadingAnchor.constraint(equalTo: liveButton.trailingAnchor, constant: 10),
+            progressLabel.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor),
+            progressLabel.centerYAnchor.constraint(equalTo: slider.centerYAnchor),
+            progressLabel.widthAnchor.constraint(greaterThanOrEqualToConstant: 30)
+        ])
     }
 
     // MARK: - Util function to convert time string
 
     private func convertTimeString(time: Float) -> String {
+        guard time > 0 else { return "00:00" }
         let seconds = Int(time)
         let (hour, mim, sec) = ((seconds / 3600), ((seconds % 3600) / 60), ((seconds % 3600) % 60))
 
@@ -343,6 +391,10 @@ class PlayerInterfaceView: UIView {
         delegate?.skip(isForward: true)
     }
 
+    @objc private func onLiveButtonTapped() {
+        delegate?.seek(timeInSeconds: .infinity)
+    }
+    
     // MARK: - Slider callbacks
 
     @objc private func onSliderTapped(gestureRecognizer: UIGestureRecognizer) {
@@ -370,10 +422,21 @@ class PlayerInterfaceView: UIView {
                 stopAutoHideTimer()
             case .moved:
                 // Update time label to reflect the dragged time
-                currentTimeString = convertTimeString(time: slider.value)
+                if isLive {
+                    let value = slider.maximumValue - slider.value
+                    currentTimeString = "-\(convertTimeString(time: value))"
+                } else {
+                    currentTimeString = convertTimeString(time: slider.value)
+                }
             case .ended:
                 isDraggingSlider = false
-                delegate?.seek(timeInSeconds: slider.value)
+                if isLive {
+                    let seekDuration = slider.maximumValue - slider.value
+                    let seekValue = Float(seekableRange.end.seconds) - seekDuration
+                    delegate?.seek(timeInSeconds: seekValue)
+                } else {
+                    delegate?.seek(timeInSeconds: slider.value)
+                }
             default:
                 break
             }

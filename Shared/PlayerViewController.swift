@@ -7,6 +7,7 @@
 import UIKit
 import os.log
 import THEOplayerSDK
+import CoreMedia
 
 // MARK: - PlayerView declaration
 
@@ -281,11 +282,15 @@ class PlayerViewController: UIViewController {
 
     private func onDurationChange(event: DurationChangeEvent) {
         os_log("DURATION_CHANGE event, duration: %f", event.duration ?? 0.0)
+        guard let duration = event.duration else { return }
         // Set the UI duration
-        if let duration: Double = event.duration,
-           duration.isNormal {
+        if duration.isNormal {
             self.playerInterfaceView.duration = Float(duration)
         }
+        if duration.isInfinite {
+            self.playerInterfaceView.duration = .infinity
+        }
+        
     }
 
     private func onTimeUpdate(event: TimeUpdateEvent) {
@@ -293,6 +298,13 @@ class PlayerViewController: UIViewController {
         // Update the UI current time
         if !self.theoplayer.seeking {
             self.playerInterfaceView.currentTime = Float(event.currentTime)
+        }
+        if let seekableRange = self.theoplayer.seekable.first {
+            let start = seekableRange.start
+            let end = seekableRange.end
+            let startTime = CMTime(seconds: start, preferredTimescale: CMTimeScale(NSEC_PER_SEC))
+            let duration = CMTime(seconds: end - start, preferredTimescale: CMTimeScale(NSEC_PER_SEC))
+            self.playerInterfaceView.seekableRange = CMTimeRange(start: startTime, duration: duration)
         }
     }
 
