@@ -5,6 +5,6 @@ target 'Google_Cast' do
   use_frameworks!
 
   # Pods for Google_Cast
-  pod 'THEOplayerSDK-core', '~> 9'
-  pod 'THEOplayer-Integration-GoogleCast', '~> 9'
+  pod 'THEOplayerSDK-core', '~> 10'
+  pod 'THEOplayer-Integration-GoogleCast', '~> 10'
 end

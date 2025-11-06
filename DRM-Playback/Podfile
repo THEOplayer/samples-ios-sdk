@@ -5,5 +5,5 @@ target 'DRM_Playback' do
   use_frameworks!
 
   # Pods for DRM_Playback
-  pod 'THEOplayerSDK-core', '~> 9'
+  pod 'THEOplayerSDK-core', '~> 10'
 end

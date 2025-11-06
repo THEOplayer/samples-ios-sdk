@@ -5,6 +5,6 @@ target 'Google_IMA' do
   use_frameworks!
 
   # Pods for Google_IMA
-  pod 'THEOplayerSDK-core', '~> 9'
-  pod 'THEOplayer-Integration-GoogleIMA', '~> 9'
+  pod 'THEOplayerSDK-core', '~> 10'
+  pod 'THEOplayer-Integration-GoogleIMA', '~> 10'
 end
