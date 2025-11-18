@@ -56,10 +56,11 @@ The following apps are made to work with OptiView Player v10:
 
 ## Streams/Content Rights:
 
-The DRM streams used in this app (if any) are provided by our Partner: [EZ DRM] and hold all the rights for the content. These streams are DRM protected and cannot be used for any other purposes.
+The DRM streams used in this app (if any) are provided by our partners [EZ DRM] and [Axinom DRM], who hold all the rights for the contents. These streams are DRM protected and cannot be used for any other purposes.
 
 [//]: # (Links reference)
 [EZ DRM]: https://www.ezdrm.com/
+[Axinom DRM]: https://www.axinom.com/
 
 [//]: # (Project files reference)
 [LICENSE]: ./LICENSE

@@ -35,7 +35,7 @@ The DRM streams used in this app (if any) are provided by our Partner: [EZ DRM] 
 
 ## OptiView Player License Required
 
-This app uses a source hosted on the ezdrm.com domain. Provide a valid OptiView Player license that includes the EZ DRM domain for playback to start.
+This app uses a source hosted on the `ezdrm.com` domain. Provide a valid OptiView Player license that includes the EZ DRM domain for playback to start.
 
 ## License
 
