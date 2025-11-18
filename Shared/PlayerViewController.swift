@@ -196,6 +196,7 @@ class PlayerViewController: UIViewController {
         self.listeners["adClicked"] = self.theoplayer.ads.addEventListener(type: AdsEventTypes.AD_CLICKED, listener: { [weak self] event in self?.onAdClicked(event: event) })
         self.listeners["adLoaded"] = self.theoplayer.ads.addEventListener(type: AdsEventTypes.AD_LOADED, listener: { [weak self] event in self?.onAdLoaded(event: event) })
         self.listeners["adSkip"] = self.theoplayer.ads.addEventListener(type: AdsEventTypes.AD_SKIP, listener: { [weak self] event in self?.onAdSkip(event: event) })
+        self.listeners["addAdBreak"] = self.theoplayer.ads.addEventListener(type: AdsEventTypes.ADD_AD_BREAK, listener: { [weak self] event in self?.onAddAdBreak(event: event) })
         self.listeners["removeAdBreak"] = self.theoplayer.ads.addEventListener(type: AdsEventTypes.REMOVE_AD_BREAK, listener: { [weak self] event in self?.onRemoveAdBreak(event: event) })
         self.listeners["updateAd"] = self.theoplayer.ads.addEventListener(type: AdsEventTypes.UPDATE_AD, listener: { [weak self] event in self?.onUpdateAd(event: event) })
         self.listeners["updateAdBreak"] = self.theoplayer.ads.addEventListener(type: AdsEventTypes.UPDATE_AD_BREAK, listener: { [weak self] event in self?.onUpdateAdBreak(event: event) })
@@ -233,6 +234,7 @@ class PlayerViewController: UIViewController {
         self.theoplayer.removeEventListener(type: AdsEventTypes.AD_CLICKED, listener: self.listeners["adClicked"]!)
         self.theoplayer.removeEventListener(type: AdsEventTypes.AD_LOADED, listener: self.listeners["adLoaded"]!)
         self.theoplayer.removeEventListener(type: AdsEventTypes.AD_SKIP, listener: self.listeners["adSkip"]!)
+        self.theoplayer.removeEventListener(type: AdsEventTypes.ADD_AD_BREAK, listener: self.listeners["addAdBreak"]!)
         self.theoplayer.removeEventListener(type: AdsEventTypes.REMOVE_AD_BREAK, listener: self.listeners["removeAdBreak"]!)
         self.theoplayer.removeEventListener(type: AdsEventTypes.UPDATE_AD, listener: self.listeners["updateAd"]!)
         self.theoplayer.removeEventListener(type: AdsEventTypes.UPDATE_AD_BREAK, listener: self.listeners["updateAdBreak"]!)
@@ -395,6 +397,10 @@ class PlayerViewController: UIViewController {
     
     private func onAdSkip(event: AdSkipEvent) {
         os_log("AD_SKIP event")
+    }
+    
+    private func onAddAdBreak(event: AddAdBreakEvent) {
+        os_log("ADD_AD_BREAK event")
     }
     
     private func onRemoveAdBreak(event: RemoveAdBreakEvent) {
