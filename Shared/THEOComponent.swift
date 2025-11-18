@@ -85,4 +85,63 @@ class THEOComponent {
 
         return stackView
     }
+    
+    static func liveButton(isLive: Bool = false) -> UIButton {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.backgroundColor = .clear
+        
+        // Store the live state in the button's tag or create a custom property
+        button.tag = isLive ? 1 : 0
+        
+        // Set initial state
+        updateLiveButtonState(button: button, isLive: isLive)
+        
+        // Add target for button tap
+        button.addTarget(button, action: #selector(UIButton.liveButtonTapped), for: .touchUpInside)
+        
+        return button
+    }
+    
+    static func updateLiveButtonState(button: UIButton, isLive: Bool) {
+        let attributedString = NSMutableAttributedString()
+        
+        // Determine colors based on state
+        let dotColor = isLive ? UIColor.red : UIColor.systemGray
+        let textColor = isLive ? UIColor.dolbyWhite : UIColor.systemGray
+        let text = "LIVE"
+        
+        // Add dot
+        let dot = NSAttributedString(string: "● ", attributes: [
+            .foregroundColor: dotColor,
+            .font: UIFont.systemFont(ofSize: 12)
+        ])
+        
+        // Add text
+        let liveText = NSAttributedString(string: text, attributes: [
+            .foregroundColor: textColor,
+            .font: UIFont.dolbyText
+        ])
+        
+        attributedString.append(dot)
+        attributedString.append(liveText)
+        
+        button.setAttributedTitle(attributedString, for: .normal)
+        
+        // Update the tag to reflect current state
+        button.tag = isLive ? 1 : 0
+    }
+}
+
+extension UIButton {
+    @objc fileprivate func liveButtonTapped() {
+        let currentState = self.tag == 1
+        let newState = !currentState
+        THEOComponent.updateLiveButtonState(button: self, isLive: newState)
+    }
+    
+    var isLive: Bool {
+        set { THEOComponent.updateLiveButtonState(button: self, isLive: newValue) }
+        get { self.tag == 1 }
+    }
 }
