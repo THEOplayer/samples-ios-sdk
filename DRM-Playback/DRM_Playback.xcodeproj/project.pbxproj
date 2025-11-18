@@ -67,8 +67,8 @@
 		BE8242EB2363AAB100994FB2 = {
 			isa = PBXGroup;
 			children = (
-				071751C62CAEC08E00616763 /* Shared */,
 				BE8242F62363AAB100994FB2 /* DRM_Playback */,
+				071751C62CAEC08E00616763 /* Shared */,
 				BE8242F52363AAB100994FB2 /* Products */,
 				BED1C37C2411254B00A4ABEB /* Frameworks */,
 			);
@@ -345,9 +345,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Pieter-Jan Speelmans (HWTFRRY3PS)";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = 8YAB8ZY55Y;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -358,9 +358,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.theoplayer.sample.playback.drm;
+				PRODUCT_BUNDLE_IDENTIFIER = com.theoplayer.drm;
 				PRODUCT_NAME = "THEO DRM Playback";
-				PROVISIONING_PROFILE_SPECIFIER = "match Development theoplayer.THEOplayer-iOS-SDK-Demo";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -395,7 +395,7 @@
 			repositoryURL = "https://github.com/THEOplayer/theoplayer-sdk-apple/";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 10.2.2;
+				minimumVersion = 10.4.1;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

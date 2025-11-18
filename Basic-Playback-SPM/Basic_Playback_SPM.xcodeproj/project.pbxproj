@@ -404,7 +404,7 @@
 			repositoryURL = "https://github.com/THEOplayer/theoplayer-sdk-apple/";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 10.2.2;
+				minimumVersion = 10.4.1;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
