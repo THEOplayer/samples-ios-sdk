@@ -13,6 +13,7 @@ protocol PlayerInterfaceViewDelegate: AnyObject {
     func pause()
     func skip(isForward: Bool)
     func seek(timeInSeconds: Float)
+    func toggleMute()
 }
 
 // MARK: - PlayerInterfaceViewState enumeration declaration
@@ -24,6 +25,8 @@ enum PlayerInterfaceViewState: Int {
     case paused
     case adplaying
     case adpaused
+    case muted
+    case nonmuted
 }
 
 // MARK: - PlayerInterfaceView declaration
@@ -41,6 +44,7 @@ class PlayerInterfaceView: UIView {
     private var skipBackwardButton: UIButton!
     private var skipForwardButton: UIButton!
     private var slider: UISlider!
+    private var muteButton: UIButton!
     private var progressLabel: UILabel!
 
     // Auto hide timer variable and interval constant
@@ -151,6 +155,7 @@ class PlayerInterfaceView: UIView {
         setupFooterView()
         setupTransparentSubview()
         setupSlider()
+        setupMuteButton()
         setupProgressLabel()
     }
 
@@ -275,10 +280,31 @@ class PlayerInterfaceView: UIView {
         slider.addGestureRecognizer(tapGestureRecognizer)
 
         footerView.addSubview(slider)
+
+    private func setupMuteButton() {
+        let volumeHighImage = UIImage(named: "volume-high")?.withRenderingMode(.alwaysTemplate)
+        muteButton = THEOComponent.button(text: nil, image: volumeHighImage)
+        muteButton.tintColor = .white
+        muteButton.backgroundColor = .clear
+        muteButton.isUserInteractionEnabled = true // Explicitly enable interaction
+        muteButton.addTarget(self, action: #selector(onMuteButtonTapped), for: .touchUpInside)
+
+        footerView.addSubview(muteButton)
         let layoutMarginsGuide = footerView.layoutMarginsGuide
-        slider.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor).isActive = true
-        slider.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor).isActive = true
-        slider.bottomAnchor.constraint(equalTo: layoutMarginsGuide.bottomAnchor).isActive = true
+
+        NSLayoutConstraint.activate([
+            muteButton.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor),
+            muteButton.topAnchor.constraint(equalTo: sliderContainer.bottomAnchor, constant: 5),
+            muteButton.widthAnchor.constraint(equalToConstant: 30),
+            muteButton.heightAnchor.constraint(equalToConstant: 30)
+        ])
+    }
+    
+    public func updateMuteButton(isMuted: Bool) {
+        let imageName = isMuted ? "volume-off" : "volume-high"
+        let image = UIImage(named: imageName)?.withRenderingMode(.alwaysTemplate)
+        muteButton.setImage(image, for: .normal)
+        muteButton.tintColor = .white
     }
 
     private func setupProgressLabel() {
@@ -351,6 +377,11 @@ class PlayerInterfaceView: UIView {
     @objc private func onSkipForward() {
         showInterface = true
         delegate?.skip(isForward: true)
+    }
+    
+    @objc private func onMuteButtonTapped() {
+        showInterface = true
+        delegate?.toggleMute()
     }
 
     // MARK: - Slider callbacks

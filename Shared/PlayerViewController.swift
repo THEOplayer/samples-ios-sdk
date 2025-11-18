@@ -181,6 +181,7 @@ class PlayerViewController: UIViewController {
         self.listeners["durationChange"] = self.theoplayer.addEventListener(type: PlayerEventTypes.DURATION_CHANGE, listener: { [weak self] event in self?.onDurationChange(event: event) })
         self.listeners["timeUpdate"] = self.theoplayer.addEventListener(type: PlayerEventTypes.TIME_UPDATE, listener: { [weak self] event in self?.onTimeUpdate(event: event) })
         self.listeners["presentationModeChange"] = self.theoplayer.addEventListener(type: PlayerEventTypes.PRESENTATION_MODE_CHANGE, listener: { [weak self] event in self?.onPresentationModeChange(event: event) })
+        self.listeners["volumeChange"] = self.theoplayer.addEventListener(type: PlayerEventTypes.VOLUME_CHANGE, listener: { [weak self] event in self?.onVolumeChange(event: event) })
 
         self.listeners["adBreakBegin"] = self.theoplayer.ads.addEventListener(type: AdsEventTypes.AD_BREAK_BEGIN, listener: { [weak self] event in self?.onAdBreakBegin(event: event) })
         self.listeners["adBreakEnd"] = self.theoplayer.ads.addEventListener(type: AdsEventTypes.AD_BREAK_END, listener: { [weak self] event in self?.onAdBreakEnd(event: event) })
@@ -217,6 +218,7 @@ class PlayerViewController: UIViewController {
         self.theoplayer.removeEventListener(type: PlayerEventTypes.DURATION_CHANGE, listener: self.listeners["durationChange"]!)
         self.theoplayer.removeEventListener(type: PlayerEventTypes.TIME_UPDATE, listener: self.listeners["timeUpdate"]!)
         self.theoplayer.removeEventListener(type: PlayerEventTypes.PRESENTATION_MODE_CHANGE, listener: self.listeners["presentationModeChange"]!)
+        self.theoplayer.removeEventListener(type: PlayerEventTypes.VOLUME_CHANGE, listener: self.listeners["onVolumeChange"]!)
 
         self.theoplayer.removeEventListener(type: AdsEventTypes.AD_BREAK_BEGIN, listener: self.listeners["adBreakBegin"]!)
         self.theoplayer.removeEventListener(type: AdsEventTypes.AD_BREAK_END, listener: self.listeners["adBreakEnd"]!)
@@ -328,6 +330,12 @@ class PlayerViewController: UIViewController {
     private func onPresentationModeChange(event: PresentationModeChangeEvent) {
         os_log("PRESENTATION_MODE_CHANGE event, presentationMode: %d", event.presentationMode.rawValue)
     }
+    
+    private func onVolumeChange(event: VolumeChangeEvent) {
+        os_log("VOLUME_CHANGE event")
+        let isMuted = self.theoplayer.muted || self.theoplayer.volume == 0
+        self.playerInterfaceView.updateMuteButton(isMuted: isMuted)
+    }
 
     private func onAdBreakBegin(event: AdBreakBeginEvent) {
         os_log("AD_BREAK_BEGIN event")
@@ -418,6 +426,11 @@ extension PlayerViewController: PlayerInterfaceViewDelegate {
         self.theoplayer.currentTime = Double(timeInSeconds)
         self.playerInterfaceView.currentTime = timeInSeconds
     }
+    
+    func toggleMute() {
+        self.theoplayer.muted.toggle()
+    }
+    
 }
 
 // MARK: - FullscreenPresentationDelegate
