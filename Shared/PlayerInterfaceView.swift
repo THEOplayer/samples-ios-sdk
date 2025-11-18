@@ -350,8 +350,11 @@ class PlayerInterfaceView: UIView {
         ])
         
         slider = THEOComponent.slider()
-        // Add callback to monitor valueChanged
-        slider.addTarget(self, action: #selector(onSliderValueChange), for: .valueChanged)
+        // Add callback to monitor slider changes
+        slider.addTarget(self, action: #selector(onSliderEndedChange), for: .touchCancel)
+        slider.addTarget(self, action: #selector(onSliderEndedChange), for: .touchUpInside)
+        slider.addTarget(self, action: #selector(onSliderEndedChange), for: .touchUpOutside)
+        slider.addTarget(self, action: #selector(onSliderValueChange), for: .allTouchEvents)
         // Add tap gesture recognizer to the slider to support tap to set value
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(onSliderTapped))
         slider.addGestureRecognizer(tapGestureRecognizer)
@@ -522,6 +525,17 @@ class PlayerInterfaceView: UIView {
             default:
                 break
             }
+        }
+    }
+    
+    @objc private func onSliderEndedChange(slider: UISlider, event: UIEvent) {
+        isDraggingSlider = false
+        if isLive {
+            let seekDuration = slider.maximumValue - slider.value
+            let seekValue = Float(seekableRange.end.seconds) - seekDuration
+            delegate?.seek(timeInSeconds: seekValue)
+        } else {
+            delegate?.seek(timeInSeconds: slider.value)
         }
     }
 }
