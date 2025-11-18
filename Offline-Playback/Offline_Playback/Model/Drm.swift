@@ -11,4 +11,5 @@ struct Drm {
     var customIntegrationId: String
     var licenseAcquisitionURL: String
     var certificateURL: String
+    var integrationParameters: Dictionary<String, Any>
 }

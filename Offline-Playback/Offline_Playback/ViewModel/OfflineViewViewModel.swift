@@ -40,15 +40,16 @@ class OfflineViewViewModel {
                url: "https://cdn.theoplayer.com/video/elephants-dream/playlist.m3u8",
                mimeType: "application/x-mpegURL",
                drm: nil),
-        Stream(title: "Apple FairPlay",
-               posterName: "placeholder",
-               posterUrl: "",
-               url: "https://fps.ezdrm.com/demo/video/ezdrm.m3u8",
+        Stream(title: "Apple FairPlay (Axinom)",
+               posterName: "sintel",
+               posterUrl: "https://cdn.theoplayer.com/video/sintel/poster.jpg",
+               url: "https://media.axprod.net/VTB/DrmQuickStart/AxinomDemoVideo-SingleKey/Encrypted_Cbcs/Manifest.m3u8",
                mimeType: "application/x-mpegURL",
                drm: Drm(
-                    customIntegrationId: EzdrmDRMIntegration.integrationID,
-                    licenseAcquisitionURL: "https://fps.ezdrm.com/api/licenses/09cc0377-6dd4-40cb-b09d-b582236e70fe",
-                    certificateURL: "https://fps.ezdrm.com/demo/video/eleisure.cer")
+                    customIntegrationId: AxinomDRMIntegration.integrationID,
+                    licenseAcquisitionURL: "https://drm-fairplay-licensing.axtest.net/AcquireLicense",
+                    certificateURL: "https://vtb.axinom.com/FPScert/fairplay.cer",
+                    integrationParameters: ["token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ2ZXJzaW9uIjoxLCJjb21fa2V5X2lkIjoiNjllNTQwODgtZTllMC00NTMwLThjMWEtMWViNmRjZDBkMTRlIiwibWVzc2FnZSI6eyJ2ZXJzaW9uIjoyLCJ0eXBlIjoiZW50aXRsZW1lbnRfbWVzc2FnZSIsImxpY2Vuc2UiOnsiYWxsb3dfcGVyc2lzdGVuY2UiOnRydWV9LCJjb250ZW50X2tleXNfc291cmNlIjp7ImlubGluZSI6W3siaWQiOiIyMTFhYzFkYy1jOGEyLTQ1NzUtYmFmNy1mYTRiYTU2YzM4YWMiLCJ1c2FnZV9wb2xpY3kiOiJUaGVPbmVQb2xpY3kifV19LCJjb250ZW50X2tleV91c2FnZV9wb2xpY2llcyI6W3sibmFtZSI6IlRoZU9uZVBvbGljeSIsInBsYXlyZWFkeSI6eyJwbGF5X2VuYWJsZXJzIjpbIjc4NjYyN0Q4LUMyQTYtNDRCRS04Rjg4LTA4QUUyNTVCMDFBNyJdfX1dfX0.D9FM9sbTFxBmcCOC8yMHrEtTwm0zy6ejZUCrlJbHz_U"])
                 )
     ]
 

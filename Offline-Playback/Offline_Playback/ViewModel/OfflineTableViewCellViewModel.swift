@@ -96,27 +96,8 @@ class OfflineTableViewCellViewModel {
         mimeType = stream.mimeType
 
         // Parse the DRM config
-        let drmConfig: DRMConfiguration? = nil
-        /*if let drm = stream.drm {
-            switch drm.type {
-            case .ezDrm:
-                drmConfig = EzdrmDRMConfiguration(
-                    licenseAcquisitionURL: drm.licenseUrl,
-                    certificateURL: drm.certificateUrl
-                )
-            case .uplynk:
-                if drm.licenseUrl == "" {
-                    drmConfig = UplynkDRMConfiguration(
-                        certificateURL: drm.certificateUrl
-                    )
-                } else {
-                    drmConfig = UplynkDRMConfiguration(
-                        licenseAcquisitionURL: drm.licenseUrl,
-                        certificateURL: drm.certificateUrl
-                    )
-                }
-            }
-        }*/
+        let drmConfig = stream.drm.map { FairPlayDRMConfiguration(customIntegrationId: $0.customIntegrationId, licenseAcquisitionURL: $0.licenseAcquisitionURL, certificateURL: $0.certificateURL, licenseType: .persistent, integrationParameters: $0.integrationParameters) }
+        
         let typeSource = TypedSource(
             src: url,
             type: mimeType,

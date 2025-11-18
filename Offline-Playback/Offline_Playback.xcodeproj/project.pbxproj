@@ -15,7 +15,7 @@
 		0727D2952CFF0AFB00CDB544 /* THEOPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0727D28F2CFF0AFB00CDB544 /* THEOPlayerView.swift */; };
 		0727D2972CFF137F00CDB544 /* PlayerViewController+Offline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0727D2962CFF137F00CDB544 /* PlayerViewController+Offline.swift */; };
 		3AE404732EA10F3000D2A469 /* THEOplayerSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 3AE404722EA10F3000D2A469 /* THEOplayerSDK */; };
-		3AE404752EA1159B00D2A469 /* EzdrmDRMIntegration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE404742EA1159B00D2A469 /* EzdrmDRMIntegration.swift */; };
+		4453FE4E2ECC925700450046 /* AxinomDRMIntegration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4453FE4D2ECC925700450046 /* AxinomDRMIntegration.swift */; };
 		BE5719F223D1FE0C000FD1CD /* Drm.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5719F123D1FE0C000FD1CD /* Drm.swift */; };
 		BE792A8E239E144F00FBE8C4 /* OfflineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE792A8D239E144F00FBE8C4 /* OfflineViewController.swift */; };
 		BE792A90239E556300FBE8C4 /* OfflineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE792A8F239E556300FBE8C4 /* OfflineTableViewCell.swift */; };
@@ -35,7 +35,7 @@
 		0727D28E2CFF0AFB00CDB544 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		0727D28F2CFF0AFB00CDB544 /* THEOPlayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = THEOPlayerView.swift; sourceTree = "<group>"; };
 		0727D2962CFF137F00CDB544 /* PlayerViewController+Offline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlayerViewController+Offline.swift"; sourceTree = "<group>"; };
-		3AE404742EA1159B00D2A469 /* EzdrmDRMIntegration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EzdrmDRMIntegration.swift; sourceTree = "<group>"; };
+		4453FE4D2ECC925700450046 /* AxinomDRMIntegration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AxinomDRMIntegration.swift; sourceTree = "<group>"; };
 		BE5719F123D1FE0C000FD1CD /* Drm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drm.swift; sourceTree = "<group>"; };
 		BE792A8D239E144F00FBE8C4 /* OfflineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfflineViewController.swift; sourceTree = "<group>"; };
 		BE792A8F239E556300FBE8C4 /* OfflineTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfflineTableViewCell.swift; sourceTree = "<group>"; };
@@ -78,8 +78,8 @@
 		BE8242EB2363AAB100994FB2 = {
 			isa = PBXGroup;
 			children = (
-				0727D2892CFF0AFB00CDB544 /* Shared */,
 				BE8242F62363AAB100994FB2 /* Offline_Playback */,
+				0727D2892CFF0AFB00CDB544 /* Shared */,
 				BE8242F52363AAB100994FB2 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -100,7 +100,7 @@
 				BE9475BA23A133F200DC3C9C /* ViewModel */,
 				BE8242F72363AAB100994FB2 /* AppDelegate+Offline.swift */,
 				0727D2962CFF137F00CDB544 /* PlayerViewController+Offline.swift */,
-				3AE404742EA1159B00D2A469 /* EzdrmDRMIntegration.swift */,
+				4453FE4D2ECC925700450046 /* AxinomDRMIntegration.swift */,
 				BE8243002363AAB200994FB2 /* Assets.xcassets */,
 				BE8243052363AAB200994FB2 /* Info.plist */,
 			);
@@ -223,7 +223,7 @@
 				0727D2952CFF0AFB00CDB544 /* THEOPlayerView.swift in Sources */,
 				0727D2912CFF0AFB00CDB544 /* PlayerInterfaceView.swift in Sources */,
 				BEC15FE623A23032002CF401 /* OfflineTableViewCellViewModel.swift in Sources */,
-				3AE404752EA1159B00D2A469 /* EzdrmDRMIntegration.swift in Sources */,
+				4453FE4E2ECC925700450046 /* AxinomDRMIntegration.swift in Sources */,
 				BE792A90239E556300FBE8C4 /* OfflineTableViewCell.swift in Sources */,
 				BEE8614323A1355200A6E44E /* OfflineViewViewModel.swift in Sources */,
 				BE792A8E239E144F00FBE8C4 /* OfflineViewController.swift in Sources */,
