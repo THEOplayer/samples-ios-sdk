@@ -23,8 +23,8 @@ class AppDelegateOffline: AppDelegate {
     }
 
     private func registerDRM() {
-        let factory = AxinomDRMIntegrationFactory()
-        THEOplayer.registerContentProtectionIntegration(integrationId: AxinomDRMIntegration.integrationID, keySystem: .FAIRPLAY, integrationFactory: factory)
+        let factory = CastLabsDRMIntegrationFactory()
+        THEOplayer.registerContentProtectionIntegration(integrationId: CastLabsDRMIntegration.integrationID, keySystem: .FAIRPLAY, integrationFactory: factory)
     }
 
     override func applicationDidEnterBackground(_ application: UIApplication) {
