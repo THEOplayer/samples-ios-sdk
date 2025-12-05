@@ -36,7 +36,7 @@ This app is an extension of the [Basic Playback] sample. Please checkout the fol
 
 ## Streams/Content Rights
 
-The DRM streams used in this app (if any) are provided by our partner [Axinom] who hold all the rights for the content. These streams are DRM protected and cannot be used for any other purposes.
+The DRM streams used in this app (if any) are provided by our partner [castLabs] who hold all the rights for the content. These streams are DRM protected and cannot be used for any other purposes.
 
 ## License
 
@@ -47,7 +47,7 @@ This project is licensed under the BSD 3 Clause License - see the [LICENSE] file
 [Basic Playback]: ../Basic-Playback
 [OptiView Player]: https://optiview.dolby.com/products/video-player/
 [Get Started with OptiView]: https://optiview.dolby.com/plans/
-[Axinom DRM]: https://www.axinom.com/
+[castLabs]: https://castlabs.com/security/drmtoday/
 
 [//]: # (Project files reference)
 [LICENSE]: LICENSE
