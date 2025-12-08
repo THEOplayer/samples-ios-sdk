@@ -2,7 +2,7 @@
 //  OfflineViewController.swift
 //  Offline_Playback
 //
-//  Copyright © 2019 THEOPlayer. All rights reserved.
+//  Copyright © 2025 Dolby OptiView. All rights reserved.
 //
 
 import UIKit
@@ -38,7 +38,7 @@ class OfflineViewController: UIViewController {
     private func setupView() {
         navigationBarTitle = navigationController?.navigationBar.topItem?.title ?? ""
 
-        view.backgroundColor = .theoCello
+        view.backgroundColor = .dolbyBlack
         // Create padding around the view
         view.layoutMargins = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
 

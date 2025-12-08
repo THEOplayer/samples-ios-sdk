@@ -1,10 +1,11 @@
 //
 //  PlayerInterfaceView.swift
 //
-//  Copyright © 2024 THEOPlayer. All rights reserved.
+//  Copyright © 2025 Dolby OptiView. All rights reserved.
 //
 
 import UIKit
+import CoreMedia
 
 // MARK: - PlayerInterfaceViewDelegate declaration
 
@@ -13,6 +14,7 @@ protocol PlayerInterfaceViewDelegate: AnyObject {
     func pause()
     func skip(isForward: Bool)
     func seek(timeInSeconds: Float)
+    func toggleMute()
 }
 
 // MARK: - PlayerInterfaceViewState enumeration declaration
@@ -24,11 +26,16 @@ enum PlayerInterfaceViewState: Int {
     case paused
     case adplaying
     case adpaused
+    case muted
+    case nonmuted
 }
 
 // MARK: - PlayerInterfaceView declaration
 
 class PlayerInterfaceView: UIView {
+    
+    // MARK: - Constants
+    private static let LIVE_THRESHOLD: Float = 10.0
 
     // MARK: - Private properties
 
@@ -41,11 +48,16 @@ class PlayerInterfaceView: UIView {
     private var skipBackwardButton: UIButton!
     private var skipForwardButton: UIButton!
     private var slider: UISlider!
+    private var sliderContainer: UIView!
+    private var muteButton: UIButton!
+    private var liveButton: UIButton!
     private var progressLabel: UILabel!
+    private var progressLabelLeadingConstraint: NSLayoutConstraint!
+    private var liveButtonLeadingConstraint: NSLayoutConstraint!
 
     // Auto hide timer variable and interval constant
     private var autoHideTimer: Timer? = nil
-    private let autoHideTimeInSeconds: Double = 5.0
+    private let autoHideTimeInSeconds: Double = 3.0
 
     // Boolean flag to show/hide the interface
     private var showInterface: Bool = true {
@@ -55,14 +67,29 @@ class PlayerInterfaceView: UIView {
             containerView.isHidden = !showInterface
         }
     }
+    
     private var isInterfaceShowing: Bool {
         return state == .initialise || !containerView.isHidden
     }
+    
+    var seekableRange: CMTimeRange = .zero {
+        didSet {
+            // Set duration as the slider maximum value
+            slider.maximumValue = Float(seekableRange.duration.seconds)
+            isOverHourLong = (seekableRange.duration.seconds / 3600) >= 1
+        }
+    }
+    
     private var isOverHourLong: Bool = false
     private var isDraggingSlider: Bool = false
+    private var isLive: Bool = false
     private var durationString: String = "00:00"
     private var currentTimeString: String = "00:00" {
         didSet {
+            if isLive {
+                progressLabel.text = "\(currentTimeString)"
+                return
+            }
             // Update progress label when curent time string is set
             progressLabel.text = "\(currentTimeString) / \(durationString)"
         }
@@ -120,23 +147,61 @@ class PlayerInterfaceView: UIView {
     }
     var duration: Float = 0.0 {
         didSet {
-            // Set duration as the slider maximum value
-            slider.maximumValue = duration
-
-            isOverHourLong = (duration / 3600) >= 1
-            durationString = convertTimeString(time: duration)
+            if duration == .infinity {
+                liveButton.isHidden = false
+                progressLabel.isHidden = true
+                progressLabelLeadingConstraint.isActive = false
+                liveButtonLeadingConstraint.isActive = true
+                isLive = true
+            } else {
+                liveButton.isHidden = true
+                progressLabel.isHidden = false
+                liveButtonLeadingConstraint.isActive = false
+                progressLabelLeadingConstraint.isActive = true
+                isLive = false
+                durationString = convertTimeString(time: duration)
+            }
         }
     }
+    
     var currentTime: Float = 0.0 {
         didSet {
             if !isDraggingSlider {
                 // Update slider value
-                slider.value = currentTime
-
-                currentTimeString = convertTimeString(time: currentTime)
+                if isLive {
+                    let showableCurrentTime = Float(seekableRange.end.seconds) - currentTime
+                    slider.value = showableCurrentTime
+                    
+                    if showableCurrentTime < PlayerInterfaceView.LIVE_THRESHOLD {
+                        // At live edge - show only LIVE button
+                        liveButton.isLive = true
+                        progressLabel.isHidden = true
+                        progressLabelLeadingConstraint.isActive = false
+                        liveButtonLeadingConstraint.isActive = true
+                        currentTimeString = ""
+                    } else {
+                        // Behind live - show LIVE button + offset in progress label to the right
+                        liveButton.isLive = false
+                        progressLabel.isHidden = false
+                        liveButtonLeadingConstraint.isActive = true
+                        progressLabelLeadingConstraint.isActive = false
+                        
+                        // Update progress label constraint to anchor to liveButton
+                        NSLayoutConstraint.deactivate([progressLabelLeadingConstraint])
+                        progressLabelLeadingConstraint = progressLabel.leadingAnchor.constraint(equalTo: liveButton.trailingAnchor, constant: 10)
+                        progressLabelLeadingConstraint.isActive = true
+                        
+                        currentTimeString = "-\(convertTimeString(time: showableCurrentTime))"
+                    }
+                } else {
+                    let showableCurrentTime = currentTime - Float(seekableRange.start.seconds)
+                    currentTimeString = convertTimeString(time: showableCurrentTime)
+                }
+                slider.value = currentTime - Float(seekableRange.start.seconds)
             }
         }
     }
+    
     weak var delegate: PlayerInterfaceViewDelegate? = nil
 
     // MARK: - View life cycle
@@ -151,6 +216,8 @@ class PlayerInterfaceView: UIView {
         setupFooterView()
         setupTransparentSubview()
         setupSlider()
+        setupMuteButton()
+        setupLiveButtonLabel()
         setupProgressLabel()
     }
 
@@ -188,7 +255,7 @@ class PlayerInterfaceView: UIView {
     }
 
     private func setupControllerStackView() {
-        controllerStackView = THEOComponent.stackView(axis: .horizontal, spacing: 40)
+        controllerStackView = THEOComponent.stackView(axis: .horizontal, spacing: 60)
         controllerStackView.alignment = .center
 
         containerView.addSubview(controllerStackView)
@@ -200,12 +267,22 @@ class PlayerInterfaceView: UIView {
 
     private func setupButton(imageName: String, isLarge: Bool) -> UIButton {
         let button = THEOComponent.button(text: nil, image: UIImage(named: imageName))
+        button.tintColor = .white
         button.backgroundColor = .clear
-
+        button.imageView?.contentMode = .scaleAspectFit
+        
+        if let imageView = button.imageView {
+            imageView.contentMode = .scaleAspectFit
+            imageView.translatesAutoresizingMaskIntoConstraints = false
+            
+            NSLayoutConstraint.activate([
+                imageView.widthAnchor.constraint(equalToConstant: isLarge ? 80 : 55),
+                imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor)
+            ])
+        }
+        
         controllerStackView.addArrangedSubview(button)
-        button.widthAnchor.constraint(equalTo: button.heightAnchor).isActive = true
-        button.widthAnchor.constraint(equalToConstant: isLarge ? 100 : 60).isActive = true
-
+        
         return button
     }
 
@@ -242,7 +319,7 @@ class PlayerInterfaceView: UIView {
         footerView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor).isActive = true
         footerView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor).isActive = true
         footerView.widthAnchor.constraint(equalTo: containerView.widthAnchor).isActive = true
-        footerView.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        footerView.heightAnchor.constraint(equalToConstant: 80).isActive = true
     }
 
     private func setupTransparentSubview() {
@@ -257,36 +334,96 @@ class PlayerInterfaceView: UIView {
     }
 
     private func setupSlider() {
+        // Create slider container with grey background
+        sliderContainer = THEOComponent.view()
+        sliderContainer.backgroundColor = UIColor(white: 0.3, alpha: 0.2)
+        sliderContainer.layer.cornerRadius = 4
+        
+        footerView.addSubview(sliderContainer)
+        let layoutMarginsGuide = footerView.layoutMarginsGuide
+        
+        NSLayoutConstraint.activate([
+            sliderContainer.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor),
+            sliderContainer.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor),
+            sliderContainer.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor),
+            sliderContainer.heightAnchor.constraint(equalToConstant: 30)
+        ])
+        
         slider = THEOComponent.slider()
-        // Add callback to monitor valueChanged
-        slider.addTarget(self, action: #selector(onSliderValueChange), for: .valueChanged)
+        // Add callback to monitor slider changes
+        slider.addTarget(self, action: #selector(onSliderEndedChange), for: .touchCancel)
+        slider.addTarget(self, action: #selector(onSliderEndedChange), for: .touchUpInside)
+        slider.addTarget(self, action: #selector(onSliderEndedChange), for: .touchUpOutside)
+        slider.addTarget(self, action: #selector(onSliderValueChange), for: .allTouchEvents)
         // Add tap gesture recognizer to the slider to support tap to set value
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(onSliderTapped))
         slider.addGestureRecognizer(tapGestureRecognizer)
 
-        footerView.addSubview(slider)
+        sliderContainer.addSubview(slider)
+        
+        NSLayoutConstraint.activate([
+            slider.leadingAnchor.constraint(equalTo: sliderContainer.leadingAnchor, constant: 10),
+            slider.trailingAnchor.constraint(equalTo: sliderContainer.trailingAnchor, constant: -10),
+            slider.centerYAnchor.constraint(equalTo: sliderContainer.centerYAnchor)
+        ])
+    }
+
+    private func setupMuteButton() {
+        let volumeHighImage = UIImage(named: "volume-high")?.withRenderingMode(.alwaysTemplate)
+        muteButton = THEOComponent.button(text: nil, image: volumeHighImage)
+        muteButton.tintColor = .white
+        muteButton.backgroundColor = .clear
+        muteButton.isUserInteractionEnabled = true // Explicitly enable interaction
+        muteButton.addTarget(self, action: #selector(onMuteButtonTapped), for: .touchUpInside)
+
+        footerView.addSubview(muteButton)
         let layoutMarginsGuide = footerView.layoutMarginsGuide
-        slider.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor).isActive = true
-        slider.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor).isActive = true
-        slider.bottomAnchor.constraint(equalTo: layoutMarginsGuide.bottomAnchor).isActive = true
+
+        NSLayoutConstraint.activate([
+            muteButton.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor),
+            muteButton.topAnchor.constraint(equalTo: sliderContainer.bottomAnchor, constant: 5),
+            muteButton.widthAnchor.constraint(equalToConstant: 30),
+            muteButton.heightAnchor.constraint(equalToConstant: 30)
+        ])
+    }
+    
+    public func updateMuteButton(isMuted: Bool) {
+        let imageName = isMuted ? "volume-off" : "volume-high"
+        let image = UIImage(named: imageName)?.withRenderingMode(.alwaysTemplate)
+        muteButton.setImage(image, for: .normal)
+        muteButton.tintColor = .white
     }
 
     private func setupProgressLabel() {
         progressLabel = THEOComponent.label(text: "00:00 / 00:00")
-        progressLabel.textColor = .theoWhite
-        progressLabel.textAlignment = .center
+        progressLabel.textColor = .dolbyWhite
+        progressLabel.textAlignment = .left
 
         footerView.addSubview(progressLabel)
-        progressLabel.widthAnchor.constraint(equalToConstant: 130).isActive = true
-        let layoutMarginsGuide = footerView.layoutMarginsGuide
-        progressLabel.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor).isActive = true
-        progressLabel.centerYAnchor.constraint(equalTo: layoutMarginsGuide.centerYAnchor).isActive = true
-        progressLabel.leadingAnchor.constraint(equalTo: slider.trailingAnchor, constant: 10).isActive = true
+        progressLabelLeadingConstraint = progressLabel.leadingAnchor.constraint(equalTo: muteButton.trailingAnchor, constant: 10)
+        
+        NSLayoutConstraint.activate([
+            progressLabel.centerYAnchor.constraint(equalTo: muteButton.centerYAnchor)
+        ])
+    }
+    
+    private func setupLiveButtonLabel() {
+        liveButton = THEOComponent.liveButton()
+        liveButton.isHidden = true
+        liveButton.addTarget(self, action: #selector(onLiveButtonTapped), for: .touchUpInside)
+
+        footerView.addSubview(liveButton)
+        liveButtonLeadingConstraint = liveButton.leadingAnchor.constraint(equalTo: muteButton.trailingAnchor, constant: 10)
+        
+        NSLayoutConstraint.activate([
+            liveButton.centerYAnchor.constraint(equalTo: muteButton.centerYAnchor)
+        ])
     }
 
     // MARK: - Util function to convert time string
 
     private func convertTimeString(time: Float) -> String {
+        guard time > 0 else { return "00:00" }
         let seconds = Int(time)
         let (hour, mim, sec) = ((seconds / 3600), ((seconds % 3600) / 60), ((seconds % 3600) % 60))
 
@@ -342,6 +479,15 @@ class PlayerInterfaceView: UIView {
         showInterface = true
         delegate?.skip(isForward: true)
     }
+    
+    @objc private func onLiveButtonTapped() {
+        delegate?.seek(timeInSeconds: .infinity)
+    }
+    
+    @objc private func onMuteButtonTapped() {
+        showInterface = true
+        delegate?.toggleMute()
+    }
 
     // MARK: - Slider callbacks
 
@@ -370,13 +516,26 @@ class PlayerInterfaceView: UIView {
                 stopAutoHideTimer()
             case .moved:
                 // Update time label to reflect the dragged time
-                currentTimeString = convertTimeString(time: slider.value)
-            case .ended:
-                isDraggingSlider = false
-                delegate?.seek(timeInSeconds: slider.value)
+                if isLive {
+                    let value = slider.maximumValue - slider.value
+                    currentTimeString = "-\(convertTimeString(time: value))"
+                } else {
+                    currentTimeString = convertTimeString(time: slider.value)
+                }
             default:
                 break
             }
+        }
+    }
+    
+    @objc private func onSliderEndedChange(slider: UISlider, event: UIEvent) {
+        isDraggingSlider = false
+        if isLive {
+            let seekDuration = slider.maximumValue - slider.value
+            let seekValue = Float(seekableRange.end.seconds) - seekDuration
+            delegate?.seek(timeInSeconds: seekValue)
+        } else {
+            delegate?.seek(timeInSeconds: slider.value)
         }
     }
 }

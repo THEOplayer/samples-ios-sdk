@@ -2,7 +2,7 @@
 //  PlayerViewController+Cast.swift
 //  Google_Cast
 //
-//  Copyright © 2024 THEOPlayer. All rights reserved.
+//  Copyright © 2025 Dolby OptiView. All rights reserved.
 //
 
 import THEOplayerSDK
@@ -18,7 +18,7 @@ class PlayerViewControllerCast: PlayerViewController {
 
         self.prepareCustomChromecastLogic()
 
-        // Configure the player's source to initialise playback
+        // Configure the player's source to initialize the playback
         self.theoplayer.source = source
     }
 

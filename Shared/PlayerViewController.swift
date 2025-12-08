@@ -1,12 +1,13 @@
 //
 //  PlayerViewController.swift
 //
-//  Copyright © 2024 THEOPlayer. All rights reserved.
+//  Copyright © 2025 Dolby OptiView. All rights reserved.
 //
 
 import UIKit
 import os.log
 import THEOplayerSDK
+import CoreMedia
 
 // MARK: - PlayerView declaration
 
@@ -92,8 +93,8 @@ class PlayerViewController: UIViewController {
     // MARK: - View setup
 
     private func setupView() {
-        // Set the background colour to THEO blue
-        self.view.backgroundColor = .theoCello
+        // Set the background colour
+        self.view.backgroundColor = .dolbyBlack
     }
 
     private func setupPlayerView() {
@@ -145,6 +146,9 @@ class PlayerViewController: UIViewController {
 
         // Coupling fullscreen with device orientation so that the device rotation will trigger fullscreen
         self.theoplayer.fullscreenOrientationCoupling = true
+        
+        // Set autoplay
+        self.theoplayer.autoplay = true
 
         // Add the player to playerView's view hierarchy
         self.theoplayer.addAsSubview(of: theoplayerView)
@@ -178,13 +182,28 @@ class PlayerViewController: UIViewController {
         self.listeners["durationChange"] = self.theoplayer.addEventListener(type: PlayerEventTypes.DURATION_CHANGE, listener: { [weak self] event in self?.onDurationChange(event: event) })
         self.listeners["timeUpdate"] = self.theoplayer.addEventListener(type: PlayerEventTypes.TIME_UPDATE, listener: { [weak self] event in self?.onTimeUpdate(event: event) })
         self.listeners["presentationModeChange"] = self.theoplayer.addEventListener(type: PlayerEventTypes.PRESENTATION_MODE_CHANGE, listener: { [weak self] event in self?.onPresentationModeChange(event: event) })
+        self.listeners["volumeChange"] = self.theoplayer.addEventListener(type: PlayerEventTypes.VOLUME_CHANGE, listener: { [weak self] event in self?.onVolumeChange(event: event) })
 
         self.listeners["adBreakBegin"] = self.theoplayer.ads.addEventListener(type: AdsEventTypes.AD_BREAK_BEGIN, listener: { [weak self] event in self?.onAdBreakBegin(event: event) })
         self.listeners["adBreakEnd"] = self.theoplayer.ads.addEventListener(type: AdsEventTypes.AD_BREAK_END, listener: { [weak self] event in self?.onAdBreakEnd(event: event) })
+        self.listeners["adBreakChange"] = self.theoplayer.ads.addEventListener(type: AdsEventTypes.AD_BREAK_CHANGE, listener: { [weak self] event in self?.onAdBreakChange(event: event) })
+        self.listeners["adBegin"] = self.theoplayer.ads.addEventListener(type: AdsEventTypes.AD_BEGIN, listener: { [weak self] event in self?.onAdBegin(event: event) })
+        self.listeners["adEnd"] = self.theoplayer.ads.addEventListener(type: AdsEventTypes.AD_END, listener: { [weak self] event in self?.onAdEnd(event: event) })
+        self.listeners["adError"] = self.theoplayer.ads.addEventListener(type: AdsEventTypes.AD_ERROR, listener: { [weak self] event in self?.onAdError(event: event) })
+        self.listeners["adFirstQuartile"] = self.theoplayer.ads.addEventListener(type: AdsEventTypes.AD_FIRST_QUARTILE, listener: { [weak self] event in self?.onAdFirstQuartile(event: event) })
+        self.listeners["adMidpoint"] = self.theoplayer.ads.addEventListener(type: AdsEventTypes.AD_MIDPOINT, listener: { [weak self] event in self?.onAdMidpoint(event: event) })
+        self.listeners["adThirdQuartile"] = self.theoplayer.ads.addEventListener(type: AdsEventTypes.AD_THIRD_QUARTILE, listener: { [weak self] event in self?.onAdThirdQuartile(event: event) })
+        self.listeners["adClicked"] = self.theoplayer.ads.addEventListener(type: AdsEventTypes.AD_CLICKED, listener: { [weak self] event in self?.onAdClicked(event: event) })
+        self.listeners["adLoaded"] = self.theoplayer.ads.addEventListener(type: AdsEventTypes.AD_LOADED, listener: { [weak self] event in self?.onAdLoaded(event: event) })
+        self.listeners["adSkip"] = self.theoplayer.ads.addEventListener(type: AdsEventTypes.AD_SKIP, listener: { [weak self] event in self?.onAdSkip(event: event) })
+        self.listeners["addAdBreak"] = self.theoplayer.ads.addEventListener(type: AdsEventTypes.ADD_AD_BREAK, listener: { [weak self] event in self?.onAddAdBreak(event: event) })
+        self.listeners["removeAdBreak"] = self.theoplayer.ads.addEventListener(type: AdsEventTypes.REMOVE_AD_BREAK, listener: { [weak self] event in self?.onRemoveAdBreak(event: event) })
+        self.listeners["updateAd"] = self.theoplayer.ads.addEventListener(type: AdsEventTypes.UPDATE_AD, listener: { [weak self] event in self?.onUpdateAd(event: event) })
+        self.listeners["updateAdBreak"] = self.theoplayer.ads.addEventListener(type: AdsEventTypes.UPDATE_AD_BREAK, listener: { [weak self] event in self?.onUpdateAdBreak(event: event) })
     }
 
     private func removeEventListeners() {
-        // Remove event listenrs
+        // Remove event listeners
         self.theoplayer.removeEventListener(type: PlayerEventTypes.PLAY, listener: self.listeners["play"]!)
         self.theoplayer.removeEventListener(type: PlayerEventTypes.PLAYING, listener: self.listeners["playing"]!)
         self.theoplayer.removeEventListener(type: PlayerEventTypes.PAUSE, listener: self.listeners["pause"]!)
@@ -201,9 +220,24 @@ class PlayerViewController: UIViewController {
         self.theoplayer.removeEventListener(type: PlayerEventTypes.DURATION_CHANGE, listener: self.listeners["durationChange"]!)
         self.theoplayer.removeEventListener(type: PlayerEventTypes.TIME_UPDATE, listener: self.listeners["timeUpdate"]!)
         self.theoplayer.removeEventListener(type: PlayerEventTypes.PRESENTATION_MODE_CHANGE, listener: self.listeners["presentationModeChange"]!)
+        self.theoplayer.removeEventListener(type: PlayerEventTypes.VOLUME_CHANGE, listener: self.listeners["onVolumeChange"]!)
 
         self.theoplayer.removeEventListener(type: AdsEventTypes.AD_BREAK_BEGIN, listener: self.listeners["adBreakBegin"]!)
         self.theoplayer.removeEventListener(type: AdsEventTypes.AD_BREAK_END, listener: self.listeners["adBreakEnd"]!)
+        self.theoplayer.removeEventListener(type: AdsEventTypes.AD_BREAK_CHANGE, listener: self.listeners["adBreakChange"]!)
+        self.theoplayer.removeEventListener(type: AdsEventTypes.AD_BEGIN, listener: self.listeners["adBegin"]!)
+        self.theoplayer.removeEventListener(type: AdsEventTypes.AD_END, listener: self.listeners["adEnd"]!)
+        self.theoplayer.removeEventListener(type: AdsEventTypes.AD_ERROR, listener: self.listeners["adError"]!)
+        self.theoplayer.removeEventListener(type: AdsEventTypes.AD_FIRST_QUARTILE, listener: self.listeners["adFirstQuartile"]!)
+        self.theoplayer.removeEventListener(type: AdsEventTypes.AD_MIDPOINT, listener: self.listeners["adMidpoint"]!)
+        self.theoplayer.removeEventListener(type: AdsEventTypes.AD_THIRD_QUARTILE, listener: self.listeners["adThirdQuartile"]!)
+        self.theoplayer.removeEventListener(type: AdsEventTypes.AD_CLICKED, listener: self.listeners["adClicked"]!)
+        self.theoplayer.removeEventListener(type: AdsEventTypes.AD_LOADED, listener: self.listeners["adLoaded"]!)
+        self.theoplayer.removeEventListener(type: AdsEventTypes.AD_SKIP, listener: self.listeners["adSkip"]!)
+        self.theoplayer.removeEventListener(type: AdsEventTypes.ADD_AD_BREAK, listener: self.listeners["addAdBreak"]!)
+        self.theoplayer.removeEventListener(type: AdsEventTypes.REMOVE_AD_BREAK, listener: self.listeners["removeAdBreak"]!)
+        self.theoplayer.removeEventListener(type: AdsEventTypes.UPDATE_AD, listener: self.listeners["updateAd"]!)
+        self.theoplayer.removeEventListener(type: AdsEventTypes.UPDATE_AD_BREAK, listener: self.listeners["updateAdBreak"]!)
 
         self.listeners.removeAll()
     }
@@ -250,7 +284,7 @@ class PlayerViewController: UIViewController {
     }
 
     private func onReadyStateChange(event: ReadyStateChangeEvent) {
-        os_log("READY_STATE_CHANGE event, state: %d", event.readyState.rawValue)
+        os_log("READY_STATE_CHANGE event, state: %@", String(describing: event.readyState))
         // Restore the appropriate UI state if there is enough data
         if event.readyState == .HAVE_ENOUGH_DATA {
             self.playerInterfaceView.state = self.theoplayer?.paused ?? false ? .paused : .playing
@@ -281,23 +315,39 @@ class PlayerViewController: UIViewController {
 
     private func onDurationChange(event: DurationChangeEvent) {
         os_log("DURATION_CHANGE event, duration: %f", event.duration ?? 0.0)
+        guard let duration = event.duration else { return }
         // Set the UI duration
-        if let duration: Double = event.duration,
-           duration.isNormal {
+        if duration.isNormal {
             self.playerInterfaceView.duration = Float(duration)
+        }
+        if duration.isInfinite {
+            self.playerInterfaceView.duration = .infinity
         }
     }
 
     private func onTimeUpdate(event: TimeUpdateEvent) {
-        os_log("TIME_UPDATE event, currentTime: %f", event.currentTime)
+//        os_log("TIME_UPDATE event, currentTime: %f", event.currentTime)
         // Update the UI current time
         if !self.theoplayer.seeking {
             self.playerInterfaceView.currentTime = Float(event.currentTime)
+        }
+        if let seekableRange = self.theoplayer.seekable.first {
+            let start = seekableRange.start
+            let end = seekableRange.end
+            let startTime = CMTime(seconds: start, preferredTimescale: CMTimeScale(NSEC_PER_SEC))
+            let duration = CMTime(seconds: end - start, preferredTimescale: CMTimeScale(NSEC_PER_SEC))
+            self.playerInterfaceView.seekableRange = CMTimeRange(start: startTime, duration: duration)
         }
     }
 
     private func onPresentationModeChange(event: PresentationModeChangeEvent) {
         os_log("PRESENTATION_MODE_CHANGE event, presentationMode: %d", event.presentationMode.rawValue)
+    }
+    
+    private func onVolumeChange(event: VolumeChangeEvent) {
+        os_log("VOLUME_CHANGE event")
+        let isMuted = self.theoplayer.muted || self.theoplayer.volume == 0
+        self.playerInterfaceView.updateMuteButton(isMuted: isMuted)
     }
 
     private func onAdBreakBegin(event: AdBreakBeginEvent) {
@@ -307,6 +357,62 @@ class PlayerViewController: UIViewController {
 
     private func onAdBreakEnd(event: AdBreakEndEvent) {
         os_log("AD_BREAK_END event")
+    }
+    
+    private func onAdBreakChange(event: AdBreakChangeEvent) {
+        os_log("AD_BREAK_CHANGE event")
+    }
+    
+    private func onAdBegin(event: AdBeginEvent) {
+        os_log("AD_BEGIN event")
+    }
+    
+    private func onAdEnd(event: AdEndEvent) {
+        os_log("AD_END event")
+    }
+    
+    private func onAdError(event: AdErrorEvent) {
+        os_log("AD_ERROR event")
+    }
+    
+    private func onAdFirstQuartile(event: AdFirstQuartileEvent) {
+        os_log("AD_FIRST_QUARTILE event")
+    }
+    
+    private func onAdMidpoint(event: AdMidpointEvent) {
+        os_log("AD_MIDPOINT event")
+    }
+    
+    private func onAdThirdQuartile(event: AdThirdQuartileEvent) {
+        os_log("AD_THIRD_QUARTILE event")
+    }
+    
+    private func onAdClicked(event: AdClickedEvent) {
+        os_log("AD_CLICKED event")
+    }
+    
+    private func onAdLoaded(event: AdLoadedEvent) {
+        os_log("AD_LOADED event")
+    }
+    
+    private func onAdSkip(event: AdSkipEvent) {
+        os_log("AD_SKIP event")
+    }
+    
+    private func onAddAdBreak(event: AddAdBreakEvent) {
+        os_log("ADD_AD_BREAK event")
+    }
+    
+    private func onRemoveAdBreak(event: RemoveAdBreakEvent) {
+        os_log("REMOVE_AD_BREAK event")
+    }
+    
+    private func onUpdateAd(event: UpdateAdEvent) {
+        os_log("UPDATE_AD event")
+    }
+    
+    private func onUpdateAdBreak(event: UpdateAdBreakEvent) {
+        os_log("UPDATE_AD_BREAK event")
     }
 }
 
@@ -337,6 +443,11 @@ extension PlayerViewController: PlayerInterfaceViewDelegate {
         self.theoplayer.currentTime = Double(timeInSeconds)
         self.playerInterfaceView.currentTime = timeInSeconds
     }
+    
+    func toggleMute() {
+        self.theoplayer.muted.toggle()
+    }
+    
 }
 
 // MARK: - FullscreenPresentationDelegate

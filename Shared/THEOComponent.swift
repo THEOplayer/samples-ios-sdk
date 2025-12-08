@@ -1,7 +1,7 @@
 //
 //  THEOComponent.swift
 //
-//  Copyright © 2024 THEOPlayer. All rights reserved.
+//  Copyright © 2025 Dolby OptiView. All rights reserved.
 //
 
 import UIKit
@@ -19,8 +19,8 @@ class THEOComponent {
     static func label(text: String?, isTitle: Bool = false) -> UILabel {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = isTitle ? .theoTitle : .theoText
-        label.textColor = .theoCello
+        label.font = isTitle ? .dolbyTitle : .dolbyText
+        label.textColor = .dolbyWhite
         label.text = text
 
         return label
@@ -29,7 +29,7 @@ class THEOComponent {
     static func button(text: String?, image: UIImage?) -> UIButton {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.backgroundColor = .theoLightningYellow
+        button.backgroundColor = .dolbyWhite
 
         if let _ = text {
             button.setTitle(text, for: .normal)
@@ -44,8 +44,8 @@ class THEOComponent {
     static func slider() -> UISlider {
         let slider = UISlider(frame: .zero)
         slider.translatesAutoresizingMaskIntoConstraints = false
-        slider.tintColor = .theoLightningYellow
-        slider.thumbTintColor = .theoLightningYellow
+        slider.tintColor = .dolbyPurple
+        slider.thumbTintColor = .dolbyPurple
         slider.maximumValue = 1.0
 
         return slider
@@ -54,8 +54,8 @@ class THEOComponent {
     static func progressView(height: CGFloat = 10.0) -> UIProgressView {
         let progressView = UIProgressView(progressViewStyle: .bar)
         progressView.translatesAutoresizingMaskIntoConstraints = false
-        progressView.backgroundColor = .theoCello
-        progressView.progressTintColor = .theoLightningYellow
+        progressView.backgroundColor = .dolbyBlack
+        progressView.progressTintColor = .dolbyPurple
         progressView.clipsToBounds = true
         progressView.layer.cornerRadius = height / 2
         progressView.heightAnchor.constraint(equalToConstant: height).isActive = true
@@ -84,5 +84,64 @@ class THEOComponent {
         stackView.spacing = spacing
 
         return stackView
+    }
+    
+    static func liveButton(isLive: Bool = false) -> UIButton {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.backgroundColor = .clear
+        
+        // Store the live state in the button's tag or create a custom property
+        button.tag = isLive ? 1 : 0
+        
+        // Set initial state
+        updateLiveButtonState(button: button, isLive: isLive)
+        
+        // Add target for button tap
+        button.addTarget(button, action: #selector(UIButton.liveButtonTapped), for: .touchUpInside)
+        
+        return button
+    }
+    
+    static func updateLiveButtonState(button: UIButton, isLive: Bool) {
+        let attributedString = NSMutableAttributedString()
+        
+        // Determine colors based on state
+        let dotColor = isLive ? UIColor.red : UIColor.systemGray
+        let textColor = isLive ? UIColor.dolbyWhite : UIColor.systemGray
+        let text = "LIVE"
+        
+        // Add dot
+        let dot = NSAttributedString(string: "● ", attributes: [
+            .foregroundColor: dotColor,
+            .font: UIFont.systemFont(ofSize: 12)
+        ])
+        
+        // Add text
+        let liveText = NSAttributedString(string: text, attributes: [
+            .foregroundColor: textColor,
+            .font: UIFont.dolbyText
+        ])
+        
+        attributedString.append(dot)
+        attributedString.append(liveText)
+        
+        button.setAttributedTitle(attributedString, for: .normal)
+        
+        // Update the tag to reflect current state
+        button.tag = isLive ? 1 : 0
+    }
+}
+
+extension UIButton {
+    @objc fileprivate func liveButtonTapped() {
+        let currentState = self.tag == 1
+        let newState = !currentState
+        THEOComponent.updateLiveButtonState(button: self, isLive: newState)
+    }
+    
+    var isLive: Bool {
+        set { THEOComponent.updateLiveButtonState(button: self, isLive: newValue) }
+        get { self.tag == 1 }
     }
 }

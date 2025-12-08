@@ -2,7 +2,7 @@
 //  OfflineViewViewModel.swift
 //  Offline_Playback
 //
-//  Copyright © 2019 THEOPlayer. All rights reserved.
+//  Copyright © 2025 Dolby OptiView. All rights reserved.
 //
 
 import os.log
@@ -40,17 +40,22 @@ class OfflineViewViewModel {
                url: "https://cdn.theoplayer.com/video/elephants-dream/playlist.m3u8",
                mimeType: "application/x-mpegURL",
                drm: nil),
-        Stream(title: "Apple FairPlay",
+        Stream(title: "Apple FairPlay (CastLabs)",
                posterName: "placeholder",
                posterUrl: "",
-               url: "https://fps.ezdrm.com/demo/video/ezdrm.m3u8",
+               url: "https://demo.cf.castlabs.com/media/fps/index.m3u8",
                mimeType: "application/x-mpegURL",
                drm: Drm(
-                    type: .ezDrm,
-                    licenseUrl: "https://fps.ezdrm.com/api/licenses/09cc0377-6dd4-40cb-b09d-b582236e70fe",
-                    certificateUrl: "https://fps.ezdrm.com/demo/video/eleisure.cer")
-                )
-    ]
+                customIntegrationId: CastLabsDRMIntegration.integrationID,
+                licenseAcquisitionURL: "https://lic.staging.drmtoday.com/license-server-fairplay/",
+                certificateURL: "https://lic.staging.drmtoday.com/license-server-fairplay/cert/",
+                integrationParameters: [
+                    "userId": "purchase",
+                    "sessionId": "session",
+                    "merchant": "six"
+                ])
+              )
+        ]
 
     // MARK: - Public property
 

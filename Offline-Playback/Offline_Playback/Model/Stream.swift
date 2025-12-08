@@ -2,7 +2,7 @@
 //  Stream.swift
 //  Offline_Playback
 //
-//  Copyright © 2019 THEOPlayer. All rights reserved.
+//  Copyright © 2025 Dolby OptiView. All rights reserved.
 //
 
 // MARK: - Stream declaration

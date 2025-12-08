@@ -2,7 +2,7 @@
 //  OfflineTableViewCellViewModel.swift
 //  Offline_Playback
 //
-//  Copyright © 2019 THEOPlayer. All rights reserved.
+//  Copyright © 2025 Dolby OptiView. All rights reserved.
 //
 
 import os.log
@@ -24,7 +24,7 @@ class OfflineTableViewCellViewModel {
 
     // MARK: - Private properties
 
-    // Set cache default expiry time to 7 days
+    // Set the cache default expiration time to 7 days
     private let expiryInMinutes: Int = 60 * 24 * 7
     private let drmLicenseRenewIntervalInDays: Int = 1
     private var drmTimer: Timer?
@@ -96,27 +96,8 @@ class OfflineTableViewCellViewModel {
         mimeType = stream.mimeType
 
         // Parse the DRM config
-        var drmConfig: DRMConfiguration? = nil
-        /*if let drm = stream.drm {
-            switch drm.type {
-            case .ezDrm:
-                drmConfig = EzdrmDRMConfiguration(
-                    licenseAcquisitionURL: drm.licenseUrl,
-                    certificateURL: drm.certificateUrl
-                )
-            case .uplynk:
-                if drm.licenseUrl == "" {
-                    drmConfig = UplynkDRMConfiguration(
-                        certificateURL: drm.certificateUrl
-                    )
-                } else {
-                    drmConfig = UplynkDRMConfiguration(
-                        licenseAcquisitionURL: drm.licenseUrl,
-                        certificateURL: drm.certificateUrl
-                    )
-                }
-            }
-        }*/
+        let drmConfig = stream.drm.map { FairPlayDRMConfiguration(customIntegrationId: $0.customIntegrationId, licenseAcquisitionURL: $0.licenseAcquisitionURL, certificateURL: $0.certificateURL, licenseType: .persistent, integrationParameters: $0.integrationParameters) }
+        
         let typeSource = TypedSource(
             src: url,
             type: mimeType,
