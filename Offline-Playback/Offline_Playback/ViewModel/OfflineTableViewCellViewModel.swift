@@ -48,6 +48,10 @@ class OfflineTableViewCellViewModel {
                     delegate?.onCacheResumed()
                 case .error:
                     delegate?.onError()
+                    if let errorEvent = event as? CachingTaskErrorStateChangeEvent,
+                    let error = errorEvent.error {
+                    print("Caching task error - code: \(error.code), category: \(error.category), message: \(error.message), cause: \(String(describing: error.cause))")
+                }
                 case .done:
                     setDrmLicenseRenewTimer()
                     delegate?.onCacheCompleted()
