@@ -1,4 +1,6 @@
 platform :ios, '15.0'
+source 'https://github.com/THEOplayer/cocoapods-specs.git'
+source 'https://cdn.cocoapods.org'
 
 target 'Basic_Playback' do
   # Comment the next line if you don't want to use dynamic frameworks
