@@ -10,7 +10,7 @@ For a quick start with this sample, please proceed with the [Quick Start](#Quick
 
 2. Add the `THEOplayerSDK` and `THEOplayerTHEOadsIntegration` to your project.
 
-(Only if using SPM): Also add `GoogleInteractiveMediaAds` from the https://github.com/googleads/swift-package-manager-google-interactive-media-ads-ios repo to your project by following the same steps. This step is not necessary if you are using Cocoapods, in which case the `THEOplayerTHEOadsIntegration` can automatically pull the `GoogleInteractiveMediaAds` dependency while fetching the pods.
+(Only if using SPM): Also add `GoogleInteractiveMediaAds` from the https://github.com/googleads/swift-package-manager-google-interactive-media-ads-ios repo to your project by following the same steps. Use version **3.31.0** or later. This step is not necessary if you are using Cocoapods, in which case the `THEOplayerTHEOadsIntegration` can automatically pull the `GoogleInteractiveMediaAds` dependency while fetching the pods.
        
 3. In the player configuration, replace the placeholder `your_license_here` with your license for iOS SDK.
 
