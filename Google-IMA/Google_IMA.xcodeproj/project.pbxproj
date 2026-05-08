@@ -407,8 +407,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/googleads/swift-package-manager-google-interactive-media-ads-ios";
 			requirement = {
-				branch = main;
-				kind = branch;
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.30.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
