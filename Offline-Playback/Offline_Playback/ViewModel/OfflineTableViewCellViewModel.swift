@@ -48,10 +48,6 @@ class OfflineTableViewCellViewModel {
                     delegate?.onCacheResumed()
                 case .error:
                     delegate?.onError()
-                    if let errorEvent = event as? CachingTaskErrorStateChangeEvent,
-                    let error = errorEvent.error {
-                    print("Caching task error - code: \(error.code), category: \(error.category), message: \(error.message), cause: \(String(describing: error.cause))")
-                }
                 case .done:
                     setDrmLicenseRenewTimer()
                     delegate?.onCacheCompleted()
@@ -146,6 +142,13 @@ class OfflineTableViewCellViewModel {
             case .done:
                 delegate?.onCacheCompleted()
             case .error:
+                if let errorEvent = event as? CachingTaskErrorStateChangeEvent, let error = errorEvent.error {
+                    if let cause = error.cause {
+                        print("Caching task error - code: \(error.code), message: \(error.message), cause: \(cause.message)")
+                    } else {
+                        print("Caching task error - code: \(error.code), message: \(error.message)")
+                    }
+                }
                 delegate?.onError()
             case .evicted:
                 // Currently THEOplayer iOS SDK does not fire the evicted event from the main thread, hence the dispatch to main queue block below
