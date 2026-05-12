@@ -6,13 +6,7 @@ For a quick start with this sample, please proceed with the [Quick Start](#Quick
 
 ## Quick Start
 
-1. Navigate to your Xcode project and switch to the Package Dependencies tab. Click on the + button to add a new SPM package and enter in the search bar the URL of the following repo: https://github.com/THEOplayer/theoplayer-sdk-apple.
-
-2. Add the `THEOplayerSDK` and `THEOplayerGoogleImaIntegration` to your project.
-
-(Only if using SPM): Also add `GoogleInteractiveMediaAds` from the https://github.com/googleads/swift-package-manager-google-interactive-media-ads-ios repo to your project by following the same steps. Use version **3.31.0** or later. This step is not necessary if you are using Cocoapods, in which case the `THEOplayerGoogleImaIntegration` can automatically pull the `GoogleInteractiveMediaAds` dependency while fetching the pods.
-       
-3. In the player configuration, replace the placeholder `your_license_here` with your license for iOS SDK.
+1. In the player configuration, replace the placeholder `your_license_here` with your license for iOS SDK.
 
     ```swift
     let playerConfigurationBuilder = THEOplayerConfigurationBuilder()
@@ -22,7 +16,7 @@ For a quick start with this sample, please proceed with the [Quick Start](#Quick
 
     If you don't have a license yet, please visit [THEOportal Getting Started](https://portal.theoplayer.com/getting-started) page.
 
-4. Open the project `.xcodeproj`, select a Development Team for signing and build it.
+2. Open the project `.xcodeproj`, select a Development Team for signing and build it.
 
 ## License
 
