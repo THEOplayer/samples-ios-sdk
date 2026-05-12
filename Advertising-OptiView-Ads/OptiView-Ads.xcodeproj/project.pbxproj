@@ -463,7 +463,7 @@
 			repositoryURL = "https://github.com/googleads/swift-package-manager-google-interactive-media-ads-ios";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 3.30.0;
+				minimumVersion = 3.31.0;
 			};
 		};
 		3AE404552EA0EB5E00D2A469 /* XCRemoteSwiftPackageReference "theoplayer-sdk-apple" */ = {
