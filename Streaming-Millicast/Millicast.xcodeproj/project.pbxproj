@@ -414,7 +414,7 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/millicast/millicast-sdk-swift-package";
 			requirement = {
-				kind = upToNextMajorVersion;
+				kind = upToNextMinorVersion;
 				minimumVersion = 2.5.3;
 			};
 		};
@@ -431,7 +431,7 @@
 			repositoryURL = "https://github.com/THEOplayer/theoplayer-sdk-apple/";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 11.0.0;
+				minimumVersion = 11.2.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

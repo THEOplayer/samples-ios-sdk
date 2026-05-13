@@ -400,15 +400,15 @@
 			repositoryURL = "https://github.com/THEOplayer/theoplayer-sdk-apple/";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 11.0.0;
+				minimumVersion = 11.2.0;
 			};
 		};
 		3AE4047B2EA1268100D2A469 /* XCRemoteSwiftPackageReference "swift-package-manager-google-interactive-media-ads-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/googleads/swift-package-manager-google-interactive-media-ads-ios";
 			requirement = {
-				branch = main;
-				kind = branch;
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.31.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
