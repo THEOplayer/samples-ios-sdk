@@ -172,6 +172,14 @@ class OfflineTableViewCellViewModel {
     // MARK: - Caching task functions
 
     func createCachingTask() {
+        
+//        Example parameters object to select which `bandwidth`, `audioTrack` and `textTrack` to cache.
+//        let parameters = CachingParameters(expirationDate: .distantFuture, bandwidth: 688_000) // `BANDWIDTH` as defined in the multivariant playlist.
+//        let selectionBuilder = CachingParametersTrackSelectionBuilder()
+//        selectionBuilder.audioTrackSelection = ["en", "de", "fr"] // `LANGUAGE` as defined in the multivariant playlist.
+//        selectionBuilder.textTrackSelection = ["en", "de", "fr"] // `LANGUAGE` as defined in the multivariant playlist.
+//        parameters.preferredTrackSelection = selectionBuilder.build()
+        
         let target = Calendar.current.date(byAdding: .minute, value: expiryInMinutes, to: Date())
         // Create caching task with a specific expirationDate
         cachingTask = THEOplayer.cache.createTask(source: source, parameters: CachingParameters.init(expirationDate: target!))
