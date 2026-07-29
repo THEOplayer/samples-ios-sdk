@@ -171,10 +171,26 @@ class OfflineTableViewCellViewModel {
 
     // MARK: - Caching task functions
 
+    /// Example parameters object to select which `bandwidth`, `audioTrack` and `textTrack` to cache.
+    private func exampleCachingParameters() -> CachingParameters {
+        let parameters = CachingParameters(expirationDate: .distantFuture, bandwidth: 688_000) // `BANDWIDTH` as defined in the multivariant playlist.
+        let selectionBuilder = CachingParametersTrackSelectionBuilder()
+        selectionBuilder.audioTrackSelection = ["en", "de", "fr"] // `LANGUAGE` as defined in the multivariant playlist.
+        selectionBuilder.textTrackSelection = ["en", "de", "fr"] // `LANGUAGE` as defined in the multivariant playlist.
+        parameters.preferredTrackSelection = selectionBuilder.build()
+        return parameters
+    }
+
     func createCachingTask() {
-        let target = Calendar.current.date(byAdding: .minute, value: expiryInMinutes, to: Date())
         // Create caching task with a specific expirationDate
+        let target = Calendar.current.date(byAdding: .minute, value: expiryInMinutes, to: Date())
+        
         cachingTask = THEOplayer.cache.createTask(source: source, parameters: CachingParameters.init(expirationDate: target!))
+        
+        // To select which `bandwidth`, `audioTrack` and `textTrack` to cache, use `exampleCachingParameters()` instead:
+        // Make sure to edit `exampleCachingParameters()` with the actual selections and bandwidth for your stream.
+        // cachingTask = THEOplayer.cache.createTask(source: source, parameters: exampleCachingParameters())
+        
         // Start the new caching task
         cachingTask?.start()
         // Set DRM license renew timer immedately after a new DRM caching task is added
