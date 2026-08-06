@@ -18,11 +18,11 @@ class PlayerViewControllerOptiViewAds: PlayerViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.theoAdsListeners["add_interstitial"] = self.theoplayer.ads.addEventListener(type: THEOadsEventTypes.ADD_INTERSTITIAL, listener: { [weak self] event in self?.onAddInterstitial(event: event) })
-        self.theoAdsListeners["interstitial_begin"] = self.theoplayer.ads.addEventListener(type: THEOadsEventTypes.INTERSTITIAL_BEGIN, listener: { [weak self] event in self?.onInterstitialBegin(event: event) })
-        self.theoAdsListeners["interstitial_end"] = self.theoplayer.ads.addEventListener(type: THEOadsEventTypes.INTERSTITIAL_END, listener: { [weak self] event in self?.onInterstitialEnd(event: event) })
-        self.theoAdsListeners["interstitial_error"] = self.theoplayer.ads.addEventListener(type: THEOadsEventTypes.INTERSTITIAL_ERROR, listener: { [weak self] event in self?.onInterstitialError(event: event) })
-        self.theoAdsListeners["interstitial_update"] = self.theoplayer.ads.addEventListener(type: THEOadsEventTypes.INTERSTITIAL_UPDATE, listener: { [weak self] event in self?.onInterstitialUpdate(event: event) })
+        self.theoAdsListeners["add_interstitial"] = self.theoplayer.theoads?.addEventListener(type: THEOadsEventTypes.ADD_INTERSTITIAL, listener: { [weak self] event in self?.onAddInterstitial(event: event) })
+        self.theoAdsListeners["interstitial_begin"] = self.theoplayer.theoads?.addEventListener(type: THEOadsEventTypes.INTERSTITIAL_BEGIN, listener: { [weak self] event in self?.onInterstitialBegin(event: event) })
+        self.theoAdsListeners["interstitial_end"] = self.theoplayer.theoads?.addEventListener(type: THEOadsEventTypes.INTERSTITIAL_END, listener: { [weak self] event in self?.onInterstitialEnd(event: event) })
+        self.theoAdsListeners["interstitial_error"] = self.theoplayer.theoads?.addEventListener(type: THEOadsEventTypes.INTERSTITIAL_ERROR, listener: { [weak self] event in self?.onInterstitialError(event: event) })
+        self.theoAdsListeners["interstitial_update"] = self.theoplayer.theoads?.addEventListener(type: THEOadsEventTypes.INTERSTITIAL_UPDATE, listener: { [weak self] event in self?.onInterstitialUpdate(event: event) })
         
         // Configure the player's source to initialize the playback
         let source = "PATH-TO-SIGNALING-SERVER/hls/MANIFEST-URI"
