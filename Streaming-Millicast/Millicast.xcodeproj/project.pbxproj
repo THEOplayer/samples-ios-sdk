@@ -419,7 +419,7 @@
 			repositoryURL = "https://github.com/millicast/millicast-sdk-swift-package";
 			requirement = {
 				kind = upToNextMinorVersion;
-				minimumVersion = 2.5.3;
+				minimumVersion = 2.6.0;
 			};
 		};
 		3A15B1172DCB8E9B0045EA1F /* XCRemoteSwiftPackageReference "theoplayer-sdk-apple" */ = {
