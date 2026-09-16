@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		075D9D5C2C93133500CB6646 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075D9D5B2C93133500CB6646 /* AppDelegate.swift */; };
+		DE7100022E76000000000002 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7100012E76000000000001 /* SceneDelegate.swift */; };
 		075D9D6E2C931BB100CB6646 /* THEOPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075D9D6D2C931BB100CB6646 /* THEOPlayerView.swift */; };
 		075D9D812C93377400CB6646 /* PlayerInterfaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075D9D7D2C93377400CB6646 /* PlayerInterfaceView.swift */; };
 		075D9D822C93377400CB6646 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075D9D7E2C93377400CB6646 /* Theme.swift */; };
@@ -49,6 +50,7 @@
 
 /* Begin PBXFileReference section */
 		075D9D5B2C93133500CB6646 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		DE7100012E76000000000001 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		075D9D6D2C931BB100CB6646 /* THEOPlayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = THEOPlayerView.swift; sourceTree = "<group>"; };
 		075D9D7D2C93377400CB6646 /* PlayerInterfaceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerInterfaceView.swift; sourceTree = "<group>"; };
 		075D9D7E2C93377400CB6646 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				075D9D5B2C93133500CB6646 /* AppDelegate.swift */,
+				DE7100012E76000000000001 /* SceneDelegate.swift */,
 				075D9D7D2C93377400CB6646 /* PlayerInterfaceView.swift */,
 				075D9D7F2C93377400CB6646 /* PlayerViewController.swift */,
 				075D9D7E2C93377400CB6646 /* Theme.swift */,
@@ -215,6 +218,7 @@
 				075D9D832C93377400CB6646 /* PlayerViewController.swift in Sources */,
 				075D9D822C93377400CB6646 /* Theme.swift in Sources */,
 				075D9D5C2C93133500CB6646 /* AppDelegate.swift in Sources */,
+				DE7100022E76000000000002 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

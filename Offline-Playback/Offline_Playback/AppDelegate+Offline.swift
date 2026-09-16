@@ -9,12 +9,15 @@ import UIKit
 import THEOplayerSDK
 import OSLog
 
-@UIApplicationMain
+@main
 class AppDelegateOffline: AppDelegate {
     override class var ROOT_VC_CLASS: UIViewController.Type { OfflineViewController.self }
 
     var offlineViewController: OfflineViewController? {
-        return (self.window?.rootViewController as? UINavigationController)?.viewControllers.first as? OfflineViewController
+        let window = UIApplication.shared.connectedScenes
+            .compactMap { ($0.delegate as? SceneDelegate)?.window }
+            .first
+        return (window?.rootViewController as? UINavigationController)?.viewControllers.first as? OfflineViewController
     }
     
     override func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]?) -> Bool {

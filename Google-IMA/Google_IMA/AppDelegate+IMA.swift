@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-@UIApplicationMain
+@main
 class AppDelegateIMA: AppDelegate {
     override class var ROOT_VC_CLASS: UIViewController.Type { PlayerViewControllerIMA.self }
 }

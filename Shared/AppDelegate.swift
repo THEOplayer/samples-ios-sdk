@@ -9,25 +9,17 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
     class var ROOT_VC_CLASS: UIViewController.Type { PlayerViewController.self }
 
-    var window: UIWindow?
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        //Initialize the window
-        window = UIWindow(frame: UIScreen.main.bounds)
+        return true
+    }
 
+    func createRootViewController() -> UIViewController {
         // Initialize the PlayerViewController
         let playerViewController = Self.ROOT_VC_CLASS.init()
         // Create navigationController and set playerViewController as its root view controller
-        let navigationController = createNavigationController(rootViewController: playerViewController)
-
-        // Set window's root view controller
-        window?.rootViewController = navigationController
-        // Show window
-        window?.makeKeyAndVisible()
-
-        return true
+        return createNavigationController(rootViewController: playerViewController)
     }
-    
+
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
