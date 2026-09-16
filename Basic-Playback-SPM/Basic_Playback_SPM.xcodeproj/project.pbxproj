@@ -19,7 +19,6 @@
 		3A15B1222DCB90870045EA1F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A15B11B2DCB90870045EA1F /* Assets.xcassets */; };
 		3A15B1242DCB90870045EA1F /* PlayerViewController+Basic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A15B11F2DCB90870045EA1F /* PlayerViewController+Basic.swift */; };
 		3A15B1252DCB90870045EA1F /* AppDelegate+Basic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A15B11A2DCB90870045EA1F /* AppDelegate+Basic.swift */; };
-		3A2E04B92DCB91B000FCB844 /* THEOplayerSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 3A2E04B82DCB91B000FCB844 /* THEOplayerSDK */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -56,7 +55,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3A2E04B92DCB91B000FCB844 /* THEOplayerSDK in Frameworks */,
 				3A15B1192DCB8E9B0045EA1F /* THEOplayerSDK in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -415,11 +413,6 @@
 
 /* Begin XCSwiftPackageProductDependency section */
 		3A15B1182DCB8E9B0045EA1F /* THEOplayerSDK */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 3A15B1172DCB8E9B0045EA1F /* XCRemoteSwiftPackageReference "theoplayer-sdk-apple" */;
-			productName = THEOplayerSDK;
-		};
-		3A2E04B82DCB91B000FCB844 /* THEOplayerSDK */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 3A15B1172DCB8E9B0045EA1F /* XCRemoteSwiftPackageReference "theoplayer-sdk-apple" */;
 			productName = THEOplayerSDK;
