@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		075D9D5C2C93133500CB6646 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075D9D5B2C93133500CB6646 /* AppDelegate.swift */; };
+		DE7100022E76000000000002 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7100012E76000000000001 /* SceneDelegate.swift */; };
 		075D9D6E2C931BB100CB6646 /* THEOPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075D9D6D2C931BB100CB6646 /* THEOPlayerView.swift */; };
 		075D9D812C93377400CB6646 /* PlayerInterfaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075D9D7D2C93377400CB6646 /* PlayerInterfaceView.swift */; };
 		075D9D822C93377400CB6646 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075D9D7E2C93377400CB6646 /* Theme.swift */; };
@@ -16,12 +17,8 @@
 		3A012C5E2DCB98CC0099320F /* MillicastSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 3A012C5D2DCB98CC0099320F /* MillicastSDK */; };
 		3A012C632DCB9A580099320F /* PlayerViewController+Millicast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A012C612DCB9A580099320F /* PlayerViewController+Millicast.swift */; };
 		3A012C642DCB9A580099320F /* AppDelegate+Millicast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A012C5F2DCB9A580099320F /* AppDelegate+Millicast.swift */; };
-		3A15B1192DCB8E9B0045EA1F /* THEOplayerSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 3A15B1182DCB8E9B0045EA1F /* THEOplayerSDK */; };
-		3A2E04B92DCB91B000FCB844 /* THEOplayerSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 3A2E04B82DCB91B000FCB844 /* THEOplayerSDK */; };
 		3A2E04CF2DCB95E300FCB844 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A2E04CA2DCB95E300FCB844 /* LaunchScreen.storyboard */; };
 		3A2E04D02DCB95E300FCB844 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A2E04C72DCB95E300FCB844 /* Assets.xcassets */; };
-		3A2E04D32DCB961300FCB844 /* THEOplayerMillicastIntegration in Frameworks */ = {isa = PBXBuildFile; productRef = 3A2E04D22DCB961300FCB844 /* THEOplayerMillicastIntegration */; };
-		3A2E04D52DCB961300FCB844 /* THEOplayerSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 3A2E04D42DCB961300FCB844 /* THEOplayerSDK */; };
 		3A2E04D82DCB96B600FCB844 /* THEOplayerMillicastIntegration in Frameworks */ = {isa = PBXBuildFile; productRef = 3A2E04D72DCB96B600FCB844 /* THEOplayerMillicastIntegration */; };
 		3A2E04DA2DCB96B600FCB844 /* THEOplayerSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 3A2E04D92DCB96B600FCB844 /* THEOplayerSDK */; };
 /* End PBXBuildFile section */
@@ -41,6 +38,7 @@
 
 /* Begin PBXFileReference section */
 		075D9D5B2C93133500CB6646 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		DE7100012E76000000000001 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		075D9D6D2C931BB100CB6646 /* THEOPlayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = THEOPlayerView.swift; sourceTree = "<group>"; };
 		075D9D7D2C93377400CB6646 /* PlayerInterfaceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerInterfaceView.swift; sourceTree = "<group>"; };
 		075D9D7E2C93377400CB6646 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
@@ -60,12 +58,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A2E04D82DCB96B600FCB844 /* THEOplayerMillicastIntegration in Frameworks */,
-				3A2E04D52DCB961300FCB844 /* THEOplayerSDK in Frameworks */,
-				3A2E04D32DCB961300FCB844 /* THEOplayerMillicastIntegration in Frameworks */,
-				3A2E04B92DCB91B000FCB844 /* THEOplayerSDK in Frameworks */,
 				3A012C5E2DCB98CC0099320F /* MillicastSDK in Frameworks */,
 				3A2E04DA2DCB96B600FCB844 /* THEOplayerSDK in Frameworks */,
-				3A15B1192DCB8E9B0045EA1F /* THEOplayerSDK in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,6 +70,7 @@
 			isa = PBXGroup;
 			children = (
 				075D9D5B2C93133500CB6646 /* AppDelegate.swift */,
+				DE7100012E76000000000001 /* SceneDelegate.swift */,
 				075D9D7D2C93377400CB6646 /* PlayerInterfaceView.swift */,
 				075D9D7F2C93377400CB6646 /* PlayerViewController.swift */,
 				075D9D7E2C93377400CB6646 /* Theme.swift */,
@@ -199,6 +194,7 @@
 				075D9D832C93377400CB6646 /* PlayerViewController.swift in Sources */,
 				075D9D822C93377400CB6646 /* Theme.swift in Sources */,
 				075D9D5C2C93133500CB6646 /* AppDelegate.swift in Sources */,
+				DE7100022E76000000000002 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,7 +265,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -326,7 +322,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -415,15 +411,7 @@
 			repositoryURL = "https://github.com/millicast/millicast-sdk-swift-package";
 			requirement = {
 				kind = upToNextMinorVersion;
-				minimumVersion = 2.5.3;
-			};
-		};
-		3A15B1172DCB8E9B0045EA1F /* XCRemoteSwiftPackageReference "theoplayer-sdk-apple" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/THEOplayer/theoplayer-sdk-apple/";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 9.2.0;
+				minimumVersion = 2.6.0;
 			};
 		};
 		3A2E04D62DCB96B600FCB844 /* XCRemoteSwiftPackageReference "theoplayer-sdk-apple" */ = {
@@ -431,7 +419,7 @@
 			repositoryURL = "https://github.com/THEOplayer/theoplayer-sdk-apple/";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 11.2.0;
+				minimumVersion = 11.11.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -441,26 +429,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 3A012C5C2DCB98CC0099320F /* XCRemoteSwiftPackageReference "millicast-sdk-swift-package" */;
 			productName = MillicastSDK;
-		};
-		3A15B1182DCB8E9B0045EA1F /* THEOplayerSDK */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 3A15B1172DCB8E9B0045EA1F /* XCRemoteSwiftPackageReference "theoplayer-sdk-apple" */;
-			productName = THEOplayerSDK;
-		};
-		3A2E04B82DCB91B000FCB844 /* THEOplayerSDK */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 3A15B1172DCB8E9B0045EA1F /* XCRemoteSwiftPackageReference "theoplayer-sdk-apple" */;
-			productName = THEOplayerSDK;
-		};
-		3A2E04D22DCB961300FCB844 /* THEOplayerMillicastIntegration */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 3A15B1172DCB8E9B0045EA1F /* XCRemoteSwiftPackageReference "theoplayer-sdk-apple" */;
-			productName = THEOplayerMillicastIntegration;
-		};
-		3A2E04D42DCB961300FCB844 /* THEOplayerSDK */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 3A15B1172DCB8E9B0045EA1F /* XCRemoteSwiftPackageReference "theoplayer-sdk-apple" */;
-			productName = THEOplayerSDK;
 		};
 		3A2E04D72DCB96B600FCB844 /* THEOplayerMillicastIntegration */ = {
 			isa = XCSwiftPackageProductDependency;

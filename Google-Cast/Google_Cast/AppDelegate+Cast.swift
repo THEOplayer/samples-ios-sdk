@@ -9,7 +9,7 @@ import UIKit
 import THEOplayerGoogleCastIntegration
 import GoogleCast
 
-@UIApplicationMain
+@main
 class AppDelegateCast: AppDelegate {
     override class var ROOT_VC_CLASS: UIViewController.Type { PlayerViewControllerCast.self }
 

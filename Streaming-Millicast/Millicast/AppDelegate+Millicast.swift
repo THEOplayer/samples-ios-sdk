@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-@UIApplicationMain
+@main
 class AppDelegateMillicast: AppDelegate {
     override class var ROOT_VC_CLASS: UIViewController.Type { PlayerViewControllerMillicast.self }
 }

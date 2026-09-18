@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		075D9D662C93180300CB6646 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075D9D652C93180300CB6646 /* AppDelegate.swift */; };
+		DE7100022E76000000000002 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7100012E76000000000001 /* SceneDelegate.swift */; };
 		075D9D682C93181C00CB6646 /* AppDelegate+IMA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075D9D672C93181C00CB6646 /* AppDelegate+IMA.swift */; };
 		075D9D6C2C931B5A00CB6646 /* THEOPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075D9D6B2C931B5A00CB6646 /* THEOPlayerView.swift */; };
 		075D9D722C932A5D00CB6646 /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075D9D712C932A5D00CB6646 /* PlayerViewController.swift */; };
@@ -37,6 +38,7 @@
 
 /* Begin PBXFileReference section */
 		075D9D652C93180300CB6646 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		DE7100012E76000000000001 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		075D9D672C93181C00CB6646 /* AppDelegate+IMA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+IMA.swift"; sourceTree = "<group>"; };
 		075D9D6B2C931B5A00CB6646 /* THEOPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THEOPlayerView.swift; sourceTree = "<group>"; };
 		075D9D712C932A5D00CB6646 /* PlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
@@ -68,6 +70,7 @@
 			isa = PBXGroup;
 			children = (
 				075D9D652C93180300CB6646 /* AppDelegate.swift */,
+				DE7100012E76000000000001 /* SceneDelegate.swift */,
 				075D9D752C9335F400CB6646 /* PlayerInterfaceView.swift */,
 				075D9D712C932A5D00CB6646 /* PlayerViewController.swift */,
 				075D9D772C93364E00CB6646 /* THEOComponent.swift */,
@@ -188,6 +191,7 @@
 				075D9D762C9335F400CB6646 /* PlayerInterfaceView.swift in Sources */,
 				075D9D6C2C931B5A00CB6646 /* THEOPlayerView.swift in Sources */,
 				075D9D662C93180300CB6646 /* AppDelegate.swift in Sources */,
+				DE7100022E76000000000002 /* SceneDelegate.swift in Sources */,
 				075D9D742C932A8A00CB6646 /* PlayerViewController+IMA.swift in Sources */,
 				075D9D782C93364E00CB6646 /* THEOComponent.swift in Sources */,
 			);
@@ -257,7 +261,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -311,7 +315,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -400,7 +404,7 @@
 			repositoryURL = "https://github.com/THEOplayer/theoplayer-sdk-apple/";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 11.2.0;
+				minimumVersion = 11.11.0;
 			};
 		};
 		3AE4047B2EA1268100D2A469 /* XCRemoteSwiftPackageReference "swift-package-manager-google-interactive-media-ads-ios" */ = {

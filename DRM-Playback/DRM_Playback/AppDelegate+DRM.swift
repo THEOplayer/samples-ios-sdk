@@ -8,7 +8,7 @@
 import Foundation
 import THEOplayerSDK
 
-@UIApplicationMain
+@main
 class AppDelegateDRM: AppDelegate {
     override class var ROOT_VC_CLASS: UIViewController.Type { PlayerViewControllerDRM.self }
 
