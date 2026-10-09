@@ -42,7 +42,7 @@ In order to keep these apps as simple as possible, we will maintain
 a set of different sample apps over a single sample app showing all
 different use cases.
 
-The following apps are made to work with OptiView Player v10:
+The following apps are made to work with OptiView Player v11:
 
 * [Advertising (OptiView Ads)](Advertising-OptiView-Ads/README.md)
 * [Basic Playback](Basic-Playback/README.md)
